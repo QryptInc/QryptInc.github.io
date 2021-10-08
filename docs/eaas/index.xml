@@ -7,17 +7,5 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Oct 2021 11:14:08 -0400</lastBuildDate><atom:link href="https://raul-qrypt.github.io/eaas/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Faqs</title>
-      <link>https://raul-qrypt.github.io/eaas/faqs/_faqs/</link>
-      <pubDate>Thu, 07 Oct 2021 14:05:15 -0400</pubDate>
-      
-      <guid>https://raul-qrypt.github.io/eaas/faqs/_faqs/</guid>
-      <description>What should I do with my access token?
-Your access token is the mechanism by which your account will be charged for entropy data, and as such, it should be treated as secure and secret information (much as you would treat a password).
-Once I receive the EaaS response, how do I obtain entropy from it?
-The EaaS service response is encoded as a JSON structure. Its “random” property will contain an array of base64-encoded strings.</description>
-    </item>
-    
   </channel>
 </rss>
