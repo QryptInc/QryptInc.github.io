@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://raul-qrypt.github.io/eaas/</loc>
+    <loc>https://qryptinc.github.io/docs/eaas/</loc>
     <lastmod>2021-10-07T11:14:08-04:00</lastmod>
   </url><url>
-    <loc>https://raul-qrypt.github.io/eaas/faqs/</loc>
+    <loc>https://qryptinc.github.io/docs/eaas/faqs/</loc>
     <lastmod>2021-10-07T14:05:15-04:00</lastmod>
   </url><url>
-    <loc>https://raul-qrypt.github.io/</loc>
+    <loc>https://qryptinc.github.io/docs/</loc>
     <lastmod>2021-10-07T14:05:15-04:00</lastmod>
   </url><url>
-    <loc>https://raul-qrypt.github.io/data_at_rest/</loc>
+    <loc>https://qryptinc.github.io/docs/data_at_rest/</loc>
     <lastmod>2021-10-07T11:15:52-04:00</lastmod>
   </url><url>
-    <loc>https://raul-qrypt.github.io/categories/</loc>
+    <loc>https://qryptinc.github.io/docs/categories/</loc>
   </url><url>
-    <loc>https://raul-qrypt.github.io/tags/</loc>
+    <loc>https://qryptinc.github.io/docs/tags/</loc>
   </url>
 </urlset>

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Faqs on Qrypt</title>
-    <link>https://raul-qrypt.github.io/eaas/faqs/</link>
+    <link>https://qryptinc.github.io/docs/eaas/faqs/</link>
     <description>Recent content in Faqs on Qrypt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Oct 2021 14:05:15 -0400</lastBuildDate><atom:link href="https://raul-qrypt.github.io/eaas/faqs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Oct 2021 14:05:15 -0400</lastBuildDate><atom:link href="https://qryptinc.github.io/docs/eaas/faqs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
