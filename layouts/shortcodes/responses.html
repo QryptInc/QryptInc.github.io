@@ -1,0 +1,34 @@
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">Status code</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">200</td>
+		<td><i>Success</i><br/>Entropy was successfully returned.</td>
+	</tr>
+	<tr>
+		<td width="134">400</td>
+		<td><i>Bad request</i><br/>The request was invalid (i.e., malformed or otherwise unacceptable). Please verify the format of the URL and the specified parameters.</td>
+	</tr>
+	<tr>
+		<td width="134">401</td>
+		<td><i>Unauthorized</i><br/>The access token is either invalid or has expired.</td>
+	</tr>
+	<tr>
+		<td width="134">403</td>
+		<td><i>Limit reached</i><br/>The account associated with the specified access token has already retrieved the maximum allotment of entropy allowed for the current period. Please contact a Qrypt representative to request a change to your limit.</td>
+	</tr>
+  	<tr>
+		<td width="134">429</td>
+		<td><i>Rate Limit reached</i><br/>The access token used to pull random has exceeded the maximum number of requests (30) allowed for the designated time interval (10 seconds). Please wait and try again.</td>
+	</tr>
+	<tr>
+		<td width="134">500</td>
+		<td><i>Internal server error</i><br/>The Qrypt service has encountered an internal error. Please contact Qrypt support for further assistance.</td>
+	</tr>
+	<tr>
+		<td width="134">503</td>
+		<td><i>Not enough supply</i><br/>Qrypt’s supply of entropy is temporarily insufficient to fulfill the request. Please wait and try the request again.</td>
+	</tr>
+</table>

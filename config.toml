@@ -1,0 +1,12 @@
+baseURL = 'https://raul-qrypt.github.io'
+languageCode = 'en-us'
+title = 'Qrypt'
+theme = "hugo-theme-learn"
+publishDir = "docs"
+[params]
+    themeVariant = "mine"
+    disableLandingPageButton = true
+    disableNextPrev = true
+    disableLandingPage = true
+[outputs]
+    home = [ "HTML", "RSS", "JSON"]
