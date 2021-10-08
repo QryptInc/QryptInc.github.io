@@ -1,4 +1,4 @@
-baseURL = 'https://raul-qrypt.github.io'
+baseURL = 'https://qryptinc.github.io/docs/'
 languageCode = 'en-us'
 title = 'Qrypt'
 theme = "hugo-theme-learn"
