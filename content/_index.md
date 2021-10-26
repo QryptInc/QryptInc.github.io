@@ -6,25 +6,22 @@ disableToc = "true"
 chapter = false
 +++
 
-# About Documentation
-
+{{< title >}}
 
 ## Entropy as a service
 
-Quantum random for everyone.
-
-- Streams of Quantum random numbers delivered via the cloud.
-
-- No expensive hardware.
-
-- Accessible to anyone, anywhere.
+Qrypt EaaS uses devices that measure quantum effects and 
+convert the measurements into pure random numbers – quantum 
+random number generators (QRNG). Only Qrypt’s EaaS leverages 
+multiple QRNGs developed through US and international research 
+labs to ensure high quality randomness.
 
 ## Quantum secure cryptography
 
-A quantum leap forward.
-
-- Qrypt’s patented BLAST algorithm one-time pad for the digital age.
-
-- Secures data at rest and in motion.
-
-- Secures documents, data sets, messages, and communication.
+Our quantum secure data-at-rest product is powered by our 
+patented BLAST algorithm, which leverages quantum random 
+number generation from multiple sources of entropy to produce 
+perfectly random one-time pad keys. Any user can quickly and 
+easily encrypt sensitive files with quantum random generated 
+one-time pads. Only users with the same pad can decrypt the data 
+to read the files, ensuring important information is kept secret. 

@@ -3,35 +3,55 @@
     
     --MAIN-TEXT-color:#000000; /* Color of text by default */
     --MAIN-TITLES-TEXT-color: #000000; /* Color of titles h2-h3-h4-h5 */
-    --MAIN-LINK-color:#1C90F3; /* Color of links */
-    --MAIN-LINK-HOVER-color:#167ad0; /* Color of hovered links */
-    --MAIN-ANCHOR-color: #1C90F3; /* color of anchors on titles */
+    --MAIN-LINK-color:#5654e5; /* Color of links */
+    --MAIN-LINK-HOVER-color:#5654e5; /* Color of hovered links */
+    --MAIN-ANCHOR-color: #5654e5; /* color of anchors on titles */
 
-    --MENU-HEADER-BG-color:#faf8f6; /* Background color of menu header */
-    --MENU-HEADER-BORDER-color:#f9121b; /*Color of menu header border */ 
+    --MENU-HEADER-BG-color:#white; /* Background color of menu header */
+    --MENU-HEADER-BORDER-color:#171629; /*Color of menu header border */ 
 
     --MENU-SEARCH-BG-color:#white; /* Search field background color (by default borders + icons) */
-    --MENU-SEARCH-BOX-color: #3c83d4; /* Override search field border color */
-    --MENU-SEARCH-BOX-ICONS-color: #3c83d4; /* Override search field icons color */
+    --MENU-SEARCH-BOX-color: #171629; /* Override search field border color */
+    --MENU-SEARCH-BOX-ICONS-color: #171629; /* Override search field icons color */
 
-    --MENU-SECTIONS-ACTIVE-BG-color:#faf8f6; /* Background color of the active section and its childs */
-    --MENU-SECTIONS-BG-color:#faf8f6; /* Background color of other sections */
+    --MENU-SECTIONS-ACTIVE-BG-color:#white; /* Background color of the active section and its childs */
+    --MENU-SECTIONS-BG-color:#f1f1f1; /* Background color of other sections */
     --MENU-SECTIONS-LINK-color: #ccc; /* Color of links in menu */
-    --MENU-SECTIONS-LINK-HOVER-color: #e6e6e6;  /* Color of links in menu, when hovered */
+    --MENU-SECTIONS-LINK-HOVER-color: #20272b;  /* Color of links in menu, when hovered */
     --MENU-SECTION-ACTIVE-CATEGORY-color: #777; /* Color of active category text */
-    --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #fff; /* Color of background for the active category (only) */
+    --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #f1f1f1; /* Color of background for the active category (only) */
 
-    --MENU-VISITED-color: #33a1ff; /* Color of 'page visited' icons in menu */
+    --MENU-VISITED-color: #5654e5; /* Color of 'page visited' icons in menu */
     --MENU-SECTION-HR-color: #20272b; /* Color of <hr> separator in menu */
     
 }
 
-/* f44336 red
-686868 grey
-f9121b red */
-
+/* ibm-plex-sans-regular - latin */
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/ibm-plex-sans-v9-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/ibm-plex-sans-v9-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ibm-plex-sans-v9-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/ibm-plex-sans-v9-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ibm-plex-sans-v9-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ibm-plex-sans-v9-latin-regular.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+}
+  
 body {
     color: var(--MAIN-TEXT-color) !important;
+    background-color: #f1f1f1;
+    font-family: "IBM Plex Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+}
+
+#top-bar {
+    background: #f1f1f1;
+    border-radius: 2px;
+    padding: 0 1rem;
+    height: 0;
+    min-height: 3rem;
 }
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
@@ -41,6 +61,23 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 h2, h3, h4, h5 {
     color: var(--MAIN-TITLES-TEXT-color) !important;
+    font-family: "IBM Plex Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+}
+
+h1 {
+    font-family: "IBM Plex Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; 
+}
+
+.orange-header {
+    font-family: "IBM Plex Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    background: url(../images/QRY__Graphic_Gradient__yellow_2_center.png) no-repeat center;
+    background-size: contain;
+    height: 160px;
+    width: 100%;
+}
+
+code {
+    font-family: "IBM Plex Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 }
 
 a {

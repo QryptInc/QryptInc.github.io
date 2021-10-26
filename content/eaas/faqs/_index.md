@@ -1,5 +1,6 @@
 +++
-title = "Faqs"
+menuTitle = "FAQs"
+title = "Frequently Asked Questions"
 date = 2021-10-07T14:05:15-04:00
 weight = 5
 disableToc = "true"

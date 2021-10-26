@@ -1,4 +1,5 @@
 +++
+menuTitle = "Entropy as a Service"
 title = "Entropy as a Service"
 date = 2021-10-07T11:14:08-04:00
 weight = 1
