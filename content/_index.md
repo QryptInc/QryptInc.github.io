@@ -7,21 +7,17 @@ chapter = false
 +++
 
 {{< title >}}
+Developer Focused - Our documentation is written by developers for developers. The goal is to make it as easy as possible for developers to use Qrypt products to secure applications.
 
-## Entropy as a service
+Open Sourced - We believe that source code and documentation benefit from sharing and collaborative improvement. Qrypt documentation is open-sourced and we invite anybody to submit pull requests to improve it.
 
-Qrypt EaaS uses devices that measure quantum effects and 
-convert the measurements into pure random numbers – quantum 
-random number generators (QRNG). Only Qrypt’s EaaS leverages 
-multiple QRNGs developed through US and international research 
-labs to ensure high quality randomness.
+## Integrating with Qrypt
+Below is a list of the products that Qrypt offers with links to their supporting documentation.
 
-## Quantum secure cryptography
+### Entropy as a service - [Docs](/data_at_rest/)
 
-Our quantum secure data-at-rest product is powered by our 
-patented BLAST algorithm, which leverages quantum random 
-number generation from multiple sources of entropy to produce 
-perfectly random one-time pad keys. Any user can quickly and 
-easily encrypt sensitive files with quantum random generated 
-one-time pads. Only users with the same pad can decrypt the data 
-to read the files, ensuring important information is kept secret. 
+Qrypt Entropy as a Service (EaaS) measures quantum effects and converts those measurements into pure random numbers. EaaS leverages multiple Quantum Random Number Generators (QRNGs) developed by national and international research labs to ensure the highest quality random.
+
+### QDARA - Quantum data at rest algorithm - [Docs](/eaas/)
+
+Our quantum secure data-at-rest command line tool is powered by our patented BLAST algorithm, which leverages quantum random number generation from our Entropy as a Service to produce perfectly random one-time pads. Alice can quickly and easily encrypt sensitive files with quantum random generated one-time pads. Bob must have the same pad in order to decrypt the data to read the files, ensuring important information is kept secret.
