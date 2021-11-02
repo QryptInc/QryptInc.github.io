@@ -2,20 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://QryptInc.github.io/eaas/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/eaas/</loc>
     <lastmod>2021-10-07T11:14:08-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/eaas/faqs/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/eaas/faqs/</loc>
     <lastmod>2021-10-07T14:05:15-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/</loc>
     <lastmod>2021-10-07T14:05:15-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/data_at_rest/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/data_at_rest/</loc>
     <lastmod>2021-10-07T11:15:52-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/categories/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/sdk/concepts/otp/</loc>
+    <lastmod>2021-10-23T15:01:22-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/tags/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/sdk/quickstarts/getting-started/</loc>
+    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/sdk/overview/</loc>
+    <lastmod>2021-10-18T08:59:57-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/sdk/quickstarts/chat/</loc>
+    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/sdk/</loc>
+    <lastmod>2021-10-18T08:59:39-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/sdk/quickstarts/</loc>
+    <lastmod>2021-10-18T09:09:06-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/sdk/concepts/</loc>
+    <lastmod>2021-10-18T09:01:15-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/sdk/api/</loc>
+    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/categories/</loc>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/tags/</loc>
   </url>
 </urlset>
