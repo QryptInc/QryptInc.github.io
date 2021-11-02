@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tags :: Qrypt</title>
+    <title>Quickstart: Add Secure Messaging to your App :: Qrypt</title>
 
     
     <link href="/css/nucleus.css?1635885469" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/sdk/quickstarts/chat/">
     <nav id="sidebar" class="">
 
 
@@ -166,7 +166,7 @@
   
     
     <li data-nav-id="/sdk/" title="Qrypt Security" class="dd-item
-        
+        parent
         
         
         ">
@@ -221,7 +221,7 @@
   
     
     <li data-nav-id="/sdk/quickstarts/" title="Quickstarts" class="dd-item
-        
+        parent
         
         
         ">
@@ -276,8 +276,8 @@
   
     
     <li data-nav-id="/sdk/quickstarts/chat/" title="Quickstart: Add Secure Messaging to your App" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/sdk/quickstarts/chat/">
@@ -461,7 +461,19 @@
             
           
           
-            <a href='/'>Home</a> > Tags
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Home</a> > <a href='/sdk/'>Qrypt Security</a> > <a href='/sdk/quickstarts/'>Quickstarts</a> > Quickstart: Add Secure Messaging to your App
+          
+        
+          
+        
           
         
           
@@ -472,7 +484,27 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sample-code">Sample Code</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#setting-up">Setting up</a></li>
+    <li><a href="#build-the-code">Build the code</a></li>
+    <li><a href="#run-the-code">Run the code</a></li>
+    <li><a href="#understanding-the-code">Understanding the code</a>
+      <ul>
+        <li><a href="#environment-variables">Environment Variables</a></li>
+        <li><a href="#the-project-file">The project file</a></li>
+      </ul>
+    </li>
+    <li><a href="#building-the-code">Building the code</a>
+      <ul>
+        <li><a href="#running-the-code-with-command-line-arguments">Running the code with command Line Arguments</a></li>
+      </ul>
+    </li>
+    <li><a href="#next-steps">Next steps</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -488,9 +520,7 @@
           
             <h1>
               
-                tag ::
-              
-              Tags
+              Quickstart: Add Secure Messaging to your App
             </h1>
           
 
@@ -498,11 +528,155 @@
 
 
 
-
-
+	<p>Get started with the Qrypt Security SDK by building a simple secure messaging app.</p>
+<p>We will use <a href="https://azure.microsoft.com/en-us/services/communication-services/#overview">Azure Communication Services</a> as our messaging back-bone for this app. However, you can use the messaging infrastructure that makes sense for you. The Qrypt Security SDK can layer into a wide variety of messaging services from Azure Communication Services to SendBird to RabbitMQ and many more.</p>
+<p>To learn more about Secure Messaging concepts, visit the secure messaging conceptual documentation.</p>
+<h2 id="sample-code">Sample Code</h2>
+<p>Find the finalized code for this quickstart on <a href="https://github.com/QryptInc/qrypt-security-dotnet-quickstarts">GitHub</a>.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you get started, make sure to:</p>
 <ul>
-	
+<li>Install <a href="https://dotnet.microsoft.com/download/dotnet/5.0">.NET 5</a>.</li>
+<li>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</li>
+<li>Create an Azure account with an active subscription. For details, see <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F">Create an account for free</a>.</li>
+<li>Create an Azure Communication Services resource. For details, see Create an <a href="https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource">Azure Communication Services resource</a>. You&rsquo;ll need to record your resource endpoint and access key for this quickstart.</li>
 </ul>
+<p>This Quickstart has been tested using:</p>
+<ul>
+<li>.NET 5</li>
+<li>Visual Studio Code v1.61.2</li>
+<li>Qrypt Security SDK - post_quantum v0.3.4</li>
+</ul>
+<h2 id="setting-up">Setting up</h2>
+<p><strong>Gettting started</strong></p>
+<p>Follow the instructions in <a href="/sdk/quickstarts/getting-started/">Getting Started</a> to locally stage the Qrypt Security post-quantum SDK NuGet package.</p>
+<p><strong>Setup Environment Variables</strong></p>
+<p>To make this Quickstart as simple as possible, we are using environment variables to store our state. Two environment variables must be setup before hand. The others will be dynamically created.</p>
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COMMUNICATION_SERVICES_ENDPOINT</td>
+<td>Set this to your Azure Communication Services endpoint value for the Azure Communication Services resource you created in Prerequisites above.</td>
+</tr>
+<tr>
+<td>COMMUNICATION_SERVICES_ACCESS_KEY</td>
+<td>Set this to your Azure Communication Services access key for the Azure Communication Services resource you created in Prerequisites above.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Download the code</strong></p>
+<p>Find the finalized code for this quickstart on <a href="https://github.com/QryptInc/qrypt-security-dotnet-quickstarts">GitHub</a>.</p>
+<p>Clone the repository and open the <em>add-chat</em> folder in Visual Studio Code.</p>
+<h2 id="build-the-code">Build the code</h2>
+<p>To build the code in Visual Studio Code:</p>
+<p><code>Ctrl-Shift-b | build - ChatQuickStart</code></p>
+<h2 id="run-the-code">Run the code</h2>
+<p>Run as Alice first. Navigate to the debug tab in Visual Studio Code and select from the debug drop-down:</p>
+<p><code>Alice - ChatQuickstart</code></p>
+<p>Then run as Bob. Select from the debug drop-down:</p>
+<p><code>Bob - ChatQuickstart</code></p>
+<p>The terminal in Visual Studio Code will display:</p>
+<pre><code>hello world
+</code></pre>
+<h2 id="understanding-the-code">Understanding the code</h2>
+<h3 id="environment-variables">Environment Variables</h3>
+<p>To make this Quickstart as simple as possible, we are using environment variables to store our state. Two environment variables must be setup before hand. The others will be dynamically created.</p>
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COMMUNICATION_SERVICES_ENDPOINT</td>
+<td>Set this to your Azure Communication Services endpoint value.</td>
+</tr>
+<tr>
+<td>COMMUNICATION_SERVICES_ACCESS_KEY</td>
+<td>Set this to your Azure Communication Services access key.</td>
+</tr>
+<tr>
+<td>COMMUNICATION_SERVICES_IDENTITY_ALICE</td>
+<td>This will be dynamically created by the Quickstart for each run and will be set to Alice&rsquo;s Azure Communcation Services identity id.</td>
+</tr>
+<tr>
+<td>COMMUNICATION_SERVICES_IDENTITY_BOB</td>
+<td>This will be dynamically created by the Quickstart for each run and will be set to Bob&rsquo;s Azure Communcation Services identity id.</td>
+</tr>
+<tr>
+<td>COMMUNICATION_SERVICES_CHAT_THREAD</td>
+<td>This will be dynamically created by the Quickstart for each run and will be set to the Azure Communcation Services chat thread id for the chat between Alice and Bob.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-project-file">The project file</h3>
+<p><strong>x64 Builds Only</strong></p>
+<p>The Qrypt Security SDK is available for x64 builds only. We can see that this is specifed in the project file here:</p>
+<pre><code>&lt;Platforms&gt;x64&lt;/Platforms&gt;
+</code></pre>
+<p><strong>NuGet Packages</strong></p>
+<p>We can see the appropriate NuGet references have been added for Azure Communication Services and the Qrypt Security post-quantum SDK.</p>
+<pre><code>&lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;Azure.Communication.Chat&quot; Version=&quot;1.0.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;Azure.Communication.Identity&quot; Version=&quot;1.0.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;QryptSecurity_post_quantum&quot; Version=&quot;0.3.4&quot; /&gt;
+&lt;/ItemGroup&gt;
+</code></pre>
+<h2 id="building-the-code">Building the code</h2>
+<p>A Visual Studio Code task has been setup in:</p>
+<p><code>.vscode\tasks.json</code></p>
+<p>for this purpose.</p>
+<h3 id="running-the-code-with-command-line-arguments">Running the code with command Line Arguments</h3>
+<p>Either <strong>alice</strong> or <strong>bob</strong> must be specified as command line arguments. The code will follow a specific path for sending or receiving based on the argument specified. A complete test run of the Quickstart entails:</p>
+<ol>
+<li>Running as alice to send a secure message to bob.</li>
+<li>Running as bob to receive the secure message from alice.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Command Line Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alice</td>
+<td>Run as <strong>alice</strong> first. This will send a secure &ldquo;hello world&rdquo; message to <strong>bob</strong>.</td>
+</tr>
+<tr>
+<td>bob</td>
+<td>Run as <strong>bob</strong> second. This will receive the secure &ldquo;hello world&rdquo; message from <strong>alice</strong>.</td>
+</tr>
+</tbody>
+</table>
+<p>Visual Studio Code launch targets have been setup in</p>
+<p><code>.vscode\launch.json</code></p>
+<p>for this purpose.</p>
+<h2 id="next-steps">Next steps</h2>
+<p>In this quickstart you learned how to:</p>
+<ul>
+<li>Create a messaging chat client</li>
+<li>Create a chat thread with two users</li>
+<li>Securely send a message to the thread by layering in calls to the Qrypt Security SDK</li>
+<li>Securely receive messages from a thread by layering in calls to the Qrypt Security SDK</li>
+</ul>
+<p>You may also want to:</p>
+<ul>
+<li>Learn about secure messaging concepts</li>
+<li>Familiarize yourself with the Qrypt Security SDK</li>
+</ul>
+
+
+
 
 
 <footer class=" footline" >
@@ -593,6 +767,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -607,6 +782,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -624,6 +802,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -638,6 +817,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -655,6 +837,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -673,6 +856,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 

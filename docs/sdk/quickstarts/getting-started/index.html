@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tags :: Qrypt</title>
+    <title>Getting started :: Qrypt</title>
 
     
     <link href="/css/nucleus.css?1635885469" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/sdk/quickstarts/getting-started/">
     <nav id="sidebar" class="">
 
 
@@ -166,7 +166,7 @@
   
     
     <li data-nav-id="/sdk/" title="Qrypt Security" class="dd-item
-        
+        parent
         
         
         ">
@@ -221,7 +221,7 @@
   
     
     <li data-nav-id="/sdk/quickstarts/" title="Quickstarts" class="dd-item
-        
+        parent
         
         
         ">
@@ -250,8 +250,8 @@
   
     
     <li data-nav-id="/sdk/quickstarts/getting-started/" title="Getting started" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/sdk/quickstarts/getting-started/">
@@ -461,7 +461,19 @@
             
           
           
-            <a href='/'>Home</a> > Tags
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Home</a> > <a href='/sdk/'>Qrypt Security</a> > <a href='/sdk/quickstarts/'>Quickstarts</a> > Getting started
+          
+        
+          
+        
           
         
           
@@ -472,7 +484,11 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#setup-a-local-nuget-feed">Setup a local NuGet Feed</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -488,9 +504,7 @@
           
             <h1>
               
-                tag ::
-              
-              Tags
+              Getting started
             </h1>
           
 
@@ -498,11 +512,70 @@
 
 
 
+	<p>The Qrypt Security SDK is available as a NuGet package targeting .NET Standard 2.0 and .NET 5.</p>
+<p>Currently the NuGet packages are available via download from our portal site only. We are researching moving distribution to NuGet.org.</p>
+<h2 id="setup-a-local-nuget-feed">Setup a local NuGet Feed</h2>
+<p>Download an appropriate Qrypt SDK package from the Qrypt Portal and place it in a folder you would like to use as your local NuGet feed.</p>
 
 
-<ul>
-	
-</ul>
+<div class="tab-panel">
+    <div class="tab-nav">
+    
+        <button
+          data-tab-item="Visual Studio"
+          data-tab-group="default"
+          class="tab-nav-button btn active"
+          onclick="switchTab('default','Visual Studio')"
+         >Visual Studio</button>
+    
+        <button
+          data-tab-item="Visual Studio Code"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','Visual Studio Code')"
+         >Visual Studio Code</button>
+    
+    </div>
+    <div class="tab-content">
+        
+        <div data-tab-item="Visual Studio" data-tab-group="default" class="tab-item active">
+            <p>On the Tools menu, select Options &gt; NuGet Package Manager &gt; Package Sources. Select the green plus in the upper-right corner and enter the name and source URL below.</p>
+<p><strong>Name</strong></p>
+<p>qrypt-security</p>
+<p><strong>Source</strong></p>
+<p>Use the browse button to select the folder you placed the NuGet package in.</p>
+
+        </div>
+        
+        <div data-tab-item="Visual Studio Code" data-tab-group="default" class="tab-item ">
+            <p>Add a nuget.config file to your project, in the same folder as your .csproj or .sln file</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+    &lt;packageSources&gt;
+        &lt;clear /&gt;
+        &lt;add key=&quot;qrypt-sdk&quot; value=&quot;folder you placed NuGet package in.&quot; /&gt;
+    &lt;/packageSources&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+    &lt;packageSources&gt;
+        &lt;clear /&gt;
+        &lt;add key=&quot;qrypt-sdk&quot; value=&quot;c:\packages&quot; /&gt;
+    &lt;/packageSources&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
 
 
 <footer class=" footline" >
@@ -593,6 +666,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -607,6 +681,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -624,6 +701,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -638,6 +716,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -654,6 +733,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
