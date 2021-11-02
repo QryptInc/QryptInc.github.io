@@ -12,22 +12,22 @@
     <title>One-Time Pad (OTP) :: Qrypt</title>
 
     
-    <link href="/css/nucleus.css?1635875858" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1635875858" rel="stylesheet">
-    <link href="/css/hybrid.css?1635875858" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1635875858" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1635875858" rel="stylesheet">
-    <link href="/css/auto-complete.css?1635875858" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1635875858" rel="stylesheet">
-    <link href="/css/theme.css?1635875858" rel="stylesheet">
-    <link href="/css/tabs.css?1635875858" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1635875858" rel="stylesheet">
+    <link href="/css/nucleus.css?1635884918" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1635884918" rel="stylesheet">
+    <link href="/css/hybrid.css?1635884918" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1635884918" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1635884918" rel="stylesheet">
+    <link href="/css/auto-complete.css?1635884918" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1635884918" rel="stylesheet">
+    <link href="/css/theme.css?1635884918" rel="stylesheet">
+    <link href="/css/tabs.css?1635884918" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1635884918" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1635875858" rel="stylesheet">
+    <link href="/css/theme-mine.css?1635884918" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1635875858"></script>
+    <script src="/js/jquery-3.3.1.min.js?1635884918"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1635875858"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1635875858"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1635884918"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1635884918"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/webstage.z13.web.core.windows.net";
+        var baseurl = "https:\/\/QryptInc.github.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1635875858"></script>
+<script type="text/javascript" src="/js/search.js?1635884918"></script>
 
     
   </div>
@@ -426,7 +426,7 @@
 
     
     <section id="footer">
-      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
     </section>
   </div>
 </nav>
@@ -551,7 +551,7 @@
 <h3 id="what-is-post-quantum-security">What is post-quantum security?</h3>
 <p>With the age of quantum computers being on the horizon, researchers have also explored methods to break cryptography using a quantum computer. Post-quantum cryptography means that after years of research, there is still no known method to “break” the cryptography, even given a quantum computer.</p>
 <p>For example, RSA, would not satisfy post-quantum security because Shor’s algorithm, an attack using a quantum computer, was discovered to break RSA in 1994. On the other hand, AES-256 is considered post-quantum because no quantum attacks have been discovered since its publication in 1998.</p>
-<figure><img src="images/otp-intro.png"/><figcaption>
+<figure><img src="images/otp-intro.svg"/><figcaption>
             <h4>One-Time Pads</h4>
         </figcaption>
 </figure>
@@ -567,7 +567,7 @@
 <h3 id="blast">BLAST</h3>
 <p>The Bounded Linearly Accessible String (BLAST) extractor (Yevgeniy Dodis and Kevin Yeo, 2021) is a cryptographic primitive that offers a stateless solution for multiple parties to extract a One-Time Pad given a truly random string <em>X</em>.</p>
 <p>Given a pool of truly random numbers <em>X</em>, BLAST takes a seed <em>S</em> as input, and outputs a One-Time Pad <em>R</em>. The extracted R is indistinguishable from a randomly generated <em>R</em>.</p>
-<figure><img src="images/otp-blast1.png"/>
+<figure><img src="images/otp-blast.svg"/>
 </figure>
 
 <p>See the <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf">whitepaper</a> for more details about BLAST and a proof of its indistinguishability from random. Note that the whitepaper refers to BLAST as a doubly affine extractor.</p>
@@ -585,7 +585,7 @@
 <li>Physically obtain qrand files and qcache file from the encryptor.</li>
 </ol>
 <p>Note: The user is responsible for storing the qrand and qcache files securely.</p>
-<figure><img src="images/otp-init.png"/>
+<figure><img src="images/otp-init.svg"/>
 </figure>
 
 <p><em>Encrypt</em>
@@ -599,7 +599,7 @@
 <li>Encrypt <i>S<sub>OTP</sub></i> and <i>K<sub>0</sub></i> using AES-256 OCB mode with the key and IV pair <i>K</i> in your cache file and append it to the final ciphertext.</li>
 </ol>
 </p>
-<figure><img src="images/otp-encrypt.png"/>
+<figure><img src="images/otp-encrypt.svg"/>
 </figure>
 
 <p><em>Decrypt</em>
@@ -612,7 +612,7 @@
 <li>Compute the final plaintext by XORing the One-Time Pad with the ciphertext.</li>
 </ol>
 </p>
-<figure><img src="images/otp-decrypt.png"/>
+<figure><img src="images/otp-decrypt.svg"/>
 </figure>
 
 <h3 id="why-use-blast-instead-of-using-x-directly">Why use BLAST instead of using <em>X</em> directly?</h3>
@@ -633,7 +633,7 @@
 <ol>
 <li>You must have at least m bytes available to use out of the α|X| total available bytes.</li>
 <li>If you wish to encrypt a file of size <i>m</i>, your cache must have a total of at least
-<img src="images/otp-equation-how-much-random.png"/>
+<img src="images/otp-equation-how-much-random.svg"/>
 bytes in order to sample the necessary size using BLAST *see whitepaper for details, note we set ϵ=2<sup>-64</sup>). Note that this refers to the total number of random bytes and is independent of the number of available random bytes.</li>
 <li>Regardless of <i>m</i>, you must have at least enough random to call the BLAST extractor to generate an AES key and IV (44 bytes). You can obtain this value by plugging in m=44 to the above equation.</li>
 </ol>
@@ -781,7 +781,7 @@ bytes in order to sample the necessary size using BLAST *see whitepaper for deta
 <li>Harvest data between Alice and Bob</li>
 <li>Break the key exchange</li>
 </ul>
-<figure><img src="images/otp-levels-of-security-levels1and2.png"/>
+<figure><img src="images/otp-levels-of-security-levels1and2.svg"/>
 </figure>
 
 <p>3a)  Everlasting security which is provably secure against an unbounded adversary after phase 1 (while the server is still accepting decryption requests), where:</p>
@@ -799,7 +799,7 @@ bytes in order to sample the necessary size using BLAST *see whitepaper for deta
 <li>the seed has level 2 security in phase 1</li>
 <li>we assume g out of T servers have secure, authenticated channels with the client (where these channels use post-quantum TLS)</li>
 </ul>
-<figure><img src="images/otp-levels-of-security-level3.png"/>
+<figure><img src="images/otp-levels-of-security-level3.svg"/>
 </figure>
 
 <p>For levels 3a, 3b, and 3c, to break the encryption, an adversary would need to:</p>
@@ -1135,19 +1135,19 @@ Note that for an adversary to break a SKU, they must break the protocol or primi
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1635875858"></script>
-    <script src="/js/perfect-scrollbar.min.js?1635875858"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1635875858"></script>
-    <script src="/js/jquery.sticky.js?1635875858"></script>
-    <script src="/js/featherlight.min.js?1635875858"></script>
-    <script src="/js/highlight.pack.js?1635875858"></script>
+    <script src="/js/clipboard.min.js?1635884918"></script>
+    <script src="/js/perfect-scrollbar.min.js?1635884918"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1635884918"></script>
+    <script src="/js/jquery.sticky.js?1635884918"></script>
+    <script src="/js/featherlight.min.js?1635884918"></script>
+    <script src="/js/highlight.pack.js?1635884918"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1635875858"></script>
-    <script src="/js/learn.js?1635875858"></script>
-    <script src="/js/hugo-learn.js?1635875858"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1635884918"></script>
+    <script src="/js/learn.js?1635884918"></script>
+    <script src="/js/hugo-learn.js?1635884918"></script>
     
         
-            <script src="/mermaid/mermaid.js?1635875858"></script>
+            <script src="/mermaid/mermaid.js?1635884918"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
