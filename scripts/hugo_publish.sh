@@ -63,17 +63,17 @@ if [[ "$PUBLISH_TARGET" == "Prod" ]]; then
     AZURE_SUBSCRIPTION_ID=""
     API_URL=""
 elif [[ "$PUBLISH_TARGET" == "Staging" ]]; then
-    BASE_URL="https://webstage.z13.web.core.windows.net"
-    ACCOUNT_NAME="webstage"
-    ACCOUNT_KEY="+4d4gduKhoprE6BzQP9Y6gTNUKpvfWuzdPiPL+uheJNSata2GLB7AINf9zB55sPS1LeOJr/U5BSJRLpc+VML1g=="
-    AZURE_SUBSCRIPTION_ID="22d9300d-e29b-4890-b71b-5c763932b88d"
-    API_URL="https://webstage.z13.web.core.windows.net/api/webframe.html#QryptLib.Wrapper.html"
+    BASE_URL="TODO"
+    ACCOUNT_NAME="TODO"
+    ACCOUNT_KEY="TODO"
+    AZURE_SUBSCRIPTION_ID="TODO"
+    API_URL="TODO"
 elif [[ "$PUBLISH_TARGET" == "Bill" ]]; then
-    BASE_URL='https://webwmc.z13.web.core.windows.net'
-    ACCOUNT_NAME='webwmc'
-    ACCOUNT_KEY='qS2TADzZT9UMkIJBv/2JN8f6sRDzUqg/cVqblV5KSejw9+Q398uBbo6jQELs3258VzK5LBzIzz4bUYm/soiWKA=='
-    AZURE_SUBSCRIPTION_ID="2e3b793a-7eab-4aa4-abfc-9adacbda9972"
-    API_URL="https://webwmc.z13.web.core.windows.net/api/webframe.html#QryptLib.Wrapper.html"
+    BASE_URL='TODO'
+    ACCOUNT_NAME='TODO'
+    ACCOUNT_KEY='TODO'
+    AZURE_SUBSCRIPTION_ID="TODO"
+    API_URL="TODO"
 fi
 if [[ "$ENABLE_API" == "" ]]; then
     ENABLE_API="False"
