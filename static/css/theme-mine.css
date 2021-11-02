@@ -142,3 +142,23 @@ a:hover {
 #sidebar hr {
     border-color: var(--MENU-SECTION-HR-color);
 }
+
+div.notices.note p {
+    border-top: 30px solid #5654e5;
+    background: #b8c5ff;
+}
+
+div.notices.warning p {
+    border-top: 30px solid #fd3427;
+    background: #fdbba9;
+}
+
+div.notices.tip p {
+    border-top: 30px solid #34921b;
+    background: #afec68;
+}
+
+div.notices.info p {
+    border-top: 30px solid #ff9700;
+    background: #ffc600;
+}

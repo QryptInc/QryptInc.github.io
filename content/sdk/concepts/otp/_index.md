@@ -21,7 +21,7 @@ With the age of quantum computers being on the horizon, researchers have also ex
 
 For example, RSA, would not satisfy post-quantum security because Shor’s algorithm, an attack using a quantum computer, was discovered to break RSA in 1994. On the other hand, AES-256 is considered post-quantum because no quantum attacks have been discovered since its publication in 1998. 
 
-{{< figure src="images/otp-intro.png" title="One-Time Pads" >}}
+{{< figure src="images/otp-intro.svg" title="One-Time Pads" >}}
 
 A One-Time Pad cipher is when a randomly chosen key, the same length of the plaintext, is XORed with the plaintext to produce the ciphertext. If the key is truly chosen randomly, all plaintexts of the given size are equally likely to have produced the ciphertext.
 
@@ -41,7 +41,7 @@ The Bounded Linearly Accessible String (BLAST) extractor (Yevgeniy Dodis and Kev
 
 Given a pool of truly random numbers *X*, BLAST takes a seed *S* as input, and outputs a One-Time Pad *R*. The extracted R is indistinguishable from a randomly generated *R*.
 
-{{< figure src="images/otp-blast1.png" >}}
+{{< figure src="images/otp-blast.svg" >}}
 
 See the [whitepaper](https://cs.nyu.edu/~dodis/ps/blast.pdf) for more details about BLAST and a proof of its indistinguishability from random. Note that the whitepaper refers to BLAST as a doubly affine extractor.
 
@@ -59,7 +59,7 @@ Each encryption has three inputs: a plaintext, a key, and either an initializati
 
 Note: The user is responsible for storing the qrand and qcache files securely.
 
-{{< figure src="images/otp-init.png" >}}
+{{< figure src="images/otp-init.svg" >}}
 
 *Encrypt*
 {{< rawhtml >}}
@@ -72,7 +72,7 @@ Note: The user is responsible for storing the qrand and qcache files securely.
 </ol>
 {{< /rawhtml >}}
 
-{{< figure src="images/otp-encrypt.png" >}}
+{{< figure src="images/otp-encrypt.svg" >}}
 
 *Decrypt*
 {{< rawhtml >}}
@@ -84,7 +84,7 @@ Note: The user is responsible for storing the qrand and qcache files securely.
 </ol>
 {{< /rawhtml >}}
 
-{{< figure src="images/otp-decrypt.png" >}}
+{{< figure src="images/otp-decrypt.svg" >}}
 
 ### Why use BLAST instead of using *X* directly?
 Having a stateless method of determining the One-Time pad from *X* makes it much easier for parties of 3 or more to communicate using the same random pool *X*. Instead of requiring all parties to keep track of an index which can easily get out of sync, it is much simpler to use a new seed for each encryption. Using BLAST also ensures that the One-Time Pad is never stored in the clear and offers additional security in case chunks of *X* are stolen.
@@ -110,7 +110,7 @@ This depends on the user-configurable percentage α (default set to 50%), which 
 <ol>
 <li>You must have at least m bytes available to use out of the α|X| total available bytes.</li>
 <li>If you wish to encrypt a file of size <i>m</i>, your cache must have a total of at least
-<img src="images/otp-equation-how-much-random.png"/>
+<img src="images/otp-equation-how-much-random.svg"/>
 bytes in order to sample the necessary size using BLAST *see whitepaper for details, note we set ϵ=2<sup>-64</sup>). Note that this refers to the total number of random bytes and is independent of the number of available random bytes.</li>
 <li>Regardless of <i>m</i>, you must have at least enough random to call the BLAST extractor to generate an AES key and IV (44 bytes). You can obtain this value by plugging in m=44 to the above equation.</li>
 </ol>
@@ -210,7 +210,7 @@ For levels 1 and 2, to break the encryption, an adversary would need to:
 - Harvest data between Alice and Bob
 - Break the key exchange
  
-{{< figure src="images/otp-levels-of-security-levels1and2.png" >}}
+{{< figure src="images/otp-levels-of-security-levels1and2.svg" >}}
 
 3a)  Everlasting security which is provably secure against an unbounded adversary after phase 1 (while the server is still accepting decryption requests), where:
 - the seed key exchange has level 1 security in phase 1
@@ -224,7 +224,7 @@ For levels 1 and 2, to break the encryption, an adversary would need to:
 -	the seed has level 2 security in phase 1
 -	we assume g out of T servers have secure, authenticated channels with the client (where these channels use post-quantum TLS)
 
-{{< figure src="images/otp-levels-of-security-level3.png" >}}
+{{< figure src="images/otp-levels-of-security-level3.svg" >}}
  
 For levels 3a, 3b, and 3c, to break the encryption, an adversary would need to:
 - Harvest data between Alice and Bob

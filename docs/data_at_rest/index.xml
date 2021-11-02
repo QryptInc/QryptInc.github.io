@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data at Rest on Qrypt</title>
-    <link>https://webstage.z13.web.core.windows.net/data_at_rest/</link>
+    <link>https://QryptInc.github.io/data_at_rest/</link>
     <description>Recent content in Data at Rest on Qrypt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Oct 2021 11:15:52 -0400</lastBuildDate><atom:link href="https://webstage.z13.web.core.windows.net/data_at_rest/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Oct 2021 11:15:52 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/data_at_rest/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

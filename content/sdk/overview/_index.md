@@ -17,7 +17,7 @@ Specifically, we currently offer features for:
 
 Our Quantum Enhanced Classical product line brings value to you by giving you quantum random on your computers, encrypting files with better AES keys generated from quantum random, and better messaging that you're using now because the keys are created from quantum random. But our Everlasting Security product line gives you those things, as well as a seamless upgrade path to Post Quantum security and beyond, when you're ready.
 
-{{< figure src="images/crypto-agility-table.png" >}}
+{{< figure src="images/crypto-agility-table.svg" >}}
 
 {{% notice note %}}
 The Everlasting Security product line will be available late 4th Quarter, 2021.
