@@ -8,7 +8,17 @@ usage() {
     echo "hugo_publish.sh"
     echo "==============="
     echo ""
-    echo "Publish SDK documentation to Azure Storage static web site."
+    echo "Publish SDK documentation to an Azure Storage static web site."
+    echo ""
+    echo "Environment Variables:"
+    echo "SDK_[DEV|STAGE]_PUBLISH_BASE_URL              This is fed to Hugo when publishing the static web site."
+    echo "                                              Set it to an appropriate static web site value based on"
+    echo "                                              the publishing target."
+    echo "SDK_[DEV|STAGE]_PUBLISH_ACCOUNT_NAME          This is the Azure Storage account name that is hosting" 
+    echo "                                              the static web site."
+    echo "SDK_[DEV|STAGE]_PUBLISH_ACCOUNT_KEY           This is the Azure Storage account key that is hosting"
+    echo "                                              the static web site."
+    echo "SDK_[DEV|STAGE]_PUBLISH_AZURE_SUBSCRIPTION_ID This is the Azure Subscription ID the Azure Storage account is in."
     echo ""
     echo "Options:"
     echo "--help                    Displays help menu"
@@ -17,8 +27,8 @@ usage() {
     echo "                          Prod    - Publishing targeting prod."
     echo "                                    Note, this will only publish api docs"
     echo "                                    as hugo docs for prod go through GitHub."
-    echo "                          Staging - Publishing targeting staging."
-    echo "                          Bill    - Publishing targeting Bill's personal Azure subscription."
+    echo "                          Staging - Publishing targeting staging in the Azure staging subscription."
+    echo "                          Dev     - Publishing targeting dev in your personal Azure subscription."
     echo "--enable_api=<option>     Publish api documentation. Defaults to False."
     echo "                          False - Do not publish api documentation."
     echo "                          True  - Publish api documentation."
@@ -52,28 +62,31 @@ esac
 done
 
 # Validate input arguments and set defaults
-if [[ "$PUBLISH_TARGET" != "Prod" && "$PUBLISH_TARGET" != "Staging" && "$PUBLISH_TARGET" != "Bill" ]]; then
+if [[ "$PUBLISH_TARGET" != "Prod" && "$PUBLISH_TARGET" != "Staging" && "$PUBLISH_TARGET" != "Dev" ]]; then
     echo "Invalid --publish_target: $PUBLISH_TARGET"
     usage
 fi
 if [[ "$PUBLISH_TARGET" == "Prod" ]]; then
-    BASE_URL=""
-    ACCOUNT_NAME=""
-    ACCOUNT_KEY=""
-    AZURE_SUBSCRIPTION_ID=""
-    API_URL=""
+    echo "Prod is not supported yet."
+    exit
 elif [[ "$PUBLISH_TARGET" == "Staging" ]]; then
-    BASE_URL="TODO"
-    ACCOUNT_NAME="TODO"
-    ACCOUNT_KEY="TODO"
-    AZURE_SUBSCRIPTION_ID="TODO"
-    API_URL="TODO"
-elif [[ "$PUBLISH_TARGET" == "Bill" ]]; then
-    BASE_URL='TODO'
-    ACCOUNT_NAME='TODO'
-    ACCOUNT_KEY='TODO'
-    AZURE_SUBSCRIPTION_ID="TODO"
-    API_URL="TODO"
+    if [[ "$SDK_STAGE_PUBLISH_BASE_URL" == "" || "$SDK_STAGE_PUBLISH_ACCOUNT_NAME" == "" || "$SDK_STAGE_PUBLISH_ACCOUNT_KEY" == "" || "$SDK_STAGE_PUBLISH_AZURE_SUBSCRIPTION_ID" == "" ]]; then
+        echo "Missing environment variable for publishing to staging."
+        usage
+    fi
+    BASE_URL="$SDK_STAGE_PUBLISH_BASE_URL"
+    ACCOUNT_NAME="$SDK_STAGE_PUBLISH_ACCOUNT_NAME"
+    ACCOUNT_KEY="$SDK_STAGE_PUBLISH_ACCOUNT_KEY"
+    AZURE_SUBSCRIPTION_ID="$SDK_STAGE_PUBLISH_AZURE_SUBSCRIPTION_ID"
+elif [[ "$PUBLISH_TARGET" == "Dev" ]]; then
+    if [[ "$SDK_DEV_PUBLISH_BASE_URL" == "" || "$SDK_DEV_PUBLISH_ACCOUNT_NAME" == "" || "$SDK_DEV_PUBLISH_ACCOUNT_KEY" == "" || "$SDK_DEV_PUBLISH_AZURE_SUBSCRIPTION_ID" == "" ]]; then
+        echo "Missing environment variable for publishing to Dev."
+        usage
+    fi
+    BASE_URL="$SDK_DEV_PUBLISH_BASE_URL"
+    ACCOUNT_NAME="$SDK_DEV_PUBLISH_ACCOUNT_NAME"
+    ACCOUNT_KEY="$SDK_DEV_PUBLISH_ACCOUNT_KEY"
+    AZURE_SUBSCRIPTION_ID="$SDK_DEV_PUBLISH_AZURE_SUBSCRIPTION_ID"
 fi
 if [[ "$ENABLE_API" == "" ]]; then
     ENABLE_API="False"
@@ -115,31 +128,24 @@ scripts/az storage blob delete-batch \
     --account-name $ACCOUNT_NAME \
     --account-key $ACCOUNT_KEY
 
-# Prod builds for Hugo go through GitHub
-if [[ "$PUBLISH_TARGET" != "Prod" ]]; then
+# Do a clean hugo build
+echo "***************************************"
+echo "* HUGO BUILD"
+echo "***************************************"
+hugo \
+    --baseURL="$BASE_URL" \
+    --cleanDestinationDir
 
-    # TODO: This isn't working
-    export HUGO_MENU.SHORTCUTS_url="$API_URL"
-
-    # Do a clean hugo build
-    echo "***************************************"
-    echo "* HUGO BUILD"
-    echo "***************************************"
-    hugo \
-        --baseURL="$BASE_URL" \
-        --cleanDestinationDir
-
-    # Publish our hugo output to our Azure Storage static web site
-    echo "***************************************"
-    echo "* PUBLISH DOCS FOLDER TO STATIC WEB SITE"
-    echo "***************************************"
-    scripts/az storage blob upload-batch \
-        --source 'docs' \
-        --destination '$web' \
-        --subscription $AZURE_SUBSCRIPTION_ID \
-        --account-name $ACCOUNT_NAME \
-        --account-key $ACCOUNT_KEY
-fi
+# Publish our hugo output to our Azure Storage static web site
+echo "***************************************"
+echo "* PUBLISH DOCS FOLDER TO STATIC WEB SITE"
+echo "***************************************"
+scripts/az storage blob upload-batch \
+    --source 'docs' \
+    --destination '$web' \
+    --subscription $AZURE_SUBSCRIPTION_ID \
+    --account-name $ACCOUNT_NAME \
+    --account-key $ACCOUNT_KEY
 
 # Are we publishing API docs?
 if [[ "$ENABLE_API" == "True" ]]; then
@@ -149,16 +155,16 @@ if [[ "$ENABLE_API" == "True" ]]; then
     echo "* API BUILD"
     echo "***************************************"
     DocumentXCommandLine.exe "..\QryptLib\docs\documentx\QryptLib.dxp"
-    rm -rvf api
-    mkdir api
-    cp -r "../QryptLib/docs/documentx/build/Browser Help/." api
+    rm -rvf api-build
+    mkdir api-build
+    cp -r "../QryptLib/docs/documentx/build/Browser Help/." api-build
  
     # Publish our api output to our Azure Storage static web site
     echo "***************************************"
     echo "* PUBLISH API FOLDER TO STATIC WEB SITE"
     echo "***************************************"
     scripts/az storage blob upload-batch \
-        --source  'api' \
+        --source  'api-build' \
         --destination '$web\api' \
         --subscription $AZURE_SUBSCRIPTION_ID \
         --account-name $ACCOUNT_NAME \
