@@ -16,8 +16,8 @@
 
     --MENU-SECTIONS-ACTIVE-BG-color:#white; /* Background color of the active section and its childs */
     --MENU-SECTIONS-BG-color:#f1f1f1; /* Background color of other sections */
-    --MENU-SECTIONS-LINK-color: #ccc; /* Color of links in menu */
-    --MENU-SECTIONS-LINK-HOVER-color: #20272b;  /* Color of links in menu, when hovered */
+    --MENU-SECTIONS-LINK-color: #20272b; /* Color of links in menu */
+    --MENU-SECTIONS-LINK-HOVER-color: #7072ec;  /* Color of links in menu, when hovered */
     --MENU-SECTION-ACTIVE-CATEGORY-color: #777; /* Color of active category text */
     --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #f1f1f1; /* Color of background for the active category (only) */
 
@@ -161,4 +161,18 @@ div.notices.tip p {
 div.notices.info p {
     border-top: 30px solid #ff9700;
     background: #ffc600;
+}
+
+.link-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.link-container img {
+    height: 16px;
+    width: 16px;
+}
+
+.link-container img:hover {
+    color: #5654e5;
 }
