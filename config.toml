@@ -12,12 +12,7 @@ publishDir = "docs"
 [outputs]
     home = [ "HTML", "RSS", "JSON"]
 [[menu.shortcuts]] 
-    name = "<i class='fab fa-github'></i> Github Repo"
-    identifier = "gh"
-    url = "https://github.com/QryptInc/QryptInc.github.io"
-    weight = 1
-[[menu.shortcuts]] 
-    name = "<i class='fas fa-asterisk'></i> Qrypt Corporate"
+    name = "<i class='fas fa-asterisk'></i> Qrypt Website"
     identifier = "ws"
     url = "https://www.qrypt.com/"
     weight = 1
@@ -25,4 +20,9 @@ publishDir = "docs"
     name = "<i class='fas fa-asterisk'></i> Qrypt Portal"
     identifier = "ps"
     url = "https://portal.qrypt.com/"
-    weight = 1
+    weight = 2
+[[menu.shortcuts]] 
+    name = "<i class='fab fa-github'></i> Github Repo"
+    identifier = "gh"
+    url = "https://github.com/QryptInc/QryptInc.github.io"
+    weight = 3
