@@ -16,9 +16,9 @@
 
     --MENU-SECTIONS-ACTIVE-BG-color:#white; /* Background color of the active section and its childs */
     --MENU-SECTIONS-BG-color:#f1f1f1; /* Background color of other sections */
-    --MENU-SECTIONS-LINK-color: #ccc; /* Color of links in menu */
+    --MENU-SECTIONS-LINK-color: #8c8c8c; /* Color of links in menu */
     --MENU-SECTIONS-LINK-HOVER-color: #20272b;  /* Color of links in menu, when hovered */
-    --MENU-SECTION-ACTIVE-CATEGORY-color: #777; /* Color of active category text */
+    --MENU-SECTION-ACTIVE-CATEGORY-color: #1c1c1c; /* Color of active category text */
     --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #f1f1f1; /* Color of background for the active category (only) */
 
     --MENU-VISITED-color: #5654e5; /* Color of 'page visited' icons in menu */
@@ -66,13 +66,14 @@ h2, h3, h4, h5 {
 
 h1 {
     font-family: "IBM Plex Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; 
+    font-size: 1.25rem;
 }
+
 
 .orange-header {
     font-family: "IBM Plex Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     background: url(../images/QRY__Graphic_Gradient__yellow_2_center.png) no-repeat center;
     background-size: contain;
-    height: 120px;
     width: 100%;
 }
 
@@ -119,6 +120,10 @@ a:hover {
 	border-color: var(--MENU-SEARCH-BOX-color);
     background: var(--MENU-SEARCH-BG-color);
 }
+#sidebar .searchbox > input#search-by::placeholder {
+    color: var(--MAIN-TEXT-color);
+    opacity: 0.5;
+}
 #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
     background: var(--MENU-SECTIONS-ACTIVE-BG-color);
 }
@@ -162,3 +167,14 @@ div.notices.info p {
     border-top: 30px solid #ff9700;
     background: #ffc600;
 }
+
+@media only screen and (min-width: 20rem) {
+    h1 {
+        font-size: 2rem;
+    }
+} 
+@media only screen and (min-width: 40rem) {
+    h1 {
+        font-size: 3.25rem;
+    }
+} 
