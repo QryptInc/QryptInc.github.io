@@ -130,7 +130,7 @@ The following shows an example of how to submit a request for *{kib_entropy}* ki
 You may need to install the “requests” module before executing this example. For example, use the following command: `python -m pip install requests`
 {{% /notice %}}
 
-```
+```python
 import requests
 import base64
 
@@ -147,7 +147,7 @@ headers = { 'Authorization': f'Bearer {accesstoken}' }
 params = { 'size': kibData }
 response = requests.get( url, headers=headers, params=params)
 
-$ Displan the entropy bytes
+# Display the entropy bytes
 for s in response.json()['random']: 
     for b in base64.decodebytes( s.encode('ascii') ): 
         print( f'{b})
@@ -157,7 +157,7 @@ for s in response.json()['random']:
 
 The following shows an example of how to submit a request for *{kib_entropy}* kibibytes of data using the *{qrypt_access_token}* in JavaScript.
 
-```
+```js
 "use strict"
 
 // Specfify entropy token, requested size of entropy, and subdomain
@@ -169,16 +169,18 @@ let sub = '{subdomain}'
 let url = `https://${sub}.qrypt.com/api/v1/quantum-entropy?size=${kibData}`
 
 // Submit the request and process the response
-fetch( url, {
-              method: 'GET',
-              headers: { 'Accept': 'application/json',
-                         'Authorization': "Bearer " + accesstoken },
-            })
-    .then( response => response.json() )
-    .then( function (json) 
-    {
-      // Display the entropy bytes
-      json.random.forEach( b64 => 
-        [...(atob(b64))].forEach( c => console.log( c.charCodeAt(0))) )
-    })
+fetch(url, {
+    method: 'GET',
+    headers: { 
+      'Accept': 'application/json',
+      'Authorization': "Bearer " + accesstoken 
+      },
+  })
+.then( response => response.json() )
+.then( function ( json ) {
+
+  // Display the entropy bytes
+  json.random.forEach( b64 => 
+    [...( atob( b64 ))].forEach( c => console.log( c.charCodeAt( 0 )))    
+  )})
 ```
