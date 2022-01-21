@@ -7,18 +7,17 @@ chapter = false
 +++
 
 {{< title >}}
-Developer Focused - Our documentation is written by developers for developers. The goal is to make it as easy as possible for developers to use Qrypt products to secure applications.
+Our documentation is written by developers for developers. The goal is to make it as easy as possible for developers to use Qrypt to secure applications and infrastructure.
 
-Open Sourced - We believe that source code and documentation benefit from sharing and collaborative improvement. Qrypt documentation is open-sourced and we invite anybody to submit pull requests to improve it.
-
+We believe that documentation benefits from sharing and collaborative improvement. Qrypt documentation is available on Github pages and we invite anybody to make changes or to create issues when there is content that needs to be improved.
 ## Integrating with Qrypt
 Below is a list of the products that Qrypt offers with links to their supporting documentation.
 
-### Entropy as a service - [Docs](/data_at_rest/)
+### Entropy as a service - [Docs](/eaas/)
 
 Qrypt Entropy as a Service (EaaS) measures quantum effects and converts those measurements into pure random numbers. EaaS leverages multiple Quantum Random Number Generators (QRNGs) developed by national and international research labs to ensure the highest quality random.
 
-### QDARA - Quantum data at rest algorithm - [Docs](/eaas/)
+### QDARA - Quantum data at rest algorithm - [Docs](/data_at_rest/)
 
 Our quantum secure data-at-rest command line tool is powered by our patented BLAST algorithm, which leverages quantum random number generation from our Entropy as a Service to produce perfectly random one-time pads. Alice can quickly and easily encrypt sensitive files with quantum random generated one-time pads. Bob must have the same pad in order to decrypt the data to read the files, ensuring important information is kept secret.
 
