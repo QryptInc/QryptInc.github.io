@@ -168,6 +168,19 @@ div.notices.info p {
     background: #ffc600;
 }
 
+.link-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.link-container img {
+    height: 16px;
+    width: 16px;
+}
+
+.link-container img:hover {
+    color: #5654e5;
+}
 @media only screen and (min-width: 20rem) {
     h1 {
         font-size: 2rem;
