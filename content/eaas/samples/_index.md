@@ -6,4 +6,4 @@ weight = 5
 disableToc = "true"
 +++
 
-Please see the github repo for sample code in calling EaaS in Rust, go, python, and node.
+Please see the github repo for [sample code](https://github.com/QryptInc/QryptInc.github.io/tree/main/content/eaas/samples) in calling EaaS in Rust, go, python, and node.
