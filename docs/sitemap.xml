@@ -2,44 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://QryptInc.github.io/eaas/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/docs/eaas/</loc>
     <lastmod>2021-10-07T11:14:08-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/eaas/faqs/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/docs/eaas/faqs/</loc>
     <lastmod>2021-10-07T14:05:15-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/docs/</loc>
     <lastmod>2021-10-07T14:05:15-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/data_at_rest/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/docs/data_at_rest/</loc>
     <lastmod>2021-10-07T11:15:52-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/concepts/otp/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/concepts/entropy-service/</loc>
     <lastmod>2021-10-23T15:01:22-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/quickstarts/getting-started/</loc>
-    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/overview/</loc>
-    <lastmod>2021-10-18T08:59:57-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/quickstarts/chat/</loc>
-    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/</loc>
-    <lastmod>2021-10-18T08:59:39-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/quickstarts/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/cpp/</loc>
     <lastmod>2021-10-18T09:09:06-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/concepts/</loc>
-    <lastmod>2021-10-18T09:01:15-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/api/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/api/cpp/</loc>
     <lastmod>2021-10-18T09:01:22-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/categories/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/dotnet/getting-started/</loc>
+    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/tags/</loc>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/overview/</loc>
+    <lastmod>2021-10-18T08:59:57-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/concepts/blast-distributed-multiple-endpoints/</loc>
+    <lastmod>2021-10-23T15:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/dotnet/</loc>
+    <lastmod>2021-10-18T09:09:06-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/api/dotnet/</loc>
+    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/dotnet/chat/</loc>
+    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/cpp/keygendistributed/</loc>
+    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/cpp/keygenlocal/</loc>
+    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/</loc>
+    <lastmod>2021-10-18T08:59:39-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/concepts/blast-distributed-single-endpoint/</loc>
+    <lastmod>2021-10-23T15:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/</loc>
+    <lastmod>2021-10-18T09:09:06-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/concepts/blast-local/</loc>
+    <lastmod>2021-10-23T15:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/concepts/</loc>
+    <lastmod>2021-10-18T09:01:15-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/concepts/otp/</loc>
+    <lastmod>2021-10-23T15:01:22-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/sdk/api/</loc>
+    <lastmod>2021-10-18T09:09:06-04:00</lastmod>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/categories/</loc>
+  </url><url>
+    <loc>https://webstage.z13.web.core.windows.net/docs/tags/</loc>
   </url>
 </urlset>

@@ -2,10 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Qrypt</title>
-    <link>https://QryptInc.github.io/</link>
+    <link>https://webstage.z13.web.core.windows.net/docs/</link>
     <description>Recent content in Home on Qrypt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Oct 2021 14:05:15 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Oct 2021 14:05:15 -0400</lastBuildDate><atom:link href="https://webstage.z13.web.core.windows.net/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quickstart: Distributed Key Generation</title>
+      <link>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/cpp/keygendistributed/</link>
+      <pubDate>Mon, 18 Oct 2021 09:01:22 -0400</pubDate>
+      
+      <guid>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/cpp/keygendistributed/</guid>
+      <description>Prerequisites  A Qrypt Account. Create an account for free. Install Visual Studio Code. Install CMake. (Windows) Install git bash - comes with typical git install.  Setup  Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal and create an environment variable QRYPT_TOKEN for it. Download the Qrypt Security SDK for your platform. Create a lib folder and extract the Qrypt Security SDK into it.</description>
+    </item>
+    
+    <item>
+      <title>Quickstart: Local Key Generation</title>
+      <link>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/cpp/keygenlocal/</link>
+      <pubDate>Mon, 18 Oct 2021 09:01:22 -0400</pubDate>
+      
+      <guid>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/cpp/keygenlocal/</guid>
+      <description>Prerequisites  A Qrypt Account. Create an account for free. Install Visual Studio Code. Install CMake. (Windows) Install git bash - comes with typical git install.  Setup  Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal and create an environment variable QRYPT_TOKEN for it. Download the Qrypt Security SDK for your platform. Create a lib folder and extract the Qrypt Security SDK into it.</description>
+    </item>
+    
   </channel>
 </rss>

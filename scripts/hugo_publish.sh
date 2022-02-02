@@ -21,17 +21,28 @@ usage() {
     echo "SDK_[DEV|STAGE]_PUBLISH_AZURE_SUBSCRIPTION_ID This is the Azure Subscription ID the Azure Storage account is in."
     echo ""
     echo "Options:"
-    echo "--help                    Displays help menu"
+    echo "--help                       Displays help menu"
     echo ""
-    echo "--publish_target=<option> Specify target for publishing."
-    echo "                          Prod    - Publishing targeting prod."
-    echo "                                    Note, this will only publish api docs"
-    echo "                                    as hugo docs for prod go through GitHub."
-    echo "                          Staging - Publishing targeting staging in the Azure staging subscription."
-    echo "                          Dev     - Publishing targeting dev in your personal Azure subscription."
-    echo "--enable_api=<option>     Publish api documentation. Defaults to False."
-    echo "                          False - Do not publish api documentation."
-    echo "                          True  - Publish api documentation."
+    echo "--publish_target=<option>    Specify target for publishing."
+    echo "                             Prod    - Publishing targeting prod."
+    echo "                                       Note, this will only publish api docs"
+    echo "                                       as hugo docs for prod go through GitHub."
+    echo "                             Staging - Publishing targeting staging in the Azure staging subscription."
+    echo "                             Dev     - Publishing targeting dev in your personal Azure subscription."
+    echo ""
+    echo "--enable_docs=<option>       Publish sdk documentation. Defaults to True."
+    echo "                             False - Do not publish skd documentation."
+    echo "                             True  - Publish sdk documentation."
+    echo ""
+    echo "--enable_api=<option>        Publish all api documentation. Defaults to False."
+    echo "                             False - Do not publish all api documentation."
+    echo "                             True  - Publish all api documentation."
+    echo "--enable_api_cpp=<option>    Publish api documentation for C++. Defaults to False."
+    echo "                             False - Do not publish api documentation for C++."
+    echo "                             True  - Publish api documentation for C++."
+    echo "--enable_api_dotnet=<option> Publish api documentation for dotnet. Defaults to False."
+    echo "                             False - Do not publish api documentation for dotnet."
+    echo "                             True  - Publish api documentation for dotnet."
     echo ""
     
     exit
@@ -49,8 +60,20 @@ case $i in
     PUBLISH_TARGET="${i#*=}"
     shift
     ;;
+    --enable_docs=*)
+    ENABLE_DOCS="${i#*=}"
+    shift
+    ;;
     --enable_api=*)
     ENABLE_API="${i#*=}"
+    shift
+    ;;
+    --enable_api_cpp=*)
+    ENABLE_API_CPP="${i#*=}"
+    shift
+    ;;
+    --enable_api_dotnet=*)
+    ENABLE_API_DOTNET="${i#*=}"
     shift
     ;;
     *)
@@ -88,11 +111,32 @@ elif [[ "$PUBLISH_TARGET" == "Dev" ]]; then
     ACCOUNT_KEY="$SDK_DEV_PUBLISH_ACCOUNT_KEY"
     AZURE_SUBSCRIPTION_ID="$SDK_DEV_PUBLISH_AZURE_SUBSCRIPTION_ID"
 fi
+if [[ "$ENABLE_DOCS" == "" ]]; then
+    ENABLE_DOCS="True"
+fi
+if [[ "$ENABLE_DOCS" != "True" && "$ENABLE_DOCS" != "False" ]]; then
+    echo "Invalid --enable_docs: $ENABLE_DOCS"
+    usage
+fi
 if [[ "$ENABLE_API" == "" ]]; then
     ENABLE_API="False"
 fi
 if [[ "$ENABLE_API" != "True" && "$ENABLE_API" != "False" ]]; then
     echo "Invalid --enable_api: $ENABLE_API"
+    usage
+fi
+if [[ "$ENABLE_API_CPP" == "" ]]; then
+    ENABLE_API_CPP="False"
+fi
+if [[ "$ENABLE_API_CPP" != "True" && "$ENABLE_API_CPP" != "False" ]]; then
+    echo "Invalid --enable_api_cpp: $ENABLE_API_CPP"
+    usage
+fi
+if [[ "$ENABLE_API_DOTNET" == "" ]]; then
+    ENABLE_API_DOTNET="False"
+fi
+if [[ "$ENABLE_API_DOTNET" != "True" && "$ENABLE_API_DOTNET" != "False" ]]; then
+    echo "Invalid --enable_api_dotnet: $ENABLE_API_DOTNET"
     usage
 fi
 
@@ -118,37 +162,91 @@ cd ..
 #    Work-around, use subscription id.
 # 4. Note single quotes around $web so $ sign is interpreted correctly
 
-# Remove any previous files in our Azure Storage static web site
-echo "***************************************"
-echo "* PURGE FILES ON STATIC WEB SITE"
-echo "***************************************"
-scripts/az storage blob delete-batch \
-    --source '$web' \
-    --subscription $AZURE_SUBSCRIPTION_ID \
-    --account-name $ACCOUNT_NAME \
-    --account-key $ACCOUNT_KEY
+if [[ "$ENABLE_DOCS" == "True" ]]; then
 
-# Do a clean hugo build
-echo "***************************************"
-echo "* HUGO BUILD"
-echo "***************************************"
-hugo \
-    --baseURL="$BASE_URL" \
-    --cleanDestinationDir
+    # Remove any previous files in our docs folder in our Azure Storage static web site
+    echo "***************************************"
+    echo "* PURGE DOCS FOLDER ON STATIC WEB SITE"
+    echo "***************************************"
+    scripts/az storage blob delete-batch \
+        --source '$web' \
+        --pattern 'docs\*' \
+        --subscription $AZURE_SUBSCRIPTION_ID \
+        --account-name $ACCOUNT_NAME \
+        --account-key $ACCOUNT_KEY
 
-# Publish our hugo output to our Azure Storage static web site
-echo "***************************************"
-echo "* PUBLISH DOCS FOLDER TO STATIC WEB SITE"
-echo "***************************************"
-scripts/az storage blob upload-batch \
-    --source 'docs' \
-    --destination '$web' \
-    --subscription $AZURE_SUBSCRIPTION_ID \
-    --account-name $ACCOUNT_NAME \
-    --account-key $ACCOUNT_KEY
+    # Do a clean hugo build
+    echo "***************************************"
+    echo "* HUGO BUILD"
+    echo "***************************************"
+    hugo \
+        --baseURL="$BASE_URL" \
+        --cleanDestinationDir
 
-# Are we publishing API docs?
-if [[ "$ENABLE_API" == "True" ]]; then
+    # Publish our hugo output to our Azure Storage static web site's docs folder
+    echo "***************************************"
+    echo "* PUBLISH DOCS FOLDER TO STATIC WEB SITE"
+    echo "***************************************"
+    scripts/az storage blob upload-batch \
+        --source 'docs' \
+        --destination '$web\docs' \
+        --subscription $AZURE_SUBSCRIPTION_ID \
+        --account-name $ACCOUNT_NAME \
+        --account-key $ACCOUNT_KEY
+fi
+
+# Are we publishing API docs for C++?
+if [[ "$ENABLE_API" == "True" || "$ENABLE_API_CPP" == "True" ]]; then
+
+    # Remove any previous files in our api-cpp folder in our Azure Storage static web site
+    echo "***************************************"
+    echo "* PURGE API-CPP FOLDER ON STATIC WEB SITE"
+    echo "***************************************"
+    scripts/az storage blob delete-batch \
+        --source '$web' \
+        --pattern 'api-cpp\*' \
+        --subscription $AZURE_SUBSCRIPTION_ID \
+        --account-name $ACCOUNT_NAME \
+        --account-key $ACCOUNT_KEY
+
+    # Do a clean api build from our sibling QryptSecurity repo and stage in api folder
+    echo "***************************************"
+    echo "* CPP API BUILD"
+    echo "***************************************"
+    cd ../QryptSecurity/docs/doxygen
+    doxygen doxygen.config.in
+    cd -
+    rm -rvf api-build
+    mkdir api-build
+    cp -r "../QryptSecurity/docs/doxygen/build/html/." api-build
+ 
+    
+    # Publish our api output to our Azure Storage static web site
+    echo "***************************************"
+    echo "* PUBLISH CPP API FOLDER TO STATIC WEB SITE"
+    echo "***************************************"
+    scripts/az storage blob upload-batch \
+        --source  'api-build' \
+        --destination '$web\api-cpp' \
+        --subscription $AZURE_SUBSCRIPTION_ID \
+        --account-name $ACCOUNT_NAME \
+        --account-key $ACCOUNT_KEY
+fi
+
+# Are we publishing API docs for dotnet?
+if [[ "$ENABLE_API" == "True" || "$ENABLE_API_DOTNET" == "True" ]]; then
+
+    # Remove any previous files in our api-dotnet folder in our Azure Storage static web site
+    echo "***************************************"
+    echo "* PURGE API-DOTNET FOLDER ON STATIC WEB SITE"
+    echo "***************************************"
+    scripts/az storage blob delete-batch \
+        --source '$web' \
+        --pattern 'api-dotnet\*' \
+        --subscription $AZURE_SUBSCRIPTION_ID \
+        --account-name $ACCOUNT_NAME \
+        --account-key $ACCOUNT_KEY
+
     # Do a clean api build from our sibling QryptLib repo and stage in api folder
     # http://www.innovasys.com/help/dx2021.1/commandline.html
     echo "***************************************"
@@ -165,9 +263,8 @@ if [[ "$ENABLE_API" == "True" ]]; then
     echo "***************************************"
     scripts/az storage blob upload-batch \
         --source  'api-build' \
-        --destination '$web\api' \
+        --destination '$web\api-dotnet' \
         --subscription $AZURE_SUBSCRIPTION_ID \
         --account-name $ACCOUNT_NAME \
         --account-key $ACCOUNT_KEY
 fi
-

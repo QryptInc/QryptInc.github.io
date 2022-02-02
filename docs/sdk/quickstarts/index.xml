@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quickstarts on Qrypt</title>
-    <link>https://QryptInc.github.io/sdk/quickstarts/</link>
+    <link>https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/</link>
     <description>Recent content in Quickstarts on Qrypt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Oct 2021 09:09:06 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/sdk/quickstarts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Oct 2021 09:09:06 -0400</lastBuildDate><atom:link href="https://webstage.z13.web.core.windows.net/docs/sdk/quickstarts/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

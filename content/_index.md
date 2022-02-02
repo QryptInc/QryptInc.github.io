@@ -21,5 +21,5 @@ Qrypt Entropy as a Service (EaaS) measures quantum effects and converts those me
 
 Our quantum secure data-at-rest command line tool is powered by our patented BLAST algorithm, which leverages quantum random number generation from our Entropy as a Service to produce perfectly random one-time pads. Alice can quickly and easily encrypt sensitive files with quantum random generated one-time pads. Bob must have the same pad in order to decrypt the data to read the files, ensuring important information is kept secret.
 
-### Qrypt Security - [Docs](/sdk/)
-Qrypt Security includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum and everlasting security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography. 
+### Qrypt Security - [Docs](sdk/)
+Qrypt Security includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography. 
