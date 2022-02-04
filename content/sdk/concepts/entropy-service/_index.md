@@ -70,14 +70,6 @@ Qrypt offers entropy as a service, with expertly engineered quantum random numbe
         <td>32,768 (32 KiB) (32.8 KB)</td>
         <td>423,480 (413.6 KiB)</td>
     </tr>
-    <tr>
-        <td>65,536 (64 KiB) (65.5 KB)</td>
-        <td>846,960 (827.1 KiB)</td>
-    </tr>
-    <tr>
-        <td>131,072 (128 KiB) (131.1 KB)</td>
-        <td>1,693,920 (1.6 MiB)</td>
-    </tr>
 </table>
 {{< /rawhtml >}}
 
