@@ -5,12 +5,15 @@ weight = 20
 chapter = false
 +++
 
+## Sample Code
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/QryptInc/qrypt-security-quickstarts-cpp).
 
 ## Prerequisites
 - A Qrypt Account. [Create an account for free](https://portal.qrypt.com/).
-- Install [Visual Studio Code](https://code.visualstudio.com/).
 - Install [CMake](https://cmake.org/).
 - (Windows) Install git bash - comes with typical git install.
+- (Optional) Install [Visual Studio Code](https://code.visualstudio.com/).
 
 # Setup
 1. Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.

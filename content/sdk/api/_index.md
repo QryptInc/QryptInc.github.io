@@ -6,5 +6,4 @@ weight = 70
 
 Detailed API References for a growing list of plaforms.
 
-#### [Qrypt Security SDK for C++](cpp/)
-#### [Qrypt Security SDK for .NET](dotnet/)
+#### [Qrypt SDK for C++](cpp/)
