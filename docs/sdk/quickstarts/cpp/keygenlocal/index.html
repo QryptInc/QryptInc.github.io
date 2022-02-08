@@ -12,22 +12,22 @@
     <title>Quickstart: Local Key Generation :: Qrypt</title>
 
     
-    <link href="/css/nucleus.css?1644009159" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1644009159" rel="stylesheet">
-    <link href="/css/hybrid.css?1644009159" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1644009159" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1644009159" rel="stylesheet">
-    <link href="/css/auto-complete.css?1644009159" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1644009159" rel="stylesheet">
-    <link href="/css/theme.css?1644009159" rel="stylesheet">
-    <link href="/css/tabs.css?1644009159" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1644009159" rel="stylesheet">
+    <link href="/css/nucleus.css?1644347559" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1644347559" rel="stylesheet">
+    <link href="/css/hybrid.css?1644347559" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1644347559" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1644347559" rel="stylesheet">
+    <link href="/css/auto-complete.css?1644347559" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1644347559" rel="stylesheet">
+    <link href="/css/theme.css?1644347559" rel="stylesheet">
+    <link href="/css/tabs.css?1644347559" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1644347559" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1644009159" rel="stylesheet">
+    <link href="/css/theme-mine.css?1644347559" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1644009159"></script>
+    <script src="/js/jquery-3.3.1.min.js?1644347559"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1644009159"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1644009159"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1644347559"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1644347559"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/QryptInc.github.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1644009159"></script>
+<script type="text/javascript" src="/js/search.js?1644347559"></script>
 
     
   </div>
@@ -728,7 +728,8 @@
 <h1 id="setup">Setup</h1>
 <ol>
 <li>Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.</li>
-<li>Retrieve a token from the <a href="https://portal.qrypt.com/">Qrypt Portal</a> and create an environment variable <strong>QRYPT_TOKEN</strong> for it.</li>
+<li>Retrieve a token from the <a href="https://portal.qrypt.com/">Qrypt Portal</a> with the scope <strong>ENTROPY</strong>.</li>
+<li>(Optional) Create an environment variable <strong>QRYPT_TOKEN</strong> for it. For simplicity, the commands below will be referencing a <strong>QRYPT_TOKEN</strong> environment variable but you can also just use the token direclty in the commands below.</li>
 <li>Download the Qrypt Security SDK for your platform.</li>
 <li>Create a lib folder and extract the Qrypt Security SDK into it.</li>
 </ol>
@@ -741,18 +742,37 @@
            /lib
            /res (Windows)
 </code></pre>
+<p><strong>Macos Security Warning</strong></p>
+<p>Mac users will need to allow use of the library in the Security &amp; Privacy settings. This will be fixed in a future release.</p>
+<p><em>Reference</em></p>
+<p><a href="https://support.apple.com/en-us/HT202491">https://support.apple.com/en-us/HT202491</a></p>
 <h2 id="build">Build</h2>
-<p>In a terminal, change to the KeyGenLocal folder and enter the following to build the KeyGenLocal console application.</p>
-<pre><code>./build.sh --build_type=Debug
+<p>To change to the KeyGenLocal folder:</p>
+<pre><code>vm@vm:~$ cd KeyGenLocal
 </code></pre>
-<p>Upon a successful build, the KeyGenLocal console application can be found in the build/Debug folder.</p>
-<p>Enter the following command for a complete set of build options:</p>
-<pre><code>./build.sh --help
+<p>To make a (debug) build:</p>
+<pre><code>vm@vm:~/KeyGenLocal$ ./build.sh --build_type=Debug
+</code></pre>
+<p>To find the build folder (if it built successfully):</p>
+<p><em>For linux/mac</em></p>
+<pre><code>vm@vm:~/KeyGenLocal$ ls -d build
+</code></pre>
+<p><em>For windows</em></p>
+<pre><code>vm@vm:~/KeyGenLocal$ ls -d build/Debug/
+</code></pre>
+<p>To see more build options:</p>
+<pre><code>vm@vm:~/KeyGenLocal$ ./build.sh --help
 </code></pre>
 <h2 id="run">Run</h2>
-<p>This will display the locally generated AES key.</p>
-<p>Change to the <em>KeyGenLocal/build/Debug</em> folder and enter the following command:</p>
-<pre><code>./KeyGenLocal ${QRYPT_TOKEN}
+<p>To change to the KeyGenLocal build folder:</p>
+<p><em>For linux/mac</em></p>
+<pre><code>vm@vm:~$ cd KeyGenLocal/build
+</code></pre>
+<p><em>for windows</em></p>
+<pre><code>vm@vm:~$ cd KeyGenLocal/build/Debug
+</code></pre>
+<p>To create and dspaly the locally generated AES key:</p>
+<pre><code>./KeyGenLocal --token=${QRYPT_TOKEN}
 </code></pre>
 <h2 id="debug">Debug</h2>
 <p>If you open the folder KeyGenLocal In Visual Studio Code, you will find a debug setup for KeyGenLocal.</p>
@@ -1105,19 +1125,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1644009159"></script>
-    <script src="/js/perfect-scrollbar.min.js?1644009159"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1644009159"></script>
-    <script src="/js/jquery.sticky.js?1644009159"></script>
-    <script src="/js/featherlight.min.js?1644009159"></script>
-    <script src="/js/highlight.pack.js?1644009159"></script>
+    <script src="/js/clipboard.min.js?1644347559"></script>
+    <script src="/js/perfect-scrollbar.min.js?1644347559"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1644347559"></script>
+    <script src="/js/jquery.sticky.js?1644347559"></script>
+    <script src="/js/featherlight.min.js?1644347559"></script>
+    <script src="/js/highlight.pack.js?1644347559"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1644009159"></script>
-    <script src="/js/learn.js?1644009159"></script>
-    <script src="/js/hugo-learn.js?1644009159"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1644347559"></script>
+    <script src="/js/learn.js?1644347559"></script>
+    <script src="/js/hugo-learn.js?1644347559"></script>
     
         
-            <script src="/mermaid/mermaid.js?1644009159"></script>
+            <script src="/mermaid/mermaid.js?1644347559"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

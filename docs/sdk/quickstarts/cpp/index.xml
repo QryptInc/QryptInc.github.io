@@ -14,7 +14,7 @@
       
       <guid>https://QryptInc.github.io/sdk/quickstarts/cpp/keygendistributed/</guid>
       <description>Sample Code Find the finalized code for this quickstart on GitHub.
-Prerequisites  A Qrypt Account. Create an account for free. Install CMake. (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup  Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal and create an environment variable QRYPT_TOKEN for it.</description>
+Prerequisites  A Qrypt Account. Create an account for free. Install CMake. (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup  Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal with the scope KEYGEN. (Optional) Create an environment variable QRYPT_TOKEN for it.</description>
     </item>
     
     <item>
@@ -24,7 +24,7 @@ Prerequisites  A Qrypt Account. Create an account for free. Install CMake. (Wind
       
       <guid>https://QryptInc.github.io/sdk/quickstarts/cpp/keygenlocal/</guid>
       <description>Sample Code Find the finalized code for this quickstart on GitHub.
-Prerequisites  A Qrypt Account. Create an account for free. Install CMake. (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup  Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal and create an environment variable QRYPT_TOKEN for it.</description>
+Prerequisites  A Qrypt Account. Create an account for free. Install CMake. (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup  Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal with the scope ENTROPY. (Optional) Create an environment variable QRYPT_TOKEN for it.</description>
     </item>
     
   </channel>
