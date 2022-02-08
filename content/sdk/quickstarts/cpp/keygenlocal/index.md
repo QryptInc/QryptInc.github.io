@@ -17,7 +17,8 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Qrypt
 
 # Setup
 1. Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.
-1. Retrieve a token from the [Qrypt Portal](https://portal.qrypt.com/) and create an environment variable **QRYPT_TOKEN** for it.
+1. Retrieve a token from the [Qrypt Portal](https://portal.qrypt.com/) with the scope **ENTROPY**.
+1. (Optional) Create an environment variable **QRYPT_TOKEN** for it. For simplicity, the commands below will be referencing a **QRYPT_TOKEN** environment variable but you can also just use the token direclty in the commands below.
 1. Download the Qrypt Security SDK for your platform.
 1. Create a lib folder and extract the Qrypt Security SDK into it.
 
@@ -31,23 +32,51 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Qrypt
                /lib
                /res (Windows)
 
+**Macos Security Warning**
+
+Mac users will need to allow use of the library in the Security & Privacy settings. This will be fixed in a future release.
+
+*Reference*
+
+https://support.apple.com/en-us/HT202491
 ## Build
-In a terminal, change to the KeyGenLocal folder and enter the following to build the KeyGenLocal console application.
+To change to the KeyGenLocal folder:
+    
+    vm@vm:~$ cd KeyGenLocal
 
-    ./build.sh --build_type=Debug
+To make a (debug) build:
+    
+    vm@vm:~/KeyGenLocal$ ./build.sh --build_type=Debug
 
-Upon a successful build, the KeyGenLocal console application can be found in the build/Debug folder.
+To find the build folder (if it built successfully):
 
-Enter the following command for a complete set of build options:
+*For linux/mac*
+        
+    vm@vm:~/KeyGenLocal$ ls -d build
+    
+*For windows*
 
-    ./build.sh --help
+    vm@vm:~/KeyGenLocal$ ls -d build/Debug/
+
+To see more build options:
+    
+    vm@vm:~/KeyGenLocal$ ./build.sh --help
 
 ## Run
-This will display the locally generated AES key.
+To change to the KeyGenLocal build folder:
 
-Change to the *KeyGenLocal/build/Debug* folder and enter the following command:
+*For linux/mac*
+    
+    vm@vm:~$ cd KeyGenLocal/build
 
-    ./KeyGenLocal ${QRYPT_TOKEN}
+*for windows*
+
+    vm@vm:~$ cd KeyGenLocal/build/Debug
+
+
+To create and dspaly the locally generated AES key:
+
+    ./KeyGenLocal --token=${QRYPT_TOKEN}
  
 ## Debug
 If you open the folder KeyGenLocal In Visual Studio Code, you will find a debug setup for KeyGenLocal.

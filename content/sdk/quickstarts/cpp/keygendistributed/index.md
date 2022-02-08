@@ -17,7 +17,8 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Qrypt
 
 ## Setup
 1. Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.
-1. Retrieve a token from the [Qrypt Portal](https://portal.qrypt.com/) and create an environment variable **QRYPT_TOKEN** for it.
+1. Retrieve a token from the [Qrypt Portal](https://portal.qrypt.com/) with the scope **KEYGEN**.
+1. (Optional) Create an environment variable **QRYPT_TOKEN** for it. For simplicity, the commands below will be referencing a **QRYPT_TOKEN** environment variable but you can also just use the token direclty in the commands below.
 1. Download the Qrypt Security SDK for your platform.
 1. Create a lib folder and extract the Qrypt Security SDK into it.
 
@@ -31,31 +32,68 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Qrypt
                /lib
                /res (Windows)
 
+**Macos Security Warning**
+
+Mac users will need to allow use of the library in the Security & Privacy settings. This will be fixed in a future release.
+
+*Reference*
+
+https://support.apple.com/en-us/HT202491
 ## Build
-In a terminal, change to the KeyGenDistributed folder and enter the following to build the KeyGenDistibuted console application.
+To change to the KeyGenDistributed folder:
+    
+    vm@vm:~$ cd KeyGenDistributed
 
-    ./build.sh --build_type=Debug
+To make a (debug) build:
+    
+    vm@vm:~/KeyGenDistributed$ ./build.sh --build_type=Debug
 
-Upon a successful build, the KeyGenDistributed console application can be found in the build/Debug folder.
+To find the build folder (if it built successfully):
 
-Enter the following command for a complete set of build options:
+*For linux/mac*
+        
+    vm@vm:~/KeyGenDistributed$ ls -d build
+    
+*For windows*
 
-    ./build.sh --help
+    vm@vm:~/KeyGenDistributed$ ls -d build/Debug/
+
+To see more build options:
+    
+    vm@vm:~/KeyGenDistributed$ ./build.sh --help
 
 ## Run
 ### Run as Alice
-This will display the shared key and write out the metadata file for Bob.
+To change to the KeyGenDistributed build folder:
 
-Change to the *KeyGenDistributed/build/Debug* folder and enter the following command:
+*For linux/mac*
+    
+    vm@vm:~$ cd KeyGenDistributed/build
 
-    ./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --filename=metadata.bin
+*for windows*
+
+    vm@vm:~$ cd KeyGenDistributed/build/Debug
+
+ 
+To run as Alice:
+
+    ./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --metadata-filename=metadata.bin
  
 ### Run as Bob
-This will consume the metadata file created by Alice above and display the shared key.
+To change to the KeyGenDistributed build folder:
 
-Make sure you are still in the  *KeyGenDistributed/build/Debug* folder and enter the following command:
+*For linux/mac*
+    
+    vm@vm:~$ cd KeyGenDistributed/build
 
-    ./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --filename=metadata.bin
+*for windows*
+
+    vm@vm:~$ cd KeyGenDistributed/build/Debug
+
+ 
+To run as Alice:
+
+    ./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin
 
 ## Debug
 If you open the folder KeyGenDistributed In Visual Studio Code, you will find debug setups for running as Alice and Bob.
