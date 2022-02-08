@@ -5,20 +5,22 @@ weight = 10
 chapter = false
 +++
 
-### What is Qrypt Security?
+Developers need familiar tools based on modern development practices. We provide an SDK that can be easily integrated to applications and infrastructure to make them quantum-secure.
 
-Qrypt Security includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum and everlasting security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography. 
+The Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography. 
 
-Specifically, we currently offer features for:
+#### Qrypt SDK for C++
 
-* post-quantum safe file encryption
-* secure end-to-end messaging 
-* one-time pads (late 4th Quarter, 2021)
+**Features**
+* local key generation
+* distributed key generation 
 
-Our Quantum Enhanced Classical product line brings value to you by giving you quantum random on your computers, encrypting files with better AES keys generated from quantum random, and better messaging that you're using now because the keys are created from quantum random. But our Everlasting Security product line gives you those things, as well as a seamless upgrade path to Post Quantum security and beyond, when you're ready.
+**Library Compatibility**
 
-{{< figure src="images/crypto-agility-table.svg" >}}
+The C++ SDK is built using the following compilers.
 
-{{% notice note %}}
-The Everlasting Security product line will be available late 4th Quarter, 2021.
-{{% /notice %}}
+| Platform | Compiler | CPU
+|---|---|---|
+| Linux | Clang 9.0.0 | x64 |
+| Macos | AppleClang 12.0.0.12000032 | x64 |
+| Windows | Clang 9.0.0 with MSVC-like command-line | x64 |
