@@ -12,22 +12,22 @@
     <title>Quickstart: Distributed Key Generation :: Qrypt</title>
 
     
-    <link href="/css/nucleus.css?1644009159" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1644009159" rel="stylesheet">
-    <link href="/css/hybrid.css?1644009159" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1644009159" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1644009159" rel="stylesheet">
-    <link href="/css/auto-complete.css?1644009159" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1644009159" rel="stylesheet">
-    <link href="/css/theme.css?1644009159" rel="stylesheet">
-    <link href="/css/tabs.css?1644009159" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1644009159" rel="stylesheet">
+    <link href="/css/nucleus.css?1644347559" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1644347559" rel="stylesheet">
+    <link href="/css/hybrid.css?1644347559" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1644347559" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1644347559" rel="stylesheet">
+    <link href="/css/auto-complete.css?1644347559" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1644347559" rel="stylesheet">
+    <link href="/css/theme.css?1644347559" rel="stylesheet">
+    <link href="/css/tabs.css?1644347559" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1644347559" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1644009159" rel="stylesheet">
+    <link href="/css/theme-mine.css?1644347559" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1644009159"></script>
+    <script src="/js/jquery-3.3.1.min.js?1644347559"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1644009159"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1644009159"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1644347559"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1644347559"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/QryptInc.github.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1644009159"></script>
+<script type="text/javascript" src="/js/search.js?1644347559"></script>
 
     
   </div>
@@ -731,7 +731,8 @@
 <h2 id="setup">Setup</h2>
 <ol>
 <li>Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.</li>
-<li>Retrieve a token from the <a href="https://portal.qrypt.com/">Qrypt Portal</a> and create an environment variable <strong>QRYPT_TOKEN</strong> for it.</li>
+<li>Retrieve a token from the <a href="https://portal.qrypt.com/">Qrypt Portal</a> with the scope <strong>KEYGEN</strong>.</li>
+<li>(Optional) Create an environment variable <strong>QRYPT_TOKEN</strong> for it. For simplicity, the commands below will be referencing a <strong>QRYPT_TOKEN</strong> environment variable but you can also just use the token direclty in the commands below.</li>
 <li>Download the Qrypt Security SDK for your platform.</li>
 <li>Create a lib folder and extract the Qrypt Security SDK into it.</li>
 </ol>
@@ -744,24 +745,49 @@
            /lib
            /res (Windows)
 </code></pre>
+<p><strong>Macos Security Warning</strong></p>
+<p>Mac users will need to allow use of the library in the Security &amp; Privacy settings. This will be fixed in a future release.</p>
+<p><em>Reference</em></p>
+<p><a href="https://support.apple.com/en-us/HT202491">https://support.apple.com/en-us/HT202491</a></p>
 <h2 id="build">Build</h2>
-<p>In a terminal, change to the KeyGenDistributed folder and enter the following to build the KeyGenDistibuted console application.</p>
-<pre><code>./build.sh --build_type=Debug
+<p>To change to the KeyGenDistributed folder:</p>
+<pre><code>vm@vm:~$ cd KeyGenDistributed
 </code></pre>
-<p>Upon a successful build, the KeyGenDistributed console application can be found in the build/Debug folder.</p>
-<p>Enter the following command for a complete set of build options:</p>
-<pre><code>./build.sh --help
+<p>To make a (debug) build:</p>
+<pre><code>vm@vm:~/KeyGenDistributed$ ./build.sh --build_type=Debug
+</code></pre>
+<p>To find the build folder (if it built successfully):</p>
+<p><em>For linux/mac</em></p>
+<pre><code>vm@vm:~/KeyGenDistributed$ ls -d build
+</code></pre>
+<p><em>For windows</em></p>
+<pre><code>vm@vm:~/KeyGenDistributed$ ls -d build/Debug/
+</code></pre>
+<p>To see more build options:</p>
+<pre><code>vm@vm:~/KeyGenDistributed$ ./build.sh --help
 </code></pre>
 <h2 id="run">Run</h2>
 <h3 id="run-as-alice">Run as Alice</h3>
-<p>This will display the shared key and write out the metadata file for Bob.</p>
-<p>Change to the <em>KeyGenDistributed/build/Debug</em> folder and enter the following command:</p>
-<pre><code>./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --filename=metadata.bin
+<p>To change to the KeyGenDistributed build folder:</p>
+<p><em>For linux/mac</em></p>
+<pre><code>vm@vm:~$ cd KeyGenDistributed/build
+</code></pre>
+<p><em>for windows</em></p>
+<pre><code>vm@vm:~$ cd KeyGenDistributed/build/Debug
+</code></pre>
+<p>To run as Alice:</p>
+<pre><code>./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --metadata-filename=metadata.bin
 </code></pre>
 <h3 id="run-as-bob">Run as Bob</h3>
-<p>This will consume the metadata file created by Alice above and display the shared key.</p>
-<p>Make sure you are still in the  <em>KeyGenDistributed/build/Debug</em> folder and enter the following command:</p>
-<pre><code>./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --filename=metadata.bin
+<p>To change to the KeyGenDistributed build folder:</p>
+<p><em>For linux/mac</em></p>
+<pre><code>vm@vm:~$ cd KeyGenDistributed/build
+</code></pre>
+<p><em>for windows</em></p>
+<pre><code>vm@vm:~$ cd KeyGenDistributed/build/Debug
+</code></pre>
+<p>To run as Alice:</p>
+<pre><code>./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin
 </code></pre>
 <h2 id="debug">Debug</h2>
 <p>If you open the folder KeyGenDistributed In Visual Studio Code, you will find debug setups for running as Alice and Bob.</p>
@@ -1111,19 +1137,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1644009159"></script>
-    <script src="/js/perfect-scrollbar.min.js?1644009159"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1644009159"></script>
-    <script src="/js/jquery.sticky.js?1644009159"></script>
-    <script src="/js/featherlight.min.js?1644009159"></script>
-    <script src="/js/highlight.pack.js?1644009159"></script>
+    <script src="/js/clipboard.min.js?1644347559"></script>
+    <script src="/js/perfect-scrollbar.min.js?1644347559"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1644347559"></script>
+    <script src="/js/jquery.sticky.js?1644347559"></script>
+    <script src="/js/featherlight.min.js?1644347559"></script>
+    <script src="/js/highlight.pack.js?1644347559"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1644009159"></script>
-    <script src="/js/learn.js?1644009159"></script>
-    <script src="/js/hugo-learn.js?1644009159"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1644347559"></script>
+    <script src="/js/learn.js?1644347559"></script>
+    <script src="/js/hugo-learn.js?1644347559"></script>
     
         
-            <script src="/mermaid/mermaid.js?1644009159"></script>
+            <script src="/mermaid/mermaid.js?1644347559"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

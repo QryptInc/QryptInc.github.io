@@ -24,3 +24,11 @@ The C++ SDK is built using the following compilers.
 | Linux | Clang 9.0.0 | x64 |
 | Macos | AppleClang 12.0.0.12000032 | x64 |
 | Windows | Clang 9.0.0 with MSVC-like command-line | x64 |
+
+**Macos Security Warning**
+
+Mac users will need to allow use of the library in the Security & Privacy settings. This will be fixed in a future release.
+
+*Reference*
+
+https://support.apple.com/en-us/HT202491
