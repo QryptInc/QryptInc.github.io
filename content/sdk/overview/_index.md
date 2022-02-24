@@ -31,4 +31,4 @@ Mac users will need to allow use of the library in the Security & Privacy settin
 
 *Reference*
 
-https://support.apple.com/en-us/HT202491
+{{< externalLink link="https://support.apple.com/en-us/HT202491" text="https://support.apple.com/en-us/HT202491" >}}

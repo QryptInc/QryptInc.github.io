@@ -20,7 +20,7 @@ Each base64-encoded string can be decoded to 1,024 bytes of entropy. When all ba
 
 Qrypt does not have access to your password, but you can place a request to change your password.
 
-1. Navigate to the portal at https://portal.qrypt.com/login and click the “Forgot password?” link.
+1. Navigate to the portal at {{< externalLink link="https://portal.qrypt.com/login" text="https://portal.qrypt.com/login" >}} and click the “Forgot password?” link.
 
 2. Enter the email address associated with your account and click the “Send me the link” button.
 
@@ -28,7 +28,7 @@ Qrypt does not have access to your password, but you can place a request to chan
 
 **How do I change my password?**
 
-1. Navigate to the portal at https://portal.qrypt.com/login and login to your account.
+1. Navigate to the portal at {{< externalLink link="https://portal.qrypt.com/login" text="https://portal.qrypt.com/login" >}} and login to your account.
 
 2. Click the account icon (top-right corner) and select “Account settings.”
 

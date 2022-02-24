@@ -7,7 +7,7 @@ disableToc = "true"
 +++
 
 ## Getting Started with the Data at Rest Client
-In the following guide, we will help you get started with encrypting your data with a One Time Pad using the Qrypt Data at Rest Algorithm (QDARA) client. This guide will show you how to encrypt a file containing the message “Hello World”. For more detailed instruction on using the command line interface, please reference our [QDARA Reference Guide](https://www.qrypt.com/qdara-ref-guide). 
+In the following guide, we will help you get started with encrypting your data with a One Time Pad using the Qrypt Data at Rest Algorithm (QDARA) client. This guide will show you how to encrypt a file containing the message “Hello World”. For more detailed instruction on using the command line interface, please reference our {{< externalLink link="https://www.qrypt.com/qdara-ref-guide" text="QDARA Reference Guide" >}}.
 
 For decryption, there are two use cases: 
 
@@ -23,7 +23,7 @@ Follow the instructions at https://www.qrypt.com/docs/eaas to
 
 2. Generate an access token. 
 
-Download the QDARA client for the OS you are running at https://portal.qrypt.com/ into a folder of your choice. To verify you downloaded the correct .zip file, you can check that the SHA256 Hash matches the one listed on the Download page.
+Download the QDARA client for the OS you are running at {{< externalLink link="https://portal.qrypt.com/qdara-ref-guide" text="https://portal.qrypt.com/" >}} into a folder of your choice. To verify you downloaded the correct .zip file, you can check that the SHA256 Hash matches the one listed on the Download page.
 
 For MacOS and Linux, to compute the hash, run
 
