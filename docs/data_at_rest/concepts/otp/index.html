@@ -12,22 +12,22 @@
     <title>One-Time Pad (OTP) :: Qrypt</title>
 
     
-    <link href="/css/nucleus.css?1644352907" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1644352907" rel="stylesheet">
-    <link href="/css/hybrid.css?1644352907" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1644352907" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1644352907" rel="stylesheet">
-    <link href="/css/auto-complete.css?1644352907" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1644352907" rel="stylesheet">
-    <link href="/css/theme.css?1644352907" rel="stylesheet">
-    <link href="/css/tabs.css?1644352907" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1644352907" rel="stylesheet">
+    <link href="/css/nucleus.css?1645735951" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1645735951" rel="stylesheet">
+    <link href="/css/hybrid.css?1645735951" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1645735951" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1645735951" rel="stylesheet">
+    <link href="/css/auto-complete.css?1645735951" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1645735951" rel="stylesheet">
+    <link href="/css/theme.css?1645735951" rel="stylesheet">
+    <link href="/css/tabs.css?1645735951" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1645735951" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1644352907" rel="stylesheet">
+    <link href="/css/theme-mine.css?1645735951" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1644352907"></script>
+    <script src="/js/jquery-3.3.1.min.js?1645735951"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1644352907"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1644352907"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1645735951"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1645735951"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/QryptInc.github.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1644352907"></script>
+<script type="text/javascript" src="/js/search.js?1645735951"></script>
 
     
   </div>
@@ -755,14 +755,14 @@
 <p>One-Time Pads are only secure if the key is truly random, <strong>and only recent quantum technology has made truly random keys possible</strong>.</p>
 <p>In addition, One-Time Pads are only secure if the keys are never reused. This means we need to share a newly randomly generated key, which is the same size of the plaintext, every time we want to send a new plaintext message. <strong>This reduces the security of the One-Time Pad down to the security of the key exchange algorithm.</strong></p>
 <h2 id="qrypt-data-at-rest-algorithm--qdara">Qrypt Data at Rest Algorithm – QDARA</h2>
-<p>To encrypt data at rest, we don’t need to worry about key exchange. There will either be a single party encrypting data on their device, or multiple parties who have physically distributed a truly random string X. The use case for the QDARA client is described in Section 5.1 of the <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf">whitepaper</a>.</p>
+<p>To encrypt data at rest, we don’t need to worry about key exchange. There will either be a single party encrypting data on their device, or multiple parties who have physically distributed a truly random string X. The use case for the QDARA client is described in Section 5.1 of the <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf" target="_blank" rel="noopener noreferrer">whitepaper</a>.</p>
 <h3 id="blast">BLAST</h3>
 <p>The Bounded Linearly Accessible String (BLAST) extractor (Yevgeniy Dodis and Kevin Yeo, 2021) is a cryptographic primitive that offers a stateless solution for multiple parties to extract a One-Time Pad given a truly random string <em>X</em>.</p>
 <p>Given a pool of truly random numbers <em>X</em>, BLAST takes a seed <em>S</em> as input, and outputs a One-Time Pad <em>R</em>. The extracted R is indistinguishable from a randomly generated <em>R</em>.</p>
 <figure><img src="images/otp-blast.svg"/>
 </figure>
 
-<p>See the <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf">whitepaper</a> for more details about BLAST and a proof of its indistinguishability from random. Note that the whitepaper refers to BLAST as a doubly affine extractor.</p>
+<p>See the <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf" target="_blank" rel="noopener noreferrer">whitepaper</a> for more details about BLAST and a proof of its indistinguishability from random. Note that the whitepaper refers to BLAST as a doubly affine extractor.</p>
 <h3 id="encryption-and-decryption">Encryption and Decryption</h3>
 <p>Each encryption has three inputs: a plaintext, a key, and either an initialization vector (IV) or a seed. Decryption requires a ciphertext, the same key, and the same IV or seed to decrypt. The procedures are described in more detail in the Init, Encrypt, and Decrypt methods below.</p>
 <p><em>Init (Encryptor):</em></p>
@@ -810,8 +810,8 @@
 <h3 id="why-use-blast-instead-of-using-x-directly">Why use BLAST instead of using <em>X</em> directly?</h3>
 <p>Having a stateless method of determining the One-Time pad from <em>X</em> makes it much easier for parties of 3 or more to communicate using the same random pool <em>X</em>. Instead of requiring all parties to keep track of an index which can easily get out of sync, it is much simpler to use a new seed for each encryption. Using BLAST also ensures that the One-Time Pad is never stored in the clear and offers additional security in case chunks of <em>X</em> are stolen.</p>
 <h3 id="are-we-reusing-one-time-pads">Are we reusing One-Time Pads?</h3>
-<p>We keep track of the percentage of X we have used in the cache file. Once the usage exceeds a user-configurable percentage (default set to 50%) of <em>X</em>, the user can no longer encrypt with <em>X</em> unless they use the –force flag. The percentage corresponds to 1-β in the <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf">whitepaper</a>.</p>
-<p>Although it is possible that BLAST uses the same bit twice in different encryptions, the <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf">whitepaper</a> proves that the extracted One-Time Pad is indistinguishable from a purely random One-Time Pad as long as the total length of the One-Time Pads used is bounded by (1-β)|X|.</p>
+<p>We keep track of the percentage of X we have used in the cache file. Once the usage exceeds a user-configurable percentage (default set to 50%) of <em>X</em>, the user can no longer encrypt with <em>X</em> unless they use the –force flag. The percentage corresponds to 1-β in the <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf" target="_blank" rel="noopener noreferrer">whitepaper</a>.</p>
+<p>Although it is possible that BLAST uses the same bit twice in different encryptions, the <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf" target="_blank" rel="noopener noreferrer">whitepaper</a> proves that the extracted One-Time Pad is indistinguishable from a purely random One-Time Pad as long as the total length of the One-Time Pads used is bounded by (1-β)|X|.</p>
 <h3 id="where-are-the-seeds-stored">Where are the seeds stored?</h3>
 <p>The seeds are encrypted with AES-256, and the encrypted seed is appended to the ciphertext. The AES key and IV are stored in the cache file.</p>
 <h3 id="what-level-of-security-does-qdara-offer">What level of security does QDARA offer?</h3>
@@ -1423,19 +1423,19 @@ Note that for an adversary to break a SKU, they must break the protocol or primi
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1644352907"></script>
-    <script src="/js/perfect-scrollbar.min.js?1644352907"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1644352907"></script>
-    <script src="/js/jquery.sticky.js?1644352907"></script>
-    <script src="/js/featherlight.min.js?1644352907"></script>
-    <script src="/js/highlight.pack.js?1644352907"></script>
+    <script src="/js/clipboard.min.js?1645735951"></script>
+    <script src="/js/perfect-scrollbar.min.js?1645735951"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1645735951"></script>
+    <script src="/js/jquery.sticky.js?1645735951"></script>
+    <script src="/js/featherlight.min.js?1645735951"></script>
+    <script src="/js/highlight.pack.js?1645735951"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1644352907"></script>
-    <script src="/js/learn.js?1644352907"></script>
-    <script src="/js/hugo-learn.js?1644352907"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1645735951"></script>
+    <script src="/js/learn.js?1645735951"></script>
+    <script src="/js/hugo-learn.js?1645735951"></script>
     
         
-            <script src="/mermaid/mermaid.js?1644352907"></script>
+            <script src="/mermaid/mermaid.js?1645735951"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

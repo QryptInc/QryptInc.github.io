@@ -34,7 +34,7 @@ One-Time Pads are only secure if the key is truly random, **and only recent quan
 In addition, One-Time Pads are only secure if the keys are never reused. This means we need to share a newly randomly generated key, which is the same size of the plaintext, every time we want to send a new plaintext message. **This reduces the security of the One-Time Pad down to the security of the key exchange algorithm.**
 
 ## Qrypt Data at Rest Algorithm – QDARA
-To encrypt data at rest, we don’t need to worry about key exchange. There will either be a single party encrypting data on their device, or multiple parties who have physically distributed a truly random string X. The use case for the QDARA client is described in Section 5.1 of the [whitepaper](https://cs.nyu.edu/~dodis/ps/blast.pdf).
+To encrypt data at rest, we don’t need to worry about key exchange. There will either be a single party encrypting data on their device, or multiple parties who have physically distributed a truly random string X. The use case for the QDARA client is described in Section 5.1 of the {{< externalLink link="https://cs.nyu.edu/~dodis/ps/blast.pdf" text="whitepaper" >}}.
 
 ### BLAST
 The Bounded Linearly Accessible String (BLAST) extractor (Yevgeniy Dodis and Kevin Yeo, 2021) is a cryptographic primitive that offers a stateless solution for multiple parties to extract a One-Time Pad given a truly random string *X*.
@@ -43,7 +43,7 @@ Given a pool of truly random numbers *X*, BLAST takes a seed *S* as input, and o
 
 {{< figure src="images/otp-blast.svg" >}}
 
-See the [whitepaper](https://cs.nyu.edu/~dodis/ps/blast.pdf) for more details about BLAST and a proof of its indistinguishability from random. Note that the whitepaper refers to BLAST as a doubly affine extractor.
+See the {{< externalLink link="https://cs.nyu.edu/~dodis/ps/blast.pdf" text="whitepaper" >}} for more details about BLAST and a proof of its indistinguishability from random. Note that the whitepaper refers to BLAST as a doubly affine extractor.
 
 ### Encryption and Decryption
 Each encryption has three inputs: a plaintext, a key, and either an initialization vector (IV) or a seed. Decryption requires a ciphertext, the same key, and the same IV or seed to decrypt. The procedures are described in more detail in the Init, Encrypt, and Decrypt methods below.
@@ -90,9 +90,10 @@ Note: The user is responsible for storing the qrand and qcache files securely.
 Having a stateless method of determining the One-Time pad from *X* makes it much easier for parties of 3 or more to communicate using the same random pool *X*. Instead of requiring all parties to keep track of an index which can easily get out of sync, it is much simpler to use a new seed for each encryption. Using BLAST also ensures that the One-Time Pad is never stored in the clear and offers additional security in case chunks of *X* are stolen.
 
 ### Are we reusing One-Time Pads?
-We keep track of the percentage of X we have used in the cache file. Once the usage exceeds a user-configurable percentage (default set to 50%) of *X*, the user can no longer encrypt with *X* unless they use the –force flag. The percentage corresponds to 1-β in the [whitepaper](https://cs.nyu.edu/~dodis/ps/blast.pdf).
+We keep track of the percentage of X we have used in the cache file. Once the usage exceeds a user-configurable percentage (default set to 50%) of *X*, the user can no longer encrypt with *X* unless they use the –force flag. The percentage corresponds to 1-β in the {{< externalLink link="https://cs.nyu.edu/~dodis/ps/blast.pdf" text="whitepaper" >}}.
 
-Although it is possible that BLAST uses the same bit twice in different encryptions, the [whitepaper](https://cs.nyu.edu/~dodis/ps/blast.pdf) proves that the extracted One-Time Pad is indistinguishable from a purely random One-Time Pad as long as the total length of the One-Time Pads used is bounded by (1-β)|X|.
+
+Although it is possible that BLAST uses the same bit twice in different encryptions, the {{< externalLink link="https://cs.nyu.edu/~dodis/ps/blast.pdf" text="whitepaper" >}} proves that the extracted One-Time Pad is indistinguishable from a purely random One-Time Pad as long as the total length of the One-Time Pads used is bounded by (1-β)|X|.
 
 ### Where are the seeds stored?
 The seeds are encrypted with AES-256, and the encrypted seed is appended to the ciphertext. The AES key and IV are stored in the cache file.
