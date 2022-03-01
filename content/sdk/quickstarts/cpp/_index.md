@@ -22,7 +22,7 @@ The Qrypt SDK for C++ is built using the following compilers.
 Find the finalized code for these quickstarts on {{< externalLink link="https://github.com/QryptInc/qrypt-security-quickstarts-cpp" text="GitHub" >}}.
 
 ## Prerequisites
-- A Qrypt Account. {{< externalLink link="https://portal.qrypt.com/" text="Create an account for free" >}}.
+- A Qrypt Account. {{< externalLink link="https://portal.qrypt.com/register" text="Create an account for free" >}}.
 
 ## Quickstarts
 1. [Distributed key generation](keygendistributed/)

@@ -10,14 +10,14 @@ chapter = false
 Find the finalized code for this quickstart on {{< externalLink link="https://github.com/QryptInc/qrypt-security-quickstarts-cpp" text="GitHub" >}}
 
 ## Prerequisites
-- A Qrypt Account. {{< externalLink link="https://portal.qrypt.com/" text="Create an account for free" >}}.
+- A Qrypt Account. {{< externalLink link="https://portal.qrypt.com/register" text="Create an account for free" >}}.
 - Install {{< externalLink link="https://cmake.org/" text="CMake" >}}
 - (Windows) Install git bash - comes with typical git install.
 - (Optional) Install {{< externalLink link="https://code.visualstudio.com/" text="Visual Studio Code" >}}.
 
 # Setup
 1. Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.
-1. Retrieve a token from the {{< externalLink link="https://portal.qrypt.com/" text="Qrypt Portal" >}}
+1. Retrieve a token from the {{< externalLink link="https://portal.qrypt.com/tokens" text="Qrypt Portal" >}}
 1. (Optional) Create an environment variable **QRYPT_TOKEN** for it. For simplicity, the commands below will be referencing a **QRYPT_TOKEN** environment variable but you can also just use the token direclty in the commands below.
 1. Download the Qrypt Security SDK for your platform.
 1. Inside the cloned repo, create a lib folder
