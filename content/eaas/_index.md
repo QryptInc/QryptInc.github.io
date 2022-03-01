@@ -16,7 +16,7 @@ To start using Qrypt Entropy as a Service, you need to create a Qrypt account, o
 #### Create a free Qrypt account
 To request entropy from the service, you must first create an account.
 
-1. Navigate to {{< externalLink link="https://portal.qrypt.com" text="https://portal.qrypt.com" >}} and select the option to create a new account.
+1. Navigate to {{< externalLink link="https://portal.qrypt.com/register" text="https://portal.qrypt.com" >}} and create a new account.
 
 2. Enter your email address and a strong password, then click the button to create your account.
 

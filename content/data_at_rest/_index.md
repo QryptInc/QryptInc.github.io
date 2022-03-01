@@ -17,13 +17,13 @@ For decryption, there are two use cases:
 
 ##### Before you get started
 
-Follow the instructions at https://www.qrypt.com/docs/eaas to 
+Follow the instructions at {{< externalLink link="https://www.qrypt.com/docs/eaas" text="https://www.qrypt.com/docs/eaas" >}} to
 
 1. Create a free Qrypt account 
 
 2. Generate an access token. 
 
-Download the QDARA client for the OS you are running at {{< externalLink link="https://portal.qrypt.com/qdara-ref-guide" text="https://portal.qrypt.com/" >}} into a folder of your choice. To verify you downloaded the correct .zip file, you can check that the SHA256 Hash matches the one listed on the Download page.
+Download the QDARA client for the OS you are running at {{< externalLink link="https://portal.qrypt.com/downloads/qdara-downloads" text="https://portal.qrypt.com/" >}} into a folder of your choice. To verify you downloaded the correct .zip file, you can check that the SHA256 Hash matches the one listed on the Download page.
 
 For MacOS and Linux, to compute the hash, run
 
