@@ -46,7 +46,7 @@ Mac users will need to allow use of the library in the Security & Privacy settin
 ## Build
 To change to the KeyGenLocal folder:
     
-    ~$ cd KeyGenLocal
+    cd KeyGenLocal
 
 To make a (debug) build:
     
