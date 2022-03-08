@@ -46,36 +46,36 @@ Mac users will need to allow use of the library in the Security & Privacy settin
 ## Build
 To change to the KeyGenLocal folder:
     
-    ~$ cd KeyGenLocal
+    cd KeyGenLocal
 
 To make a (debug) build:
     
-    ~/KeyGenLocal$ ./build.sh --build_type=Debug
+    ./build.sh --build_type=Debug
 
 To find the build folder (if it built successfully):
 
 *For linux/mac*
         
-    ~/KeyGenLocal$ ls -d build
+    ls -d build
     
 *For windows*
 
-    ~/KeyGenLocal$ ls -d build/Debug/
+    ls -d build/Debug/
 
 To see more build options:
     
-    ~/KeyGenLocal$ ./build.sh --help
+    ./build.sh --help
 
 ## Run
 To change to the KeyGenLocal build folder:
 
 *For linux/mac*
     
-    ~$ cd KeyGenLocal/build
+    cd KeyGenLocal/build
 
 *for windows*
 
-    ~$ cd KeyGenLocal/build/Debug
+    cd KeyGenLocal/build/Debug
 
 
 To create and dspaly the locally generated AES key:
