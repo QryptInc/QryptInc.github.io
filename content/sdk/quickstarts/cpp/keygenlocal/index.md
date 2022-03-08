@@ -46,41 +46,41 @@ Mac users will need to allow use of the library in the Security & Privacy settin
 ## Build
 To change to the KeyGenLocal folder:
     
-    cd KeyGenLocal
+    {{< commandline text="cd KeyGenLocal" >}}
 
 To make a (debug) build:
     
-    ./build.sh --build_type=Debug
+    {{< commandline text="./build.sh --build_type=Debug" >}}
 
 To find the build folder (if it built successfully):
 
 *For linux/mac*
-        
-    ls -d build
+    
+    {{< commandline text="ls -d build" >}}
     
 *For windows*
 
-    ls -d build/Debug/
+    {{< commandline text="ls -d build/Debug/" >}}
 
 To see more build options:
     
-    ./build.sh --help
+    {{< commandline text="./build.sh --help" >}}
 
 ## Run
 To change to the KeyGenLocal build folder:
 
 *For linux/mac*
     
-    cd KeyGenLocal/build
+    {{< commandline text="cd KeyGenLocal/build" >}}
 
 *for windows*
 
-    cd KeyGenLocal/build/Debug
+    {{< commandline text="cd KeyGenLocal/build/Debug" >}}
 
 
 To create and dspaly the locally generated AES key:
 
-    ./KeyGenLocal --token=${QRYPT_TOKEN}
+    {{< commandline text="./KeyGenLocal --token=${QRYPT_TOKEN}" >}}
  
 ## Debug
 If you open the folder KeyGenLocal In Visual Studio Code, you will find a debug setup for KeyGenLocal.
