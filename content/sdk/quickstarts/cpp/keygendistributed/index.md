@@ -47,21 +47,21 @@ To change to the KeyGenDistributed folder:
 
 To make a (debug) build:
     
-    ~/KeyGenDistributed$ ./build.sh --build_type=Debug
+    ./build.sh --build_type=Debug
 
 To find the build folder (if it built successfully):
 
 *For linux/mac*
         
-    ~/KeyGenDistributed$ ls -d build
+    ls -d build
     
 *For windows*
 
-    ~/KeyGenDistributed$ ls -d build/Debug/
+    ls -d build/Debug/
 
 To see more build options:
     
-    ~/KeyGenDistributed$ ./build.sh --help
+    ./build.sh --help
 
 ## Run
 ### Run as Alice
