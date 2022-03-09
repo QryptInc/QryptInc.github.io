@@ -43,25 +43,25 @@ Mac users will need to allow use of the library in the Security & Privacy settin
 ## Build
 To change to the KeyGenDistributed folder:
     
-    cd KeyGenDistributed
+    {{< commandline text="cd KeyGenDistributed" >}}
 
 To make a (debug) build:
     
-    ./build.sh --build_type=Debug
+    {{< commandline text="./build.sh --build_type=Debug" >}}
 
 To find the build folder (if it built successfully):
 
 *For linux/mac*
         
-    ls -d build
+    {{< commandline text="ls -d build" >}}
     
 *For windows*
 
-    ls -d build/Debug/
+    {{< commandline text="ls -d build/Debug/" >}}
 
 To see more build options:
     
-    ./build.sh --help
+    {{< commandline text="./build.sh --help" >}}
 
 ## Run
 ### Run as Alice
@@ -69,32 +69,32 @@ To change to the KeyGenDistributed build folder:
 
 *For linux/mac*
     
-    cd KeyGenDistributed/build
+    {{< commandline text="cd KeyGenDistributed/build" >}}
 
 *for windows*
 
-    cd KeyGenDistributed/build/Debug
+    {{< commandline text="cd KeyGenDistributed/build/Debug" >}}
 
  
 To run as Alice:
 
-    ./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --metadata-filename=metadata.bin
+    {{< commandline text="./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --metadata-filename=metadata.bin" >}}
  
 ### Run as Bob
 To change to the KeyGenDistributed build folder:
 
 *For linux/mac*
     
-    cd KeyGenDistributed/build
+    {{< commandline text="cd KeyGenDistributed/build" >}}
 
 *for windows*
 
-    cd KeyGenDistributed/build/Debug
+    {{< commandline text="cd KeyGenDistributed/build/Debug" >}}
 
  
 To run as Alice:
 
-    ./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin
+    {{< commandline text="./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin" >}}
 
 ## Debug
 If you open the folder KeyGenDistributed In Visual Studio Code, you will find debug setups for running as Alice and Bob.

@@ -81,6 +81,11 @@ code {
     font-family: "IBM Plex Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 }
 
+#commandline span{
+    color: #abb2bf;
+    font-style: normal;
+}
+
 a {
     color: var(--MAIN-LINK-color);
 }
