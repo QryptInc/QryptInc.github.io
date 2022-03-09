@@ -7,27 +7,5 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Oct 2021 14:05:15 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Quickstart: Distributed Key Generation</title>
-      <link>https://QryptInc.github.io/sdk/quickstarts/cpp/keygendistributed/</link>
-      <pubDate>Mon, 18 Oct 2021 09:01:22 -0400</pubDate>
-      
-      <guid>https://QryptInc.github.io/sdk/quickstarts/cpp/keygendistributed/</guid>
-      <description>Sample Code Find the finalized code for this quickstart on GitHub.
-Prerequisites  A Qrypt Account. Create an account for free. Install CMake. (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup   Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.
-  Retrieve a token from the Qrypt Portal.
-  (Optional) Create an environment variable QRYPT_TOKEN for it.</description>
-    </item>
-    
-    <item>
-      <title>Quickstart: Local Key Generation</title>
-      <link>https://QryptInc.github.io/sdk/quickstarts/cpp/keygenlocal/</link>
-      <pubDate>Mon, 18 Oct 2021 09:01:22 -0400</pubDate>
-      
-      <guid>https://QryptInc.github.io/sdk/quickstarts/cpp/keygenlocal/</guid>
-      <description>Sample Code Find the finalized code for this quickstart on GitHub
-Prerequisites  A Qrypt Account. Create an account for free. Install CMake (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup  Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal (Optional) Create an environment variable QRYPT_TOKEN for it.</description>
-    </item>
-    
   </channel>
 </rss>

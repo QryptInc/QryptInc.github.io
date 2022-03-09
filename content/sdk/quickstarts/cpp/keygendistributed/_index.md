@@ -18,10 +18,12 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
 ## Setup
 1. Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.
 1. Retrieve a token from the {{< externalLink link="https://portal.qrypt.com/tokens" text="Qrypt Portal" >}}.
-
 1. (Optional) Create an environment variable **QRYPT_TOKEN** for it. For simplicity, the commands below will be referencing a **QRYPT_TOKEN** environment variable but you can also just use the token directly in the commands below.
 1. Download the Qrypt Security SDK for your platform.
-1. Create a lib folder and extract the Qrypt Security SDK into it.
+1. Inside the cloned repo, create a lib folder.
+1. Extract the Qrypt Security SDK.
+1. Rename the extracted folder to "QryptSecurity".
+1. Move the new "QryptSecurity" folder into the lib folder.
 
 *Expected Folder structure*
 
@@ -33,13 +35,6 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
                /lib
                /res (Windows)
 
-**Macos Security Warning**
-
-Mac users will need to allow use of the library in the Security & Privacy settings. This will be fixed in a future release.
-
-*Reference* 
-
-{{< externalLink link="https://support.apple.com/en-us/HT202491" text="https://support.apple.com/en-us/HT202491" >}}
 ## Build
 To change to the KeyGenDistributed folder:
     
