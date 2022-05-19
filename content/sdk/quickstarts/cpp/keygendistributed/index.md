@@ -20,7 +20,7 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
 1. Retrieve a token from the {{< externalLink link="https://portal.qrypt.com/tokens" text="Qrypt Portal" >}}.
 
 1. (Optional) Create an environment variable **QRYPT_TOKEN** for it. For simplicity, the commands below will be referencing a **QRYPT_TOKEN** environment variable but you can also just use the token directly in the commands below.
-1. Download the Qrypt Security SDK for your platform.
+1. Download the Qrypt Security SDK from the {{< externalLink link="https://portal.qrypt.com/downloads/sdk-downloads" text="Qrypt Portal" >}} for your platform.
 1. Create a lib folder and extract the Qrypt Security SDK into it.
 
 *Expected Folder structure*
@@ -33,13 +33,10 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
                /lib
                /res (Windows)
 
-**Macos Security Warning**
+{{% notice warning %}}
+The Qrypt Security Linux SDK v0.5.1 is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.
+{{% /notice %}}
 
-Mac users will need to allow use of the library in the Security & Privacy settings. This will be fixed in a future release.
-
-*Reference* 
-
-{{< externalLink link="https://support.apple.com/en-us/HT202491" text="https://support.apple.com/en-us/HT202491" >}}
 ## Build
 To change to the KeyGenDistributed folder:
     
@@ -85,11 +82,11 @@ To change to the KeyGenDistributed build folder:
 
 *For linux/mac*
     
-    {{< commandline text="cd KeyGenDistributed/build" >}}
+    {{< commandline text="cd build" >}}
 
 *for windows*
 
-    {{< commandline text="cd KeyGenDistributed/build/Debug" >}}
+    {{< commandline text="cd build/Debug" >}}
 
  
 To run as Alice:

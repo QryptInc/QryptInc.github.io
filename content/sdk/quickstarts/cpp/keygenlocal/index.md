@@ -19,7 +19,7 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
 1. Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.
 1. Retrieve a token from the {{< externalLink link="https://portal.qrypt.com/tokens" text="Qrypt Portal" >}}
 1. (Optional) Create an environment variable **QRYPT_TOKEN** for it. For simplicity, the commands below will be referencing a **QRYPT_TOKEN** environment variable but you can also just use the token direclty in the commands below.
-1. Download the Qrypt Security SDK for your platform.
+1. Download the Qrypt Security SDK from the {{< externalLink link="https://portal.qrypt.com/downloads/sdk-downloads" text="Qrypt Portal" >}} for your platform.
 1. Inside the cloned repo, create a lib folder
 1. Extract the Qrypt Security SDK.
 1. Remane the extracted folder to "QryptSecurity"
@@ -35,13 +35,9 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
                /lib
                /res (Windows)
 
-**Macos Security Warning**
-
-Mac users will need to allow use of the library in the Security & Privacy settings. This will be fixed in a future release.
-
-*Reference*
-
-{{< externalLink link="https://support.apple.com/en-us/HT202491" text="https://support.apple.com/en-us/HT202491" >}}
+{{% notice warning %}}
+The Qrypt Security Linux SDK v0.5.1 is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.
+{{% /notice %}}
 
 ## Build
 To change to the KeyGenLocal folder:
@@ -71,16 +67,16 @@ To change to the KeyGenLocal build folder:
 
 *For linux/mac*
     
-    {{< commandline text="cd KeyGenLocal/build" >}}
+    {{< commandline text="cd build" >}}
 
-*for windows*
+*For windows*
 
-    {{< commandline text="cd KeyGenLocal/build/Debug" >}}
+    {{< commandline text="cd build/Debug" >}}
 
 
 To create and dspaly the locally generated AES key:
 
-    {{< commandline text="./KeyGenLocal --token=${QRYPT_TOKEN}" >}}
+    {{< commandline text="./KeyGenLocal --token=${QRYPT_TOKEN} --cache-dir=cache" >}}
  
 ## Debug
 If you open the folder KeyGenLocal In Visual Studio Code, you will find a debug setup for KeyGenLocal.

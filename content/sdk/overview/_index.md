@@ -25,10 +25,6 @@ The C++ SDK is built using the following compilers.
 | Macos | AppleClang 12.0.0.12000032 | x64 |
 | Windows | Clang 9.0.0 with MSVC-like command-line | x64 |
 
-**Macos Security Warning**
-
-Mac users will need to allow use of the library in the Security & Privacy settings. This will be fixed in a future release.
-
-*Reference*
-
-{{< externalLink link="https://support.apple.com/en-us/HT202491" text="https://support.apple.com/en-us/HT202491" >}}
+{{% notice warning %}}
+The Qrypt Security Linux SDK v0.5.1 is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.
+{{% /notice %}}
