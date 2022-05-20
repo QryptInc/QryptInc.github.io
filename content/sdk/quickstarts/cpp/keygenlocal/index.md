@@ -20,14 +20,13 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
 1. Retrieve a token from the {{< externalLink link="https://portal.qrypt.com/tokens" text="Qrypt Portal" >}}
 1. (Optional) Create an environment variable **QRYPT_TOKEN** for it. For simplicity, the commands below will be referencing a **QRYPT_TOKEN** environment variable but you can also just use the token direclty in the commands below.
 1. Download the Qrypt Security SDK from the {{< externalLink link="https://portal.qrypt.com/downloads/sdk-downloads" text="Qrypt Portal" >}} for your platform.
-1. Inside the cloned repo, create a lib folder
-1. Extract the Qrypt Security SDK.
-1. Remane the extracted folder to "QryptSecurity"
-1. Move the new "QryptSecurity" folder into the lib folder
 
-*Expected Folder structure*
+**Linux/Windows**
+1. Create a lib folder and extract the Qrypt Security SDK into it.
 
-    KeyGenLocal
+*Expected Folder structure (Linux/Windows)*
+
+    KeyGenDistributed
        /lib
            /QryptSecurity
                /bin (Windows)
@@ -38,6 +37,14 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
 {{% notice warning %}}
 The Qrypt Security Linux SDK v0.5.1 is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.
 {{% /notice %}}
+
+**MacOS**
+1. Extract the SDK into ~/Library/Frameworks.
+
+*Expected Folder structure (MacOS)*
+
+    ~/Library/Frameworks
+       /QryptSecurity.framework
 
 ## Build
 To change to the KeyGenLocal folder:

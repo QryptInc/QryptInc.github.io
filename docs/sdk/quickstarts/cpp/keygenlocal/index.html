@@ -12,22 +12,22 @@
     <title>Quickstart: Local Key Generation :: Qrypt</title>
 
     
-    <link href="/css/nucleus.css?1652985467" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1652985467" rel="stylesheet">
-    <link href="/css/hybrid.css?1652985467" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1652985467" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1652985467" rel="stylesheet">
-    <link href="/css/auto-complete.css?1652985467" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1652985467" rel="stylesheet">
-    <link href="/css/theme.css?1652985467" rel="stylesheet">
-    <link href="/css/tabs.css?1652985467" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1652985467" rel="stylesheet">
+    <link href="/css/nucleus.css?1653065545" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653065545" rel="stylesheet">
+    <link href="/css/hybrid.css?1653065545" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653065545" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653065545" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653065545" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1653065545" rel="stylesheet">
+    <link href="/css/theme.css?1653065545" rel="stylesheet">
+    <link href="/css/tabs.css?1653065545" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1653065545" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1652985467" rel="stylesheet">
+    <link href="/css/theme-mine.css?1653065545" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1652985467"></script>
+    <script src="/js/jquery-3.3.1.min.js?1653065545"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1652985467"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1652985467"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1653065545"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1653065545"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/QryptInc.github.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1652985467"></script>
+<script type="text/javascript" src="/js/search.js?1653065545"></script>
 
     
   </div>
@@ -731,13 +731,13 @@
 <li>Retrieve a token from the <a href="https://portal.qrypt.com/tokens" target="_blank" rel="noopener noreferrer">Qrypt Portal</a></li>
 <li>(Optional) Create an environment variable <strong>QRYPT_TOKEN</strong> for it. For simplicity, the commands below will be referencing a <strong>QRYPT_TOKEN</strong> environment variable but you can also just use the token direclty in the commands below.</li>
 <li>Download the Qrypt Security SDK from the <a href="https://portal.qrypt.com/downloads/sdk-downloads" target="_blank" rel="noopener noreferrer">Qrypt Portal</a> for your platform.</li>
-<li>Inside the cloned repo, create a lib folder</li>
-<li>Extract the Qrypt Security SDK.</li>
-<li>Remane the extracted folder to &ldquo;QryptSecurity&rdquo;</li>
-<li>Move the new &ldquo;QryptSecurity&rdquo; folder into the lib folder</li>
 </ol>
-<p><em>Expected Folder structure</em></p>
-<pre><code>KeyGenLocal
+<p><strong>Linux/Windows</strong></p>
+<ol>
+<li>Create a lib folder and extract the Qrypt Security SDK into it.</li>
+</ol>
+<p><em>Expected Folder structure (Linux/Windows)</em></p>
+<pre><code>KeyGenDistributed
    /lib
        /QryptSecurity
            /bin (Windows)
@@ -749,6 +749,14 @@
 <div class="notices warning" ><p>The Qrypt Security Linux SDK v0.5.1 is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.</p>
 </div>
 
+<p><strong>MacOS</strong></p>
+<ol>
+<li>Extract the SDK into ~/Library/Frameworks.</li>
+</ol>
+<p><em>Expected Folder structure (MacOS)</em></p>
+<pre><code>~/Library/Frameworks
+   /QryptSecurity.framework
+</code></pre>
 <h2 id="build">Build</h2>
 <p>To change to the KeyGenLocal folder:</p>
 <pre><code><span id="commandline">cd KeyGenLocal</span>
@@ -1128,19 +1136,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1652985467"></script>
-    <script src="/js/perfect-scrollbar.min.js?1652985467"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1652985467"></script>
-    <script src="/js/jquery.sticky.js?1652985467"></script>
-    <script src="/js/featherlight.min.js?1652985467"></script>
-    <script src="/js/highlight.pack.js?1652985467"></script>
+    <script src="/js/clipboard.min.js?1653065545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653065545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1653065545"></script>
+    <script src="/js/jquery.sticky.js?1653065545"></script>
+    <script src="/js/featherlight.min.js?1653065545"></script>
+    <script src="/js/highlight.pack.js?1653065545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1652985467"></script>
-    <script src="/js/learn.js?1652985467"></script>
-    <script src="/js/hugo-learn.js?1652985467"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1653065545"></script>
+    <script src="/js/learn.js?1653065545"></script>
+    <script src="/js/hugo-learn.js?1653065545"></script>
     
         
-            <script src="/mermaid/mermaid.js?1652985467"></script>
+            <script src="/mermaid/mermaid.js?1653065545"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
