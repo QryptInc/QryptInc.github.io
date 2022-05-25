@@ -19,7 +19,7 @@ The Qrypt SDK for C++ is built using the following compilers.
 | Windows | Clang 9.0.0 with MSVC-like command-line | x64 |
 
 {{% notice warning %}}
-The Qrypt Security Linux SDK v0.5.1 is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.
+The Qrypt Security Linux SDK v0.5.2 and earlier is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.
 {{% /notice %}}
 
 ## Sample Code

@@ -12,22 +12,22 @@
     <title>Quickstart: Distributed Key Generation :: Qrypt</title>
 
     
-    <link href="/css/nucleus.css?1653065545" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653065545" rel="stylesheet">
-    <link href="/css/hybrid.css?1653065545" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653065545" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653065545" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653065545" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1653065545" rel="stylesheet">
-    <link href="/css/theme.css?1653065545" rel="stylesheet">
-    <link href="/css/tabs.css?1653065545" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1653065545" rel="stylesheet">
+    <link href="/css/nucleus.css?1653415493" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653415493" rel="stylesheet">
+    <link href="/css/hybrid.css?1653415493" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653415493" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653415493" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653415493" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1653415493" rel="stylesheet">
+    <link href="/css/theme.css?1653415493" rel="stylesheet">
+    <link href="/css/tabs.css?1653415493" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1653415493" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1653065545" rel="stylesheet">
+    <link href="/css/theme-mine.css?1653415493" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1653065545"></script>
+    <script src="/js/jquery-3.3.1.min.js?1653415493"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1653065545"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1653065545"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1653415493"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1653415493"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/QryptInc.github.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1653065545"></script>
+<script type="text/javascript" src="/js/search.js?1653415493"></script>
 
     
   </div>
@@ -745,7 +745,7 @@
 </ol>
 <p><strong>Linux/Windows</strong></p>
 <ol>
-<li>Create a lib folder and extract the Qrypt Security SDK into it.</li>
+<li>Verify the lib folder exists and extract the Qrypt Security SDK into it.</li>
 </ol>
 <p><em>Expected Folder structure (Linux/Windows)</em></p>
 <pre><code>KeyGenDistributed
@@ -757,12 +757,13 @@
            /res (Windows)
 </code></pre>
 
-<div class="notices warning" ><p>The Qrypt Security Linux SDK v0.5.1 is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.</p>
+<div class="notices warning" ><p>The Qrypt Security Linux SDK v0.5.2 and earlier is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.</p>
 </div>
 
 <p><strong>MacOS</strong></p>
 <ol>
-<li>Extract the SDK into ~/Library/Frameworks.</li>
+<li>Make sure there is a &ldquo;Frameworks&rdquo; directory in the local user&rsquo;s &ldquo;Library&rdquo; directory.  If not create one.</li>
+<li>Copy the QryptSecurity.framework directory and its contents to ~/Library/Frameworks/.</li>
 </ol>
 <p><em>Expected Folder structure (MacOS)</em></p>
 <pre><code>~/Library/Frameworks
@@ -805,7 +806,7 @@
 <p><em>for windows</em></p>
 <pre><code><span id="commandline">cd build/Debug</span>
 </code></pre>
-<p>To run as Alice:</p>
+<p>To run as Bob:</p>
 <pre><code><span id="commandline">./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin</span>
 </code></pre>
 <h2 id="debug">Debug</h2>
@@ -1156,19 +1157,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1653065545"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653065545"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1653065545"></script>
-    <script src="/js/jquery.sticky.js?1653065545"></script>
-    <script src="/js/featherlight.min.js?1653065545"></script>
-    <script src="/js/highlight.pack.js?1653065545"></script>
+    <script src="/js/clipboard.min.js?1653415493"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653415493"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1653415493"></script>
+    <script src="/js/jquery.sticky.js?1653415493"></script>
+    <script src="/js/featherlight.min.js?1653415493"></script>
+    <script src="/js/highlight.pack.js?1653415493"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1653065545"></script>
-    <script src="/js/learn.js?1653065545"></script>
-    <script src="/js/hugo-learn.js?1653065545"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1653415493"></script>
+    <script src="/js/learn.js?1653415493"></script>
+    <script src="/js/hugo-learn.js?1653415493"></script>
     
         
-            <script src="/mermaid/mermaid.js?1653065545"></script>
+            <script src="/mermaid/mermaid.js?1653415493"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

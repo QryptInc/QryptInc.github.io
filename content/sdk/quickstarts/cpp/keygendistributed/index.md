@@ -23,7 +23,7 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
 1. Download the Qrypt Security SDK from the {{< externalLink link="https://portal.qrypt.com/downloads/sdk-downloads" text="Qrypt Portal" >}} for your platform.
 
 **Linux/Windows**
-1. Create a lib folder and extract the Qrypt Security SDK into it.
+1. Verify the lib folder exists and extract the Qrypt Security SDK into it.
 
 *Expected Folder structure (Linux/Windows)*
 
@@ -36,11 +36,12 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
                /res (Windows)
 
 {{% notice warning %}}
-The Qrypt Security Linux SDK v0.5.1 is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.
+The Qrypt Security Linux SDK v0.5.2 and earlier is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.
 {{% /notice %}}
 
 **MacOS**
-1. Extract the SDK into ~/Library/Frameworks.
+1. Make sure there is a "Frameworks" directory in the local user's "Library" directory.  If not create one. 
+1. Copy the QryptSecurity.framework directory and its contents to ~/Library/Frameworks/.
 
 *Expected Folder structure (MacOS)*
 
@@ -99,7 +100,7 @@ To change to the KeyGenDistributed build folder:
     {{< commandline text="cd build/Debug" >}}
 
  
-To run as Alice:
+To run as Bob:
 
     {{< commandline text="./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin" >}}
 
