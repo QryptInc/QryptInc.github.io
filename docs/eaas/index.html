@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.92.1" />
+    <meta name="generator" content="Hugo 0.100.2" />
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>Entropy as a Service :: Qrypt</title>
 
     
-    <link href="/css/nucleus.css?1653415493" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653415493" rel="stylesheet">
-    <link href="/css/hybrid.css?1653415493" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653415493" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653415493" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653415493" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1653415493" rel="stylesheet">
-    <link href="/css/theme.css?1653415493" rel="stylesheet">
-    <link href="/css/tabs.css?1653415493" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1653415493" rel="stylesheet">
+    <link href="/css/nucleus.css?1655285143" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1655285143" rel="stylesheet">
+    <link href="/css/hybrid.css?1655285143" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1655285143" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1655285143" rel="stylesheet">
+    <link href="/css/auto-complete.css?1655285143" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1655285143" rel="stylesheet">
+    <link href="/css/theme.css?1655285143" rel="stylesheet">
+    <link href="/css/tabs.css?1655285143" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1655285143" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1653415493" rel="stylesheet">
+    <link href="/css/theme-mine.css?1655285143" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1653415493"></script>
+    <script src="/js/jquery-3.3.1.min.js?1655285143"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1653415493"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1653415493"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1655285143"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1655285143"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/QryptInc.github.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1653415493"></script>
+<script type="text/javascript" src="/js/search.js?1655285143"></script>
 
     
   </div>
@@ -80,7 +80,7 @@
   
     
     <li data-nav-id="/eaas/" title="Entropy as a Service" class="dd-item
-        parent
+        
         active
         
         ">
@@ -491,106 +491,6 @@
  
 
           
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/data_at_rest/" title="Data at Rest" class="dd-item
-        
-        
-        
-        ">
-      <a href="/data_at_rest/">
-          QDARA
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/data_at_rest/concepts/" title="Concepts" class="dd-item
-        
-        
-        
-        ">
-      <a href="/data_at_rest/concepts/">
-          Concepts
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/data_at_rest/concepts/otp/" title="One-Time Pad (OTP)" class="dd-item
-        
-        
-        
-        ">
-      <a href="/data_at_rest/concepts/otp/">
-          One-Time Pad (OTP)
-          
-      </a>
-      
-      
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
-          
         
     </ul>
 
@@ -846,11 +746,11 @@
 	</tr>
 </table>
 <p>The following illustrates an example of JSON output as returned by a request for two 1,024-byte blocks of entropy:</p>
-<pre tabindex="0"><code>&quot;random&quot;: [
-  &quot;&lt;base64 encoding of 1,024 bytes of entropy&gt;&quot;,
-  &quot;&lt;base64 encoding of 1,024 bytes of entropy&gt;&quot;
+<pre tabindex="0"><code>&#34;random&#34;: [
+  &#34;&lt;base64 encoding of 1,024 bytes of entropy&gt;&#34;,
+  &#34;&lt;base64 encoding of 1,024 bytes of entropy&gt;&#34;
   ],
-&quot;size&quot;: 2
+&#34;size&#34;: 2
 </code></pre><h3 id="examples">Examples</h3>
 <p>The following examples demonstrate how to submit a request and display the returned entropy.
 In the following examples, <em>{subdomain}</em> should be replaced with the subdomain for a server in the geographic location you would like to use (see Table 2), <em>{kib_entropy}</em> should be replaced with an integer between 1 and 512, and <em>{qrypt_access_token}</em> should be replaced with an access token generated using your Qrypt account.</p>
@@ -885,54 +785,54 @@ In the following examples, <em>{subdomain}</em> should be replaced with the subd
 <div class="notices note" ><p>You may need to install the “requests” module before executing this example. For example, use the following command: <code>python -m pip install requests</code></p>
 </div>
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
-<span style="color:#f92672">import</span> base64
-
-<span style="color:#75715e"># Specify entropy token, requeststed size of entropy, and subdomain</span>
-accesstoken <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{qrypt_access_token}</span><span style="color:#e6db74">&#39;</span>
-kibData <span style="color:#f92672">=</span> {kib_entropy}
-sub <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{subdomain}</span><span style="color:#e6db74">&#39;</span>
-
-<span style="color:#75715e"># Define the request URL</span>
-url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;https://</span><span style="color:#e6db74">{</span>sub<span style="color:#e6db74">}</span><span style="color:#e6db74">.qrypt.com/api/v1/quantum-entropy&#39;</span>
-
-<span style="color:#75715e"># Define and submit the request</span>
-headers <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;Authorization&#39;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Bearer </span><span style="color:#e6db74">{</span>accesstoken<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span> }
-params <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;size&#39;</span>: kibData }
-response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get( url, headers<span style="color:#f92672">=</span>headers, params<span style="color:#f92672">=</span>params)
-
-<span style="color:#75715e"># Display the entropy bytes</span>
-<span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> response<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;random&#39;</span>]: 
-    <span style="color:#66d9ef">for</span> b <span style="color:#f92672">in</span> base64<span style="color:#f92672">.</span>decodebytes( s<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;ascii&#39;</span>) ): 
-        print( <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>b<span style="color:#e6db74">}</span><span style="color:#e6db74">)</span>
-</code></pre></div><h4 id="javascript">JavaScript</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> base64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Specify entropy token, requeststed size of entropy, and subdomain</span>
+</span></span><span style="display:flex;"><span>accesstoken <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{qrypt_access_token}</span><span style="color:#e6db74">&#39;</span>
+</span></span><span style="display:flex;"><span>kibData <span style="color:#f92672">=</span> {kib_entropy}
+</span></span><span style="display:flex;"><span>sub <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{subdomain}</span><span style="color:#e6db74">&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define the request URL</span>
+</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;https://</span><span style="color:#e6db74">{</span>sub<span style="color:#e6db74">}</span><span style="color:#e6db74">.qrypt.com/api/v1/quantum-entropy&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define and submit the request</span>
+</span></span><span style="display:flex;"><span>headers <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;Authorization&#39;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Bearer </span><span style="color:#e6db74">{</span>accesstoken<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span> }
+</span></span><span style="display:flex;"><span>params <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;size&#39;</span>: kibData }
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get( url, headers<span style="color:#f92672">=</span>headers, params<span style="color:#f92672">=</span>params)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Display the entropy bytes</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> response<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;random&#39;</span>]: 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> b <span style="color:#f92672">in</span> base64<span style="color:#f92672">.</span>decodebytes( s<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;ascii&#39;</span>) ): 
+</span></span><span style="display:flex;"><span>        print( <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>b<span style="color:#e6db74">}</span><span style="color:#e6db74">)</span>
+</span></span></code></pre></div><h4 id="javascript">JavaScript</h4>
 <p>The following shows an example of how to submit a request for <em>{kib_entropy}</em> kibibytes of data using the <em>{qrypt_access_token}</em> in JavaScript.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#34;use strict&#34;</span>
-
-<span style="color:#75715e">// Specfify entropy token, requested size of entropy, and subdomain
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accesstoken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{qrypt_access_token}&#39;</span>
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">kibData</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">kib_entropy</span>}
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sub</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{subdomain}&#39;</span>
-
-<span style="color:#75715e">// Define the request URL
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`https://</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">sub</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.qrypt.com/api/v1/quantum-entropy?size=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">kibData</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
-
-<span style="color:#75715e">// Submit the request and process the response
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">url</span>, {
-    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;GET&#39;</span>,
-    <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> { 
-      <span style="color:#e6db74">&#39;Accept&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>,
-      <span style="color:#e6db74">&#39;Authorization&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Bearer &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">accesstoken</span> 
-      },
-  })
-.<span style="color:#a6e22e">then</span>( <span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>() )
-.<span style="color:#a6e22e">then</span>( <span style="color:#66d9ef">function</span> ( <span style="color:#a6e22e">json</span> ) {
-
-  <span style="color:#75715e">// Display the entropy bytes
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">random</span>.<span style="color:#a6e22e">forEach</span>( <span style="color:#a6e22e">b64</span> =&gt; 
-    [...( <span style="color:#a6e22e">atob</span>( <span style="color:#a6e22e">b64</span> ))].<span style="color:#a6e22e">forEach</span>( <span style="color:#a6e22e">c</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>( <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">charCodeAt</span>( <span style="color:#ae81ff">0</span> )))    
-  )})
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e6db74">&#34;use strict&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Specfify entropy token, requested size of entropy, and subdomain
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accesstoken</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{qrypt_access_token}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">kibData</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">kib_entropy</span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sub</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{subdomain}&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Define the request URL
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`https://</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">sub</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.qrypt.com/api/v1/quantum-entropy?size=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">kibData</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Submit the request and process the response
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">url</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;GET&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> { 
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;Accept&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;Authorization&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Bearer &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">accesstoken</span> 
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">then</span>( <span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>() )
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">then</span>( <span style="color:#66d9ef">function</span> ( <span style="color:#a6e22e">json</span> ) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Display the entropy bytes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">random</span>.<span style="color:#a6e22e">forEach</span>( <span style="color:#a6e22e">b64</span> =&gt; 
+</span></span><span style="display:flex;"><span>    [...( <span style="color:#a6e22e">atob</span>( <span style="color:#a6e22e">b64</span> ))].<span style="color:#a6e22e">forEach</span>( <span style="color:#a6e22e">c</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>( <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">charCodeAt</span>( <span style="color:#ae81ff">0</span> )))    
+</span></span><span style="display:flex;"><span>  )})
+</span></span></code></pre></div>
 
 
 
@@ -1205,58 +1105,6 @@ response <span style="color:#f92672">=</span> requests<span style="color:#f92672
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
             
         
 
@@ -1272,19 +1120,19 @@ response <span style="color:#f92672">=</span> requests<span style="color:#f92672
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1653415493"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653415493"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1653415493"></script>
-    <script src="/js/jquery.sticky.js?1653415493"></script>
-    <script src="/js/featherlight.min.js?1653415493"></script>
-    <script src="/js/highlight.pack.js?1653415493"></script>
+    <script src="/js/clipboard.min.js?1655285143"></script>
+    <script src="/js/perfect-scrollbar.min.js?1655285143"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1655285143"></script>
+    <script src="/js/jquery.sticky.js?1655285143"></script>
+    <script src="/js/featherlight.min.js?1655285143"></script>
+    <script src="/js/highlight.pack.js?1655285143"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1653415493"></script>
-    <script src="/js/learn.js?1653415493"></script>
-    <script src="/js/hugo-learn.js?1653415493"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1655285143"></script>
+    <script src="/js/learn.js?1655285143"></script>
+    <script src="/js/hugo-learn.js?1655285143"></script>
     
         
-            <script src="/mermaid/mermaid.js?1653415493"></script>
+            <script src="/mermaid/mermaid.js?1655285143"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

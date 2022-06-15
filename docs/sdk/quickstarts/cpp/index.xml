@@ -14,9 +14,9 @@
       
       <guid>https://QryptInc.github.io/sdk/quickstarts/cpp/keygendistributed/</guid>
       <description>Sample Code Find the finalized code for this quickstart on GitHub.
-Prerequisites  A Qrypt Account. Create an account for free. Install CMake. (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup   Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.
-  Retrieve a token from the Qrypt Portal.
-  (Optional) Create an environment variable QRYPT_TOKEN for it.</description>
+Prerequisites A Qrypt Account. Create an account for free. Install CMake. (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code. Setup Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.
+Retrieve a token from the Qrypt Portal.
+(Optional) Create an environment variable QRYPT_TOKEN for it. For simplicity, the commands below will be referencing a QRYPT_TOKEN environment variable but you can also just use the token directly in the commands below.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@ Prerequisites  A Qrypt Account. Create an account for free. Install CMake. (Wind
       
       <guid>https://QryptInc.github.io/sdk/quickstarts/cpp/keygenlocal/</guid>
       <description>Sample Code Find the finalized code for this quickstart on GitHub
-Prerequisites  A Qrypt Account. Create an account for free. Install CMake (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup  Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal (Optional) Create an environment variable QRYPT_TOKEN for it.</description>
+Prerequisites A Qrypt Account. Create an account for free. Install CMake (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code. Setup Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal (Optional) Create an environment variable QRYPT_TOKEN for it. For simplicity, the commands below will be referencing a QRYPT_TOKEN environment variable but you can also just use the token direclty in the commands below.</description>
     </item>
     
   </channel>
