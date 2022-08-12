@@ -35,10 +35,6 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
                /lib
                /res (Windows)
 
-{{% notice warning %}}
-The Qrypt Security Linux SDK v0.5.2 and earlier is compatible with CentOS 7 only. The next release will migrate compatibility to modern versions of Fedora and Ubuntu.
-{{% /notice %}}
-
 **MacOS**
 1. Make sure there is a "Frameworks" directory in the local user's "Library" directory.  If not create one. 
 1. Copy the QryptSecurity.framework directory and its contents to ~/Library/Frameworks/.
