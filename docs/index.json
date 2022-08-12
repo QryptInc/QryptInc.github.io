@@ -25,7 +25,7 @@
 	"title": "Qrypt SDK for C++ Quickstarts",
 	"tags": [],
 	"description": "",
-	"content": "The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.\nCurrently we provide Local Key Generation and Distributed Key Generation.\nLibrary Compatibility\nThe Qrypt SDK for C++ is built using the following compilers.\n   Platform Compiler CPU     Ubuntu Clang 9.0.0 x64   Macos AppleClang 12.0.0.12000032 x64   Windows Clang 9.0.0 with MSVC-like command-line x64    Sample Code Find the finalized code for these quickstarts on GitHub.\nPrerequisites  A Qrypt Account. Create an account for free.  Quickstarts  Distributed key generation Local key generation  "
+	"content": "The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.\nCurrently we provide Local Key Generation and Distributed Key Generation.\nLibrary Compatibility\nThe Qrypt SDK for C++ is built using the following compilers.\n   Platform Compiler CPU     CentOS Clang 9.0.0 x64   Macos AppleClang 12.0.0.12000032 x64   Windows Clang 9.0.0 with MSVC-like command-line x64    Sample Code Find the finalized code for these quickstarts on GitHub.\nPrerequisites  A Qrypt Account. Create an account for free.  Quickstarts  Distributed key generation Local key generation  "
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/api/cpp/",
@@ -39,7 +39,7 @@
 	"title": "Overview",
 	"tags": [],
 	"description": "",
-	"content": "Developers need familiar tools based on modern development practices. We provide an SDK that can be easily integrated to applications and infrastructure to make them quantum-secure.\nThe Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.\nQrypt SDK for C++ Features\n local key generation distributed key generation  Library Compatibility\nThe C++ SDK is built using the following compilers.\n   Platform Compiler CPU     Macos AppleClang 12.0.0.12000032 x64   Windows Clang 9.0.0 with MSVC-like command-line x64   Ubuntu gcc 9 x64    "
+	"content": "Developers need familiar tools based on modern development practices. We provide an SDK that can be easily integrated to applications and infrastructure to make them quantum-secure.\nThe Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.\nQrypt SDK for C++ Features\n local key generation distributed key generation  Library Compatibility\nThe C++ SDK is built using the following compilers.\n   Platform Compiler CPU     CentOS Clang 9.0.0 x64   Macos AppleClang 12.0.0.12000032 x64   Windows Clang 9.0.0 with MSVC-like command-line x64    "
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/concepts/blast-distributed-multiple-endpoints/",

@@ -14,9 +14,9 @@ The Qrypt SDK for C++ is built using the following compilers.
 
 | Platform | Compiler | CPU
 |---|---|---|
+| CentOS | Clang 9.0.0 | x64 |
 | Macos | AppleClang 12.0.0.12000032 | x64 |
 | Windows | Clang 9.0.0 with MSVC-like command-line | x64 |
-| Ubuntu | gcc 9 | x64 |
 
 ## Sample Code
 
