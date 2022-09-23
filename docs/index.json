@@ -25,7 +25,7 @@
 	"title": "Qrypt SDK for C++ Quickstarts",
 	"tags": [],
 	"description": "",
-	"content": "The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.\nCurrently we provide Local Key Generation and Distributed Key Generation.\nLibrary Compatibility\nThe Qrypt SDK for C++ is built using the following compilers.\n   Platform Compiler CPU     CentOS Clang 9.0.0 x64   Macos AppleClang 12.0.0.12000032 x64   Windows Clang 9.0.0 with MSVC-like command-line x64    Sample Code Find the finalized code for these quickstarts on GitHub.\nPrerequisites  A Qrypt Account. Create an account for free.  Quickstarts  Distributed key generation Local key generation  "
+	"content": "The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.\nCurrently we provide Distributed Key Generation.\nLibrary Compatibility\nThe Qrypt SDK for C++ is built using the following compilers.\n   Platform Version Compiler CPU     Ubuntu 20.04 gcc 9.4.0 x64    Sample Code Find the finalized code for these quickstarts on GitHub.\nPrerequisites  A Qrypt Account. Create an account for free.  Quickstarts  Distributed key generation  "
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/api/cpp/",
@@ -39,7 +39,7 @@
 	"title": "Overview",
 	"tags": [],
 	"description": "",
-	"content": "Developers need familiar tools based on modern development practices. We provide an SDK that can be easily integrated to applications and infrastructure to make them quantum-secure.\nThe Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.\nQrypt SDK for C++ Features\n local key generation distributed key generation  Library Compatibility\nThe C++ SDK is built using the following compilers.\n   Platform Compiler CPU     CentOS Clang 9.0.0 x64   Macos AppleClang 12.0.0.12000032 x64   Windows Clang 9.0.0 with MSVC-like command-line x64    "
+	"content": "Developers need familiar tools based on modern development practices. We provide an SDK that can be easily integrated into applications and infrastructure to make them quantum-secure.\nThe Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.\nQrypt SDK for C++ Features\n distributed key generation  Release Notes\n Qrypt Security SDK v0.6 is not backwards compatible with previous releases.  Library Compatibility\nThe C++ SDK is built using the following compilers.\n   Platform Version Compiler CPU     Ubuntu 20.04 gcc 9.4.0 x64    "
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/concepts/blast-distributed-multiple-endpoints/",
@@ -53,14 +53,7 @@
 	"title": "Quickstart: Distributed Key Generation",
 	"tags": [],
 	"description": "",
-	"content": "Sample Code Find the finalized code for this quickstart on GitHub.\nPrerequisites  A Qrypt Account. Create an account for free. Install CMake. (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup   Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.\n  Retrieve a token from the Qrypt Portal.\n  (Optional) Create an environment variable QRYPT_TOKEN for it. For simplicity, the commands below will be referencing a QRYPT_TOKEN environment variable but you can also just use the token directly in the commands below.\n  Download the Qrypt Security SDK from the Qrypt Portal for your platform.\n  Linux/Windows\n Verify the lib folder exists and extract the Qrypt Security SDK into it.  Expected Folder structure (Linux/Windows)\nKeyGenDistributed\r/lib\r/QryptSecurity\r/bin (Windows)\r/include\r/lib\r/res (Windows)\r MacOS\n Make sure there is a \u0026ldquo;Frameworks\u0026rdquo; directory in the local user\u0026rsquo;s \u0026ldquo;Library\u0026rdquo; directory. If not create one. Copy the QryptSecurity.framework directory and its contents to ~/Library/Frameworks/.  Expected Folder structure (MacOS)\n~/Library/Frameworks\r/QryptSecurity.framework\r Build To change to the KeyGenDistributed folder:\ncd KeyGenDistributed\r To make a (debug) build:\n./build.sh --build_type=Debug\r To find the build folder (if it built successfully):\nFor linux/mac\nls -d build\r For windows\nls -d build/Debug/\r To see more build options:\n./build.sh --help\r Run Run as Alice To change to the KeyGenDistributed build folder:\nFor linux/mac\ncd KeyGenDistributed/build\r for windows\ncd KeyGenDistributed/build/Debug\r To run as Alice:\n./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --metadata-filename=metadata.bin\r Run as Bob To change to the KeyGenDistributed build folder:\nFor linux/mac\ncd build\r for windows\ncd build/Debug\r To run as Bob:\n./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin\r Debug If you open the folder KeyGenDistributed In Visual Studio Code, you will find debug setups for running as Alice and Bob.\n"
-},
-{
-	"uri": "https://QryptInc.github.io/sdk/quickstarts/cpp/keygenlocal/",
-	"title": "Quickstart: Local Key Generation",
-	"tags": [],
-	"description": "",
-	"content": "Sample Code Find the finalized code for this quickstart on GitHub\nPrerequisites  A Qrypt Account. Create an account for free. Install CMake (Windows) Install git bash - comes with typical git install. (Optional) Install Visual Studio Code.  Setup  Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform. Retrieve a token from the Qrypt Portal (Optional) Create an environment variable QRYPT_TOKEN for it. For simplicity, the commands below will be referencing a QRYPT_TOKEN environment variable but you can also just use the token direclty in the commands below. Download the Qrypt Security SDK from the Qrypt Portal for your platform.  Linux/Windows\n Verify the lib folder exists and extract the Qrypt Security SDK into it.  Expected Folder structure (Linux/Windows)\nKeyGenDistributed\r/lib\r/QryptSecurity\r/bin (Windows)\r/include\r/lib\r/res (Windows)\r MacOS\n Make sure there is a \u0026ldquo;Frameworks\u0026rdquo; directory in the local user\u0026rsquo;s \u0026ldquo;Library\u0026rdquo; directory. If not create one. Copy the QryptSecurity.framework directory and its contents to ~/Library/Frameworks/.  Expected Folder structure (MacOS)\n~/Library/Frameworks\r/QryptSecurity.framework\r Build To change to the KeyGenLocal folder:\ncd KeyGenLocal\r To make a (debug) build:\n./build.sh --build_type=Debug\r To find the build folder (if it built successfully):\nFor linux/mac\nls -d build\r For windows\nls -d build/Debug/\r To see more build options:\n./build.sh --help\r Run To change to the KeyGenLocal build folder:\nFor linux/mac\ncd build\r For windows\ncd build/Debug\r To create and dspaly the locally generated AES key:\n./KeyGenLocal --token=${QRYPT_TOKEN} --cache-dir=cache\r Debug If you open the folder KeyGenLocal In Visual Studio Code, you will find a debug setup for KeyGenLocal.\n"
+	"content": "Sample Code Find the finalized code for this quickstart on GitHub.\nPrerequisites  A Qrypt Account. Create an account for free. Install CMake. (Optional) Install Visual Studio Code.  Setup   Clone the repo containing this quickstart to a local folder.\n  Retrieve a token from the Qrypt Portal.\n  (Optional) Create an environment variable QRYPT_TOKEN for it. For simplicity, the commands below will be referencing a QRYPT_TOKEN environment variable but you can also just use the token directly in the commands below.\n  Download the Qrypt Security SDK from the Qrypt Portal for your platform.\n  Extract the Qrypt SDK.\ntar -zxvf qrypt-security-x.x.x-ubuntu.tgz   Copy the Qrypt SDK into the /qrypt-security-quickstarts-cpp/KeyGenDistributed/lib/QryptSecurity folder.\ncp -r qrypt-security-x.x.x-ubuntu/* /qrypt-security-quickstarts-cpp/KeyGenDistributed/lib/QryptSecurity   Expected Folder structure\nKeyGenDistributed\r/lib\r/QryptSecurity\r/include\r/lib\r Build To change to the KeyGenDistributed folder:\ncd KeyGenDistributed\r To make a (debug) build:\n./build.sh --build_type=Debug\r To find the build folder (if it built successfully):\nls -d build\r To see more build options:\n./build.sh --help\r Run Run as Alice To change to the KeyGenDistributed build folder:\ncd KeyGenDistributed/build\r To run as Alice:\n./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --metadata-filename=metadata.bin\r Run as Bob To change to the KeyGenDistributed build folder:\ncd build\r To run as Bob:\n./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin\r Debug If you open the folder KeyGenDistributed In Visual Studio Code, you will find debug setups for running as Alice and Bob.\n"
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/",
@@ -84,13 +77,6 @@
 	"content": "Use the Quickstarts to quickly get up and running with the Qrypt SDK.\nQrpyt SDK for C++ Quickstarts "
 },
 {
-	"uri": "https://QryptInc.github.io/sdk/concepts/blast-local/",
-	"title": "BLAST Local",
-	"tags": [],
-	"description": "",
-	"content": "Certain use cases prefer local implementation.\nQrypt’s solution has the flexibility for local management.\n Keys can be generated based on trusted quantum - reducing the chance of a random-based attack Client locally extracts keys from returned random – not even Qrypt can determine the keys Supports* integration to standard key management solutions   "
-},
-{
 	"uri": "https://QryptInc.github.io/data_at_rest/concepts/",
 	"title": "Concepts",
 	"tags": [],
@@ -102,7 +88,7 @@
 	"title": "Concepts",
 	"tags": [],
 	"description": "",
-	"content": "Use the pages in this section to dig deeper into the post-quantum technologies Qrypt has to offer.\nBLAST Distributed - multiple endpoints BLAST Local How to estimate the projected size of entropy? "
+	"content": "Use the pages in this section to dig deeper into the post-quantum technologies Qrypt has to offer.\nBLAST Distributed - multiple endpoints How to estimate the projected size of entropy? "
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/concepts/entropy-projection/",

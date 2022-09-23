@@ -12,22 +12,22 @@
     <title>Quickstart: Distributed Key Generation :: Qrypt</title>
 
     
-    <link href="/css/nucleus.css?1660304449" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1660304449" rel="stylesheet">
-    <link href="/css/hybrid.css?1660304449" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1660304449" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1660304449" rel="stylesheet">
-    <link href="/css/auto-complete.css?1660304449" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1660304449" rel="stylesheet">
-    <link href="/css/theme.css?1660304449" rel="stylesheet">
-    <link href="/css/tabs.css?1660304449" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1660304449" rel="stylesheet">
+    <link href="/css/nucleus.css?1663936483" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1663936483" rel="stylesheet">
+    <link href="/css/hybrid.css?1663936483" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1663936483" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1663936483" rel="stylesheet">
+    <link href="/css/auto-complete.css?1663936483" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1663936483" rel="stylesheet">
+    <link href="/css/theme.css?1663936483" rel="stylesheet">
+    <link href="/css/tabs.css?1663936483" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1663936483" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1660304449" rel="stylesheet">
+    <link href="/css/theme-mine.css?1663936483" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1660304449"></script>
+    <script src="/js/jquery-3.3.1.min.js?1663936483"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1660304449"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1660304449"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1663936483"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1663936483"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/QryptInc.github.io";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1660304449"></script>
+<script type="text/javascript" src="/js/search.js?1663936483"></script>
 
     
   </div>
@@ -264,27 +264,6 @@
 
             
           
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/sdk/quickstarts/cpp/keygenlocal/" title="Quickstart: Local Key Generation" class="dd-item ">
-        <a href="/sdk/quickstarts/cpp/keygenlocal/">
-        Quickstart: Local Key Generation
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
       
@@ -348,32 +327,6 @@
         ">
       <a href="/sdk/concepts/blast-distributed-multiple-endpoints/">
           BLAST Distributed - multiple endpoints
-          
-      </a>
-      
-      
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/sdk/concepts/blast-local/" title="BLAST Local" class="dd-item
-        
-        
-        
-        ">
-      <a href="/sdk/concepts/blast-local/">
-          BLAST Local
           
       </a>
       
@@ -725,13 +678,12 @@
 <ul>
 <li>A Qrypt Account. <a href="https://portal.qrypt.com/register" target="_blank" rel="noopener noreferrer">Create an account for free</a>.</li>
 <li>Install <a href="https://cmake.org/" target="_blank" rel="noopener noreferrer">CMake</a>.</li>
-<li>(Windows) Install git bash - comes with typical git install.</li>
 <li>(Optional) Install <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a>.</li>
 </ul>
 <h2 id="setup">Setup</h2>
 <ol>
 <li>
-<p>Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.</p>
+<p>Clone the <a href="https://github.com/QryptInc/qrypt-security-quickstarts-cpp" target="_blank" rel="noopener noreferrer">repo</a> containing this quickstart to a local folder.</p>
 </li>
 <li>
 <p>Retrieve a token from the <a href="https://portal.qrypt.com/tokens" target="_blank" rel="noopener noreferrer">Qrypt Portal</a>.</p>
@@ -742,28 +694,21 @@
 <li>
 <p>Download the Qrypt Security SDK from the <a href="https://portal.qrypt.com/downloads/sdk-downloads" target="_blank" rel="noopener noreferrer">Qrypt Portal</a> for your platform.</p>
 </li>
+<li>
+<p>Extract the Qrypt SDK.</p>
+<span id="commandline">tar -zxvf qrypt-security-x.x.x-ubuntu.tgz</span>
+</li>
+<li>
+<p>Copy the Qrypt SDK into the /qrypt-security-quickstarts-cpp/KeyGenDistributed/lib/QryptSecurity folder.</p>
+<span id="commandline">cp -r qrypt-security-x.x.x-ubuntu/* /qrypt-security-quickstarts-cpp/KeyGenDistributed/lib/QryptSecurity</span>
+</li>
 </ol>
-<p><strong>Linux/Windows</strong></p>
-<ol>
-<li>Verify the lib folder exists and extract the Qrypt Security SDK into it.</li>
-</ol>
-<p><em>Expected Folder structure (Linux/Windows)</em></p>
+<p><em>Expected Folder structure</em></p>
 <pre><code>KeyGenDistributed
    /lib
        /QryptSecurity
-           /bin (Windows)
            /include
            /lib
-           /res (Windows)
-</code></pre>
-<p><strong>MacOS</strong></p>
-<ol>
-<li>Make sure there is a &ldquo;Frameworks&rdquo; directory in the local user&rsquo;s &ldquo;Library&rdquo; directory.  If not create one.</li>
-<li>Copy the QryptSecurity.framework directory and its contents to ~/Library/Frameworks/.</li>
-</ol>
-<p><em>Expected Folder structure (MacOS)</em></p>
-<pre><code>~/Library/Frameworks
-   /QryptSecurity.framework
 </code></pre>
 <h2 id="build">Build</h2>
 <p>To change to the KeyGenDistributed folder:</p>
@@ -773,11 +718,7 @@
 <pre><code><span id="commandline">./build.sh --build_type=Debug</span>
 </code></pre>
 <p>To find the build folder (if it built successfully):</p>
-<p><em>For linux/mac</em></p>
 <pre><code><span id="commandline">ls -d build</span>
-</code></pre>
-<p><em>For windows</em></p>
-<pre><code><span id="commandline">ls -d build/Debug/</span>
 </code></pre>
 <p>To see more build options:</p>
 <pre><code><span id="commandline">./build.sh --help</span>
@@ -785,22 +726,14 @@
 <h2 id="run">Run</h2>
 <h3 id="run-as-alice">Run as Alice</h3>
 <p>To change to the KeyGenDistributed build folder:</p>
-<p><em>For linux/mac</em></p>
 <pre><code><span id="commandline">cd KeyGenDistributed/build</span>
-</code></pre>
-<p><em>for windows</em></p>
-<pre><code><span id="commandline">cd KeyGenDistributed/build/Debug</span>
 </code></pre>
 <p>To run as Alice:</p>
 <pre><code><span id="commandline">./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --metadata-filename=metadata.bin</span>
 </code></pre>
 <h3 id="run-as-bob">Run as Bob</h3>
 <p>To change to the KeyGenDistributed build folder:</p>
-<p><em>For linux/mac</em></p>
 <pre><code><span id="commandline">cd build</span>
-</code></pre>
-<p><em>for windows</em></p>
-<pre><code><span id="commandline">cd build/Debug</span>
 </code></pre>
 <p>To run as Bob:</p>
 <pre><code><span id="commandline">./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin</span>
@@ -958,25 +891,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -988,6 +902,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -997,22 +914,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1153,19 +1054,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1660304449"></script>
-    <script src="/js/perfect-scrollbar.min.js?1660304449"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1660304449"></script>
-    <script src="/js/jquery.sticky.js?1660304449"></script>
-    <script src="/js/featherlight.min.js?1660304449"></script>
-    <script src="/js/highlight.pack.js?1660304449"></script>
+    <script src="/js/clipboard.min.js?1663936483"></script>
+    <script src="/js/perfect-scrollbar.min.js?1663936483"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1663936483"></script>
+    <script src="/js/jquery.sticky.js?1663936483"></script>
+    <script src="/js/featherlight.min.js?1663936483"></script>
+    <script src="/js/highlight.pack.js?1663936483"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1660304449"></script>
-    <script src="/js/learn.js?1660304449"></script>
-    <script src="/js/hugo-learn.js?1660304449"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1663936483"></script>
+    <script src="/js/learn.js?1663936483"></script>
+    <script src="/js/hugo-learn.js?1663936483"></script>
     
         
-            <script src="/mermaid/mermaid.js?1660304449"></script>
+            <script src="/mermaid/mermaid.js?1663936483"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
