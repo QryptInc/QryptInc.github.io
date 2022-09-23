@@ -6,17 +6,15 @@ weight = 10
 
 The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.
 
-Currently we provide Local Key Generation and Distributed Key Generation.
+Currently we provide Distributed Key Generation.
 
 **Library Compatibility**
 
 The Qrypt SDK for C++ is built using the following compilers.
 
-| Platform | Compiler | CPU
-|---|---|---|
-| CentOS | Clang 9.0.0 | x64 |
-| Macos | AppleClang 12.0.0.12000032 | x64 |
-| Windows | Clang 9.0.0 with MSVC-like command-line | x64 |
+| Platform | Version | Compiler | CPU |
+|---|---|---|---|
+| Ubuntu | 20.04 | gcc 9.4.0 | x64 |
 
 ## Sample Code
 
@@ -27,4 +25,3 @@ Find the finalized code for these quickstarts on {{< externalLink link="https://
 
 ## Quickstarts
 1. [Distributed key generation](keygendistributed/)
-1. [Local key generation](keygenlocal/)

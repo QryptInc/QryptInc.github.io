@@ -12,37 +12,30 @@ Find the finalized code for this quickstart on {{< externalLink link="https://gi
 ## Prerequisites
 - A Qrypt Account. {{< externalLink link="https://portal.qrypt.com/register" text="Create an account for free" >}}.
 - Install {{< externalLink link="https://cmake.org/" text="CMake" >}}.
-- (Windows) Install git bash - comes with typical git install.
 - (Optional) Install {{< externalLink link="https://code.visualstudio.com/" text="Visual Studio Code" >}}.
 
 ## Setup
-1. Clone the repo containing this quickstart to a local folder on a Linux, Mac or Windows platform.
+1. Clone the {{< externalLink link="https://github.com/QryptInc/qrypt-security-quickstarts-cpp" text="repo" >}} containing this quickstart to a local folder.
 1. Retrieve a token from the {{< externalLink link="https://portal.qrypt.com/tokens" text="Qrypt Portal" >}}.
 
 1. (Optional) Create an environment variable **QRYPT_TOKEN** for it. For simplicity, the commands below will be referencing a **QRYPT_TOKEN** environment variable but you can also just use the token directly in the commands below.
 1. Download the Qrypt Security SDK from the {{< externalLink link="https://portal.qrypt.com/downloads/sdk-downloads" text="Qrypt Portal" >}} for your platform.
 
-**Linux/Windows**
-1. Verify the lib folder exists and extract the Qrypt Security SDK into it.
+1. Extract the Qrypt SDK.
 
-*Expected Folder structure (Linux/Windows)*
+    {{< commandline text="tar -zxvf qrypt-security-x.x.x-ubuntu.tgz" >}}
+
+1. Copy the Qrypt SDK into the /qrypt-security-quickstarts-cpp/KeyGenDistributed/lib/QryptSecurity folder.
+
+    {{< commandline text="cp -r qrypt-security-x.x.x-ubuntu/* /qrypt-security-quickstarts-cpp/KeyGenDistributed/lib/QryptSecurity" >}}
+
+*Expected Folder structure*
 
     KeyGenDistributed
        /lib
            /QryptSecurity
-               /bin (Windows)
                /include
                /lib
-               /res (Windows)
-
-**MacOS**
-1. Make sure there is a "Frameworks" directory in the local user's "Library" directory.  If not create one. 
-1. Copy the QryptSecurity.framework directory and its contents to ~/Library/Frameworks/.
-
-*Expected Folder structure (MacOS)*
-
-    ~/Library/Frameworks
-       /QryptSecurity.framework
 
 ## Build
 To change to the KeyGenDistributed folder:
@@ -54,15 +47,9 @@ To make a (debug) build:
     {{< commandline text="./build.sh --build_type=Debug" >}}
 
 To find the build folder (if it built successfully):
-
-*For linux/mac*
-        
+       
     {{< commandline text="ls -d build" >}}
     
-*For windows*
-
-    {{< commandline text="ls -d build/Debug/" >}}
-
 To see more build options:
     
     {{< commandline text="./build.sh --help" >}}
@@ -71,15 +58,8 @@ To see more build options:
 ### Run as Alice
 To change to the KeyGenDistributed build folder:
 
-*For linux/mac*
-    
     {{< commandline text="cd KeyGenDistributed/build" >}}
 
-*for windows*
-
-    {{< commandline text="cd KeyGenDistributed/build/Debug" >}}
-
- 
 To run as Alice:
 
     {{< commandline text="./KeyGenDistributed --user=alice --token=${QRYPT_TOKEN} --key-type=aes --metadata-filename=metadata.bin" >}}
@@ -87,15 +67,8 @@ To run as Alice:
 ### Run as Bob
 To change to the KeyGenDistributed build folder:
 
-*For linux/mac*
-    
     {{< commandline text="cd build" >}}
 
-*for windows*
-
-    {{< commandline text="cd build/Debug" >}}
-
- 
 To run as Bob:
 
     {{< commandline text="./KeyGenDistributed --user=bob --token=${QRYPT_TOKEN} --metadata-filename=metadata.bin" >}}
