@@ -109,7 +109,7 @@
 	"title": "Changelogs",
 	"tags": [],
 	"description": "",
-	"content": "Versions "
+	"content": "Versions SDK v0.7.3 SDK v0.6.4 SDK v0.7.3 Notable Changes:\nImproved sample retry logic for genInit and genSync SDK v0.6.4 Notable Changes:\nInitial baseline of the SDK "
 },
 {
 	"uri": "https://QryptInc.github.io/categories/",
