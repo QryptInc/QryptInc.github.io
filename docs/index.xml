@@ -7,5 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Oct 2021 14:05:15 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Changelogs</title>
+      <link>https://QryptInc.github.io/sdk/changelogs/changelogs/</link>
+      <pubDate>Mon, 17 Oct 2022 15:56:04 -0400</pubDate>
+      
+      <guid>https://QryptInc.github.io/sdk/changelogs/changelogs/</guid>
+      <description>Versions </description>
+    </item>
+    
   </channel>
 </rss>
