@@ -7,5 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Oct 2021 14:05:15 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Changelogs</title>
+      <link>https://QryptInc.github.io/sdk/changelogs/changelogs/</link>
+      <pubDate>Tue, 18 Oct 2022 12:59:11 -0400</pubDate>
+      
+      <guid>https://QryptInc.github.io/sdk/changelogs/changelogs/</guid>
+      <description>Versions SDK v0.7.4 SDK v0.6.4 SDK v0.7.4 Notable Changes:
+Improved sample retry logic for genInit and genSync Increase maximum supported OTP size to 512KB Updated metadata schema SDK v0.6.4 Notable Changes:
+Initial baseline of the SDK </description>
+    </item>
+    
   </channel>
 </rss>
