@@ -24,10 +24,10 @@ Qrypt is the only company that enables encryption without distributing encryptio
 
 **​Attack scenarios required to compromise keys are extreme​**
 * Attacker compromises the A to B channel and decrypts the key generation requirements before the server caches are shredded and can no longer be sampled. Even with a quantum computer the time to decrypt is too long.​
-* Attacker compromises ALL aspects of the BLAST protocol, including PQC crypto​
+* Attacker compromises ALL aspects of the BLAST protocol, including TLS crypto​
   * Compromises ALL channels between a client and the N BLAST servers​
   * Compromises the A to B channel​
-  * Defeat PQC cryptography used in A to B channel​
+  * Defeat TLS cryptography used in A to B channel​
 * Full control of Client A or Client B​
 
 {{< figure src="images/blast-distributed-multiple-endpoints2.png" >}}
