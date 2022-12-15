@@ -150,7 +150,7 @@ response = requests.get( url, headers=headers, params=params)
 # Display the entropy bytes
 for s in response.json()['random']: 
     for b in base64.decodebytes( s.encode('ascii') ): 
-        print( f'{b})
+        print( f'{b}')
 ```
 
 #### JavaScript
