@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>How to estimate the projected size of entropy? on Qrypt</title>
-    <link>https://QryptInc.github.io/sdk/concepts/entropy-projection/</link>
+    <link>https://QryptInc.github.io/concepts/entropy-projection/</link>
     <description>Recent content in How to estimate the projected size of entropy? on Qrypt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Oct 2021 15:01:22 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/sdk/concepts/entropy-projection/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Oct 2021 15:01:22 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/concepts/entropy-projection/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
