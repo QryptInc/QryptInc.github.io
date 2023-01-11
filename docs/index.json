@@ -18,7 +18,7 @@
 	"title": "Home",
 	"tags": [],
 	"description": "",
-	"content": " Qrypt Documentation Our documentation is written by developers for developers. The goal is to make it as easy as possible for developers to use Qrypt to secure applications and infrastructure.\nWe believe that documentation benefits from sharing and collaborative improvement. Qrypt documentation is available on Github pages and we invite anybody to make changes or to create issues when there is content that needs to be improved.\nIntegrating with Qrypt Below is a list of the products that Qrypt offers with links to their supporting documentation.\nEntropy - Docs Qrypt Entropy as a Service (EaaS) measures quantum effects and converts those measurements into pure random numbers. EaaS leverages multiple Quantum Random Number Generators (QRNGs) developed by national and international research labs to ensure the highest quality random.\nKey Generation - Docs Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.\nQDARA - Quantum data at rest algorithm - Docs Our quantum secure data-at-rest command line tool is powered by our patented BLAST algorithm, which leverages quantum random number generation from our Entropy as a Service to produce perfectly random one-time pads. Alice can quickly and easily encrypt sensitive files with quantum random generated one-time pads. Bob must have the same pad in order to decrypt the data to read the files, ensuring important information is kept secret.\n"
+	"content": " Qrypt Documentation Our documentation is written by developers for developers. The goal is to make it as easy as possible for developers to use Qrypt to secure applications and infrastructure.\nWe believe that documentation benefits from sharing and collaborative improvement. Qrypt documentation is available on Github pages and we invite anybody to make changes or to create issues when there is content that needs to be improved.\nIntegrating with Qrypt Below is a list of the products that Qrypt offers with links to their supporting documentation.\nEntropy - Docs Qrypt Entropy as a Service (EaaS) measures quantum effects and converts those measurements into pure random numbers. EaaS leverages multiple Quantum Random Number Generators (QRNGs) developed by national and international research labs to ensure the highest quality random.\nKey Generation - Docs Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.\n"
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/quickstarts/cpp/",
@@ -42,7 +42,7 @@
 	"content": "Developers need familiar tools based on modern development practices. We provide an SDK that can be easily integrated into applications and infrastructure to make them quantum-secure.\nThe Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.\nQrypt SDK for C++ Features\ndistributed key generation Release Notes\nQrypt Security SDK v0.6 is not backwards compatible with previous releases. Library Compatibility\nThe C++ SDK is built using the following compilers.\nPlatform Version Compiler CPU Ubuntu 20.04 gcc 9.4.0 x64 "
 },
 {
-	"uri": "https://QryptInc.github.io/sdk/concepts/blast-distributed-multiple-endpoints/",
+	"uri": "https://QryptInc.github.io/concepts/blast-distributed-multiple-endpoints/",
 	"title": "BLAST Distributed - multiple endpoints",
 	"tags": [],
 	"description": "",
@@ -53,14 +53,7 @@
 	"title": "Key Generation",
 	"tags": [],
 	"description": "",
-	"content": "Businesses need to protect against the future quantum threat, and never distribute encryption keys that can be intercepted. The Qrypt SDK allows you to generate identical keys at multiple endpoints.\nOverview Quickstarts Concepts API Reference Changelogs "
-},
-{
-	"uri": "https://QryptInc.github.io/data_at_rest/",
-	"title": "Data at Rest",
-	"tags": [],
-	"description": "",
-	"content": "Getting Started with the Data at Rest Client In the following guide, we will help you get started with encrypting your data with a One Time Pad using the Qrypt Data at Rest Algorithm (QDARA) client. This guide will show you how to encrypt a file containing the message “Hello World”. For more detailed instruction on using the command line interface, please reference our QDARA Reference Guide.\nFor decryption, there are two use cases:\nA user can encrypt and decrypt files on a single device.\nAlice physically transfers her quantum random and cache file to Bob. Alice encrypts data and sends it to Bob over the internet, and Bob decrypts.\nBefore you get started Follow the instructions at https://www.qrypt.com/docs/eaas to\nCreate a free Qrypt account\nGenerate an access token.\nDownload the QDARA client for the OS you are running at https://portal.qrypt.com/ into a folder of your choice. To verify you downloaded the correct .zip file, you can check that the SHA256 Hash matches the one listed on the Download page.\nFor MacOS and Linux, to compute the hash, run\nshasum -a 256 qdaracl-\u0026lt;version-os\u0026gt;.zip\nNote that to verify the zip file for MacOS, you must choose to “Save file” because MacOS will automatically extract the file if you choose to open it.\nFor Windows, to compute the hash, run\ncertUtil -hashfile qdaracl-.zip SHA256\n(Optional) Add installation folder to your PATH environment variable For MacOS and Linux, edit your .bashrc or .zshrc file and add the line\nexport PATH=$PATH:\u0026lt;insert installation folder path here\u0026gt;\nFor Windows, open the start menu and search for “Edit environment variables”. Click on the “Path” variable and click “edit.” Add a new path for the folder containing the QDARA client.\nClose your terminal, and test that you can run the tool by running\nqdaracl -h\nDownload Quantum Random for your Key You will need your access token generated from the Qrypt portal. To download 2 KB of random, run\nqdaracl download -t \u0026lt;insert token here\u0026gt; -s 2 -o key.qrand\nThis will store 2 KB of quantum random into key.qrand. Note that you need at least as much random as the size of your plaintext file, and a minimum of 2 KB of random to encrypt any file.\nInitiate the client encryption tool qdaracl init -i key.qrand -o my_cache.qcache\nThis will generate a cache file that stores metadata about how much of the random has been used. Note that it is the user’s responsibility to store the cache file securely.\nEncrypt your data Create a plaintext file.\necho \u0026quot;Hello World\u0026quot; \u0026gt; plaintext.txt\nEncrypt the file.\nqdaracl encrypt -c my_cache.qcache -i plaintext.txt -o ciphertext.qdara\nDecrypt your data When you are ready to decrypt, you can simply run\nqdaracl decrypt -c my_cache.qcache -i ciphertext.qdara -o new_plaintext.txt\nNote that if you are a user on a different device, you must physically obtain my_cache.qcache and key.qrand from the original encryptor.\nEncrypt more files To encrypt larger size files, you may need to download more random! Here is a table of the minimum amount of random you need for a given plaintext size.\nPlaintext Size Minimum Random Size in Cache 1 KB 5 KB 10 KB 27 KB 100 KB 218 KB 1 MB 2103 KB (\u0026gt; 2 MB) 2 MB 4173 KB (\u0026gt; 4 MB) 4 MB 8301 KB (\u0026gt;8 MB) "
+	"content": "Businesses need to protect against the future quantum threat, and never distribute encryption keys that can be intercepted. The Qrypt SDK allows you to generate identical keys at multiple endpoints.\nOverview Quickstarts API Reference Changelogs "
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/quickstarts/",
@@ -70,28 +63,21 @@
 	"content": "Use the Quickstarts to quickly get up and running with the Qrypt SDK.\nQrpyt SDK for C++ Quickstarts "
 },
 {
-	"uri": "https://QryptInc.github.io/data_at_rest/concepts/",
+	"uri": "https://QryptInc.github.io/concepts/",
 	"title": "Concepts",
 	"tags": [],
 	"description": "",
-	"content": "Use the pages in this section to dig deeper into the post-quantum technologies Qrypt has to offer.\nOne-Time Pad (OTP) "
+	"content": "Use the pages in this section to dig deeper into the post-quantum technologies Qrypt has to offer.\nBLAST Distributed - multiple endpoints How to estimate the projected size of entropy? One-Time Pad (OTP) "
 },
 {
-	"uri": "https://QryptInc.github.io/sdk/concepts/",
-	"title": "Concepts",
-	"tags": [],
-	"description": "",
-	"content": "Use the pages in this section to dig deeper into the post-quantum technologies Qrypt has to offer.\nBLAST Distributed - multiple endpoints How to estimate the projected size of entropy? "
-},
-{
-	"uri": "https://QryptInc.github.io/sdk/concepts/entropy-projection/",
+	"uri": "https://QryptInc.github.io/concepts/entropy-projection/",
 	"title": "How to estimate the projected size of entropy?",
 	"tags": [],
 	"description": "",
 	"content": "Formula: Total entropy size = (Number of keys) x (Entropy size per key)\nTable: Key Size (byte) Entropy Size Per Key (byte) 16 22,120 (21.6 KiB) 32 (size of an AES-256 key) 22,440 (21.9 KiB) 64 23,080 (22.5 KiB) 128 24,280 (23.7 KiB) 256 26,680 (26.1 KiB) 512 31,200 (30.5 KiB) 1,024 (1 KiB) (1.0 KB) 39,600 (38.7 KiB) 2,048 (2 KiB) (2.0 KB) 55,080 (53.8 KiB) 4,096 (4 KiB) (4.1 KB) 83,560 (81.6 KiB) 32,768 (32 KiB) (32.8 KB) 423,480 (413.6 KiB) Example 1: To generate (or to sync) 100 of AES-256 keys, the entropy size will be\n100 x 22,440 = 2,244,000 bytes = 2.1 MiB.\nExample 2: To generate (or to sync) 100 of 128-byte OTP keys, the entropy size will be\n100 x 24,280 = 2,428,000 bytes = 2.3 MiB.\nExample 3: To generate (or to sync) 100 of AES-256 keys and 200 of 128-byte OTP keys, the entropy size will be\n100 x 22,440 + 200 x 24,280 = 7,100,000 bytes = 6.8 MiB.\nExample 4: 25 MiB entropy quota allows you to generate (or to sync)\n25 * 1024 * 1024 / 22,440 = 1168 of AES-256 keys in total.\n"
 },
 {
-	"uri": "https://QryptInc.github.io/data_at_rest/concepts/otp/",
+	"uri": "https://QryptInc.github.io/concepts/otp/",
 	"title": "One-Time Pad (OTP)",
 	"tags": [],
 	"description": "",

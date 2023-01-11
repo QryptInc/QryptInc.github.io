@@ -10,7 +10,6 @@ Businesses need to protect against the future quantum threat, and never distribu
 
 #### [Overview](overview/)
 #### [Quickstarts](quickstarts/)
-#### [Concepts](concepts/)
 #### [API Reference](api/)
 #### [Changelogs](changelogs/)
 
