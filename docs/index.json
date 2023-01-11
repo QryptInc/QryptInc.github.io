@@ -53,7 +53,7 @@
 	"title": "Key Generation",
 	"tags": [],
 	"description": "",
-	"content": "Businesses need to protect against the future quantum threat, and never distribute encryption keys that can be intercepted. The Qrypt SDK allows you to generate identical keys at multiple endpoints.\nOverview Quickstarts Concepts API Reference Changelogs "
+	"content": "Businesses need to protect against the future quantum threat, and never distribute encryption keys that can be intercepted. The Qrypt SDK allows you to generate identical keys at multiple endpoints.\nOverview Quickstarts API Reference Changelogs "
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/quickstarts/",
