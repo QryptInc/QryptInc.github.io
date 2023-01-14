@@ -1,5 +1,5 @@
 +++
-title = "BLAST Distributed - multiple endpoints"
+title = "Key Generation Architecture"
 date = 2021-10-23T15:01:22-04:00
 weight = 20
 chapter = false

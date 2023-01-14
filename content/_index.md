@@ -13,9 +13,9 @@ We believe that documentation benefits from sharing and collaborative improvemen
 ## Integrating with Qrypt
 Below is a list of the products that Qrypt offers with links to their supporting documentation.
 
-### Entropy - [Docs](/eaas/)
+### Quantum Entropy - [Docs](/eaas/)
 
-Qrypt Entropy as a Service (EaaS) measures quantum effects and converts those measurements into pure random numbers. EaaS leverages multiple Quantum Random Number Generators (QRNGs) developed by national and international research labs to ensure the highest quality random.
+Qrypt's Quantum Entropy service measures quantum effects and converts those measurements into pure random numbers. The service leverages multiple Quantum Random Number Generators (QRNGs) developed by national and international research labs to ensure the highest quality random.
 
 ### Key Generation - [Docs](sdk/)
 Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography. 
