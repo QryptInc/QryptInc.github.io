@@ -230,7 +230,8 @@ if [[ "$ENABLE_API" == "True" || "$ENABLE_API_CPP" == "True" ]]; then
         --destination '$web\api-cpp' \
         --subscription $AZURE_SUBSCRIPTION_ID \
         --account-name $ACCOUNT_NAME \
-        --account-key $ACCOUNT_KEY
+        --account-key $ACCOUNT_KEY \
+        --overwrite
 fi
 
 # Are we publishing API docs for dotnet?
@@ -240,7 +241,7 @@ if [[ "$ENABLE_API" == "True" || "$ENABLE_API_DOTNET" == "True" ]]; then
     echo "***************************************"
     echo "* PURGE API-DOTNET FOLDER ON STATIC WEB SITE"
     echo "***************************************"
-    scripts/az storage blob delete-batch \
+    az storage blob delete-batch \
         --source '$web' \
         --pattern 'api-dotnet\*' \
         --subscription $AZURE_SUBSCRIPTION_ID \
@@ -261,7 +262,7 @@ if [[ "$ENABLE_API" == "True" || "$ENABLE_API_DOTNET" == "True" ]]; then
     echo "***************************************"
     echo "* PUBLISH API FOLDER TO STATIC WEB SITE"
     echo "***************************************"
-    scripts/az storage blob upload-batch \
+    az storage blob upload-batch \
         --source  'api-build' \
         --destination '$web\api-dotnet' \
         --subscription $AZURE_SUBSCRIPTION_ID \

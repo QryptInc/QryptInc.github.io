@@ -10,9 +10,9 @@ disableToc = "true"
 
 Your access token is the mechanism by which your account will be charged for entropy data, and as such, it should be treated as secure and secret information (much as you would treat a password). 
 
-**Once I receive the EaaS response, how do I obtain entropy from it?**
+**Once I receive the Quantum Entropy response, how do I obtain entropy from it?**
 
-The EaaS service response is encoded as a JSON structure. Its “random” property will contain an array of base64-encoded strings. The “size” property specifies the length of the array, which should be the same as the size that was specified in the request (i.e., the number of kibibytes of entropy).
+The Quantum Entropy service response is encoded as a JSON structure. Its “random” property will contain an array of base64-encoded strings. The “size” property specifies the length of the array, which should be the same as the size that was specified in the request (i.e., the number of kibibytes of entropy).
 
 Each base64-encoded string can be decoded to 1,024 bytes of entropy. When all base64-encoded strings are decoded, the concatenation of all decoded bytes comprises the total requested entropy.
 

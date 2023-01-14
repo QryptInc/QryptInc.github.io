@@ -6,9 +6,9 @@ weight = 40
 
 Use the pages in this section to dig deeper into the post-quantum technologies Qrypt has to offer.
 
-#### [BLAST Distributed - multiple endpoints](blast-distributed-multiple-endpoints/)
+#### [Key Generation Architecture](blast-distributed-multiple-endpoints/)
 
-#### [How to estimate the projected size of entropy?](entropy-projection/)
+#### [Key Entropy Size](entropy-projection/)
 
 #### [One-Time Pad (OTP)](otp/)
 

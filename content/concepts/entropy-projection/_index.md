@@ -1,5 +1,5 @@
 +++
-title = "How to estimate the projected size of entropy?"
+title = "Key Entropy Size"
 date = 2021-10-23T15:01:22-04:00
 weight = 50
 chapter = false

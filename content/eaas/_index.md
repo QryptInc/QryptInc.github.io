@@ -1,17 +1,17 @@
 +++
-menuTitle = "Entropy as a Service"
-title = "Entropy as a Service"
+menuTitle = "Quantum Entropy"
+title = "Quantum Entropy"
 date = 2021-10-07T11:14:08-04:00
 weight = 1
 disableToc = "true"
 +++
 
-## Using Qrypt Entropy as a Service
-Qrypt’s Entropy as a Service is a RESTful web service that allows you to generate random data (henceforth referred to as entropy or random) that is truly random—based on quantum-mechanical phenomena.
+## Using Qrypt's Quantum Entropy Service
+Qrypt’s Quantum Entropy service is a RESTful web service that allows you to generate random data (henceforth referred to as entropy or random) that is truly random—based on quantum-mechanical phenomena.
 
 ### Getting Started
 
-To start using Qrypt Entropy as a Service, you need to create a Qrypt account, obtain an access token, and submit an HTTP request.
+To start using Qrypt's Quantum Entropy service, you need to create a Qrypt account, obtain an access token, and submit an HTTP request.
 
 #### Create a free Qrypt account
 To request entropy from the service, you must first create an account.
@@ -70,7 +70,7 @@ The web service consists of one REST API call, which returns the entropy. The fo
 
 {{< requests >}}
 
-Qrypt’s EaaS is hosted in several locations worldwide. This allows you to access a server that is closer to the client for better reliability and response time. The following table (Table 2) indicates which subdomain to use in your URL to access the server located in the specified region.
+Qrypt’s Quantum Entropy service is hosted in several locations worldwide. This allows you to access a server that is closer to the client for better reliability and response time. The following table (Table 2) indicates which subdomain to use in your URL to access the server located in the specified region.
 
 {{< locations >}}
 
