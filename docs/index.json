@@ -95,7 +95,7 @@
 	"title": "Changelogs",
 	"tags": [],
 	"description": "",
-	"content": "Versions SDK v0.7.10 SDK v0.7.4 SDK v0.6.4 SDK v0.7.10 Notable Changes:\nAdd chunk multi-threading for genInit and genSync Increase maximum supported OTP size to 10MB SDK v0.7.4 Notable Changes:\nImprove sample retry logic for genInit and genSync Increase maximum supported OTP size to 512KB Update metadata schema SDK v0.6.4 Notable Changes:\nInitial baseline of the SDK "
+	"content": "Versions SDK v0.8.6 SDK v0.7.10 SDK v0.7.4 SDK v0.6.4 SDK v0.8.6 Notable Changes:\nMove exceptions to QryptSecurity namespace Rename log level enumerations Update metadata schema Reduce library binary size SDK v0.7.10 Notable Changes:\nAdd chunk multi-threading for genInit and genSync Increase maximum supported OTP size to 10MB SDK v0.7.4 Notable Changes:\nImprove sample retry logic for genInit and genSync Increase maximum supported OTP size to 512KB Update metadata schema SDK v0.6.4 Notable Changes:\nInitial baseline of the SDK "
 },
 {
 	"uri": "https://QryptInc.github.io/categories/",
