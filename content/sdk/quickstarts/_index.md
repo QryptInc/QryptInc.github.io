@@ -6,5 +6,5 @@ weight = 30
 
 Use the Quickstarts to quickly get up and running with the Qrypt SDK.
 
-#### [Qrpyt SDK for C++ Quickstarts](cpp/)
+#### [Qrypt SDK for C++ Quickstarts](cpp/)
 
