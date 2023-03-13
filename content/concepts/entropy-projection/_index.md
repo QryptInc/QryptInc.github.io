@@ -5,11 +5,10 @@ weight = 50
 chapter = false
 +++
 
-#### Formula:
+## Formula:
 
 **Total entropy size = (Number of keys) x (Entropy size per key)**
 
-#### Table:
 {{< rawhtml >}}
 
 <table>
@@ -56,28 +55,26 @@ chapter = false
 </table>
 {{< /rawhtml >}}
 
-
-
-#### Example 1:
+## Example 1:
 
 To generate (or to sync) 100 of AES-256 keys, the entropy size will be
 
 100 x 1,680 = 168,000 bytes = 164.06 KiB.
 
-#### Example 2:
+## Example 2:
 
 To generate (or to sync) 100 of 256-byte OTP keys, the entropy size will be
 
 100 x 2,480 = 248,000 bytes = 242.19 KiB.
 
-#### Example 3:
+## Example 3:
 
 To generate (or to sync) 100 of AES-256 keys and 200 of 256-byte OTP keys, the entropy size will be
 
 100 x 1,680 + 200 x 2,480 = 7,100,000 bytes = 648.44 KiB.
 
-#### Example 4:
+## Example 4:
 
-25 MiB entropy quota allows you to generate (or to sync) 
+25 MiB entropy quota allows you to generate (or to sync)
 
-25 * 1024 * 1024 / 1,680 = 15,603 of AES-256 keys in total.
+25 _ 1024 _ 1024 / 1,680 = 15,603 of AES-256 keys in total.

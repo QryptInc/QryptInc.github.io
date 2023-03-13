@@ -1,0 +1,42 @@
+<div class="submit-a-request-for-entropy steps-container">
+  <div class="steps">
+    <div class="step">
+      Specify your access token and the desired number of kibibytes (1,024
+      bytes) of entropy in a web request. Use the following URL:
+      <a
+        href="https://api-eus.qrypt.com/api/v1/quantum-entropy?size={kib_entropy}"
+        target="_blank"
+        >https://api-eus.qrypt.com/api/v1/quantum-entropy?size={kib_entropy}</a
+      >
+    </div>
+
+    <div class="step">
+      Replace {kib_entropy} in the aforementioned URL with an integer indicating
+      the number of kibibytes of entropy to return.
+    </div>
+
+    <div class="step">
+      Include an HTTP <span class="blue-text">“Accept”</span> header field with
+      a value of <span class="blue-text">“application/json”</span>.
+    </div>
+
+    <div class="step">
+      Include an HTTP <span class="blue-text">“Authorization”</span> header with
+      a value of <span class="blue-text">“Bearer {access_token}”</span>, where
+      {access_token} is the access token obtained from the Qrypt portal.
+    </div>
+
+    <div class="step">Submit the HTTP request using the HTTP GET method.</div>
+
+    <div class="step">
+      If the HTTP request is successful, the JSON-formatted response will
+      contain a structure containing two fields named
+      <span class="blue-text">“random”</span> and
+      <span class="blue-text">“size”</span>. The
+      <span class="blue-text">“random”</span> field contains an array of
+      base64-encoded strings (each of which—when decoded—contains 1,024 bytes of
+      entropy). The <span class="blue-text">“size”</span> field contains the
+      number of elements in the <span class="blue-text">“random”</span> field.
+    </div>
+  </div>
+</div>
