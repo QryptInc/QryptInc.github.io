@@ -6,7 +6,7 @@ weight = 40
 
 Use the pages in this section to dig deeper into the post-quantum technologies Qrypt has to offer.
 
-## [Key Generation Architecture](blast-distributed-multiple-endpoints/)
+## [BLAST Distributed-multiple endpoints](blast-distributed-multiple-endpoints/)
 
 Architecture used to generate cryptographic keys for data encryption without distributing encryption keys.
 

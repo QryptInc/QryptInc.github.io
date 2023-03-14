@@ -15,7 +15,7 @@ The Qrypt SDK includes client library SDKs, cloud-based REST services, command l
 
 ### Features
 
-{{< sdkFeatures >}}
+1. Distributed key generation
 
 <br />
 

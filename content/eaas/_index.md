@@ -19,12 +19,20 @@ To start using Qrypt's Quantum Entropy service you need to create a Qrypt accoun
 ## Create a free Qrypt account
 
 To request entropy from the service, you must first create an account.
-{{< createFreeAccountSteps >}}
+
+1.  Navigate to {{< externalLink link="https://portal.qrypt.com/login" text="https://portal.qrypt.com" >}} and create a new account.
+2.  Enter your email address and a strong password, then click the button to create your account.
+3.  Check your email for the 4-digit account confirmation code and enter it on the website to confirm your account.
+4.  When prompted, enter your first and last name.
 
 ## Generate an access token
 
 An access token is required to submit REST API requests.
-{{< generateAccessTokenSteps >}}
+
+1. Navigate to the Tokens page.
+2. Assign a name to the token to help you distinguish between different tokens.
+3. Select the expiration period. This determines when the token will expire and need to be replaced.
+4. Click the **Generate token** button.
 
 ---
 
@@ -38,7 +46,12 @@ To ensure the privacy of your access token and the entropy data, all calls are m
 
 Follow these steps in your preferred tool or language of choice to request entropy (see subsequent sections Request and Response for details):
 
-{{< submitRequestForEntropySteps >}}
+1. Specify your access token and the desired number of kibibytes (1,024 bytes) of entropy in a web request. Use the following URL: {{< externalLink link="https://api-eus.qrypt.com/api/v1/quantum-entropy?size={kib_entropy}" text="https://api-eus.qrypt.com/api/v1/quantum-entropy?size={kib_entropy}" >}}.
+2. Replace {**kib_entropy**} in the aforementioned URL with an integer indicating the number of kibibytes of entropy to return.
+3. Include an HTTP **“Accept”** header field with a value of **“application/json”**</span>.
+4. Include an HTTP **“Authorization”** header with a value of **“Bearer {access_token}”**, where {**access_token**} is the access token obtained from the Qrypt portal.
+5. Submit the HTTP request using the HTTP GET method.
+6. If the HTTP request is successful, the JSON-formatted response will contain a structure containing two fields named **“random”** and **“size”**. The **“random”** field contains an array of base64-encoded strings (each of which—when decoded—contains 1,024 bytes of entropy). The **“size”** field contains the number of elements in the **“random”** field.
 
 The following sections provide more detailed explanations of the request and response.
 
