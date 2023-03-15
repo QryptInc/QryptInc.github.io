@@ -10,6 +10,10 @@ Use the pages in this section to dig deeper into the post-quantum technologies Q
 
 Architecture used to generate cryptographic keys for data encryption without distributing encryption keys.
 
+## [BLAST Local](blast-local/)
+
+Certain use cases prefer local implementation.
+
 ## [Key Entropy Size](entropy-projection/)
 
 Understanding total entropy size using formula and examples

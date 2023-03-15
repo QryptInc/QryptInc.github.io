@@ -233,7 +233,7 @@ figure,
 ul,
 ol,
 .notices {
-  max-width: 40rem;
+  max-width: 45rem;
 }
 
 figure {
@@ -246,7 +246,7 @@ figure {
 }
 
 figure a img {
-  width: 30rem !important;
+  width: 27rem !important;
 }
 
 @media only screen and (max-width: 48rem) {
@@ -298,7 +298,7 @@ table.algorithms-table ul {
 }
 
 table.algorithms-table ul li {
-  list-style-type: circle;
+  list-style-type: initial;
 }
 
 table mark {
@@ -373,7 +373,7 @@ ol li ul {
 ol li ul li {
   border-bottom: none;
   padding: 0;
-  list-style: circle;
+  list-style: initial;
 }
 
 ::selection {
@@ -760,4 +760,73 @@ div.notices.info p {
   padding: 1.25rem 0.75rem;
   font-size: 0.875rem;
   margin-bottom: 1.5rem;
+}
+
+.responsive-table ul {
+  padding-left: 1.25rem;
+}
+
+.responsive-table ul li {
+  list-style: initial;
+}
+
+@media only screen and (max-width: 48rem) {
+  responsive-table {
+    width: 100%;
+  }
+
+  /* Force table to not be like tables anymore */
+  .responsive-table,
+  .responsive-table thead,
+  .responsive-table tbody,
+  .responsive-table th,
+  .responsive-table td,
+  .responsive-table tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none; --> for accessibility) */
+  .responsive-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .responsive-table tr {
+    border-bottom: 1px solid var(--navy-20);
+  }
+
+  .responsive-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .responsive-table td {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: none;
+    border-bottom: 1px solid var(--navy-20);
+    position: relative;
+    padding: 0.5rem 0.875rem;
+  }
+
+  .responsive-table tr:nth-of-type(odd) td {
+    background: var(--navy-10);
+  }
+
+  .responsive-table tbody tr:last-child > td:first-child {
+    border-bottom-left-radius: 0;
+  }
+
+  .responsive-table tr:last-child td {
+    border-radius: 0;
+  }
+
+  .responsive-table td:before {
+    width: 50%;
+    margin-right: 2.25rem;
+    content: attr(data-column);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
 }
