@@ -102,9 +102,9 @@ Having a stateless method of determining the One-Time pad from X makes it much e
 
 ## Are we reusing One-Time Pads?
 
-We keep track of the percentage of X we have used in the cache file. Once the usage exceeds a user-configurable percentage (default set to 50%) of X, the user can no longer encrypt with X unless they use the –force flag. The percentage corresponds to 1-β in the [whitepaper](#).
+We keep track of the percentage of X we have used in the cache file. Once the usage exceeds a user-configurable percentage (default set to 50%) of X, the user can no longer encrypt with X unless they use the –force flag. The percentage corresponds to 1-β in the {{< externalLink link="https://cs.nyu.edu/~dodis/ps/blast.pdf" text="whitepaper" >}}.
 
-Although it is possible that BLAST uses the same bit twice in different encryptions, the [whitepaper](#) proves that the extracted One-Time Pad is indistinguishable from a purely random One-Time Pad as long as the total length of the One-Time Pads used is bounded by (1-β)|X|.
+Although it is possible that BLAST uses the same bit twice in different encryptions, the {{< externalLink link="https://cs.nyu.edu/~dodis/ps/blast.pdf" text="whitepaper" >}} proves that the extracted One-Time Pad is indistinguishable from a purely random One-Time Pad as long as the total length of the One-Time Pads used is bounded by (1-β)|X|.
 
 ---
 
@@ -168,7 +168,7 @@ Here is a table of minimum cache sizes for reference:
 
 ## Qrypt Key Exchange Solution – BLAST
 
-Qrypt offers a novel key exchange solution, (Section 5.2 of the [whitepaper](#)) which offers everlasting security.
+Qrypt offers a novel key exchange solution, (Section 5.2 of the {{< externalLink link="https://cs.nyu.edu/~dodis/ps/blast.pdf" text="whitepaper" >}}) which offers everlasting security.
 
 ### How secure are key exchange algorithms?
 
