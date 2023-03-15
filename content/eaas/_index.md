@@ -32,7 +32,7 @@ An access token is required to submit REST API requests.
 1. Navigate to the Tokens page.
 2. Assign a name to the token to help you distinguish between different tokens.
 3. Select the expiration period. This determines when the token will expire and need to be replaced.
-4. Click the **Generate token** button.
+4. Click the **"Generate token"** button.
 
 ---
 

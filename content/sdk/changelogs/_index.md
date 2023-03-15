@@ -6,10 +6,10 @@ draft: false
 
 ## Versions
 
-- [SDK v0.8.6]({{<ref "#sdk-v086" >}})
-- [SDK v0.7.10]({{<ref "#sdk-v0710" >}})
-- [SDK v0.7.4]({{<ref "#sdk-v074" >}})
-- [SDK v0.6.4]({{<ref "#sdk-v064" >}})
+1. [SDK v0.8.6]({{<ref "#sdk-v086" >}})
+2. [SDK v0.7.10]({{<ref "#sdk-v0710" >}})
+3. [SDK v0.7.4]({{<ref "#sdk-v074" >}})
+4. [SDK v0.6.4]({{<ref "#sdk-v064" >}})
 
 ---
 
@@ -17,10 +17,10 @@ draft: false
 
 **Notable Changes:**
 
-- Move exceptions to QryptSecurity namespace
-- Rename log level enumerations
-- Update metadata schema
-- Reduce library binary size
+1. Move exceptions to QryptSecurity namespace
+2. Rename log level enumerations
+3. Update metadata schema
+4. Reduce library binary size
 
 ---
 
@@ -28,8 +28,8 @@ draft: false
 
 **Notable Changes:**
 
-- Add chunk multi-threading for genInit and genSync
-- Increase maximum supported OTP size to 10MB
+1. Add chunk multi-threading for genInit and genSync
+2. Increase maximum supported OTP size to 10MB
 
 ---
 
@@ -37,9 +37,9 @@ draft: false
 
 **Notable Changes:**
 
-- Improve sample retry logic for genInit and genSync
-- Increase maximum supported OTP size to 512KB
-- Update metadata schema
+1. Improve sample retry logic for genInit and genSync
+2. Increase maximum supported OTP size to 512KB
+3. Update metadata schema
 
 ---
 
@@ -47,6 +47,6 @@ draft: false
 
 **Notable Changes:**
 
-- Initial baseline of the SDK
+1. Initial baseline of the SDK
 
 ---
