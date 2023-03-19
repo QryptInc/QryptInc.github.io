@@ -196,14 +196,14 @@ h1 {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.75rem;
 }
 
 h2 {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
 }
 
 h3 {
@@ -215,7 +215,7 @@ a {
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 p,
@@ -262,7 +262,7 @@ table {
   border-spacing: 0;
   border-radius: 0.75rem;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 table th {
@@ -285,7 +285,7 @@ table tbody tr:last-child > td:last-child {
 
 table ul {
   padding: 0;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 table ul li {
@@ -315,16 +315,16 @@ mark {
 
 pre {
   border-radius: 0.75rem;
-  font-size: 0.875rem;
+  font-size: 0.975rem;
 }
 
 code {
   white-space: initial;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 p {
-  font-size: 0.875rem;
+  font-size: 0.975rem;
   line-height: 1.375rem;
   font-weight: normal;
 }
@@ -336,7 +336,7 @@ hr {
 ul {
   padding-inline-start: 2rem;
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 0.975rem;
 }
 
 ol {
@@ -349,7 +349,7 @@ ol {
 ol li {
   list-style: none;
   padding: 0.75rem;
-  font-size: 0.875rem;
+  font-size: 0.975rem;
   border-bottom: 1px solid var(--navy-20);
 }
 
@@ -358,7 +358,7 @@ ol li:last-child {
 }
 
 ol li::marker {
-  font-size: 0.875rem;
+  font-size: 0.975rem;
 }
 
 ol li p {
@@ -507,7 +507,7 @@ a:hover {
   display: flex;
   align-items: center;
   color: var(--navy);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
 }
 
 @media only screen and (max-width: 60rem) {
@@ -573,7 +573,7 @@ a:hover {
 
 #sidebar ul.topics > li > a {
   line-height: 1.375rem;
-  font-size: 0.875rem;
+  font-size: 0.975rem;
   color: var(--navy);
 }
 
@@ -641,7 +641,7 @@ a:hover {
 #sidebar > .highlightable > #footer {
   padding: 0;
   margin: 5rem 1rem 1.5rem 1rem;
-  font-size: 0.875rem;
+  font-size: 0.975rem;
 }
 
 #sidebar > .highlightable > #footer a {
@@ -658,7 +658,7 @@ div.notices.note p {
   max-width: 28rem;
   border-radius: 0.75rem;
   max-width: 28rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   line-height: 1.25rem;
   color: var(--navy);
 }
@@ -712,7 +712,7 @@ div.notices.info p {
 .steps-container .steps .step {
   border-bottom: 1px solid var(--navy-20);
   padding: 0.75rem;
-  font-size: 0.875rem;
+  font-size: 0.975rem;
 }
 
 .steps-container .steps .step:last-child {
@@ -755,7 +755,7 @@ div.notices.info p {
   max-width: 30rem;
   border-radius: 0.75rem;
   padding: 1.25rem 0.75rem;
-  font-size: 0.875rem;
+  font-size: 0.975rem;
   margin-bottom: 1.5rem;
 }
 

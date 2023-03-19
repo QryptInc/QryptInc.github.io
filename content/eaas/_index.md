@@ -33,6 +33,9 @@ An access token is required to submit REST API requests.
 2. Assign a name to the token to help you distinguish between different tokens.
 3. Select the expiration period. This determines when the token will expire and need to be replaced.
 4. Click the **"Generate token"** button.
+5. The generated token will be displayed along with an example of how entropy data can be requested. Copy the token using the “Copy” button and store it in a secure location. Important: This is the only time you will be able to view the access token. Be sure to copy and store it before closing this popup.
+6. Save the access token to a secure location. Because your access token is used to make requests for entropy—a budgeted resource—it should be treated as secure data, very much like a password.
+
 
 ---
 

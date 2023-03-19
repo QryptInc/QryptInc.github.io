@@ -15,7 +15,7 @@ The Qrypt SDK includes client library SDKs, cloud-based REST services, command l
 
 ## [Quickstarts](quickstarts/)
 
-Use the Quickstarts to quickly get up and running with the Qrypt SDK.
+Demo applications built using Qrypt's tools.
 
 ## [API Reference](api/)
 
