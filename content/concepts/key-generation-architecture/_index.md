@@ -14,8 +14,7 @@ Qrypt is the only company that enables encryption without distributing encryptio
 3. Client locally extracts keys from returned random – not even Qrypt can determine the keys.
 4. No dedicated channels or infrastructure required – unlike quantum key distribution (QKD).
 
-{{< figure src="images/blast.svg" >}}
-
+{{< figure src="images/blast_1.svg" >}}
 ---
 
 **Walk-through**
