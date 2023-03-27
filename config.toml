@@ -1,4 +1,5 @@
 baseURL = 'https://QryptInc.github.io'
+relativeURLs = true
 languageCode = 'en-us'
 title = 'Qrypt'
 theme = "hugo-theme-learn"

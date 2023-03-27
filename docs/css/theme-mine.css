@@ -123,6 +123,10 @@
 
 /* ---- End of Fonts ----- */
 
+a {
+  text-decoration: none;
+}
+
 html {
   display: flex;
   justify-content: center;
