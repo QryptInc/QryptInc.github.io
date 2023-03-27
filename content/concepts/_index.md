@@ -6,14 +6,9 @@ weight = 40
 
 Use the pages in this section to dig deeper into the post-quantum technologies Qrypt has to offer.
 
-## [Key Generation Architecture](key-generation-architecture/)
+#### [Key Generation Architecture](blast-distributed-multiple-endpoints/)
 
-Architecture used to generate cryptographic keys for data encryption without distributing encryption keys.
+#### [Key Entropy Size](entropy-projection/)
 
-## [Key Entropy Size](entropy-projection/)
+#### [One-Time Pad (OTP)](otp/)
 
-Understanding total entropy size using formula and examples
-
-## [One-Time Pad (OTP)](otp/)
-
-One-Time Pads are the only known information theoretically secure way to perform symmetric encryption. Qrypt is the first in the industry to offer a way to use OTP in a practical manner.

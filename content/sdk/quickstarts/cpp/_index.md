@@ -8,30 +8,22 @@ The Qrypt SDK for C++ enables developers to add post-quantum security to their a
 
 Currently we provide Distributed Key Generation.
 
-## Library Compatibility
+**Library Compatibility**
 
 The Qrypt SDK for C++ is built using the following compilers.
 
-| Platform | Version | Compiler  | CPU |
-| -------- | ------- | --------- | --- |
-| Ubuntu   | 20.04   | gcc 9.4.0 | x64 |
-
----
+| Platform | Version | Compiler | CPU |
+|---|---|---|---|
+| Ubuntu | 20.04 | gcc 9.4.0 | x64 |
 
 ## Sample Code
 
 Find the finalized code for these quickstarts on {{< externalLink link="https://github.com/QryptInc/qrypt-security-quickstarts-cpp" text="GitHub" >}}.
 
----
-
 ## Prerequisites
-
-A Qrypt Account. {{< externalLink link="https://portal.qrypt.com/register" text="Create an account for free" >}}.
-
----
+- A Qrypt Account. {{< externalLink link="https://portal.qrypt.com/register" text="Create an account for free" >}}.
 
 ## Quickstarts
-
-### {{< externalLink link="https://github.com/QryptInc/qrypt-security-quickstarts-cpp" text="Distributed key generation" >}}
-
-{{< quickstartFeatures >}}
+1. {{< externalLink link="https://github.com/QryptInc/qrypt-security-quickstarts-cpp" text="Distributed key generation" >}}.
+   1. Generate One-Time Pads.
+   1. Encrypt and decrypt using generated One-Time Pads. 
