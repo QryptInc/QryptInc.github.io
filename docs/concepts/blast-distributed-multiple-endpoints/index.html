@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>One-Time Pad (OTP) :: Qrypt</title>
+    <title>Key Generation Architecture :: Qrypt</title>
 
     
     <link href="/css/nucleus.css?1675174064" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/concepts/otp/">
+  <body class="" data-url="/concepts/blast-distributed-multiple-endpoints/">
     <nav id="sidebar" class="">
 
 
@@ -350,7 +350,7 @@
     
     <li data-nav-id="/concepts/blast-distributed-multiple-endpoints/" title="Key Generation Architecture" class="dd-item
         
-        
+        active
         
         ">
       <a href="/concepts/blast-distributed-multiple-endpoints/">
@@ -402,7 +402,7 @@
     
     <li data-nav-id="/concepts/otp/" title="One-Time Pad (OTP)" class="dd-item
         
-        active
+        
         
         ">
       <a href="/concepts/otp/">
@@ -515,7 +515,7 @@
             
           
           
-            <a href='/'>Home</a> > <a href='/concepts/'>Concepts</a> > One-Time Pad (OTP)
+            <a href='/'>Home</a> > <a href='/concepts/'>Concepts</a> > Key Generation Architecture
           
         
           
@@ -528,25 +528,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#our-technology">Our Technology</a>
-      <ul>
-        <li><a href="#what-is-classical-cryptographic-security">What is classical cryptographic security?</a></li>
-        <li><a href="#what-is-post-quantum-security">What is post-quantum security?</a></li>
-        <li><a href="#what-is-information-theoretic-security">What is information theoretic security?</a></li>
-        <li><a href="#why-isnt-everyone-using-one-time-pads">Why isn’t everyone using One-Time Pads?</a></li>
-      </ul>
-    </li>
-    <li><a href="#blast-distributed">BLAST Distributed</a>
-      <ul>
-        <li><a href="#how-secure-are-key-exchange-algorithms">How secure are key exchange algorithms?</a></li>
-        <li><a href="#what-is-everlasting-security">What is everlasting security?</a></li>
-      </ul>
-    </li>
-    <li><a href="#levels-of-security">Levels of Security</a></li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -562,7 +544,7 @@
           
             <h1>
               
-              One-Time Pad (OTP)
+              Key Generation Architecture
             </h1>
           
 
@@ -570,122 +552,39 @@
 
 
 
-	<h2 id="our-technology">Our Technology</h2>
-<p>Qrypt offers solutions to make One-Time Pads, the only known information theoretically secure symmetric encryption algorithm, finally practical in industry.</p>
-<h3 id="what-is-classical-cryptographic-security">What is classical cryptographic security?</h3>
-<p>A cryptographic algorithm is considered secure, when the algorithm has been around for several years, and there is still no known method to “break” the algorithm with a classical computer.</p>
-<p>For example, the widely used RSA algorithm has been around since 1977 with no significant progress made on a method to break it with a classical computer.</p>
-<h3 id="what-is-post-quantum-security">What is post-quantum security?</h3>
-<p>With the age of quantum computers being on the horizon, researchers have also explored methods to break cryptography using a quantum computer. Post-quantum cryptography means that after years of research, there is still no known method to “break” the cryptography, even given a quantum computer.</p>
-<p>For example, RSA, would not satisfy post-quantum security because Shor’s algorithm, an attack using a quantum computer, was discovered to break RSA in 1994. On the other hand, AES-256 is considered post-quantum because no quantum attacks have been discovered since its publication in 1998.</p>
-<figure><img src="images/otp-intro.svg"/><figcaption>
-            <h4>One-Time Pads</h4>
-        </figcaption>
+	<p>Key distribution based on asymmetric algorithms is a weak link for cryptography.</p>
+<p>Qrypt is the only company that enables encryption without distributing encryption keys – also basing them on trusted quantum random numbers.</p>
+<ul>
+<li>The BLAST architecture enables generation of identical keys at multiple endpoints, so they are never distributed.</li>
+<li>Caches of random allow for sampling by multiple clients – with time and usage controls that trigger cache shredding.</li>
+<li>Client locally extracts keys  from returned random – not even Qrypt can determine the keys.</li>
+<li>No dedicated channels or infrastructure required – unlike quantum key distribution (QKD).</li>
+</ul>
+<figure><img src="images/blast-distributed-multiple-endpoints1.png"/>
 </figure>
 
-<p>A One-Time Pad cipher is when a randomly chosen key, the same length of the plaintext, is XORed with the plaintext to produce the ciphertext. If the key is truly chosen randomly, all plaintexts of the given size are equally likely to have produced the ciphertext.</p>
-<h3 id="what-is-information-theoretic-security">What is information theoretic security?</h3>
-<p>One-Time Pads have been mathematically proven to be information theoretically secure, meaning there is a mathematical proof that there exist no attacks (even with a computationally unbounded adversary) that can break a One-Time Pad. On the other hand, it is possible for a “post-quantum” algorithm to be broken, if in the future, someone were to discover a quantum attack on the algorithm.</p>
-<h3 id="why-isnt-everyone-using-one-time-pads">Why isn’t everyone using One-Time Pads?</h3>
-<p>One-Time Pads are only secure if the key is truly random, <strong>and only recent quantum technology has made truly random keys possible</strong>.</p>
-<p>In addition, One-Time Pads are only secure if the keys are never reused. This means we need to share a newly randomly generated key, which is the same size of the plaintext, every time we want to send a new plaintext message. <strong>This reduces the security of the One-Time Pad down to the security of the key exchange algorithm.</strong></p>
-<h2 id="blast-distributed">BLAST Distributed</h2>
-<p>Qrypt offers a novel key generation solution, which offers everlasting security.</p>
-<h3 id="how-secure-are-key-exchange-algorithms">How secure are key exchange algorithms?</h3>
-
-
-<table>
-    <tr>
-        <th>Algorithms</th>
-        <th>Level of Security</th>
-        <th>Drawbacks</th>
-    </tr>
-    <tr>
-        <td>RSA, Diffie Hellman, ECDH</td>
-        <td>Classical security</td>
-        <td>
-            <ul>
-                <li>Not post-quantum</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td>Classic McEliece, CRYSTALS-KYBER, FrodoKEM</td>
-        <td>Post-quantum security</td>
-        <td>
-            <ul>
-                <li>Not provably secure</li>
-                <li>Slow/inefficient</li>
-    </tr>
-    <tr>
-        <td>Quantum Key Distribution (QKD): BB84, E91, B92</td>
-        <td>Information theoretically secure (dependent on accuracy of hardware)</td>
-        <td>
-            <ul>
-                <li>Costly</li>
-                <li>Range of communication is limited</li>
-                <li>Tolerance for error in cryptographic security, however, is many order of magnitude smaller than in most physical engineering scenarios making it very difficult to validate</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td><b>Qrypt solution</b></td>
-        <td>Everlasting security (explained below)</td>
-        <td>
-            <ul>
-                <li>Assumes the user has a secure channel with a user-configurable value <i>g</i> out of <i>t</i> Qrypt servers</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-<h3 id="what-is-everlasting-security">What is everlasting security?</h3>
-<p>A protocol which achieves everlasting security guarantees that an encryption is information theoretically secure, given that the initial key exchange of the seed <em>S</em> is not broken within a time <em>T</em> which we can choose (i.e. an hour). This means that an hour after the two parties exchange an initial seed <em>S</em>, even a computationally unbounded adversary (with access to both classical and quantum computers) cannot break the encryption.</p>
-<h2 id="levels-of-security">Levels of Security</h2>
+<p><strong>Walk-through</strong></p>
 <ol>
-<li>
-<p>Classical security that is vulnerable to quantum computers (i.e. RSA, ECDH)</p>
-</li>
-<li>
-<p>Post quantum security that has no known algorithm that quantum computers could run to break (i.e. FrodoKEM, Crystals-Kyber)</p>
-</li>
+<li>Client A determines the key generation requirements: BLAST servers to be used, the sampling seeds, and extraction parameters​.</li>
+<li>Clients share the key generation requirements – seeds, extraction parameters​.</li>
+<li>Each client independently samples BLAST APIs, assembling identical blocks of random on each client.​</li>
+<li>Clients locally extracts keys - resulting in identical encryption keys which were never distributed​</li>
 </ol>
-<p>For levels 1 and 2, to break the encryption, an adversary would need to:</p>
+<p><strong>​Attack scenarios required to compromise keys are extreme​</strong></p>
 <ul>
-<li>Harvest data between Alice and Bob</li>
-<li>Break the key exchange</li>
+<li>Attacker compromises the A to B channel and decrypts the key generation requirements before the server caches are shredded and can no longer be sampled. Even with a quantum computer the time to decrypt is too long.​</li>
+<li>Attacker compromises ALL aspects of the BLAST protocol, including TLS crypto​
+<ul>
+<li>Compromises ALL channels between a client and the N BLAST servers​</li>
+<li>Compromises the A to B channel​</li>
+<li>Defeat TLS cryptography used in A to B channel​</li>
 </ul>
-<figure><img src="images/otp-levels-of-security-levels1and2.svg"/>
+</li>
+<li>Full control of Client A or Client B​</li>
+</ul>
+<figure><img src="images/blast-distributed-multiple-endpoints2.png"/>
 </figure>
 
-<p>3a)  Everlasting security which is provably secure against an unbounded adversary after phase 1 (while the server is still accepting decryption requests), where:</p>
-<ul>
-<li>the seed key exchange has level 1 security in phase 1</li>
-<li>we assume g out of T servers have secure, authenticated channels with the client (where these channels use TLS)</li>
-</ul>
-<p>3b)  Everlasting security which is provably secure against an unbounded adversary after phase 1 (while the server is still accepting decryption requests), where:</p>
-<ul>
-<li>the seed key exchange has level 2 security in phase 1</li>
-<li>we assume g out of T servers have secure, authenticated channels with the client (where these channels use TLS)</li>
-</ul>
-<p>3c) Everlasting security which is provably secure against an unbounded adversary after phase 1 (while the server is still accepting decryption requests), where:</p>
-<ul>
-<li>the seed has level 2 security in phase 1</li>
-<li>we assume g out of T servers have secure, authenticated channels with the client (where these channels use post-quantum TLS)</li>
-</ul>
-<figure><img src="images/otp-levels-of-security-level3.svg"/>
-</figure>
-
-<p>For levels 3a, 3b, and 3c, to break the encryption, an adversary would need to:</p>
-<ul>
-<li>Harvest data between Alice and Bob</li>
-<li>Harvest data from greater than T-g server links to Alice or Bob</li>
-<li>Break the key exchange of the seed</li>
-<li>Break the protocol for downloading random</li>
-</ul>
-<ol start="4">
-<li>Information theoretic security that is provably secure against an unbounded adversary (which Qrypt only has the capability of doing with physical transfer of key material)</li>
-</ol>
 
 
 
@@ -879,6 +778,23 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -909,23 +825,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -933,9 +832,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
