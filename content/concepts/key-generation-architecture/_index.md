@@ -16,6 +16,8 @@ Qrypt is the only company that enables encryption without distributing encryptio
 
 {{< figure src="images/blast_1.svg" >}}
 
+---
+
 **Walk-through**
 
 1. Client A determines the key generation requirements: BLAST servers to be used, the sampling seeds, and extraction parameters​
