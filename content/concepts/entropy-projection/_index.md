@@ -5,14 +5,21 @@ weight = 50
 chapter = false
 +++
 
-#### Formula:
+## Formula
 
-**Total entropy size = (Number of keys) x (Entropy size per key)**
-
-#### Table:
 {{< rawhtml >}}
 
-<table>
+<div class="code-like-snippet-example">
+    <span class="blue-text">Total entropy size</span> = 
+    (<span class="orange-text">Number of keys</span>) x 
+    (<span class="orange-text">Entropy size per key</span>)
+</div>
+
+{{< /rawhtml >}}
+
+{{< rawhtml >}}
+
+<table style="margin-bottom: 4rem">
     <tr>
         <th>Key Size (byte)</th>
         <th>Entropy Size Per Key (byte)</th>
@@ -56,28 +63,81 @@ chapter = false
 </table>
 {{< /rawhtml >}}
 
-
-
-#### Example 1:
+**Example 1:**
 
 To generate (or to sync) 100 of AES-256 keys, the entropy size will be
 
-100 x 40 = 4,000 bytes = 3.91 KiB.
+{{< rawhtml >}}
 
-#### Example 2:
+<div class="code-like-snippet-example">
+    <span class="blue-text">100</span> x
+    <span class="orange-text">22,440</span> =
+    <span class="blue-text">2,244,000 bytes</span> = 
+    <span class="blue-text">2.1 MiB</span>
+</div>
+
+{{< /rawhtml >}}
+
+**Example 2:**
 
 To generate (or to sync) 100 of 256-byte OTP keys, the entropy size will be
 
-100 x 290 = 29,000 bytes = 28.32 KiB.
+{{< rawhtml >}}
 
-#### Example 3:
+<div class="code-like-snippet-example">
+    <span class="blue-text">100</span> x
+    <span class="orange-text">24,280</span> =
+    <span class="blue-text">2,428,000 bytes</span> = 
+    <span class="blue-text">2.3 MiB</span>
+</div>
+
+{{< /rawhtml >}}
+
+**Example 3:**
 
 To generate (or to sync) 100 of AES-256 keys and 200 of 256-byte OTP keys, the entropy size will be
 
-100 x 40 + 200 x 290 = 62,000 bytes = 60.55 KiB.
+{{< rawhtml >}}
 
-#### Example 4:
+<div class="code-like-snippet-example">
+    (
+        <span class="blue-text">100</span>
+        <span>x</span>
+        <span class="blue-text">22,440</span>
+    ) x
+    (
+        <span class="orange-text">200</span>
+        <span>x</span>
+        <span class="orange-text">24,280</span>
+    ) =
+    <span class="blue-text">7,100,000 bytes</span> = 
+    <span class="blue-text">6.8 MiB</span>
+</div>
 
-25 MiB entropy quota allows you to generate (or to sync) 
+{{< /rawhtml >}}
 
-25 * 1024 * 1024 / 40 = 65,536 of AES-256 keys in total.
+**Example 4:**
+
+25 MiB entropy quota allows you to generate (or to sync)
+
+{{< rawhtml >}}
+
+<div class="code-like-snippet-example">
+    (
+        <span class="orange-text">25</span>
+        <span>*</span>
+        <span class="orange-text">1024</span>
+        <span>*</span>
+        <span class="orange-text">1024</span>
+        <span>/</span>
+        <span class="orange-text">22,440</span>
+    ) x
+    (
+        <span class="orange-text">200</span>
+        <span>x</span>
+        <span class="orange-text">24,280</span>
+    ) =
+    <span class="blue-text">1168 of AES-256 keys in total</span> 
+</div>
+
+{{< /rawhtml >}}

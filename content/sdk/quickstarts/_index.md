@@ -6,5 +6,6 @@ weight = 30
 
 Use the Quickstarts to quickly get up and running with the Qrypt SDK.
 
-#### [Qrpyt SDK for C++ Quickstarts](cpp/)
+## [Qrpyt SDK for C++ Quickstarts](cpp/)
 
+The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.

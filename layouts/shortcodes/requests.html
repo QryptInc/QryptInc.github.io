@@ -1,24 +1,33 @@
 <table width="100%" cellspacing="0" cellpadding="0">
-    <tr>
-        <th width="174">HTTP Verb</th>
-        <th>GET</th>
-    </tr>
-    <tr>
-        <td width="174">URL</td>
-        <td>
-            <a href="#">https://api-eus.qrypt.com/api/v1/quantum-entropy?size={kib_entropy}</a><br/><br/>
-            <i>{kib_entropy}</i> is an integer that specifies the number of kibibytes (1,024 bytes) of entropy being requested. The minimum value is 1 and the maximum value is 512. If unspecified, the default value is one (1).
-        </td>
-    </tr>
-    <tr>
-        <td width="174">Accept<br/>(header)</td>
-        <td>"application/json"</td>
-    </tr>
-    <tr>
-        <td width="174">Authorization<br/>(header)</td>
-        <td>
-            "Bearer {qrypt_access_token}"<br/><br/>
-            <i>{qrypt_access_token}</i> is an access token generated in the Qrypt portal.
-        </td>
-    </tr>
+  <tr>
+    <th width="174">HTTP Verb</th>
+    <th>GET</th>
+  </tr>
+  <tr>
+    <td width="174">URL</td>
+    <td>
+      <a
+        href="https://api-eus.qrypt.com/api/v1/quantum-entropy?size={kib_entropy}"
+        target="_blank"
+        >https://api-eus.qrypt.com/api/v1/quantum-entropy?size={kib_entropy}</a
+      ><br /><br />
+      <i>{kib_entropy}</i> is an integer that specifies the number of kibibytes
+      (1,024 bytes) of entropy being requested. The minimum value is 1 and the
+      maximum value is 512. If unspecified, the default value is one (1).
+    </td>
+  </tr>
+  <tr>
+    <td width="174">Accept<br />(header)</td>
+    <td class="blue-text">"application/json"</td>
+  </tr>
+  <tr>
+    <td width="174">Authorization<br />(header)</td>
+    <td>
+      <span class="blue-text">"Bearer {qrypt_access_token}"</span>
+      <br />
+      <br />
+      <i>{qrypt_access_token}</i> is an access token generated in the Qrypt
+      portal.
+    </td>
+  </tr>
 </table>

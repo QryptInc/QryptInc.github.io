@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Key Generation Architecture on Qrypt</title>
-    <link>https://QryptInc.github.io/concepts/blast-distributed-multiple-endpoints/</link>
+    <link>https://QryptInc.github.io/concepts/key-generation-architecture/</link>
     <description>Recent content in Key Generation Architecture on Qrypt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Oct 2021 15:01:22 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/concepts/blast-distributed-multiple-endpoints/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Oct 2021 15:01:22 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/concepts/key-generation-architecture/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
