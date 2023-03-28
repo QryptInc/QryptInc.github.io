@@ -71,9 +71,9 @@ To generate (or to sync) 100 of AES-256 keys, the entropy size will be
 
 <div class="code-like-snippet-example">
     <span class="blue-text">100</span> x
-    <span class="orange-text">22,440</span> =
-    <span class="blue-text">2,244,000 bytes</span> = 
-    <span class="blue-text">2.1 MiB</span>
+    <span class="orange-text">40</span> =
+    <span class="blue-text">4,000 bytes</span> = 
+    <span class="blue-text">3.91 KiB</span>
 </div>
 
 {{< /rawhtml >}}
@@ -86,9 +86,9 @@ To generate (or to sync) 100 of 256-byte OTP keys, the entropy size will be
 
 <div class="code-like-snippet-example">
     <span class="blue-text">100</span> x
-    <span class="orange-text">24,280</span> =
-    <span class="blue-text">2,428,000 bytes</span> = 
-    <span class="blue-text">2.3 MiB</span>
+    <span class="orange-text">290</span> =
+    <span class="blue-text">29,000 bytes</span> = 
+    <span class="blue-text">28.32 KiB</span>
 </div>
 
 {{< /rawhtml >}}
@@ -103,15 +103,15 @@ To generate (or to sync) 100 of AES-256 keys and 200 of 256-byte OTP keys, the e
     (
         <span class="blue-text">100</span>
         <span>x</span>
-        <span class="blue-text">22,440</span>
-    ) x
+        <span class="blue-text">40</span>
+    ) +
     (
         <span class="orange-text">200</span>
-        <span>x</span>
-        <span class="orange-text">24,280</span>
+        <span>+</span>
+        <span class="orange-text">290</span>
     ) =
-    <span class="blue-text">7,100,000 bytes</span> = 
-    <span class="blue-text">6.8 MiB</span>
+    <span class="blue-text">62,000 bytes</span> = 
+    <span class="blue-text">60.55 KiB</span>
 </div>
 
 {{< /rawhtml >}}
@@ -130,14 +130,9 @@ To generate (or to sync) 100 of AES-256 keys and 200 of 256-byte OTP keys, the e
         <span>*</span>
         <span class="orange-text">1024</span>
         <span>/</span>
-        <span class="orange-text">22,440</span>
-    ) x
-    (
-        <span class="orange-text">200</span>
-        <span>x</span>
-        <span class="orange-text">24,280</span>
+        <span class="orange-text">40</span>
     ) =
-    <span class="blue-text">1168 of AES-256 keys in total</span> 
+    <span class="blue-text">65,536 of AES-256 keys in total</span> 
 </div>
 
 {{< /rawhtml >}}
