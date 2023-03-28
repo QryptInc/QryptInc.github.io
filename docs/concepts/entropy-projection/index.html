@@ -12,22 +12,22 @@
     <title>Key Entropy Size :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1679956560" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1679956560" rel="stylesheet">
-    <link href="../../css/hybrid.css?1679956560" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1679956560" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1679956560" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1679956560" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1679956560" rel="stylesheet">
-    <link href="../../css/theme.css?1679956560" rel="stylesheet">
-    <link href="../../css/tabs.css?1679956560" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1679956560" rel="stylesheet">
+    <link href="../../css/nucleus.css?1680031480" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1680031480" rel="stylesheet">
+    <link href="../../css/hybrid.css?1680031480" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1680031480" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1680031480" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1680031480" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1680031480" rel="stylesheet">
+    <link href="../../css/theme.css?1680031480" rel="stylesheet">
+    <link href="../../css/tabs.css?1680031480" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1680031480" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1679956560" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1680031480" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1679956560"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1680031480"></script>
 
     
   </head>
@@ -49,14 +49,14 @@
 
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1679956560"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1679956560"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1680031480"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1680031480"></script>
 <script type="text/javascript">
   
       var baseurl = "https:\/\/QryptInc.github.io";
   
 </script>
-<script type="text/javascript" src="../../js/search.js?1679956560"></script>
+<script type="text/javascript" src="../../js/search.js?1680031480"></script>
  
   </div>
   
@@ -383,9 +383,9 @@
 
 
 <div class="code-like-snippet-example">
-    <span class="blue-text">Total entropy size</span> = 
+    <span class="black-text">Total entropy size</span> = 
     (<span class="orange-text">Number of keys</span>) x 
-    (<span class="orange-text">Entropy size per key</span>)
+    (<span class="blue-text">Entropy size per key</span>)
 </div>
 
 
@@ -394,44 +394,44 @@
 
 <table style="margin-bottom: 4rem">
     <tr>
-        <th>Key Size (byte)</th>
-        <th>Entropy Size Per Key (byte)</th>
+        <th>Key Size (bytes)</th>
+        <th><span class="blue-text">Entropy Size Per Key (bytes)</span></th>
     </tr>
     <tr>
         <td>16</td>
-        <td>1,600 (1.56 KiB)</td>
+        <td><span class="blue-text">20</span></td>
     </tr>
     <tr>
         <td>32 (size of an AES-256 key)</td>
-        <td>1,680 (1.64 KiB)</td>
+        <td><span class="blue-text">40</span></td>
     </tr>
     <tr>
         <td>64</td>
-        <td>1,760 (1.72 KiB)</td>
+        <td><span class="blue-text">80</span></td>
     </tr>    
     <tr>
         <td>256</td>
-        <td>2,480 (2.42 KiB)</td>
+        <td><span class="blue-text">290</span></td>
     </tr>    
     <tr>
         <td>1,024 (1 KiB)</td>
-        <td>4,800 (4.69 KiB)</td>
+        <td><span class="blue-text">1,140 (1.11 KiB)</span></td>
     </tr>
     <tr>
         <td>10,240 (10 KiB)</td>
-        <td>27,920 (27.27 KiB)</td>
+        <td><span class="blue-text">11,380 (11.11 KiB)</span></td>
     </tr>
     <tr>
         <td>102,400 (100 KiB)</td>
-        <td>234,000 (228.52 KiB)</td>
+        <td><span class="blue-text">113,780 (111.11 KiB)</span></td>
     </tr>
     <tr>
         <td>1,048,576 (1 MiB)</td>
-        <td>2,264,640 (2.16 MiB)</td>
+        <td><span class="blue-text">1,165,090 (1.11 MiB)</span></td>
     </tr>
     <tr>
         <td>10,485,760 (10 MiB)</td>
-        <td>22,646,400 (21.6 MiB)</td>
+        <td><span class="blue-text">11,650,850 (11.1 MiB)</span></td>
     </tr>
 </table>
 
@@ -441,10 +441,10 @@
 
 
 <div class="code-like-snippet-example">
-    <span class="blue-text">100</span> x
-    <span class="orange-text">22,440</span> =
-    <span class="blue-text">2,244,000 bytes</span> = 
-    <span class="blue-text">2.1 MiB</span>
+    <span class="orange-text">100 keys</span> x
+    <span class="blue-text">40 bytes/key</span> =
+    <span class="black-text">4,000 bytes</span> = 
+    <span class="black-text">3.91 KiB</span>
 </div>
 
 
@@ -454,10 +454,10 @@
 
 
 <div class="code-like-snippet-example">
-    <span class="blue-text">100</span> x
-    <span class="orange-text">24,280</span> =
-    <span class="blue-text">2,428,000 bytes</span> = 
-    <span class="blue-text">2.3 MiB</span>
+    <span class="orange-text">100 keys</span> x
+    <span class="blue-text">290 bytes/key</span> =
+    <span class="black-text">29,000 bytes</span> = 
+    <span class="black-text">28.32 KiB</span>
 </div>
 
 
@@ -468,41 +468,38 @@
 
 <div class="code-like-snippet-example">
     (
-        <span class="blue-text">100</span>
+        <span class="orange-text">100 keys</span>
         <span>x</span>
-        <span class="blue-text">22,440</span>
-    ) x
+        <span class="blue-text">40 bytes/key</span>
+    ) +
     (
-        <span class="orange-text">200</span>
+        <span class="orange-text">200 keys</span>
         <span>x</span>
-        <span class="orange-text">24,280</span>
+        <span class="blue-text">290 bytes/key</span>
     ) =
-    <span class="blue-text">7,100,000 bytes</span> = 
-    <span class="blue-text">6.8 MiB</span>
+    <span class="black-text">62,000 bytes</span> = 
+    <span class="black-text">60.55 KiB</span>
 </div>
 
 
 <p><strong>Example 4:</strong></p>
-<p>25 MiB entropy quota allows you to generate (or to sync)</p>
+<p>An entropy quota of 25 MiB allows you to generate (or to sync)</p>
 
 
 
 <div class="code-like-snippet-example">
     (
-        <span class="orange-text">25</span>
-        <span>*</span>
-        <span class="orange-text">1024</span>
-        <span>*</span>
-        <span class="orange-text">1024</span>
+        <span class="black-text">20 MiB</span>
         <span>/</span>
-        <span class="orange-text">22,440</span>
-    ) x
-    (
-        <span class="orange-text">200</span>
-        <span>x</span>
-        <span class="orange-text">24,280</span>
+        <span class="blue-text">40 bytes/key</span>
     ) =
-    <span class="blue-text">1168 of AES-256 keys in total</span> 
+    (
+        <span class="black-text">20,971,152 bytes</span>
+        <span>/</span>
+        <span class="blue-text">40 bytes/key</span>
+    ) =
+    <span class="orange-text">65,536 keys</span> 
+    <span class="black-text">of 32-bytes</span> 
 </div>
 
 
@@ -783,19 +780,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1679956560"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1679956560"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1679956560"></script>
-    <script src="../../js/jquery.sticky.js?1679956560"></script>
-    <script src="../../js/featherlight.min.js?1679956560"></script>
-    <script src="../../js/highlight.pack.js?1679956560"></script>
+    <script src="../../js/clipboard.min.js?1680031480"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1680031480"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1680031480"></script>
+    <script src="../../js/jquery.sticky.js?1680031480"></script>
+    <script src="../../js/featherlight.min.js?1680031480"></script>
+    <script src="../../js/highlight.pack.js?1680031480"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1679956560"></script>
-    <script src="../../js/learn.js?1679956560"></script>
-    <script src="../../js/hugo-learn.js?1679956560"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1680031480"></script>
+    <script src="../../js/learn.js?1680031480"></script>
+    <script src="../../js/hugo-learn.js?1680031480"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1679956560"></script>
+            <script src="../../mermaid/mermaid.js?1680031480"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
