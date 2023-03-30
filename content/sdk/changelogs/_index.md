@@ -18,8 +18,8 @@ draft: false
 **Notable Changes:**
 
 1. Change backend to use sequential sampling and seedless extraction
-2. Changed smallest allowed key size to 1 byte
-3. Simplified logging API
+2. Change smallest allowed key size to 1 byte
+3. Simplify logging API
 
 ---
 
