@@ -6,7 +6,7 @@ draft: false
 
 ## Versions
 
-1. [SDK v0.9.0]({{<ref "#sdk-v090" >}})
+1. [SDK v0.9.2]({{<ref "#sdk-v092" >}})
 2. [SDK v0.8.6]({{<ref "#sdk-v086" >}})
 3. [SDK v0.7.10]({{<ref "#sdk-v0710" >}})
 4. [SDK v0.7.4]({{<ref "#sdk-v074" >}})
@@ -14,7 +14,7 @@ draft: false
 
 ---
 
-### SDK v0.9.0
+### SDK v0.9.2
 **Notable Changes:**
 
 1. Change backend to use sequential sampling and seedless extraction
