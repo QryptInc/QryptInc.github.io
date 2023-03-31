@@ -754,9 +754,13 @@ div.notices.info p {
   color: var(--orange);
 }
 
+.green-text {
+  color: var(--green);
+}
+
 .code-like-snippet-example {
   border: 1px solid var(--navy-20);
-  max-width: 30rem;
+  max-width: 42rem;
   border-radius: 0.75rem;
   padding: 1.25rem 0.75rem;
   font-size: 0.975rem;
