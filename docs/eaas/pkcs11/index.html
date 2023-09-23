@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>Changelogs :: Qrypt</title>
+    <title>PKCS11 Integration :: Qrypt</title>
 
     
     <link href="../../css/nucleus.css?1695670314" rel="stylesheet">
@@ -32,7 +32,7 @@
     
   </head>
   
-  <body class="" data-url="../../sdk/changelogs/">
+  <body class="" data-url="../../eaas/pkcs11/">
     <nav
   id="sidebar"
   class=""
@@ -68,7 +68,7 @@
   data-nav-id="/eaas/"
   title="Quantum Entropy"
   class="dd-item
-        
+        parent
         
         
         "
@@ -85,7 +85,7 @@
   title="PKCS11 Integration"
   class="dd-item
         
-        
+        active
         
         "
 >
@@ -103,7 +103,7 @@
   data-nav-id="/sdk/"
   title="Key Generation"
   class="dd-item
-        parent
+        
         
         
         "
@@ -208,7 +208,7 @@
   title="Changelogs"
   class="dd-item
         
-        active
+        
         
         "
 >
@@ -390,7 +390,7 @@
           
             <h1>
               
-              Changelogs
+              PKCS11 Integration
             </h1>
           
 
@@ -398,74 +398,32 @@
 
 
 
-	<h2 id="versions">Versions</h2>
+	<p>This page covers the instructions to use Qrypt&rsquo;s quantum entropy with the PKCS11 Cryptoki interface.</p>
+<h2 id="technology-value">Technology Value</h2>
+<p>One of the functions to the PKCS11 Cryptoki interface is C_GenerateRandom. Many of the available implementations of this function use a pseudorandom generator. This is susceptible to post quantum attacks. Qrypt provides quantum generated random that is not susceptible to post quantum attacks. Developers can override the C_GenerateRandom function to use Qrypt&rsquo;s quantum entropy and still adhere to the PKCS11 standard. As a result, applications can get the benefits of quantum generated random and integrate with PKCS11 Cryptoki libraries.</p>
+<h2 id="integration-overview">Integration Overview</h2>
+<figure><img src="images/qryptoki-architecture.png"/>
+</figure>
+
+<p>There are four components to the architecture diagram above.</p>
 <ol>
-<li><a href="#sdk-v0116">SDK v0.11.6</a></li>
-<li><a href="#sdk-v0102">SDK v0.10.2</a></li>
-<li><a href="#sdk-v092">SDK v0.9.2</a></li>
-<li><a href="#sdk-v086">SDK v0.8.6</a></li>
-<li><a href="#sdk-v0710">SDK v0.7.10</a></li>
-<li><a href="#sdk-v074">SDK v0.7.4</a></li>
-<li><a href="#sdk-v064">SDK v0.6.4</a></li>
+<li><strong>Client Application</strong>: Application that depends on a PKCS11 Cryptoki library.</li>
+<li><strong>Qrypt Cryptoki Library</strong>: Developers will need to implement this component. All non-general-purpose functions should be passed to the <em>&lsquo;Base Cryptoki Library&rsquo;</em> except for the C_GenerateRandom function. The C_GenerateRandom function implementation will perform a REST API call to download Qrypt quantum random from the <em>&lsquo;Qrypt Entropy Service&rsquo;</em>. There will be general-purpose functions that need to be updated as well. More information will be provided in the next section.</li>
+<li><strong>Qrypt Entropy Service</strong>: Qrypt&rsquo;s service that can provide quantum random via a REST API.</li>
+<li><strong>Base Cryptoki Library</strong>: The PKCS11 Cryptoki library that will be provided by the HSM vendor. Alternatively, SoftHSM can be used as a software solution.</li>
 </ol>
-<hr>
-<h3 id="sdk-v0116">SDK v0.11.6</h3>
-<p><strong>Notable Changes:</strong></p>
-<p><em>This release contains breaking API changes</em></p>
-<ol>
-<li>Updating metadata schema (no longer compatible with previous versions)</li>
-<li>Adding public HTTPS client interface</li>
-<li>Upgrading to C++ 17</li>
-<li>Upgrading OpenSSL dependency to 1.1.1v and flatbuffers dependency to 23.5.26</li>
-</ol>
-<hr>
-<h3 id="sdk-v0102">SDK v0.10.2</h3>
-<p><strong>Notable Changes:</strong></p>
-<p><em>This release contains breaking API changes</em></p>
-<ol>
-<li>Simplify keygen genInit API to use key sizes and remove key mode</li>
-<li>Add customizable TTL in genInit</li>
-<li>Upgrade OpenSSL dependency to 1.1.1t and libcurl dependency to 8.0.0</li>
-</ol>
-<hr>
-<h3 id="sdk-v092">SDK v0.9.2</h3>
-<p><strong>Notable Changes:</strong></p>
-<ol>
-<li>Change backend to use sequential sampling and seedless extraction</li>
-<li>Change smallest allowed key size to 1 byte</li>
-<li>Simplify logging API</li>
-</ol>
-<hr>
-<h3 id="sdk-v086">SDK v0.8.6</h3>
-<p><strong>Notable Changes:</strong></p>
-<ol>
-<li>Move exceptions to QryptSecurity namespace</li>
-<li>Rename log level enumerations</li>
-<li>Update metadata schema</li>
-<li>Reduce library binary size</li>
-</ol>
-<hr>
-<h3 id="sdk-v0710">SDK v0.7.10</h3>
-<p><strong>Notable Changes:</strong></p>
-<ol>
-<li>Add chunk multi-threading for genInit and genSync</li>
-<li>Increase maximum supported OTP size to 10MB</li>
-</ol>
-<hr>
-<h3 id="sdk-v074">SDK v0.7.4</h3>
-<p><strong>Notable Changes:</strong></p>
-<ol>
-<li>Improve sample retry logic for genInit and genSync</li>
-<li>Increase maximum supported OTP size to 512KB</li>
-<li>Update metadata schema</li>
-</ol>
-<hr>
-<h3 id="sdk-v064">SDK v0.6.4</h3>
-<p><strong>Notable Changes:</strong></p>
-<ol>
-<li>Initial baseline of the SDK</li>
-</ol>
-<hr>
+<p>Instead of developers implementing the <em>&lsquo;Qrypt Cryptoki Library&rsquo;</em> component, they may choose to use the one provided by Qrypt. The source code can be found at <a href="https://github.com/QryptInc/Qrypt-PKCS-11/tree/main">Qrypt-PKCS-11</a>.</p>
+<h2 id="integration-instructions">Integration Instructions</h2>
+<h3 id="step-1-create-a-qrypt-account-and-generate-a-token-for-entropy">Step 1: Create a Qrypt account and generate a token for entropy</h3>
+<p>Follow the steps in the &lsquo;Getting Started&rsquo; section under <a href="../../eaas">Quantum Entropy</a>.</p>
+<h3 id="step-2-override-the-c_initialize-function-in-the-pkcs11-interface">Step 2: Override the C_Initialize function in the PKCS11 interface</h3>
+<p>The C_Initialize function implementation in <em>&lsquo;Qrypt Cryptoki Library&rsquo;</em> can read an environment variable to get the path of the <em>&lsquo;Base Cryptoki Library&rsquo;</em>. Afterwards, initialization of the <em>&lsquo;Base Cryptoki Library&rsquo;</em> can be performed.</p>
+<h3 id="step-3-override-the-c_generaterandom-function-in-the-pkcs11-interface">Step 3: Override the C_GenerateRandom function in the PKCS11 interface</h3>
+<h4 id="entropy-download">Entropy Download</h4>
+<p>The C_GenerateRandom function implementation in <em>&lsquo;Qrypt Cryptoki Library&rsquo;</em> can read an environment variable to get the Qrypt Token. Afterwards, the REST API can be called for entropy download. You will need a library that can perform HTTPS requests. We recommend using libcurl.</p>
+<p>More information about the REST API can be found in the &lsquo;Submit a request for entropy&rsquo; section under <a href="../../eaas">Quantum Entropy</a>.</p>
+<h4 id="managing-downloaded-random">Managing Downloaded Random</h4>
+<p>Requests to the entropy API can only be performed in units of KiB. As a result, there may be random usage inefficiencies. Developers can choose to implement their own buffer management locally for better random utilization.</p>
 
 
 
@@ -506,8 +464,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -524,43 +480,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -573,36 +492,39 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -646,6 +568,20 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -666,8 +602,24 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
