@@ -12,22 +12,22 @@
     <title>Seed PKCS#11 HSMs :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1695843359" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1695843359" rel="stylesheet">
-    <link href="../../css/hybrid.css?1695843359" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1695843359" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1695843359" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1695843359" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1695843359" rel="stylesheet">
-    <link href="../../css/theme.css?1695843359" rel="stylesheet">
-    <link href="../../css/tabs.css?1695843359" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1695843359" rel="stylesheet">
+    <link href="../../css/nucleus.css?1695848230" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1695848230" rel="stylesheet">
+    <link href="../../css/hybrid.css?1695848230" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1695848230" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1695848230" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1695848230" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1695848230" rel="stylesheet">
+    <link href="../../css/theme.css?1695848230" rel="stylesheet">
+    <link href="../../css/tabs.css?1695848230" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1695848230" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1695843359" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1695848230" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1695843359"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1695848230"></script>
 
     
   </head>
@@ -49,14 +49,14 @@
 
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1695843359"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1695843359"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1695848230"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1695848230"></script>
 <script type="text/javascript">
   
       var baseurl = "https:\/\/QryptInc.github.io";
   
 </script>
-<script type="text/javascript" src="../../js/search.js?1695843359"></script>
+<script type="text/javascript" src="../../js/search.js?1695848230"></script>
  
   </div>
   
@@ -414,11 +414,11 @@
 <h2 id="integration-instructions">Integration Instructions</h2>
 <h3 id="step-1-create-a-qrypt-account-and-generate-a-token-for-entropy">Step 1: Create a Qrypt account and generate a token for entropy</h3>
 <p>Follow the steps in the <a href="../../eaas/#getting-started">Getting Started</a> section under &lsquo;Quantum Entropy&rsquo;.</p>
-<h3 id="step-2-update-your-application-to-download-qrypts-quantum-entropy">Step 2: Update your application to download Qrypt&rsquo;s quantum entropy</h3>
+<h3 id="step-2-update-your-client-application-to-download-qrypts-quantum-entropy">Step 2: Update your client application to download Qrypt&rsquo;s quantum entropy</h3>
 <p>A REST API can be called for entropy download. More information about the REST API can be found in the <a href="../../eaas/#submit-a-request-for-entropy">Submit a request for entropy</a> section under &lsquo;Quantum Entropy&rsquo;. You will need a library that can perform HTTPS requests.</p>
 <p>C++ sample code using libcurl is provided in the <a href="https://github.com/QryptInc/qrypt-security-quickstarts-cpp/blob/main/src/eaas.cpp">Quickstart</a>. We recommend using environment variables to pass the Qrypt Token into the application.</p>
 <p>Requests to the entropy API can only be performed in units of KiB. As a result, there may be random usage inefficiencies. Developers can choose to implement their own buffer management locally for better random utilization.</p>
-<h3 id="step-3-update-your-application-to-call-c_seedrandom">Step 3: Update your application to call C_SeedRandom</h3>
+<h3 id="step-3-update-your-client-application-to-call-c_seedrandom">Step 3: Update your client application to call C_SeedRandom</h3>
 <p>Sample code in C++ is shown below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set_seed_random</span>(CK_SESSION_HANDLE session, CK_BYTE_PTR seed_random) {
 </span></span><span style="display:flex;"><span>
@@ -720,19 +720,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1695843359"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1695843359"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1695843359"></script>
-    <script src="../../js/jquery.sticky.js?1695843359"></script>
-    <script src="../../js/featherlight.min.js?1695843359"></script>
-    <script src="../../js/highlight.pack.js?1695843359"></script>
+    <script src="../../js/clipboard.min.js?1695848230"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1695848230"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1695848230"></script>
+    <script src="../../js/jquery.sticky.js?1695848230"></script>
+    <script src="../../js/featherlight.min.js?1695848230"></script>
+    <script src="../../js/highlight.pack.js?1695848230"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1695843359"></script>
-    <script src="../../js/learn.js?1695843359"></script>
-    <script src="../../js/hugo-learn.js?1695843359"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1695848230"></script>
+    <script src="../../js/learn.js?1695848230"></script>
+    <script src="../../js/hugo-learn.js?1695848230"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1695843359"></script>
+            <script src="../../mermaid/mermaid.js?1695848230"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
