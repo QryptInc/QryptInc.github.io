@@ -10,7 +10,7 @@ disableToc = "true"
 
 Qrypt does not have access to your password, but you can place a request to change your password.
 
-1. Navigate to the portal at {{< externalLink link="https://portal.qrypt.com/login" text="https://portal.qrypt.com/login" >}} and click the “Forgot password?” link.
+1. Navigate to the portal at {{< externalLink link="https://portal.qrypt.com" text="https://portal.qrypt.com" >}} and click the “Forgot password?” link.
 2. Enter the email address associated with your account and click the “Send me the link” button.
 3. Check your email for a message with further instructions.
 
@@ -18,7 +18,7 @@ Qrypt does not have access to your password, but you can place a request to chan
 
 **How do I change my password?**
 
-1. Navigate to the portal at {{< externalLink link="https://portal.qrypt.com/login" text="https://portal.qrypt.com/login" >}} and login to your account.
+1. Navigate to the portal at {{< externalLink link="https://portal.qrypt.com" text="https://portal.qrypt.com" >}} and login to your account.
 2. Click the account icon (top-right corner) and select “Account settings.”
 3. Click the “Change password” link.
 4. Enter your original password, enter a new password, and click the “Change password” button.
