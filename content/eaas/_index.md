@@ -20,7 +20,7 @@ To start using Qrypt's Quantum Entropy service you need to create a Qrypt accoun
 
 To request entropy from the service, you must first create an account.
 
-1.  Navigate to {{< externalLink link="https://portal.qrypt.com/login" text="https://portal.qrypt.com" >}} and create a new account.
+1.  Navigate to {{< externalLink link="https://portal.qrypt.com" text="https://portal.qrypt.com" >}} and create a new account.
 2.  Enter your email address and a strong password, then click the button to create your account.
 3.  Check your email for the 4-digit account confirmation code and enter it on the website to confirm your account.
 4.  When prompted, enter your first and last name.
