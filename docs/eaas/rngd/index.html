@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>Overview :: Qrypt</title>
+    <title>RNG Tools :: Qrypt</title>
 
     
     <link href="../../css/nucleus.css?1699996050" rel="stylesheet">
@@ -32,7 +32,7 @@
     
   </head>
   
-  <body class="" data-url="../../sdk/overview/">
+  <body class="" data-url="../../eaas/rngd/">
     <nav
   id="sidebar"
   class=""
@@ -68,7 +68,7 @@
   data-nav-id="/eaas/"
   title="Quantum Entropy"
   class="dd-item
-        
+        parent
         
         
         "
@@ -85,7 +85,7 @@
   title="RNG Tools"
   class="dd-item
         
-        
+        active
         
         "
 >
@@ -119,7 +119,7 @@
   data-nav-id="/sdk/"
   title="Key Generation"
   class="dd-item
-        parent
+        
         
         
         "
@@ -136,7 +136,7 @@
   title="Overview"
   class="dd-item
         
-        active
+        
         
         "
 >
@@ -406,7 +406,7 @@
           
             <h1>
               
-              Overview
+              RNG Tools
             </h1>
           
 
@@ -414,36 +414,110 @@
 
 
 
-	<p>Developers need familiar tools based on modern development practices. We provide an SDK that can be easily integrated into applications and infrastructure to make them quantum-secure.</p>
-<p>The Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.</p>
+	<h2 id="using-qrypts-quantum-entropy-in-rng-tools">Using Qrypt&rsquo;s Quantum Entropy in RNG Tools</h2>
+<p><em>rng-tools</em> is a utility that allows you to inject entropy from hardware sources, prngs, and http streams into system devices. Qrypt&rsquo;s Quantum Entropy service is a random source option in <em>rng-tools</em>, allowing you to inject quantum entropy into system devices such as <em>/dev/random</em>, <em>/dev/urandom</em>, and user-defined nodes or files.</p>
 <hr>
-<h2 id="qrypt-sdk-for-c">Qrypt SDK for C++</h2>
-<h3 id="features">Features</h3>
+<h2 id="getting-started">Getting Started</h2>
+<p>To start using Qrypt&rsquo;s Quantum Entropy service in <em>rng-tools</em>, you need to create a Qrypt account, obtain an access token, and configure RNGD.</p>
+<h2 id="create-a-free-qrypt-account">Create a free Qrypt account</h2>
+<p>To request entropy, you must first create an account.</p>
 <ol>
-<li>Distributed key generation</li>
+<li>Navigate to <a href="https://portal.qrypt.com" target="_blank" rel="noopener noreferrer">https://portal.qrypt.com</a> and create a new account.</li>
+<li>Enter your email address and a strong password, then click the button to create your account.</li>
+<li>Check your email for the 4-digit account confirmation code and enter it on the website to confirm your account.</li>
+<li>When prompted, enter your first and last name.</li>
 </ol>
-<!-- raw HTML omitted -->
-<h3 id="library-compatibility">Library Compatibility</h3>
-<p>The C++ SDK is built using the following compilers.</p>
-<table>
-<thead>
-<tr>
-<th>Platform</th>
-<th>Version</th>
-<th>Compiler</th>
-<th>CPU</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ubuntu</td>
-<td>20.04</td>
-<td>gcc 9.4.0</td>
-<td>x64</td>
-</tr>
-</tbody>
-</table>
+<h2 id="generate-an-access-token">Generate an access token</h2>
+<p>An access token is required to submit REST API requests to Qrypt&rsquo;s Quantum Entropy service for accessing entropy.</p>
+<ol>
+<li>Navigate to the Tokens page.</li>
+<li>Assign a name to the token to help you distinguish between different tokens.</li>
+<li>Select the expiration period. This determines when the token will expire and need to be replaced.</li>
+<li>Click the <strong>&ldquo;Generate token&rdquo;</strong> button.</li>
+<li>The generated token will be displayed along with an example of how entropy data can be requested. Copy the token using the “Copy” button and store it in a secure location. Important: This is the only time you will be able to view the access token. Be sure to copy and store it before closing this popup.</li>
+<li>Save the access token to a secure location. Because your access token is used to make requests for entropy—a budgeted resource—it should be treated as secure data, very much like a password.</li>
+</ol>
+<hr>
+<h2 id="installation">Installation</h2>
+<p>To use Qrypt&rsquo;s Quantum Entropy service in <em>rng-tools</em>, <em>rng-tools</em> must be installed and configured.</p>
+<p>Clone the latest <em>rng-tools</em> master from GitHub.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/nhorman/rng-tools
+</span></span></code></pre></div><p>Install rng-tools dependencies. Additional packages may be required, depending on linux distro. The configure script below will name any missing packages it encounters.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    make <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libtool <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libxml2-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libssl-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libcurl3-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libp11-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    librtlsdr-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libusb-1.0-0-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libjansson-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libcap-dev
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./autogen.sh
+</span></span></code></pre></div><p>Add <code>--disable-dependency-tracking</code> if needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./configure
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div><p>Verify installation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>which rngd
+</span></span></code></pre></div><h2 id="command-line-usage">Command Line Usage</h2>
+<p>The resulting <em>rngd</em> executable can run directly to start either a daemon or a foreground process. By default, <em>rngd</em> will run as a background daemon and attempt to use the &ldquo;hwrng&rdquo;, &ldquo;errand&rdquo;, &ldquo;pkcs11&rdquo;, and &ldquo;rtlsdr&rdquo; random sources.</p>
+<p>To run <em>rngd</em> using exclusively Qrypt&rsquo;s Quantum Entropy, run the following command. This will run <em>rngd</em> as a foreground process with the Qrypt source enabled and all other entropy sources disabled. rngd will send its random to the /dev/random device.</p>
+<pre tabindex="0"><code>sudo rngd -f -x hwrng -x rdrand -x pkcs11 -x rtlsdr -n qrypt -O qrypt:tokenfile:&lt;qrypt token path&gt;
+</code></pre><p>Command line options:
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">Option</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">-f</td>
+		<td>Run rngd as a foreground process. If omitted, rngd will run as a background daemon.</td>
+	</tr>
+	<tr>
+		<td width="134">-o path</path></td>
+		<td>Device or file for the random number output. Defaults to '/dev/random'.</td>
+	</tr>
+	<tr>
+		<td width="134">-x source</path></td>
+		<td>Disables the specified source. For example, '-x hwrng'.</td>
+	</tr>
+	<tr>
+		<td width="134">-n source</path></td>
+		<td>Enables the specified source. For example, '-n qrypt'.</td>
+	</tr>
+	<tr>
+		<td width="134">-O source:key:value</path></td>
+		<td>Sets a source specific configuration option. For example, '-O qrypt:tokenfile:/etc/rngd/qrypt.token'.</td>
+	</tr>
+</table></p>
+<h2 id="service-usage">Service Usage</h2>
+<p><em>rng-tools</em> comes with a &lsquo;rngd.service&rsquo; file for setting up a systemd service. To configure rngd to automatically start the Qrypt source on boot, follow these steps:</p>
+<p>Save your Qrypt api token to a system-accessible directory, such as /etc/rngd/qrypt.token. Then, edit rngd.service to add Qrypt arguments and options.</p>
+<pre tabindex="0"><code>[Unit]
+Description=Hardware RNG Entropy Gatherer Daemon
+ConditionVirtualization=!container
 
+# The &#34;-f&#34; option is required for the systemd service rngd to work with Type=simple
+[Service]
+Type=simple
+ExecStart=&lt;rngd install path&gt; -f -x hwrng -x rdrand -x pkcs11 -x rtlsdr -n qrypt -O qrypt:tokenfile:&lt;qrypt token path&gt;
+SuccessExitStatus=66
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>Copy the rngd service to systemd.</p>
+<pre tabindex="0"><code>sudo cp rngd.service /etc/systemd/system/rngd.service
+sudo chmod 644 /etc/systemd/system/rngd.service
+</code></pre><p>Start the rngd service.</p>
+<pre tabindex="0"><code>sudo systemctl daemon-reload
+sudo systemctl start rngd
+</code></pre><p>Verify the rngd service is running properly.</p>
+<pre tabindex="0"><code>sudo systemctl status rngd
+</code></pre><p>Enable the rngd service for it to start on system boot.</p>
+<pre tabindex="0"><code>sudo systemctl enable rngd
+</code></pre>
 
 
 
@@ -483,59 +557,6 @@
             
                 
                     
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -571,6 +592,56 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
