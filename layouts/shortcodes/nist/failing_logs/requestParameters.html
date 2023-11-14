@@ -9,15 +9,15 @@
 	</tr>
 	<tr>
 		<td width="134">simple</td>
-		<td>Optional boolean. Format the logs in a condensed, summarized manner, defaulting to false.</td>
+		<td>Optional boolean. Format the logs in a condensed, summarized manner. Can be set to 'true' or 'false', defaulting to 'false'.</td>
 	</tr>
 	<tr>
 		<td width="134">strict</td>
-		<td>Optional boolean. If true, logs must fail uniformity and NIST threshold to be considered failing.  If false, a log is considered failing if either fails.</td>
+		<td>Optional boolean. Require that the logs must fail uniformity and test rate to be considered failing. Can be set to 'true' or 'false', defaulting to 'true'.</td>
 	</tr>
 	<tr>
 		<td width="134">include_random</td>
-		<td>Optional boolean. Determines if the random that failed the test will be included in the response. Only applicable when "strict" is true.</td>
+		<td>Optional boolean. Determines if the random that failed the test will be included in the response. Only applicable when "strict" is true. Can be set to 'true' or 'false', defaulting to 'false'.</td>
 	</tr>
 	<tr>
 		<td width="134">randsize</td>
