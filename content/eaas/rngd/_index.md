@@ -98,7 +98,7 @@ Command line options:
 ## Service Usage
 *rng-tools* comes with a 'rngd.service' file for setting up a systemd service. To configure rngd to automatically start the Qrypt source on boot, follow these steps:
 
-Save your Qrypt api token to a system-accessible directory, such as /etc/rngd/qrypt.token. Then, edit rngd.service to add Qrypt arguments and options.
+Save your Qrypt api token to a system-accessible directory, such as "/etc/rngd/qrypt.token". Then, edit rngd.service to add Qrypt arguments and options.
 ```
 [Unit]
 Description=Hardware RNG Entropy Gatherer Daemon
