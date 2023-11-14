@@ -27,7 +27,7 @@ To request entropy, you must first create an account.
 
 ## Generate an access token
 
-An access token is required to submit REST API requests to Qrypt's Quantum Entropy service for accessing entropy.
+An access token is required to access entropy through Qrypt's Quantum Entropy service.
 
 1. Navigate to the Tokens page.
 2. Assign a name to the token to help you distinguish between different tokens.
