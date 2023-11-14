@@ -23,7 +23,3 @@ Qrypt's Quantum Entropy service measures quantum effects and converts those meas
 ### [Key Generation](sdk/)
 
 Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.
-
-### [NIST Entropy Quality Tests](nist/)
-
-Qrypt's NIST Entropy Quality Tests measures the quality of Qrypt's entropy for the Quantum Entropy and Key Generation services.
