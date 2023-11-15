@@ -12,22 +12,22 @@
     <title>RNG Tools :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1699998596" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1699998596" rel="stylesheet">
-    <link href="../../css/hybrid.css?1699998596" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1699998596" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1699998596" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1699998596" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1699998596" rel="stylesheet">
-    <link href="../../css/theme.css?1699998596" rel="stylesheet">
-    <link href="../../css/tabs.css?1699998596" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1699998596" rel="stylesheet">
+    <link href="../../css/nucleus.css?1700083102" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1700083102" rel="stylesheet">
+    <link href="../../css/hybrid.css?1700083102" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1700083102" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1700083102" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1700083102" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1700083102" rel="stylesheet">
+    <link href="../../css/theme.css?1700083102" rel="stylesheet">
+    <link href="../../css/tabs.css?1700083102" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1700083102" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1699998596" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1700083102" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1699998596"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1700083102"></script>
 
     
   </head>
@@ -49,14 +49,14 @@
 
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1699998596"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1699998596"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1700083102"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1700083102"></script>
 <script type="text/javascript">
   
       var baseurl = "https:\/\/QryptInc.github.io";
   
 </script>
-<script type="text/javascript" src="../../js/search.js?1699998596"></script>
+<script type="text/javascript" src="../../js/search.js?1700083102"></script>
  
   </div>
   
@@ -64,6 +64,21 @@
   <div class="highlightable">
     <ul class="topics">
                
+<li
+  data-nav-id="/getting_started/"
+  title="Getting Started"
+  class="dd-item
+        
+        
+        
+        "
+>
+  <a href="../../getting_started/">
+    Getting Started 
+  </a>
+   
+</li>
+           
 <li
   data-nav-id="/eaas/"
   title="Quantum Entropy"
@@ -415,34 +430,15 @@
 
 
 	<h2 id="using-qrypts-quantum-entropy-in-rng-tools">Using Qrypt&rsquo;s Quantum Entropy in RNG Tools</h2>
-<p><em>rng-tools</em> is a utility that allows you to inject entropy from hardware sources, prngs, and http streams into system devices. Qrypt&rsquo;s Quantum Entropy service is a random source option in <em>rng-tools</em>, allowing you to inject quantum entropy into system devices such as <em>/dev/random</em>, <em>/dev/urandom</em>, and user-defined nodes or files.</p>
-<hr>
-<h2 id="getting-started">Getting Started</h2>
-<p>To start using Qrypt&rsquo;s Quantum Entropy service in <em>rng-tools</em>, you need to create a Qrypt account, obtain an access token, and configure RNGD.</p>
-<h2 id="create-a-free-qrypt-account">Create a free Qrypt account</h2>
-<p>To request entropy, you must first create an account.</p>
-<ol>
-<li>Navigate to <a href="https://portal.qrypt.com" target="_blank" rel="noopener noreferrer">https://portal.qrypt.com</a> and create a new account.</li>
-<li>Enter your email address and a strong password, then click the button to create your account.</li>
-<li>Check your email for the 4-digit account confirmation code and enter it on the website to confirm your account.</li>
-<li>When prompted, enter your first and last name.</li>
-</ol>
-<h2 id="generate-an-access-token">Generate an access token</h2>
-<p>An access token is required to access entropy through Qrypt&rsquo;s Quantum Entropy service.</p>
-<ol>
-<li>Navigate to the Tokens page.</li>
-<li>Assign a name to the token to help you distinguish between different tokens.</li>
-<li>Select the expiration period. This determines when the token will expire and need to be replaced.</li>
-<li>Click the <strong>&ldquo;Generate token&rdquo;</strong> button.</li>
-<li>The generated token will be displayed along with an example of how entropy data can be requested. Copy the token using the “Copy” button and store it in a secure location. Important: This is the only time you will be able to view the access token. Be sure to copy and store it before closing this popup.</li>
-<li>Save the access token to a secure location. Because your access token is used to make requests for entropy—a budgeted resource—it should be treated as secure data, very much like a password.</li>
-</ol>
+<p><em>rng-tools</em> is a utility that allows you to inject entropy from hardware sources, prngs, and http streams into system devices. Qrypt&rsquo;s Quantum Entropy service is a random source option in <em>rng-tools</em>, allowing you to inject quantum entropy into system devices such as &lsquo;/dev/random&rsquo;, &lsquo;/dev/urandom&rsquo;, and user-defined nodes or files.</p>
+<p>This service requires an access token. Follow the steps in <a href="../../sign_up" target="_blank" rel="noopener noreferrer">Getting Started</a> to obtain an access token.</p>
+<p>More information about <em>rng-tools</em> can be found on the <a href="https://github.com/nhorman/rng-tools" target="_blank" rel="noopener noreferrer">rng-tools Github</a> and the <a href="https://wiki.archlinux.org/title/Rng-tools" target="_blank" rel="noopener noreferrer">rng-tools wiki page</a>.</p>
 <hr>
 <h2 id="installation">Installation</h2>
 <p>To use Qrypt&rsquo;s Quantum Entropy service in <em>rng-tools</em>, <em>rng-tools</em> must be installed and configured.</p>
 <p>Clone the latest <em>rng-tools</em> master from GitHub.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/nhorman/rng-tools
-</span></span></code></pre></div><p>Install rng-tools dependencies. Additional packages may be required, depending on linux distro. The configure script below will name any missing packages it encounters.</p>
+</span></span></code></pre></div><p>Install <em>rng-tools</em> dependencies. Additional packages may be required, depending on linux distro. The configure script below will name any missing packages it encounters.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    make <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libtool <span style="color:#ae81ff">\
@@ -454,16 +450,17 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libusb-1.0-0-dev <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libjansson-dev <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libcap-dev
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./autogen.sh
-</span></span></code></pre></div><p>Add <code>--disable-dependency-tracking</code> if needed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./configure
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div><p>Add <code>--disable-dependency-tracking</code> to the &lsquo;./configure&rsquo; command if needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./autogen.sh
+</span></span><span style="display:flex;"><span>./configure
+</span></span><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>sudo make install
 </span></span></code></pre></div><p>Verify installation.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>which rngd
 </span></span></code></pre></div><h2 id="command-line-usage">Command Line Usage</h2>
-<p>The resulting <em>rngd</em> executable can run directly to start either a daemon or a foreground process. By default, <em>rngd</em> will run as a background daemon and attempt to use the &ldquo;hwrng&rdquo;, &ldquo;errand&rdquo;, &ldquo;pkcs11&rdquo;, and &ldquo;rtlsdr&rdquo; random sources.</p>
-<p>To run <em>rngd</em> using exclusively Qrypt&rsquo;s Quantum Entropy, run the following command. This will run <em>rngd</em> as a foreground process with the Qrypt source enabled and all other entropy sources disabled. rngd will send its random to the /dev/random device.</p>
+<p>The resulting &lsquo;rngd&rsquo; executable can run directly to start either a daemon or a foreground process. By default, &lsquo;rngd&rsquo; will run as a background daemon and attempt to use the &lsquo;hwrng&rsquo;, &rsquo;errand&rsquo;, &lsquo;pkcs11&rsquo;, and &lsquo;rtlsdr&rsquo; random sources.</p>
+<p>To run &lsquo;rngd&rsquo; using exclusively Qrypt&rsquo;s Quantum Entropy, run the following command. This will run &lsquo;rngd&rsquo; as a foreground process with the Qrypt source enabled and all other entropy sources disabled. &lsquo;rngd&rsquo; will send its random to the /dev/random device.</p>
+<p>Note that &lsquo;sudo&rsquo; is needed in the command because &lsquo;rngd&rsquo; accesses the root folder.</p>
 <pre tabindex="0"><code>sudo rngd -f -x hwrng -x rdrand -x pkcs11 -x rtlsdr -n qrypt -O qrypt:tokenfile:&lt;qrypt token path&gt;
 </code></pre><p>Command line options:
 <table width="100%" cellspacing="0" cellpadding="0">
@@ -473,7 +470,7 @@
 	</tr>
 	<tr>
 		<td width="134">-f</td>
-		<td>Run rngd as a foreground process. If omitted, rngd will run as a background daemon.</td>
+		<td>Run 'rngd' as a foreground process. If omitted, 'rngd' will run as a background daemon.</td>
 	</tr>
 	<tr>
 		<td width="134">-o &lt;path&gt;</path></td>
@@ -494,12 +491,13 @@
 </table></p>
 <h2 id="service-usage">Service Usage</h2>
 <p><em>rng-tools</em> comes with a &lsquo;rngd.service&rsquo; file for setting up a systemd service. To configure rngd to automatically start the Qrypt source on boot, follow these steps:</p>
-<p>Save your Qrypt api token to a system-accessible directory, such as &ldquo;/etc/rngd/qrypt.token&rdquo;. Then, edit rngd.service to add Qrypt arguments and options.</p>
+<p>Save your Qrypt api token to a system-accessible directory, such as &lsquo;/etc/rngd/qrypt.token&rsquo;. Then, edit &lsquo;rngd.service&rsquo; to add Qrypt arguments and options.</p>
+<p>Note that &lsquo;sudo&rsquo; is needed in the subsequent commands because &lsquo;rngd&rsquo; accesses the root folder.</p>
 <pre tabindex="0"><code>[Unit]
 Description=Hardware RNG Entropy Gatherer Daemon
 ConditionVirtualization=!container
 
-# The &#34;-f&#34; option is required for the systemd service rngd to work with Type=simple
+# The &#39;-f&#39; option is required for the systemd service &#39;rngd&#39; to work with Type=simple
 [Service]
 Type=simple
 ExecStart=&lt;rngd install path&gt; -f -x hwrng -x rdrand -x pkcs11 -x rtlsdr -n qrypt -O qrypt:tokenfile:&lt;qrypt token path&gt;
@@ -507,15 +505,15 @@ SuccessExitStatus=66
 
 [Install]
 WantedBy=multi-user.target
-</code></pre><p>Copy the rngd service to systemd.</p>
+</code></pre><p>Copy the &lsquo;rngd&rsquo; service to systemd.</p>
 <pre tabindex="0"><code>sudo cp rngd.service /etc/systemd/system/rngd.service
 sudo chmod 644 /etc/systemd/system/rngd.service
-</code></pre><p>Start the rngd service.</p>
+</code></pre><p>Start the &lsquo;rngd&rsquo; service.</p>
 <pre tabindex="0"><code>sudo systemctl daemon-reload
 sudo systemctl start rngd
-</code></pre><p>Verify the rngd service is running properly.</p>
+</code></pre><p>Verify the &lsquo;rngd&rsquo; service is running properly.</p>
 <pre tabindex="0"><code>sudo systemctl status rngd
-</code></pre><p>Enable the rngd service for it to start on system boot.</p>
+</code></pre><p>Enable the &lsquo;rngd&rsquo; service for it to start on system boot.</p>
 <pre tabindex="0"><code>sudo systemctl enable rngd
 </code></pre>
 
@@ -551,6 +549,25 @@ sudo systemctl start rngd
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -822,19 +839,19 @@ sudo systemctl start rngd
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1699998596"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1699998596"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1699998596"></script>
-    <script src="../../js/jquery.sticky.js?1699998596"></script>
-    <script src="../../js/featherlight.min.js?1699998596"></script>
-    <script src="../../js/highlight.pack.js?1699998596"></script>
+    <script src="../../js/clipboard.min.js?1700083102"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1700083102"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1700083102"></script>
+    <script src="../../js/jquery.sticky.js?1700083102"></script>
+    <script src="../../js/featherlight.min.js?1700083102"></script>
+    <script src="../../js/highlight.pack.js?1700083102"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1699998596"></script>
-    <script src="../../js/learn.js?1699998596"></script>
-    <script src="../../js/hugo-learn.js?1699998596"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1700083102"></script>
+    <script src="../../js/learn.js?1700083102"></script>
+    <script src="../../js/hugo-learn.js?1700083102"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1699998596"></script>
+            <script src="../../mermaid/mermaid.js?1700083102"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

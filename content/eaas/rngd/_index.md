@@ -8,9 +8,11 @@ disableToc = "true"
 
 ## Using Qrypt's Quantum Entropy in RNG Tools
 
-*rng-tools* is a utility that allows you to inject entropy from hardware sources, prngs, and http streams into system devices. Qrypt's Quantum Entropy service is a random source option in *rng-tools*, allowing you to inject quantum entropy into system devices such as */dev/random*, */dev/urandom*, and user-defined nodes or files.
+*rng-tools* is a utility that allows you to inject entropy from hardware sources, prngs, and http streams into system devices. Qrypt's Quantum Entropy service is a random source option in *rng-tools*, allowing you to inject quantum entropy into system devices such as '/dev/random', '/dev/urandom', and user-defined nodes or files.
 
 This service requires an access token. Follow the steps in {{< externalLink link="/sign_up" text="Getting Started" >}} to obtain an access token.
+
+More information about *rng-tools* can be found on the {{< externalLink link="https://github.com/nhorman/rng-tools" text="rng-tools Github" >}} and the {{< externalLink link="https://wiki.archlinux.org/title/Rng-tools" text="rng-tools wiki page" >}}.
 
 ---
 
@@ -23,7 +25,7 @@ Clone the latest *rng-tools* master from GitHub.
 git clone https://github.com/nhorman/rng-tools
 ```
 
-Install rng-tools dependencies. Additional packages may be required, depending on linux distro. The configure script below will name any missing packages it encounters.
+Install *rng-tools* dependencies. Additional packages may be required, depending on linux distro. The configure script below will name any missing packages it encounters.
 ```bash
 sudo apt install \
     make \
@@ -38,20 +40,11 @@ sudo apt install \
     libcap-dev
 ```
 
+Add `--disable-dependency-tracking` to the './configure' command if needed.
 ```bash
 ./autogen.sh
-```
-
-Add `--disable-dependency-tracking` if needed.
-```bash
 ./configure
-```
-
-```bash
 make
-```
-
-```bash
 sudo make install
 ```
 
@@ -61,9 +54,12 @@ which rngd
 ```
 
 ## Command Line Usage
-The resulting *rngd* executable can run directly to start either a daemon or a foreground process. By default, *rngd* will run as a background daemon and attempt to use the "hwrng", "errand", "pkcs11", and "rtlsdr" random sources.
+The resulting 'rngd' executable can run directly to start either a daemon or a foreground process. By default, 'rngd' will run as a background daemon and attempt to use the 'hwrng', 'errand', 'pkcs11', and 'rtlsdr' random sources.
 
-To run *rngd* using exclusively Qrypt's Quantum Entropy, run the following command. This will run *rngd* as a foreground process with the Qrypt source enabled and all other entropy sources disabled. rngd will send its random to the /dev/random device.
+To run 'rngd' using exclusively Qrypt's Quantum Entropy, run the following command. This will run 'rngd' as a foreground process with the Qrypt source enabled and all other entropy sources disabled. 'rngd' will send its random to the /dev/random device.
+
+Note that 'sudo' is needed in the command because 'rngd' accesses the root folder.
+
 ```
 sudo rngd -f -x hwrng -x rdrand -x pkcs11 -x rtlsdr -n qrypt -O qrypt:tokenfile:<qrypt token path>
 ```
@@ -74,13 +70,16 @@ Command line options:
 ## Service Usage
 *rng-tools* comes with a 'rngd.service' file for setting up a systemd service. To configure rngd to automatically start the Qrypt source on boot, follow these steps:
 
-Save your Qrypt api token to a system-accessible directory, such as "/etc/rngd/qrypt.token". Then, edit rngd.service to add Qrypt arguments and options.
+Save your Qrypt api token to a system-accessible directory, such as '/etc/rngd/qrypt.token'. Then, edit 'rngd.service' to add Qrypt arguments and options.
+
+Note that 'sudo' is needed in the subsequent commands because 'rngd' accesses the root folder.
+
 ```
 [Unit]
 Description=Hardware RNG Entropy Gatherer Daemon
 ConditionVirtualization=!container
 
-# The "-f" option is required for the systemd service rngd to work with Type=simple
+# The '-f' option is required for the systemd service 'rngd' to work with Type=simple
 [Service]
 Type=simple
 ExecStart=<rngd install path> -f -x hwrng -x rdrand -x pkcs11 -x rtlsdr -n qrypt -O qrypt:tokenfile:<qrypt token path>
@@ -90,24 +89,24 @@ SuccessExitStatus=66
 WantedBy=multi-user.target
 ```
 
-Copy the rngd service to systemd.
+Copy the 'rngd' service to systemd.
 ```
 sudo cp rngd.service /etc/systemd/system/rngd.service
 sudo chmod 644 /etc/systemd/system/rngd.service
 ```
 
-Start the rngd service.
+Start the 'rngd' service.
 ```
 sudo systemctl daemon-reload
 sudo systemctl start rngd
 ```
 
-Verify the rngd service is running properly.
+Verify the 'rngd' service is running properly.
 ```
 sudo systemctl status rngd
 ```
 
-Enable the rngd service for it to start on system boot.
+Enable the 'rngd' service for it to start on system boot.
 ```
 sudo systemctl enable rngd
 ```
