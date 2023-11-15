@@ -12,12 +12,12 @@ Qrypt’s NIST Entropy Quality Tests is a set of APIs that allows you to check t
 
 ---
 ## About NIST Entropy Quality Tests
-The NIST Entropy Quality Test suite uses the 15 statistical tests defined by the NIST Statistical Test Suite (STS). Each of these 15 tests is repeated over many chunks. The APIs generate two test results:
+The NIST Entropy Quality Test suite uses the 15 statistical tests defined by the NIST Statistical Test Suite (STS). Each of these 15 tests is repeated over many samples. The APIs generate two test results:
 
-- Total number of individual test passes
-- P-value uniformity for each of the 15 tests
+1. **Total number of individual passing tests**: considered successful if a sufficient number of individual tests pass. The threshold varies based on the number of individual tests run and is based on an alpha value of 0.01. For example, 1000 individual tests requires a 98% pass rate to be considered successful.
+2. **P-value uniformity for each of the 15 tests**: considered successful if all 15 tests have uniformly distributed p-values.
 
-The tests are considered as succeeding if either a sufficiently high percentage of the tests pass, or if the P-values from the tests are consistent with a uniform distribution. This provides a metric for passing that is more robust to fluctuations than using either criterion alone. However, this standard does not catch certain randomness defects. For example, if the randomness was periodic with a period equal to the size used for batching, a sufficiently high portion of the tests might pass, but the P-values would not be uniform.
+The tests are considered as succeeding overall if either of these criteria are met. This provides a metric for passing that is more robust to fluctuations than using either criterion alone. However, this standard does not catch certain randomness defects. For example, if the randomness was periodic with a period equal to the size used for batching, a sufficiently high portion of the tests might pass, but the P-values would not be uniform.
 
 ## NIST Entropy Quality Test Endpoints
 There are three endpoints for obtaining NIST entropy quality test results. 

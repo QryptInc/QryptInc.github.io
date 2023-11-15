@@ -12,22 +12,22 @@
     <title>NIST Entropy Quality Tests :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1699982530" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1699982530" rel="stylesheet">
-    <link href="../../css/hybrid.css?1699982530" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1699982530" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1699982530" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1699982530" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1699982530" rel="stylesheet">
-    <link href="../../css/theme.css?1699982530" rel="stylesheet">
-    <link href="../../css/tabs.css?1699982530" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1699982530" rel="stylesheet">
+    <link href="../../css/nucleus.css?1700073759" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1700073759" rel="stylesheet">
+    <link href="../../css/hybrid.css?1700073759" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1700073759" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1700073759" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1700073759" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1700073759" rel="stylesheet">
+    <link href="../../css/theme.css?1700073759" rel="stylesheet">
+    <link href="../../css/tabs.css?1700073759" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1700073759" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1699982530" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1700073759" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1699982530"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1700073759"></script>
 
     
   </head>
@@ -49,14 +49,14 @@
 
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1699982530"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1699982530"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1700073759"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1700073759"></script>
 <script type="text/javascript">
   
       var baseurl = "https:\/\/QryptInc.github.io";
   
 </script>
-<script type="text/javascript" src="../../js/search.js?1699982530"></script>
+<script type="text/javascript" src="../../js/search.js?1700073759"></script>
  
   </div>
   
@@ -418,12 +418,12 @@
 <p>Qrypt’s NIST Entropy Quality Tests is a set of APIs that allows you to check the quality of Qrypt&rsquo;s entropy using the NIST Statistical Test Suite. Tests are conducted every 10 minutes against Qrypt&rsquo;s Quantum Entropy service. Accessing this service does not require a Qrypt account or access token.</p>
 <hr>
 <h2 id="about-nist-entropy-quality-tests">About NIST Entropy Quality Tests</h2>
-<p>The NIST Entropy Quality Test suite uses the 15 statistical tests defined by the NIST Statistical Test Suite (STS). Each of these 15 tests is repeated over many chunks. The APIs generate two test results:</p>
-<ul>
-<li>Total number of individual test passes</li>
-<li>P-value uniformity for each of the 15 tests</li>
-</ul>
-<p>The tests are considered as succeeding if either a sufficiently high percentage of the tests pass, or if the P-values from the tests are consistent with a uniform distribution. This provides a metric for passing that is more robust to fluctuations than using either criterion alone. However, this standard does not catch certain randomness defects. For example, if the randomness was periodic with a period equal to the size used for batching, a sufficiently high portion of the tests might pass, but the P-values would not be uniform.</p>
+<p>The NIST Entropy Quality Test suite uses the 15 statistical tests defined by the NIST Statistical Test Suite (STS). Each of these 15 tests is repeated over many samples. The APIs generate two test results:</p>
+<ol>
+<li><strong>Total number of individual passing tests</strong>: considered successful if a sufficient number of individual tests pass. The threshold varies based on the number of individual tests run and is based on an alpha value of 0.01. For example, 1000 individual tests requires a 98% pass rate to be considered successful.</li>
+<li><strong>P-value uniformity for each of the 15 tests</strong>: considered successful if all 15 tests have uniformly distributed p-values.</li>
+</ol>
+<p>The tests are considered as succeeding overall if either of these criteria are met. This provides a metric for passing that is more robust to fluctuations than using either criterion alone. However, this standard does not catch certain randomness defects. For example, if the randomness was periodic with a period equal to the size used for batching, a sufficiently high portion of the tests might pass, but the P-values would not be uniform.</p>
 <h2 id="nist-entropy-quality-test-endpoints">NIST Entropy Quality Test Endpoints</h2>
 <p>There are three endpoints for obtaining NIST entropy quality test results.</p>
 <ol>
@@ -1088,19 +1088,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1699982530"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1699982530"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1699982530"></script>
-    <script src="../../js/jquery.sticky.js?1699982530"></script>
-    <script src="../../js/featherlight.min.js?1699982530"></script>
-    <script src="../../js/highlight.pack.js?1699982530"></script>
+    <script src="../../js/clipboard.min.js?1700073759"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1700073759"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1700073759"></script>
+    <script src="../../js/jquery.sticky.js?1700073759"></script>
+    <script src="../../js/featherlight.min.js?1700073759"></script>
+    <script src="../../js/highlight.pack.js?1700073759"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1699982530"></script>
-    <script src="../../js/learn.js?1699982530"></script>
-    <script src="../../js/hugo-learn.js?1699982530"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1700073759"></script>
+    <script src="../../js/learn.js?1700073759"></script>
+    <script src="../../js/hugo-learn.js?1700073759"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1699982530"></script>
+            <script src="../../mermaid/mermaid.js?1700073759"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
