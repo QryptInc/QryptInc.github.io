@@ -12,6 +12,10 @@ Qrypt’s Entropy as a Service is a RESTful web service that allows you to gener
 
 This service requires an access token. Follow the steps in {{< externalLink link="/sign_up" text="Getting Started" >}} to obtain an access token.
 
+Qrypt offers additional services that integrate Qrypt's Quantum Entropy service:
+1. {{< externalLink link="/eaas/rngd" text="RNG Tools" >}}: Integrating Qrypt's Quantum Entropy service as a random source for system devices.
+2. {{< externalLink link="/eaas/pkcs11" text="Seed PKCS#11 HSMs" >}}: Integrating Qrypt's Quantum Entropy service as a random source for PKCS#11 HSMs.
+
 ---
 
 ## Submit a request for entropy
