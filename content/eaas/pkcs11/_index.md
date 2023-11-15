@@ -5,7 +5,7 @@ weight = 40
 
 This page covers the instructions to use Qrypt's quantum entropy to seed PKCS#11 HSMs (Hardware Security Modules).
 
-This service requires an access token. Follow the steps in {{< externalLink link="/sign_up" text="Getting Started" >}} to obtain an access token.
+This service requires an access token. Follow the steps in [Getting Started]({{< ref "/getting_started" >}}) to obtain an access token.
 
 ## Technology Value
 Many of the available HSMs use non-quantum entropy sources. Fortunately, the PKCS#11 Cryptoki interface provides a C_SeedRandom function to inject entropy into a PKCS#11 compliant HSM. Developers can inject Qrypt's quantum entropy into the HSM using the C_SeedRandom function. As a result, HSM keys can be pseudorandomly generated from quantum entropy.

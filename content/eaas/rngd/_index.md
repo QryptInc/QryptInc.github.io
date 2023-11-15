@@ -10,7 +10,7 @@ disableToc = "true"
 
 *rng-tools* is a utility that allows you to inject entropy from hardware sources, prngs, and http streams into system devices. Qrypt's Quantum Entropy service is a random source option in *rng-tools*, allowing you to inject quantum entropy into system devices such as '/dev/random', '/dev/urandom', and user-defined nodes or files.
 
-This service requires an access token. Follow the steps in {{< externalLink link="/sign_up" text="Getting Started" >}} to obtain an access token.
+This service requires an access token. Follow the steps in [Getting Started]({{< ref "/getting_started" >}}) to obtain an access token.
 
 More information about *rng-tools* can be found on the {{< externalLink link="https://github.com/nhorman/rng-tools" text="rng-tools Github" >}} and the {{< externalLink link="https://wiki.archlinux.org/title/Rng-tools" text="rng-tools wiki page" >}}.
 

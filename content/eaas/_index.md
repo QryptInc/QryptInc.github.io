@@ -10,11 +10,11 @@ disableToc = "true"
 
 Qrypt’s Entropy as a Service is a RESTful web service that allows you to generate random data (henceforth referred to as entropy or random) that is truly random—based on quantum-mechanical phenomena. 
 
-This service requires an access token. Follow the steps in {{< externalLink link="/sign_up" text="Getting Started" >}} to obtain an access token.
+This service requires an access token. Follow the steps in [Getting Started]({{< ref "/getting_started" >}}) to obtain an access token.
 
 ### Related Tools and Services
-1. {{< externalLink link="/eaas/rngd" text="RNG Tools" >}}: Integrating Qrypt's Quantum Entropy service as a random source for system devices.
-2. {{< externalLink link="/eaas/pkcs11" text="Seed PKCS#11 HSMs" >}}: Integrating Qrypt's Quantum Entropy service as a random source for PKCS#11 HSMs.
+1. [RNG Tools]({{< ref "/eaas/rngd" >}}): Integrating Qrypt's Quantum Entropy service as a random source for system devices.
+2. [Seed PKCS#11 HSMs]({{< ref "/eaas/pkcs11" >}}): Integrating Qrypt's Quantum Entropy service as a random source for PKCS#11 HSMs.
 
 ---
 

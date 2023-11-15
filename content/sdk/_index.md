@@ -13,7 +13,7 @@ Developers need familiar tools based on modern development practices. We provide
 
 The Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.
 
-This service requires an access token. Follow the steps in {{< externalLink link="/sign_up" text="Getting Started" >}} to obtain an access token.
+This service requires an access token. Follow the steps in [Getting Started]({{< ref "/getting_started" >}}) to obtain an access token.
 
 ## [Quickstarts](quickstarts/)
 
