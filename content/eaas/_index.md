@@ -8,40 +8,15 @@ disableToc = "true"
 
 ## Using Qrypt's Quantum Entropy Service
 
-Qrypt’s Entropy as a Service is a RESTful web service that allows you to generate random data (henceforth referred to as entropy or random) that is truly random—based on quantum-mechanical phenomena.
+Qrypt’s Entropy as a Service is a RESTful web service that allows you to generate random data (henceforth referred to as entropy or random) that is truly random—based on quantum-mechanical phenomena. 
 
----
-
-## Getting Started
-
-To start using Qrypt's Quantum Entropy service you need to create a Qrypt account, obtain an access token, and submit an HTTP request.
-
-## Create a free Qrypt account
-
-To request entropy from the service, you must first create an account.
-
-1.  Navigate to {{< externalLink link="https://portal.qrypt.com" text="https://portal.qrypt.com" >}} and create a new account.
-2.  Enter your email address and a strong password, then click the button to create your account.
-3.  Check your email for the 4-digit account confirmation code and enter it on the website to confirm your account.
-4.  When prompted, enter your first and last name.
-
-## Generate an access token
-
-An access token is required to submit REST API requests.
-
-1. Navigate to the Tokens page.
-2. Assign a name to the token to help you distinguish between different tokens.
-3. Select the expiration period. This determines when the token will expire and need to be replaced.
-4. Click the **"Generate token"** button.
-5. The generated token will be displayed along with an example of how entropy data can be requested. Copy the token using the “Copy” button and store it in a secure location. Important: This is the only time you will be able to view the access token. Be sure to copy and store it before closing this popup.
-6. Save the access token to a secure location. Because your access token is used to make requests for entropy—a budgeted resource—it should be treated as secure data, very much like a password.
-
+This service requires an access token. Follow the steps in {{< externalLink link="/sign_up" text="Getting Started" >}} to obtain an access token.
 
 ---
 
 ## Submit a request for entropy
 
-To get entropy from the service, you must submit an HTTP request to the REST API service, providing the aforementioned access token and specifying the number of 1,024-byte blocks of entropy you would like to receive. You must also specify an access token—which identifies the user account requesting the data—in an HTTP “authorization” header. The data is returned in a JSON-encoded structure containing an array of base64-encoded strings, each of which decodes to a 1,024-byte block of entropy, as well as an integer specifying the number of strings in the array.
+To get entropy from the service, you must submit an HTTP request to the REST API service, providing your access token and specifying the number of 1,024-byte blocks of entropy you would like to receive. You must also specify an access token—which identifies the user account requesting the data—in an HTTP “authorization” header. The data is returned in a JSON-encoded structure containing an array of base64-encoded strings, each of which decodes to a 1,024-byte block of entropy, as well as an integer specifying the number of strings in the array.
 
 {{% notice note %}}
 To ensure the privacy of your access token and the entropy data, all calls are made using an encrypted HTTPS connection.
