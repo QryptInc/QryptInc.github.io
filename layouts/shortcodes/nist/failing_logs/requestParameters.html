@@ -1,0 +1,26 @@
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">Request Fields</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">num</td>
+		<td>Optional integer. The number of logs to show. Can be set between 1 and 100, defaulting to 5.</td>
+	</tr>
+	<tr>
+		<td width="134">simple</td>
+		<td>Optional boolean. Format the logs in a condensed, summarized manner. Can be set to 'true' or 'false', defaulting to 'false'.</td>
+	</tr>
+	<tr>
+		<td width="134">strict</td>
+		<td>Optional boolean. Require that the logs must fail uniformity and test rate to be considered failing. Can be set to 'true' or 'false', defaulting to 'true'.</td>
+	</tr>
+	<tr>
+		<td width="134">include_random</td>
+		<td>Optional boolean. Determines if the random that failed the test will be included in the response. Only applicable when "strict" is true. Can be set to 'true' or 'false', defaulting to 'false'.</td>
+	</tr>
+	<tr>
+		<td width="134">randsize</td>
+		<td>Optional integer. How many bits of random to include in the response. Can be set between 1 and 5242880 (640KiB), defaulting to 1024. Only applicable when "include_random" is true.</td>
+	</tr>
+</table>

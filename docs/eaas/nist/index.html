@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>Quickstarts :: Qrypt</title>
+    <title>NIST Entropy Quality Tests :: Qrypt</title>
 
     
     <link href="../../css/nucleus.css?1700166213" rel="stylesheet">
@@ -32,7 +32,7 @@
     
   </head>
   
-  <body class="" data-url="../../sdk/quickstarts/">
+  <body class="" data-url="../../eaas/nist/">
     <nav
   id="sidebar"
   class=""
@@ -83,7 +83,7 @@
   data-nav-id="/eaas/"
   title="Quantum Entropy"
   class="dd-item
-        
+        parent
         
         
         "
@@ -116,7 +116,7 @@
   title="NIST Entropy Quality Tests"
   class="dd-item
         
-        
+        active
         
         "
 >
@@ -150,7 +150,7 @@
   data-nav-id="/sdk/"
   title="Key Generation"
   class="dd-item
-        parent
+        
         
         
         "
@@ -183,7 +183,7 @@
   title="Quickstarts"
   class="dd-item
         
-        active
+        
         
         "
 >
@@ -437,7 +437,7 @@
           
             <h1>
               
-              Quickstarts
+              NIST Entropy Quality Tests
             </h1>
           
 
@@ -445,10 +445,376 @@
 
 
 
-	<p>Use the Quickstarts to quickly get up and running with the Qrypt SDK.</p>
-<h2 id="qrpyt-sdk-for-c-quickstartscpp"><a href="cpp/">Qrpyt SDK for C++ Quickstarts</a></h2>
-<p>The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.</p>
-
+	<h2 id="using-qrypts-nist-entropy-quality-tests">Using Qrypt&rsquo;s NIST Entropy Quality Tests</h2>
+<p>Qrypt’s NIST Entropy Quality Tests is a set of APIs that allows you to check the quality of Qrypt&rsquo;s entropy using the NIST Statistical Test Suite. Tests are conducted every 10 minutes against Qrypt&rsquo;s Quantum Entropy service. Accessing this service does not require a Qrypt account or access token.</p>
+<hr>
+<h2 id="about-nist-entropy-quality-tests">About NIST Entropy Quality Tests</h2>
+<p>The NIST Entropy Quality Test suite uses the 15 statistical tests defined by the NIST Statistical Test Suite (STS). Each of these 15 tests is repeated over many samples. The APIs generate two test results:</p>
+<ol>
+<li><strong>Total number of individual passing tests</strong>: considered successful if a sufficient number of individual tests pass. The threshold varies based on the number of individual tests run and is based on an alpha value of 0.01. For example, 1000 individual tests requires a 98% pass rate to be considered successful.</li>
+<li><strong>P-value uniformity for each of the 15 tests</strong>: considered successful if all 15 tests have uniformly distributed p-values.</li>
+</ol>
+<p>The tests are considered as succeeding overall if either of these criteria are met. This provides a metric for passing that is more robust to fluctuations than using either criterion alone. However, this standard does not catch certain randomness defects. For example, if the randomness was periodic with a period equal to the size used for batching, a sufficiently high portion of the tests might pass, but the P-values would not be uniform.</p>
+<h2 id="nist-entropy-quality-test-endpoints">NIST Entropy Quality Test Endpoints</h2>
+<p>There are three endpoints for obtaining NIST entropy quality test results.</p>
+<ol>
+<li>NIST Logs: retrieves a specified number of recent test results</li>
+<li>Failing NIST Logs: retrieves a specified number of recent failing test results</li>
+<li>Failing NIST Random: retrieves random of recent failing tests</li>
+</ol>
+<h3 id="nist-logs">NIST Logs</h3>
+<p>This API contains the most recent NIST test results. To get NIST test results, you must submit an HTTP request to the API, optionally providing the number of results to view and whether they should be shown in a simplified format.</p>
+<ol>
+<li>Make a request to the following URL: <a href="https://nist.qrypt.com/api/v1/logs?num=%7bnum%7d&amp;simple=%7bsimple%7d" target="_blank" rel="noopener noreferrer">https://nist.qrypt.com/api/v1/logs?num={num}&amp;simple={simple}</a>.</li>
+<li>Optionally replace {<strong>num</strong>} with the desired number of recent test results to show.</li>
+<li>Optionally replace {<strong>simple</strong>} with a true or false to specify if you want a simplified test result output.</li>
+</ol>
+<h5 id="request-parameters">Request Parameters</h5>
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">Request Fields</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">num</td>
+		<td>Optional. The number of logs to show. Can be set between 1 and 100, defaulting to 5.</td>
+	</tr>
+	<tr>
+		<td width="134">simple</td>
+		<td>Optional. Format the logs in a summarized manner, only showing the 'tests_passed', 'time_of_completion' and 'time_of_completion_string' fields. Can be set to 'true' or 'false', defaulting to 'false'.</td>
+	</tr>
+</table>
+<h5 id="response-codes">Response Codes</h5>
+<table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="134">Status code</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td width="134">200</td>
+      <td><mark>Success</mark><br />Test results were successfully retrieved.</td>
+    </tr>
+    <tr>
+      <td width="134">400</td>
+      <td>
+        <mark>Bad request</mark><br />The request was invalid (i.e., malformed or
+        otherwise unacceptable). Please verify the format of the URL and the
+        specified parameters.
+      </td>
+    </tr>
+    <tr>
+      <td width="134">500</td>
+      <td>
+        <mark>Internal server error</mark><br />The Qrypt service has encountered
+        an internal error. Please contact Qrypt support for further assistance.
+      </td>
+    </tr>
+    <tr>
+      <td width="134">503</td>
+      <td>
+        <mark>Service Unavailable</mark><br />Please wait and try the
+        request again.
+      </td>
+    </tr>
+  </table>
+  
+<h5 id="json-response-fields">JSON Response Fields</h5>
+<p>For a successful 200 response, the response contains a JSON-encoded structure with an array of test results with the following fields in each array element. Note that the simplified logs only contain &rsquo;tests_passed&rsquo;, &rsquo;time_of_completion&rsquo; and &rsquo;time_of_completion_string&rsquo; fields.</p>
+<p>There are two main groupings of tests. One is prefixed &rsquo;nist&rsquo; for the number of NIST STS tests that passed or failed, and the second is &lsquo;uniformity&rsquo; for the uniformity of each NIST STS test&rsquo;s P-values.</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">JSON Response Fields</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">tests_passed</td>
+		<td>If tests passed overall. This indicates either 'nist_all_passed' or 'uniformity_all_passed' is true.</td>
+	</tr>
+	<tr>
+		<td width="134">time_of_completion</td>
+		<td>Unix timestamp of when the test was completed.</td>
+	</tr>
+	<tr>
+		<td width="134">time_of_completion_string</td>
+		<td>String timestamp of when the test was completed.</td>
+	</tr>
+	<tr>
+		<td width="134">nist_all_passed</td>
+		<td>If a sufficiently large percentage of NIST STS tests succeeded.</td>
+	</tr>
+	<tr>
+		<td width="134">nist_fails</td>
+		<td>Number of NIST STS test failures.</td>
+	</tr>
+	<tr>
+		<td width="134">nist_passes</td>
+		<td>Number of NIST STS test passes.</td>
+	</tr>
+	<tr>
+		<td width="134">nist_success_rate</td>
+		<td>NIST STS test success rate.</td>
+	</tr>
+	<tr>
+		<td width="134">uniformity_all_passed</td>
+		<td>If the P-values of all NIST STS tests are uniformly distributed.</td>
+	</tr>
+	<tr>
+		<td width="134">uniformity_fails</td>
+		<td>Number of NIST STS tests with non-uniformly distributed P-values.</td>
+	</tr>
+	<tr>
+		<td width="134">uniformity_passes</td>
+		<td>Number of NIST STS tests with uniformly distributed P-values.</td>
+	</tr>
+	<tr>
+		<td width="134">uniformity_success_rate</td>
+		<td>NIST STS test uniformity success rate.</td>
+	</tr>
+</table>
+<p>The following illustrates an example of JSON output as returned by a request for a single log:</p>
+<pre tabindex="0"><code>[
+    {
+        &#34;nist_all_passed&#34;: true,
+        &#34;nist_fails&#34;: 86,
+        &#34;nist_passes&#34;: 8742,
+        &#34;nist_success_rate&#34;: 0.9855783640783642,
+        &#34;tests_passed&#34;: true,
+        &#34;time_of_completion&#34;: 1699551247.1653655,
+        &#34;time_of_completion_string&#34;: &#34;11/09/2023 12:34&#34;,
+        &#34;uniformity_all_passed&#34;: true,
+        &#34;uniformity_fails&#34;: 0,
+        &#34;uniformity_passes&#34;: 15,
+        &#34;uniformity_success_rate&#34;: 1.0
+    }
+]
+</code></pre><h3 id="nist-failed-test-logs">NIST Failed Test Logs</h3>
+<p>This API contains the most recent failed NIST test results, where both the individual test rate and uniformity tests fail. To get failed NIST test results, you must submit an HTTP request to the API.</p>
+<ol>
+<li>Make a request to the following URL: <a href="https://nist.qrypt.com/api/v1/failing_logs?num=%7bnum%7d&amp;simple=%7bsimple%7d&amp;strict=%7bstrict%7d&amp;include_random=%7binclude_random%7d&amp;randsize=%7brandsize%7d" target="_blank" rel="noopener noreferrer">https://nist.qrypt.com/api/v1/failing_logs?num={num}&amp;simple={simple}&amp;strict={strict}&amp;include_random={include_random}&amp;randsize={randsize}</a></li>
+<li>Optionally replace {<strong>num</strong>} with the number of recent test results to show.</li>
+<li>Optionally replace {<strong>simple</strong>} with &rsquo;true&rsquo; to output simplified logs.</li>
+<li>Optionally replace {<strong>strict</strong>} with &lsquo;false&rsquo; specify if you want to show logs that failed either the test rate or uniformity.</li>
+<li>Optionally replace {<strong>include_random</strong>} with &rsquo;true&rsquo; to see failed random. Only applicable if &lsquo;strict&rsquo; is &rsquo;true&rsquo;.</li>
+<li>Optionally replace {<strong>randsize</strong>} with the number of bits to show. Only applicable if &lsquo;include_random&rsquo; is set to &rsquo;true&rsquo;.</li>
+</ol>
+<h5 id="request-parameters-1">Request Parameters</h5>
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">Request Fields</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">num</td>
+		<td>Optional integer. The number of logs to show. Can be set between 1 and 100, defaulting to 5.</td>
+	</tr>
+	<tr>
+		<td width="134">simple</td>
+		<td>Optional boolean. Format the logs in a condensed, summarized manner. Can be set to 'true' or 'false', defaulting to 'false'.</td>
+	</tr>
+	<tr>
+		<td width="134">strict</td>
+		<td>Optional boolean. Require that the logs must fail uniformity and test rate to be considered failing. Can be set to 'true' or 'false', defaulting to 'true'.</td>
+	</tr>
+	<tr>
+		<td width="134">include_random</td>
+		<td>Optional boolean. Determines if the random that failed the test will be included in the response. Only applicable when "strict" is true. Can be set to 'true' or 'false', defaulting to 'false'.</td>
+	</tr>
+	<tr>
+		<td width="134">randsize</td>
+		<td>Optional integer. How many bits of random to include in the response. Can be set between 1 and 5242880 (640KiB), defaulting to 1024. Only applicable when "include_random" is true.</td>
+	</tr>
+</table>
+<h5 id="response-codes-1">Response Codes</h5>
+<table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="134">Status code</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td width="134">200</td>
+      <td><mark>Success</mark><br />Test results were successfully retrieved.</td>
+    </tr>
+    <tr>
+      <td width="134">400</td>
+      <td>
+        <mark>Bad request</mark><br />The request was invalid (i.e., malformed or
+        otherwise unacceptable). Please verify the format of the URL and the
+        specified parameters.
+      </td>
+    </tr>
+    <tr>
+      <td width="134">500</td>
+      <td>
+        <mark>Internal server error</mark><br />The Qrypt service has encountered
+        an internal error. Please contact Qrypt support for further assistance.
+      </td>
+    </tr>
+    <tr>
+      <td width="134">503</td>
+      <td>
+        <mark>Service Unavailable</mark><br />Please wait and try the
+        request again.
+      </td>
+    </tr>
+  </table>
+  
+<h5 id="json-response-fields-1">JSON Response Fields</h5>
+<p>The JSON response fields are identical to the NIST Logs API, except for the &lsquo;random&rsquo; field. The &lsquo;random&rsquo; field only appears if &lsquo;include_random&rsquo; is set to &rsquo;true&rsquo;.</p>
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">JSON Response Fields</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">tests_passed</td>
+		<td>If tests passed overall. This indicates either 'nist_all_passed' or 'uniformity_all_passed' is true.</td>
+	</tr>
+	<tr>
+		<td width="134">time_of_completion</td>
+		<td>Unix timestamp of when the test was completed.</td>
+	</tr>
+	<tr>
+		<td width="134">time_of_completion_string</td>
+		<td>String timestamp of when the test was completed.</td>
+	</tr>
+	<tr>
+		<td width="134">nist_all_passed</td>
+		<td>If a sufficiently large percentage of NIST STS tests succeeded.</td>
+	</tr>
+	<tr>
+		<td width="134">nist_fails</td>
+		<td>Number of NIST STS test failures.</td>
+	</tr>
+	<tr>
+		<td width="134">nist_passes</td>
+		<td>Number of NIST STS test passes.</td>
+	</tr>
+	<tr>
+		<td width="134">nist_success_rate</td>
+		<td>NIST STS test success rate.</td>
+	</tr>
+	<tr>
+		<td width="134">uniformity_all_passed</td>
+		<td>If the P-values of all NIST STS tests are uniformly distributed.</td>
+	</tr>
+	<tr>
+		<td width="134">uniformity_fails</td>
+		<td>Number of NIST STS tests with non-uniformly distributed P-values.</td>
+	</tr>
+	<tr>
+		<td width="134">uniformity_passes</td>
+		<td>Number of NIST STS tests with uniformly distributed P-values.</td>
+	</tr>
+	<tr>
+		<td width="134">uniformity_success_rate</td>
+		<td>NIST STS test uniformity success rate.</td>
+	</tr>
+	<tr>
+		<td width="134">random</td>
+		<td>The tested random that failed.</td>
+	</tr>
+</table>
+<p>The following illustrates an example of JSON output as returned by a request for a single log:</p>
+<pre tabindex="0"><code>[
+    {
+        &#34;nist_all_passed&#34;: true,
+        &#34;nist_fails&#34;: 86,
+        &#34;nist_passes&#34;: 8742,
+        &#34;nist_success_rate&#34;: 0.9855783640783642,
+        &#34;tests_passed&#34;: true,
+        &#34;time_of_completion&#34;: 1699551247.1653655,
+        &#34;time_of_completion_string&#34;: &#34;11/09/2023 12:34&#34;,
+        &#34;uniformity_all_passed&#34;: true,
+        &#34;uniformity_fails&#34;: 0,
+        &#34;uniformity_passes&#34;: 15,
+        &#34;uniformity_success_rate&#34;: 1.0,
+        &#34;random&#34;: &#34;111110100110010100001010100011&#34;
+    }
+]
+</code></pre><h3 id="nist-failed-random">NIST Failed Random</h3>
+<p>This API contains the random of the most recent strictly failing NIST tests. To get the random of failed NIST test results, you must submit an HTTP request to the API.</p>
+<ol>
+<li>Make a request to the following URL: <a href="https://nist.qrypt.com/api/v1/failing_random?num=%7bnum%7d&amp;randsize=%7brandsize%7d" target="_blank" rel="noopener noreferrer">https://nist.qrypt.com/api/v1/failing_random?num={num}&amp;randsize={randsize}</a></li>
+<li>Optionally replace {<strong>num</strong>} with the number of recent test results to show.</li>
+<li>Optionally replace {<strong>randsize</strong>} with &rsquo;true&rsquo; to output simplified logs.</li>
+</ol>
+<h5 id="request-parameters-2">Request Parameters</h5>
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">Request Fields</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">num</td>
+		<td>Optional integer. The number of logs to show. Can be set between 1 and 100, defaulting to 5.</td>
+	</tr>
+	<tr>
+		<td width="134">randsize</td>
+		<td>Optional integer. Number of bits of random to include in the response. Can be set between 1 and 5242880, defaulting to 1024.</td>
+	</tr>
+</table>
+<h5 id="response-codes-2">Response Codes</h5>
+<table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <th width="134">Status code</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td width="134">200</td>
+      <td><mark>Success</mark><br />Test results were successfully retrieved.</td>
+    </tr>
+    <tr>
+      <td width="134">400</td>
+      <td>
+        <mark>Bad request</mark><br />The request was invalid (i.e., malformed or
+        otherwise unacceptable). Please verify the format of the URL and the
+        specified parameters.
+      </td>
+    </tr>
+    <tr>
+      <td width="134">500</td>
+      <td>
+        <mark>Internal server error</mark><br />The Qrypt service has encountered
+        an internal error. Please contact Qrypt support for further assistance.
+      </td>
+    </tr>
+    <tr>
+      <td width="134">503</td>
+      <td>
+        <mark>Service Unavailable</mark><br />Please wait and try the
+        request again.
+      </td>
+    </tr>
+  </table>
+  
+<h5 id="json-response-fields-2">JSON Response Fields</h5>
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">JSON Response Fields</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">random</td>
+		<td>Failing bits of random.</td>
+	</tr>
+	<tr>
+		<td width="134">time_of_completion</td>
+		<td>Unix timestamp of when the test was completed.</td>
+	</tr>
+	<tr>
+		<td width="134">createdAt</td>
+		<td>Readable timestamp of when the test was completed.</td>
+	</tr>
+</table>
+<p>The following illustrates an example of JSON output as returned by a request for a single log:</p>
+<pre tabindex="0"><code>[
+    {
+        &#34;createdAt&#34;: &#34;Thu, 09 Nov 2023 12:54:06 GMT&#34;,
+        &#34;random&#34;: &#34;111110100110010100001010100011&#34;,
+        &#34;time_of_completion&#34;: 1699534446.5982661
+    }
+]
+</code></pre>
 
 
 
@@ -507,72 +873,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -614,6 +914,44 @@
 
                     
                     
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                         
                     
                     
@@ -624,8 +962,36 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                         
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
