@@ -5,6 +5,8 @@ weight = 40
 
 This page covers the instructions to use Qrypt's quantum entropy to seed PKCS#11 HSMs (Hardware Security Modules).
 
+This service requires an access token. Follow the steps in [Getting Started]({{< ref "/getting_started" >}}) to obtain an access token.
+
 ## Technology Value
 Many of the available HSMs use non-quantum entropy sources. Fortunately, the PKCS#11 Cryptoki interface provides a C_SeedRandom function to inject entropy into a PKCS#11 compliant HSM. Developers can inject Qrypt's quantum entropy into the HSM using the C_SeedRandom function. As a result, HSM keys can be pseudorandomly generated from quantum entropy.
 
@@ -18,17 +20,14 @@ There are three components to the architecture diagram above.
 
 ## Integration Instructions
 
-### Step 1: Create a Qrypt account and generate a token for entropy
-Follow the steps in the [Getting Started]({{< ref "/eaas#getting-started" >}}) section under 'Quantum Entropy'.
-
-### Step 2: Update your client application to download Qrypt's quantum entropy
+### Step 1: Update your client application to download Qrypt's quantum entropy
 A REST API can be called for entropy download. More information about the REST API can be found in the [Submit a request for entropy]({{< ref "/eaas#submit-a-request-for-entropy" >}}) section under 'Quantum Entropy'. You will need a library that can perform HTTPS requests. 
 
 C++ sample code using libcurl is provided in the [Quickstart](https://github.com/QryptInc/qrypt-security-quickstarts-cpp/blob/main/src/eaas.cpp). We recommend using environment variables to pass the Qrypt Token into the application.
 
 Requests to the entropy API can only be performed in units of KiB. As a result, there may be random usage inefficiencies. Developers can choose to implement their own buffer management locally for better random utilization.
 
-### Step 3: Update your client application to call C_SeedRandom
+### Step 2: Update your client application to call C_SeedRandom
 
 Sample code in C++ is shown below.
 

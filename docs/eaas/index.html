@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Hugo 0.111.3">
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>Quantum Entropy :: Qrypt</title>
 
     
-    <link href="../css/nucleus.css?1696621953" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1696621953" rel="stylesheet">
-    <link href="../css/hybrid.css?1696621953" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1696621953" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1696621953" rel="stylesheet">
-    <link href="../css/auto-complete.css?1696621953" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1696621953" rel="stylesheet">
-    <link href="../css/theme.css?1696621953" rel="stylesheet">
-    <link href="../css/tabs.css?1696621953" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1696621953" rel="stylesheet">
+    <link href="../css/nucleus.css?1700083659" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1700083659" rel="stylesheet">
+    <link href="../css/hybrid.css?1700083659" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1700083659" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1700083659" rel="stylesheet">
+    <link href="../css/auto-complete.css?1700083659" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1700083659" rel="stylesheet">
+    <link href="../css/theme.css?1700083659" rel="stylesheet">
+    <link href="../css/tabs.css?1700083659" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1700083659" rel="stylesheet">
     
-    <link href="../css/theme-mine.css?1696621953" rel="stylesheet">
+    <link href="../css/theme-mine.css?1700083659" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1696621953"></script>
+    <script src="../js/jquery-3.3.1.min.js?1700083659"></script>
 
     
   </head>
@@ -49,14 +49,14 @@
 
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1696621953"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1696621953"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1700083659"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1700083659"></script>
 <script type="text/javascript">
   
       var baseurl = "https:\/\/QryptInc.github.io";
   
 </script>
-<script type="text/javascript" src="../js/search.js?1696621953"></script>
+<script type="text/javascript" src="../js/search.js?1700083659"></script>
  
   </div>
   
@@ -64,6 +64,21 @@
   <div class="highlightable">
     <ul class="topics">
                
+<li
+  data-nav-id="/getting_started/"
+  title="Getting Started"
+  class="dd-item
+        
+        
+        
+        "
+>
+  <a href="../getting_started/">
+    Getting Started 
+  </a>
+   
+</li>
+           
 <li
   data-nav-id="/eaas/"
   title="Quantum Entropy"
@@ -79,6 +94,22 @@
    
   <ul>
           
+            
+<li
+  data-nav-id="/eaas/rngd/"
+  title="RNG Tools"
+  class="dd-item
+        
+        
+        
+        "
+>
+  <a href="../eaas/rngd/">
+    RNG Tools 
+  </a>
+   
+</li>
+    
             
 <li
   data-nav-id="/eaas/pkcs11/"
@@ -400,30 +431,15 @@
 
 	<h2 id="using-qrypts-quantum-entropy-service">Using Qrypt&rsquo;s Quantum Entropy Service</h2>
 <p>Qrypt’s Entropy as a Service is a RESTful web service that allows you to generate random data (henceforth referred to as entropy or random) that is truly random—based on quantum-mechanical phenomena.</p>
-<hr>
-<h2 id="getting-started">Getting Started</h2>
-<p>To start using Qrypt&rsquo;s Quantum Entropy service you need to create a Qrypt account, obtain an access token, and submit an HTTP request.</p>
-<h2 id="create-a-free-qrypt-account">Create a free Qrypt account</h2>
-<p>To request entropy from the service, you must first create an account.</p>
+<p>This service requires an access token. Follow the steps in <a href="../getting_started/">Getting Started</a> to obtain an access token.</p>
+<h3 id="related-tools-and-services">Related Tools and Services</h3>
 <ol>
-<li>Navigate to <a href="https://portal.qrypt.com" target="_blank" rel="noopener noreferrer">https://portal.qrypt.com</a> and create a new account.</li>
-<li>Enter your email address and a strong password, then click the button to create your account.</li>
-<li>Check your email for the 4-digit account confirmation code and enter it on the website to confirm your account.</li>
-<li>When prompted, enter your first and last name.</li>
-</ol>
-<h2 id="generate-an-access-token">Generate an access token</h2>
-<p>An access token is required to submit REST API requests.</p>
-<ol>
-<li>Navigate to the Tokens page.</li>
-<li>Assign a name to the token to help you distinguish between different tokens.</li>
-<li>Select the expiration period. This determines when the token will expire and need to be replaced.</li>
-<li>Click the <strong>&ldquo;Generate token&rdquo;</strong> button.</li>
-<li>The generated token will be displayed along with an example of how entropy data can be requested. Copy the token using the “Copy” button and store it in a secure location. Important: This is the only time you will be able to view the access token. Be sure to copy and store it before closing this popup.</li>
-<li>Save the access token to a secure location. Because your access token is used to make requests for entropy—a budgeted resource—it should be treated as secure data, very much like a password.</li>
+<li><a href="../eaas/rngd/">RNG Tools</a>: Integrating Qrypt&rsquo;s Quantum Entropy service as a random source for system devices.</li>
+<li><a href="../eaas/pkcs11/">Seed PKCS#11 HSMs</a>: Integrating Qrypt&rsquo;s Quantum Entropy service as a random source for PKCS#11 HSMs.</li>
 </ol>
 <hr>
 <h2 id="submit-a-request-for-entropy">Submit a request for entropy</h2>
-<p>To get entropy from the service, you must submit an HTTP request to the REST API service, providing the aforementioned access token and specifying the number of 1,024-byte blocks of entropy you would like to receive. You must also specify an access token—which identifies the user account requesting the data—in an HTTP “authorization” header. The data is returned in a JSON-encoded structure containing an array of base64-encoded strings, each of which decodes to a 1,024-byte block of entropy, as well as an integer specifying the number of strings in the array.</p>
+<p>To get entropy from the service, you must submit an HTTP request to the REST API service, providing your access token and specifying the number of 1,024-byte blocks of entropy you would like to receive. You must also specify an access token—which identifies the user account requesting the data—in an HTTP “authorization” header. The data is returned in a JSON-encoded structure containing an array of base64-encoded strings, each of which decodes to a 1,024-byte block of entropy, as well as an integer specifying the number of strings in the array.</p>
 
 <div class="notices note" ><p>To ensure the privacy of your access token and the entropy data, all calls are made using an encrypted HTTPS connection.</p>
 </div>
@@ -683,6 +699,25 @@ fetch(url, {
             
                 
                     
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -701,6 +736,22 @@ fetch(url, {
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -931,19 +982,19 @@ fetch(url, {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1696621954"></script>
-    <script src="../js/perfect-scrollbar.min.js?1696621954"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1696621954"></script>
-    <script src="../js/jquery.sticky.js?1696621954"></script>
-    <script src="../js/featherlight.min.js?1696621954"></script>
-    <script src="../js/highlight.pack.js?1696621954"></script>
+    <script src="../js/clipboard.min.js?1700083659"></script>
+    <script src="../js/perfect-scrollbar.min.js?1700083659"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1700083659"></script>
+    <script src="../js/jquery.sticky.js?1700083659"></script>
+    <script src="../js/featherlight.min.js?1700083659"></script>
+    <script src="../js/highlight.pack.js?1700083659"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1696621954"></script>
-    <script src="../js/learn.js?1696621954"></script>
-    <script src="../js/hugo-learn.js?1696621954"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1700083659"></script>
+    <script src="../js/learn.js?1700083659"></script>
+    <script src="../js/hugo-learn.js?1700083659"></script>
     
         
-            <script src="../mermaid/mermaid.js?1696621954"></script>
+            <script src="../mermaid/mermaid.js?1700083659"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
