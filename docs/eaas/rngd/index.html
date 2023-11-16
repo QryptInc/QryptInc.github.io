@@ -9,27 +9,9 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>One-Time Pad (OTP) :: Qrypt</title>
+    <title>RNG Tools :: Qrypt</title>
 
     
-<<<<<<< HEAD
-    <link href="../../css/nucleus.css?1700073759" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1700073759" rel="stylesheet">
-    <link href="../../css/hybrid.css?1700073759" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1700073759" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1700073759" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1700073759" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1700073759" rel="stylesheet">
-    <link href="../../css/theme.css?1700073759" rel="stylesheet">
-    <link href="../../css/tabs.css?1700073759" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1700073759" rel="stylesheet">
-    
-    <link href="../../css/theme-mine.css?1700073759" rel="stylesheet">
-    
-    
-
-    <script src="../../js/jquery-3.3.1.min.js?1700073759"></script>
-=======
     <link href="../../css/nucleus.css?1700083659" rel="stylesheet">
     <link href="../../css/fontawesome-all.min.css?1700083659" rel="stylesheet">
     <link href="../../css/hybrid.css?1700083659" rel="stylesheet">
@@ -46,12 +28,11 @@
     
 
     <script src="../../js/jquery-3.3.1.min.js?1700083659"></script>
->>>>>>> origin/main
 
     
   </head>
   
-  <body class="" data-url="../../concepts/otp/">
+  <body class="" data-url="../../eaas/rngd/">
     <nav
   id="sidebar"
   class=""
@@ -68,23 +49,14 @@
 
 </div>
 
-<<<<<<< HEAD
-<script type="text/javascript" src="../../js/lunr.min.js?1700073759"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1700073759"></script>
-=======
 <script type="text/javascript" src="../../js/lunr.min.js?1700083659"></script>
 <script type="text/javascript" src="../../js/auto-complete.js?1700083659"></script>
->>>>>>> origin/main
 <script type="text/javascript">
   
       var baseurl = "https:\/\/QryptInc.github.io";
   
 </script>
-<<<<<<< HEAD
-<script type="text/javascript" src="../../js/search.js?1700073759"></script>
-=======
 <script type="text/javascript" src="../../js/search.js?1700083659"></script>
->>>>>>> origin/main
  
   </div>
   
@@ -111,7 +83,7 @@
   data-nav-id="/eaas/"
   title="Quantum Entropy"
   class="dd-item
-        
+        parent
         
         
         "
@@ -124,26 +96,16 @@
           
             
 <li
-<<<<<<< HEAD
-  data-nav-id="/eaas/nist/"
-  title="NIST Entropy Quality Tests"
-=======
   data-nav-id="/eaas/rngd/"
   title="RNG Tools"
->>>>>>> origin/main
   class="dd-item
         
-        
+        active
         
         "
 >
-<<<<<<< HEAD
-  <a href="../../eaas/nist/">
-    NIST Entropy Quality Tests 
-=======
   <a href="../../eaas/rngd/">
     RNG Tools 
->>>>>>> origin/main
   </a>
    
 </li>
@@ -295,7 +257,7 @@
   data-nav-id="/concepts/"
   title="Concepts"
   class="dd-item
-        parent
+        
         
         
         "
@@ -344,7 +306,7 @@
   title="One-Time Pad (OTP)"
   class="dd-item
         
-        active
+        
         
         "
 >
@@ -459,7 +421,7 @@
           
             <h1>
               
-              One-Time Pad (OTP)
+              RNG Tools
             </h1>
           
 
@@ -467,124 +429,93 @@
 
 
 
-	<h2 id="our-technology">Our Technology</h2>
-<p>Qrypt offers solutions to make One-Time Pads, the only known information theoretically secure symmetric encryption algorithm, finally practical in industry.</p>
+	<h2 id="using-qrypts-quantum-entropy-in-rng-tools">Using Qrypt&rsquo;s Quantum Entropy in RNG Tools</h2>
+<p><em>rng-tools</em> is a utility that allows you to inject entropy from hardware sources, prngs, and http streams into system devices. Qrypt&rsquo;s Quantum Entropy service is a random source option in <em>rng-tools</em>, allowing you to inject quantum entropy into system devices such as &lsquo;/dev/random&rsquo;, &lsquo;/dev/urandom&rsquo;, and user-defined nodes or files.</p>
+<p>This service requires an access token. Follow the steps in <a href="../../getting_started/">Getting Started</a> to obtain an access token.</p>
+<p>More information about <em>rng-tools</em> can be found on the <a href="https://github.com/nhorman/rng-tools" target="_blank" rel="noopener noreferrer">rng-tools Github</a> and the <a href="https://wiki.archlinux.org/title/Rng-tools" target="_blank" rel="noopener noreferrer">rng-tools wiki page</a>.</p>
 <hr>
-<h3 id="what-is-classical-cryptographic-security">What is classical cryptographic security?</h3>
-<p>A cryptographic algorithm is considered secure, when the algorithm has been around for several years, and there is still no known method to “break” the algorithm with a classical computer.</p>
-<p>For example, the widely used RSA algorithm has been around since 1977 with no significant progress made on a method to break it with a classical computer.</p>
-<h3 id="what-is-post-quantum-security">What is post-quantum security?</h3>
-<p>With the age of quantum computers being on the horizon, researchers have also explored methods to break cryptography using a quantum computer. Post-quantum cryptography means that after years of research, there is still no known method to “break” the cryptography, even given a quantum computer.</p>
-<p>For example, RSA, would not satisfy post-quantum security because Shor’s algorithm, an attack using a quantum computer, was discovered to break RSA in 1994. On the other hand, AES-256 is considered post-quantum because no quantum attacks have been discovered since its publication in 1998.</p>
-<figure><img src="images/otp_1.svg"/>
-</figure>
+<h2 id="installation">Installation</h2>
+<p>To use Qrypt&rsquo;s Quantum Entropy service in <em>rng-tools</em>, <em>rng-tools</em> must be installed and configured.</p>
+<p>Clone the latest <em>rng-tools</em> master from GitHub.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/nhorman/rng-tools
+</span></span></code></pre></div><p>Install <em>rng-tools</em> dependencies. Additional packages may be required, depending on linux distro. The configure script below will name any missing packages it encounters.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    make <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libtool <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libxml2-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libssl-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libcurl3-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libp11-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    librtlsdr-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libusb-1.0-0-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libjansson-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libcap-dev
+</span></span></code></pre></div><p>Add <code>--disable-dependency-tracking</code> to the &lsquo;./configure&rsquo; command if needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./autogen.sh
+</span></span><span style="display:flex;"><span>./configure
+</span></span><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div><p>Verify installation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>which rngd
+</span></span></code></pre></div><h2 id="command-line-usage">Command Line Usage</h2>
+<p>The resulting &lsquo;rngd&rsquo; executable can run directly to start either a daemon or a foreground process. By default, &lsquo;rngd&rsquo; will run as a background daemon and attempt to use the &lsquo;hwrng&rsquo;, &rsquo;errand&rsquo;, &lsquo;pkcs11&rsquo;, and &lsquo;rtlsdr&rsquo; random sources.</p>
+<p>To run &lsquo;rngd&rsquo; using exclusively Qrypt&rsquo;s Quantum Entropy, run the following command. This will run &lsquo;rngd&rsquo; as a foreground process with the Qrypt source enabled and all other entropy sources disabled. &lsquo;rngd&rsquo; will send its random to the /dev/random device.</p>
+<p>Note that &lsquo;sudo&rsquo; is needed in the command because &lsquo;rngd&rsquo; accesses the root folder.</p>
+<pre tabindex="0"><code>sudo rngd -f -x hwrng -x rdrand -x pkcs11 -x rtlsdr -n qrypt -O qrypt:tokenfile:&lt;qrypt token path&gt;
+</code></pre><p>Command line options:
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="134">Option</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td width="134">-f</td>
+		<td>Run 'rngd' as a foreground process. If omitted, 'rngd' will run as a background daemon.</td>
+	</tr>
+	<tr>
+		<td width="134">-o &lt;path&gt;</path></td>
+		<td>Device or file for the random number output. Defaults to '/dev/random'.</td>
+	</tr>
+	<tr>
+		<td width="134">-x &lt;source&gt;</path></td>
+		<td>Disables the specified source. For example, '-x hwrng'.</td>
+	</tr>
+	<tr>
+		<td width="134">-n &lt;source&gt;</path></td>
+		<td>Enables the specified source. For example, '-n qrypt'.</td>
+	</tr>
+	<tr>
+		<td width="134">-O &lt;source&gt;:&lt;key&gt;:&lt;value&gt;</td>
+		<td>Sets a source specific configuration option. For example, '-O qrypt:tokenfile:/etc/rngd/qrypt.token'.</td>
+	</tr>
+</table></p>
+<h2 id="service-usage">Service Usage</h2>
+<p><em>rng-tools</em> comes with a &lsquo;rngd.service&rsquo; file for setting up a systemd service. To configure rngd to automatically start the Qrypt source on boot, follow these steps:</p>
+<p>Save your Qrypt api token to a system-accessible directory, such as &lsquo;/etc/rngd/qrypt.token&rsquo;. Then, edit &lsquo;rngd.service&rsquo; to add Qrypt arguments and options.</p>
+<p>Note that &lsquo;sudo&rsquo; is needed in the subsequent commands because &lsquo;rngd&rsquo; accesses the root folder.</p>
+<pre tabindex="0"><code>[Unit]
+Description=Hardware RNG Entropy Gatherer Daemon
+ConditionVirtualization=!container
 
-<p>A One-Time Pad cipher is when a randomly chosen key, the same length of the plaintext, is XORed with the plaintext to produce the ciphertext. If the key is truly chosen randomly, all plaintexts of the given size are equally likely to have produced the ciphertext.</p>
-<hr>
-<h2 id="what-is-information-theoretic-security">What is information theoretic security?</h2>
-<p>One-Time Pads have been mathematically proven to be information theoretically secure, meaning there is a mathematical proof that there exist no attacks (even with a computationally unbounded adversary) that can break a One-Time Pad. On the other hand, it is possible for a “post-quantum” algorithm to be broken, if in the future, someone were to discover a quantum attack on the algorithm.</p>
-<hr>
-<h2 id="why-isnt-everyone-using-one-time-pads">Why isn’t everyone using One-Time Pads?</h2>
-<p>One-Time Pads are only secure if the key is truly random, <strong>and only recent quantum technology has made truly random keys possible</strong>.</p>
-<p>In addition, One-Time Pads are only secure if the keys are never reused. This means we need to share a newly randomly generated key, which is the same size of the plaintext, every time we want to send a new plaintext message. <strong>This reduces the security of the One-Time Pad down to the security of the key exchange algorithm.</strong></p>
-<h2 id="blast-distributed">BLAST Distributed</h2>
-<p>Qrypt offers a novel key generation solution, which offers everlasting security.</p>
-<h3 id="how-secure-are-key-exchange-algorithms">How secure are key exchange algorithms?</h3>
+# The &#39;-f&#39; option is required for the systemd service &#39;rngd&#39; to work with Type=simple
+[Service]
+Type=simple
+ExecStart=&lt;rngd install path&gt; -f -x hwrng -x rdrand -x pkcs11 -x rtlsdr -n qrypt -O qrypt:tokenfile:&lt;qrypt token path&gt;
+SuccessExitStatus=66
 
-
-<table>
-    <tr>
-        <th>Algorithms</th>
-        <th>Level of Security</th>
-        <th>Drawbacks</th>
-    </tr>
-    <tr>
-        <td>RSA, Diffie Hellman, ECDH</td>
-        <td>Classical security</td>
-        <td>
-            <ul>
-                <li>Not post-quantum</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td>Classic McEliece, CRYSTALS-KYBER, FrodoKEM</td>
-        <td>Post-quantum security</td>
-        <td>
-            <ul>
-                <li>Not provably secure</li>
-                <li>Slow/inefficient</li>
-    </tr>
-    <tr>
-        <td>Quantum Key Distribution (QKD): BB84, E91, B92</td>
-        <td>Information theoretically secure (dependent on accuracy of hardware)</td>
-        <td>
-            <ul>
-                <li>Costly</li>
-                <li>Range of communication is limited</li>
-                <li>Tolerance for error in cryptographic security, however, is many order of magnitude smaller than in most physical engineering scenarios making it very difficult to validate</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td><b>Qrypt solution</b></td>
-        <td>Everlasting security (explained below)</td>
-        <td>
-            <ul>
-                <li>Assumes the user has a secure channel with a user-configurable value <i>g</i> out of <i>t</i> Qrypt servers</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-<h3 id="what-is-everlasting-security">What is everlasting security?</h3>
-<p>A protocol which achieves everlasting security guarantees that an encryption is information theoretically secure, given that the initial key exchange of the seed <em>S</em> is not broken within a time <em>T</em> which we can choose (i.e. an hour). This means that an hour after the two parties exchange an initial seed <em>S</em>, even a computationally unbounded adversary (with access to both classical and quantum computers) cannot break the encryption.</p>
-<h2 id="levels-of-security">Levels of Security</h2>
-<ol>
-<li>
-<p>Classical security that is vulnerable to quantum computers (i.e. RSA, ECDH)</p>
-</li>
-<li>
-<p>Post quantum security that has no known algorithm that quantum computers could run to break (i.e. FrodoKEM, Crystals-Kyber)</p>
-</li>
-</ol>
-<p>For levels 1 and 2, to break the encryption, an adversary would need to:</p>
-<ul>
-<li>Harvest data between Alice and Bob</li>
-<li>Break the key exchange</li>
-</ul>
-<figure><img src="images/alice&amp;bob.svg"/>
-</figure>
-
-<p>3a)  Everlasting security which is provably secure against an unbounded adversary after phase 1 (while the server is still accepting decryption requests), where:</p>
-<ul>
-<li>the seed key exchange has level 1 security in phase 1</li>
-<li>we assume g out of T servers have secure, authenticated channels with the client (where these channels use TLS)</li>
-</ul>
-<p>3b)  Everlasting security which is provably secure against an unbounded adversary after phase 1 (while the server is still accepting decryption requests), where:</p>
-<ul>
-<li>the seed key exchange has level 2 security in phase 1</li>
-<li>we assume g out of T servers have secure, authenticated channels with the client (where these channels use TLS)</li>
-</ul>
-<p>3c) Everlasting security which is provably secure against an unbounded adversary after phase 1 (while the server is still accepting decryption requests), where:</p>
-<ul>
-<li>the seed has level 2 security in phase 1</li>
-<li>we assume g out of T servers have secure, authenticated channels with the client (where these channels use post-quantum TLS)</li>
-</ul>
-<figure><img src="images/alice&amp;bob_exchange.svg"/>
-</figure>
-
-<p>For levels 3a, 3b, and 3c, to break the encryption, an adversary would need to:</p>
-<ul>
-<li>Harvest data between Alice and Bob</li>
-<li>Harvest data from greater than T-g server links to Alice or Bob</li>
-<li>Break the key exchange of the seed</li>
-<li>Break the protocol for downloading random</li>
-</ul>
-<ol start="4">
-<li>Information theoretic security that is provably secure against an unbounded adversary (which Qrypt only has the capability of doing with physical transfer of key material)</li>
-</ol>
-
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>Copy the &lsquo;rngd&rsquo; service to systemd.</p>
+<pre tabindex="0"><code>sudo cp rngd.service /etc/systemd/system/rngd.service
+sudo chmod 644 /etc/systemd/system/rngd.service
+</code></pre><p>Start the &lsquo;rngd&rsquo; service.</p>
+<pre tabindex="0"><code>sudo systemctl daemon-reload
+sudo systemctl start rngd
+</code></pre><p>Verify the &lsquo;rngd&rsquo; service is running properly.</p>
+<pre tabindex="0"><code>sudo systemctl status rngd
+</code></pre><p>Enable the &lsquo;rngd&rsquo; service for it to start on system boot.</p>
+<pre tabindex="0"><code>sudo systemctl enable rngd
+</code></pre>
 
 
 
@@ -643,6 +574,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -657,6 +589,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -674,6 +607,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -684,37 +620,6 @@
                     
             
         
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -746,9 +651,6 @@
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -797,26 +699,6 @@
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -826,42 +708,6 @@
             
             
                 
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -882,8 +728,90 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                         
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -911,21 +839,6 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-<<<<<<< HEAD
-    <script src="../../js/clipboard.min.js?1700073759"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1700073759"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1700073759"></script>
-    <script src="../../js/jquery.sticky.js?1700073759"></script>
-    <script src="../../js/featherlight.min.js?1700073759"></script>
-    <script src="../../js/highlight.pack.js?1700073759"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1700073759"></script>
-    <script src="../../js/learn.js?1700073759"></script>
-    <script src="../../js/hugo-learn.js?1700073759"></script>
-    
-        
-            <script src="../../mermaid/mermaid.js?1700073759"></script>
-=======
     <script src="../../js/clipboard.min.js?1700083659"></script>
     <script src="../../js/perfect-scrollbar.min.js?1700083659"></script>
     <script src="../../js/perfect-scrollbar.jquery.min.js?1700083659"></script>
@@ -939,7 +852,6 @@
     
         
             <script src="../../mermaid/mermaid.js?1700083659"></script>
->>>>>>> origin/main
         
         <script>
             mermaid.initialize({ startOnLoad: true });

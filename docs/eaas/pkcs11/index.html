@@ -12,6 +12,7 @@
     <title>Seed PKCS#11 HSMs :: Qrypt</title>
 
     
+<<<<<<< HEAD
     <link href="../../css/nucleus.css?1700073759" rel="stylesheet">
     <link href="../../css/fontawesome-all.min.css?1700073759" rel="stylesheet">
     <link href="../../css/hybrid.css?1700073759" rel="stylesheet">
@@ -28,6 +29,24 @@
     
 
     <script src="../../js/jquery-3.3.1.min.js?1700073759"></script>
+=======
+    <link href="../../css/nucleus.css?1700083659" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1700083659" rel="stylesheet">
+    <link href="../../css/hybrid.css?1700083659" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1700083659" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1700083659" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1700083659" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1700083659" rel="stylesheet">
+    <link href="../../css/theme.css?1700083659" rel="stylesheet">
+    <link href="../../css/tabs.css?1700083659" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1700083659" rel="stylesheet">
+    
+    <link href="../../css/theme-mine.css?1700083659" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1700083659"></script>
+>>>>>>> origin/main
 
     
   </head>
@@ -49,14 +68,23 @@
 
 </div>
 
+<<<<<<< HEAD
 <script type="text/javascript" src="../../js/lunr.min.js?1700073759"></script>
 <script type="text/javascript" src="../../js/auto-complete.js?1700073759"></script>
+=======
+<script type="text/javascript" src="../../js/lunr.min.js?1700083659"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1700083659"></script>
+>>>>>>> origin/main
 <script type="text/javascript">
   
       var baseurl = "https:\/\/QryptInc.github.io";
   
 </script>
+<<<<<<< HEAD
 <script type="text/javascript" src="../../js/search.js?1700073759"></script>
+=======
+<script type="text/javascript" src="../../js/search.js?1700083659"></script>
+>>>>>>> origin/main
  
   </div>
   
@@ -64,6 +92,21 @@
   <div class="highlightable">
     <ul class="topics">
                
+<li
+  data-nav-id="/getting_started/"
+  title="Getting Started"
+  class="dd-item
+        
+        
+        
+        "
+>
+  <a href="../../getting_started/">
+    Getting Started 
+  </a>
+   
+</li>
+           
 <li
   data-nav-id="/eaas/"
   title="Quantum Entropy"
@@ -81,16 +124,26 @@
           
             
 <li
+<<<<<<< HEAD
   data-nav-id="/eaas/nist/"
   title="NIST Entropy Quality Tests"
+=======
+  data-nav-id="/eaas/rngd/"
+  title="RNG Tools"
+>>>>>>> origin/main
   class="dd-item
         
         
         
         "
 >
+<<<<<<< HEAD
   <a href="../../eaas/nist/">
     NIST Entropy Quality Tests 
+=======
+  <a href="../../eaas/rngd/">
+    RNG Tools 
+>>>>>>> origin/main
   </a>
    
 </li>
@@ -415,6 +468,7 @@
 
 
 	<p>This page covers the instructions to use Qrypt&rsquo;s quantum entropy to seed PKCS#11 HSMs (Hardware Security Modules).</p>
+<p>This service requires an access token. Follow the steps in <a href="../../getting_started/">Getting Started</a> to obtain an access token.</p>
 <h2 id="technology-value">Technology Value</h2>
 <p>Many of the available HSMs use non-quantum entropy sources. Fortunately, the PKCS#11 Cryptoki interface provides a C_SeedRandom function to inject entropy into a PKCS#11 compliant HSM. Developers can inject Qrypt&rsquo;s quantum entropy into the HSM using the C_SeedRandom function. As a result, HSM keys can be pseudorandomly generated from quantum entropy.</p>
 <h2 id="integration-overview">Integration Overview</h2>
@@ -428,13 +482,11 @@
 <li><strong>Cryptoki Library</strong>: The PKCS#11 Cryptoki library that will be provided by the HSM vendor.</li>
 </ol>
 <h2 id="integration-instructions">Integration Instructions</h2>
-<h3 id="step-1-create-a-qrypt-account-and-generate-a-token-for-entropy">Step 1: Create a Qrypt account and generate a token for entropy</h3>
-<p>Follow the steps in the <a href="../../eaas/#getting-started">Getting Started</a> section under &lsquo;Quantum Entropy&rsquo;.</p>
-<h3 id="step-2-update-your-client-application-to-download-qrypts-quantum-entropy">Step 2: Update your client application to download Qrypt&rsquo;s quantum entropy</h3>
+<h3 id="step-1-update-your-client-application-to-download-qrypts-quantum-entropy">Step 1: Update your client application to download Qrypt&rsquo;s quantum entropy</h3>
 <p>A REST API can be called for entropy download. More information about the REST API can be found in the <a href="../../eaas/#submit-a-request-for-entropy">Submit a request for entropy</a> section under &lsquo;Quantum Entropy&rsquo;. You will need a library that can perform HTTPS requests.</p>
 <p>C++ sample code using libcurl is provided in the <a href="https://github.com/QryptInc/qrypt-security-quickstarts-cpp/blob/main/src/eaas.cpp">Quickstart</a>. We recommend using environment variables to pass the Qrypt Token into the application.</p>
 <p>Requests to the entropy API can only be performed in units of KiB. As a result, there may be random usage inefficiencies. Developers can choose to implement their own buffer management locally for better random utilization.</p>
-<h3 id="step-3-update-your-client-application-to-call-c_seedrandom">Step 3: Update your client application to call C_SeedRandom</h3>
+<h3 id="step-2-update-your-client-application-to-call-c_seedrandom">Step 2: Update your client application to call C_SeedRandom</h3>
 <p>Sample code in C++ is shown below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set_seed_random</span>(CK_SESSION_HANDLE session, CK_BYTE_PTR seed_random) {
 </span></span><span style="display:flex;"><span>
@@ -481,6 +533,25 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -755,6 +826,7 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
+<<<<<<< HEAD
     <script src="../../js/clipboard.min.js?1700073759"></script>
     <script src="../../js/perfect-scrollbar.min.js?1700073759"></script>
     <script src="../../js/perfect-scrollbar.jquery.min.js?1700073759"></script>
@@ -768,6 +840,21 @@
     
         
             <script src="../../mermaid/mermaid.js?1700073759"></script>
+=======
+    <script src="../../js/clipboard.min.js?1700083659"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1700083659"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1700083659"></script>
+    <script src="../../js/jquery.sticky.js?1700083659"></script>
+    <script src="../../js/featherlight.min.js?1700083659"></script>
+    <script src="../../js/highlight.pack.js?1700083659"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1700083659"></script>
+    <script src="../../js/learn.js?1700083659"></script>
+    <script src="../../js/hugo-learn.js?1700083659"></script>
+    
+        
+            <script src="../../mermaid/mermaid.js?1700083659"></script>
+>>>>>>> origin/main
         
         <script>
             mermaid.initialize({ startOnLoad: true });
