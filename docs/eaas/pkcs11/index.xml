@@ -5,6 +5,7 @@
     <link>https://QryptInc.github.io/eaas/pkcs11/</link>
     <description>Recent content in Seed PKCS#11 HSMs on Qrypt</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://QryptInc.github.io/eaas/pkcs11/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://QryptInc.github.io/eaas/pkcs11/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
