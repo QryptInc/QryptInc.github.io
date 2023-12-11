@@ -21,7 +21,7 @@ The Qrypt SDK includes client library SDKs, cloud-based REST services, command l
 
 ### Library Compatibility
 
-The C++ SDK is built using the following compilers.
+The latest C++ SDK is built using the following compilers.
 
 | Platform | Version | Compiler  | CPU |
 | -------- | ------- | --------- | --- |

@@ -32,7 +32,7 @@
 	"title": "Qrypt SDK for C++ Quickstarts",
 	"tags": [],
 	"description": "",
-	"content": "The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.\nCurrently we provide Distributed Key Generation.\nLibrary Compatibility The Qrypt SDK for C++ is built using the following compilers.\nPlatform Version Compiler CPU Ubuntu 22.04 gcc 11.4.0 x64 Sample Code Find the finalized code for these quickstarts on GitHub.\nPrerequisites A Qrypt Account. Create an account for free.\nQuickstarts Distributed key generation Generate One-Time Pads Encrypt and decrypt using generated One-Time Pads "
+	"content": "The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.\nCurrently we provide Distributed Key Generation.\nLibrary Compatibility The latest Qrypt SDK for C++ is built using the following compilers.\nPlatform Version Compiler CPU Ubuntu 22.04 gcc 11.4.0 x64 Sample Code Find the finalized code for these quickstarts on GitHub.\nPrerequisites A Qrypt Account. Create an account for free.\nQuickstarts Distributed key generation Generate One-Time Pads Encrypt and decrypt using generated One-Time Pads "
 },
 {
 	"uri": "https://QryptInc.github.io/sdk/api/cpp/",
@@ -46,7 +46,7 @@
 	"title": "Overview",
 	"tags": [],
 	"description": "",
-	"content": "Developers need familiar tools based on modern development practices. We provide an SDK that can be easily integrated into applications and infrastructure to make them quantum-secure.\nThe Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.\nQrypt SDK for C++ Features Distributed key generation Library Compatibility The C++ SDK is built using the following compilers.\nPlatform Version Compiler CPU Ubuntu 22.04 gcc 11.4.0 x64 "
+	"content": "Developers need familiar tools based on modern development practices. We provide an SDK that can be easily integrated into applications and infrastructure to make them quantum-secure.\nThe Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.\nQrypt SDK for C++ Features Distributed key generation Library Compatibility The latest C++ SDK is built using the following compilers.\nPlatform Version Compiler CPU Ubuntu 22.04 gcc 11.4.0 x64 "
 },
 {
 	"uri": "https://QryptInc.github.io/concepts/key-generation-architecture/",

@@ -10,7 +10,7 @@ Currently we provide Distributed Key Generation.
 
 ## Library Compatibility
 
-The Qrypt SDK for C++ is built using the following compilers.
+The latest Qrypt SDK for C++ is built using the following compilers.
 
 | Platform | Version | Compiler  | CPU |
 | -------- | ------- | --------- | --- |
