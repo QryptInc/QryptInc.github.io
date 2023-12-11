@@ -25,4 +25,4 @@ The C++ SDK is built using the following compilers.
 
 | Platform | Version | Compiler  | CPU |
 | -------- | ------- | --------- | --- |
-| Ubuntu   | 20.04   | gcc 9.4.0 | x64 |
+| Ubuntu   | 22.04   | gcc 11.4.0 | x64 |
