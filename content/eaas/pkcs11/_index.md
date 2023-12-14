@@ -10,13 +10,21 @@ This service requires an access token. Follow the steps in [Getting Started]({{<
 ## Technology Value
 Many of the available HSMs use non-quantum entropy sources. Fortunately, the PKCS#11 Cryptoki interface provides a C_SeedRandom function to inject entropy into a PKCS#11 compliant HSM. Developers can inject Qrypt's quantum entropy into the HSM using the C_SeedRandom function. As a result, HSM keys can be pseudorandomly generated from quantum entropy.
 
-## Integration Overview
-{{< figure src="images/inject-seedrandom.png" >}}
+## Overview
+{{< figure src="images/diagram.png" >}}
 
-There are three components to the architecture diagram above.
-1. **Client Application**: Application that depends on a PKCS#11 Cryptoki library.
-2. **Qrypt Entropy Service**: Qrypt's service that can provide quantum entropy via a REST API.
-3. **Cryptoki Library**: The PKCS#11 Cryptoki library that will be provided by the HSM vendor.
+There are four components to the architecture diagram above.
+1. **HSM**: Cryptographic hardware or software device that implements the PKCS#11 interface.
+2. **Client Application**: Self implemented or Qrypt provided service that periodically retrieves entropy from an external source and injects it into an HSM.
+3. **Qrypt Services**: Qrypt's Entropy service that can provide quantum entropy via a REST API.
+4. **Cryptoki Library**: A library that the HSM vendor provides that implements the PKCS#11 interface for their device.
+
+### Integration Steps
+
+* Install HSM Vendor provided Cryptoki library in runtime environment's path
+* Configure Client Application with a Qrypt EaaS API token to pull entropy
+* Configure Client Application to authenticate with HSM per vendor instructions
+* Configure Client Application to reseed as required
 
 ## Integration Instructions
 

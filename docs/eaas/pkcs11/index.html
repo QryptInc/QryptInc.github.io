@@ -12,22 +12,22 @@
     <title>Seed PKCS#11 HSMs :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1702327877" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1702327877" rel="stylesheet">
-    <link href="../../css/hybrid.css?1702327877" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1702327877" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1702327877" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1702327877" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1702327877" rel="stylesheet">
-    <link href="../../css/theme.css?1702327877" rel="stylesheet">
-    <link href="../../css/tabs.css?1702327877" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1702327877" rel="stylesheet">
+    <link href="../../css/nucleus.css?1702582364" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1702582364" rel="stylesheet">
+    <link href="../../css/hybrid.css?1702582364" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1702582364" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1702582364" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1702582364" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1702582364" rel="stylesheet">
+    <link href="../../css/theme.css?1702582364" rel="stylesheet">
+    <link href="../../css/tabs.css?1702582364" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1702582364" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1702327877" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1702582364" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1702327877"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1702582364"></script>
 
     
   </head>
@@ -49,14 +49,14 @@
 
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1702327877"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1702327877"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1702582364"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1702582364"></script>
 <script type="text/javascript">
   
       var baseurl = "https:\/\/QryptInc.github.io";
   
 </script>
-<script type="text/javascript" src="../../js/search.js?1702327877"></script>
+<script type="text/javascript" src="../../js/search.js?1702582364"></script>
  
   </div>
   
@@ -449,16 +449,24 @@
 <p>This service requires an access token. Follow the steps in <a href="../../getting_started/">Getting Started</a> to obtain an access token.</p>
 <h2 id="technology-value">Technology Value</h2>
 <p>Many of the available HSMs use non-quantum entropy sources. Fortunately, the PKCS#11 Cryptoki interface provides a C_SeedRandom function to inject entropy into a PKCS#11 compliant HSM. Developers can inject Qrypt&rsquo;s quantum entropy into the HSM using the C_SeedRandom function. As a result, HSM keys can be pseudorandomly generated from quantum entropy.</p>
-<h2 id="integration-overview">Integration Overview</h2>
-<figure><img src="images/inject-seedrandom.png"/>
+<h2 id="overview">Overview</h2>
+<figure><img src="images/diagram.png"/>
 </figure>
 
-<p>There are three components to the architecture diagram above.</p>
+<p>There are four components to the architecture diagram above.</p>
 <ol>
-<li><strong>Client Application</strong>: Application that depends on a PKCS#11 Cryptoki library.</li>
-<li><strong>Qrypt Entropy Service</strong>: Qrypt&rsquo;s service that can provide quantum entropy via a REST API.</li>
-<li><strong>Cryptoki Library</strong>: The PKCS#11 Cryptoki library that will be provided by the HSM vendor.</li>
+<li><strong>HSM</strong>: Cryptographic hardware or software device that implements the PKCS#11 interface.</li>
+<li><strong>Client Application</strong>: Self implemented or Qrypt provided service that periodically retrieves entropy from an external source and injects it into an HSM.</li>
+<li><strong>Qrypt Services</strong>: Qrypt&rsquo;s Entropy service that can provide quantum entropy via a REST API.</li>
+<li><strong>Cryptoki Library</strong>: A library that the HSM vendor provides that implements the PKCS#11 interface for their device.</li>
 </ol>
+<h3 id="integration-steps">Integration Steps</h3>
+<ul>
+<li>Install HSM Vendor provided Cryptoki library in runtime environment&rsquo;s path</li>
+<li>Configure Client Application with a Qrypt EaaS API token to pull entropy</li>
+<li>Configure Client Application to authenticate with HSM per vendor instructions</li>
+<li>Configure Client Application to reseed as required</li>
+</ul>
 <h2 id="integration-instructions">Integration Instructions</h2>
 <h3 id="step-1-update-your-client-application-to-download-qrypts-quantum-entropy">Step 1: Update your client application to download Qrypt&rsquo;s quantum entropy</h3>
 <p>A REST API can be called for entropy download. More information about the REST API can be found in the <a href="../../eaas/#submit-a-request-for-entropy">Submit a request for entropy</a> section under &lsquo;Quantum Entropy&rsquo;. You will need a library that can perform HTTPS requests.</p>
@@ -820,19 +828,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1702327877"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1702327877"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1702327877"></script>
-    <script src="../../js/jquery.sticky.js?1702327877"></script>
-    <script src="../../js/featherlight.min.js?1702327877"></script>
-    <script src="../../js/highlight.pack.js?1702327877"></script>
+    <script src="../../js/clipboard.min.js?1702582364"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1702582364"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1702582364"></script>
+    <script src="../../js/jquery.sticky.js?1702582364"></script>
+    <script src="../../js/featherlight.min.js?1702582364"></script>
+    <script src="../../js/highlight.pack.js?1702582364"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1702327877"></script>
-    <script src="../../js/learn.js?1702327877"></script>
-    <script src="../../js/hugo-learn.js?1702327877"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1702582364"></script>
+    <script src="../../js/learn.js?1702582364"></script>
+    <script src="../../js/hugo-learn.js?1702582364"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1702327877"></script>
+            <script src="../../mermaid/mermaid.js?1702582364"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
