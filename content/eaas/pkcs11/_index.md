@@ -54,4 +54,4 @@ void set_seed_random(CK_SESSION_HANDLE session, CK_BYTE_PTR seed_random) {
 
 More information about the PKCS#11 Cryptoki interface can be found at [Oasis PKCS#11 Specification](https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html).
 
-Click [here](https://github.com/QryptInc/qseed) fgit stor a complete working example client application.
+Click [here](https://github.com/QryptInc/qseed) for a complete working example client application.
