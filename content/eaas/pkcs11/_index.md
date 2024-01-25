@@ -28,14 +28,52 @@ There are four components to the architecture diagram above.
 
 ## Building Client Application
 
-### Step 1: Update your client application to download Qrypt's quantum entropy
+The following steps are a guide to develop your own client application that can inject Qrypt's quantum entropy into a PKCS#11 compliant HSM.
+
+### Step 1: Setup PKCS#11 HSM
+
+Follow the setup guide provided by your HSM vendor. 
+
+First, create a PKCS#11 token with a PIN for a slot. The slot number and PIN will be needed for future steps.
+
+### Step 2: Open a PKCS#11 session
+
+Sample code in C++ is shown below.
+
+```c++
+CK_SESSION_HANDLE open_session(CK_SLOT_ID slot_id) {
+    CK_SESSION_HANDLE session;
+    CK_RV rv = C_OpenSession(slot_id, CKF_SERIAL_SESSION, NULL, NULL, &session);
+    if (rv != CKR_OK) {
+        std::string error_msg = "C_OpenSession error: " + std::to_string(rv) + "\n";
+        throw std::runtime_error(error_msg);
+    }
+    return session;
+}
+```
+
+### Step 3: Login to PKCS#11 session
+
+Sample code in C++ is shown below.
+
+```c++
+void session_login(CK_SESSION_HANDLE session, CK_UTF8CHAR_PTR pin) {
+    CK_RV rv = C_Login(session, CKU_USER, pin, strlen((char*)pin));
+    if (rv != CKR_OK) {
+        std::string error_msg = "C_Login error: 0x" + to_hex_str(rv) + "\n";
+        throw std::runtime_error(error_msg);
+    }
+}
+```
+
+### Step 4: Update your client application to download Qrypt's quantum entropy
 A REST API can be called for entropy download. More information about the REST API can be found in the [Submit a request for entropy]({{< ref "/eaas#submit-a-request-for-entropy" >}}) section under 'Quantum Entropy'. You will need a library that can perform HTTPS requests. 
 
 C++ sample code using libcurl is provided in the [Quickstart](https://github.com/QryptInc/qrypt-security-quickstarts-cpp/blob/main/src/eaas.cpp). We recommend using environment variables to pass the Qrypt Token into the application.
 
 Requests to the entropy API can only be performed in units of KiB. As a result, there may be random usage inefficiencies. Developers can choose to implement their own buffer management locally for better random utilization.
 
-### Step 2: Update your client application to call C_SeedRandom
+### Step 5: Update your client application to call C_SeedRandom
 
 Sample code in C++ is shown below.
 
@@ -51,6 +89,19 @@ void set_seed_random(CK_SESSION_HANDLE session, CK_BYTE_PTR seed_random) {
 
 }
 ```
+
+### Step 6: Close the PKCS#11 session
+
+Sample code in C++ is shown below.
+
+```c++
+void close_session(CK_SESSION_HANDLE session) {
+    C_Logout(session);
+    C_CloseSession(session);
+}
+```
+
+### References
 
 More information about the PKCS#11 Cryptoki interface can be found at [Oasis PKCS#11 Specification](https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html).
 
