@@ -34,9 +34,9 @@ The following steps are a guide to develop your own client application that can 
 
 Follow the setup guide provided by your HSM vendor. 
 
-First, create a PKCS#11 token with a PIN for a slot. The slot number and PIN will be needed for future steps.
+First, create a PKCS#11 token with a PIN for a slot. The slot number and PIN will be needed for the next step.
 
-### Step 2: Open a PKCS#11 session
+### Step 2: Update your client application to open and login to a PKCS#11 session
 
 Sample code in C++ is shown below.
 
@@ -50,30 +50,24 @@ CK_SESSION_HANDLE open_session(CK_SLOT_ID slot_id) {
     }
     return session;
 }
-```
 
-### Step 3: Login to PKCS#11 session
-
-Sample code in C++ is shown below.
-
-```c++
-void session_login(CK_SESSION_HANDLE session, CK_UTF8CHAR_PTR pin) {
+void login_session(CK_SESSION_HANDLE session, CK_UTF8CHAR_PTR pin) {
     CK_RV rv = C_Login(session, CKU_USER, pin, strlen((char*)pin));
     if (rv != CKR_OK) {
-        std::string error_msg = "C_Login error: 0x" + to_hex_str(rv) + "\n";
+        std::string error_msg = "C_Login error: " + std::to_string(rv) + "\n";
         throw std::runtime_error(error_msg);
     }
 }
 ```
 
-### Step 4: Update your client application to download Qrypt's quantum entropy
+### Step 3: Update your client application to download Qrypt's quantum entropy
 A REST API can be called for entropy download. More information about the REST API can be found in the [Submit a request for entropy]({{< ref "/eaas#submit-a-request-for-entropy" >}}) section under 'Quantum Entropy'. You will need a library that can perform HTTPS requests. 
 
 C++ sample code using libcurl is provided in the [Quickstart](https://github.com/QryptInc/qrypt-security-quickstarts-cpp/blob/main/src/eaas.cpp). We recommend using environment variables to pass the Qrypt Token into the application.
 
 Requests to the entropy API can only be performed in units of KiB. As a result, there may be random usage inefficiencies. Developers can choose to implement their own buffer management locally for better random utilization.
 
-### Step 5: Update your client application to call C_SeedRandom
+### Step 4: Update your client application to call C_SeedRandom
 
 Sample code in C++ is shown below.
 
@@ -90,7 +84,7 @@ void set_seed_random(CK_SESSION_HANDLE session, CK_BYTE_PTR seed_random) {
 }
 ```
 
-### Step 6: Close the PKCS#11 session
+### Step 5: Update your client application to close the PKCS#11 session
 
 Sample code in C++ is shown below.
 
