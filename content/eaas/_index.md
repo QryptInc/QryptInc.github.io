@@ -14,7 +14,7 @@ This service requires an access token. Follow the steps in [Getting Started]({{<
 
 ### Related Tools and Services
 1. [RNG Tools]({{< ref "/eaas/rngd" >}}): Integrating Qrypt's Quantum Entropy service as a random source for system devices.
-2. [Seed PKCS#11 HSMs]({{< ref "/eaas/pkcs11" >}}): Integrating Qrypt's Quantum Entropy service as a random source for PKCS#11 HSMs.
+2. [Qseed]({{< ref "/eaas/pkcs11" >}}): Integrating Qrypt's Quantum Entropy service as a random source for PKCS#11 HSMs.
 
 ---
 
