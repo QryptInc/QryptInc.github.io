@@ -1,102 +1,47 @@
 +++
-title = "Seed PKCS#11 HSMs"
+title = "Qseed"
 weight = 40
 +++
 
-This page covers the instructions to use Qrypt's quantum entropy to seed PKCS#11 HSMs (Hardware Security Modules).
+This page covers the [Qseed](https://github.com/QryptInc/qseed) application architecture that downloads quantum entropy from Qrypt's entropy service and injects it into a PKCS#11 compliant HSM (Hardware Security Modules) as seed random.
 
 This service requires an access token. Follow the steps in [Getting Started]({{< ref "/getting_started" >}}) to obtain an access token.
 
 ## Technology Value
-Many of the available HSMs use non-quantum entropy sources. Fortunately, the PKCS#11 Cryptoki interface provides a C_SeedRandom function to inject entropy into a PKCS#11 compliant HSM. Developers can inject Qrypt's quantum entropy into the HSM using the C_SeedRandom function. As a result, HSM keys can be pseudorandomly generated from quantum entropy.
+Many of the available HSMs use non-quantum entropy sources. Fortunately, the PKCS#11 Cryptoki interface provides a C_SeedRandom function to inject entropy into a PKCS#11 compliant HSM. Developers can inject Qrypt's quantum entropy into a HSM using the C_SeedRandom function. As a result, HSM keys can be pseudorandomly generated from quantum entropy.
 
 ## Overview
-{{< figure src="images/diagram.png" >}}
+{{< figure src="images/inject-seedrandom.png" >}}
 
 There are four components to the architecture diagram above.
-1. **HSM**: Cryptographic hardware or software device that implements the PKCS#11 interface.
-2. **Client Application**: Self implemented or Qrypt provided service that periodically retrieves entropy from an external source and injects it into an HSM.
-3. **Qrypt Services**: Qrypt's Entropy service that can provide quantum entropy via a REST API.
-4. **Cryptoki Library**: A library that the HSM vendor provides that implements the PKCS#11 interface for their device.
+1. **Qrypt Services**: Qrypt's entropy service that can provide quantum entropy via a REST API.
+2. **Qseed Application**: Application that periodically retrieves entropy from Qrypt's entropy service and injects it into an HSM via a PKCS#11 Cryptoki interface (C_SeedRandom).
+3. **Cryptoki Library**: A library that the HSM vendor provides that implements the PKCS#11 Cryptoki interface for their device.
+4. **HSM**: Cryptographic hardware or software device.
 
-### Integration Steps
+## Installing Qseed Application
 
-* Install HSM Vendor provided Cryptoki library in runtime environment's path
-* Configure Client Application with a Qrypt EaaS API token to pull entropy
-* Configure Client Application to authenticate with HSM per vendor instructions
-* Configure Client Application to reseed as required
+The Qseed application and steps to install it can be found [here](https://github.com/QryptInc/qseed).
 
-## Building Client Application
+## Qseed FAQs
 
-The following steps are a guide to develop your own client application that can inject Qrypt's quantum entropy into a PKCS#11 compliant HSM.
+**How do I inject entropy into multiple HSM partitions?**
 
-### Step 1: Setup PKCS#11 HSM
+The Qseed application can only inject entropy into a single partition. In order to seed multiple partitions, you will need to start multiple instances of the Qseed application.
 
-Follow the setup guide provided by your HSM vendor. 
+**What is the recommended amount of entropy to inject into the HSM?**
 
-First, create a PKCS#11 token with a PIN for a slot. The slot number and PIN will be needed for the next step.
+The Qseed application injects 48 bytes by default. This is recommended for Thales Network Luna 7 HSMs.
 
-### Step 2: Update your client application to open and login to a PKCS#11 session
+**Why is more entropy downloaded than injected?**
 
-Sample code in C++ is shown below.
+Qrypt's entropy service supports entropy download at the granularity of KiBs. Extra downloaded entropy is discarded by the Qseed application.
 
-```c++
-CK_SESSION_HANDLE open_session(CK_SLOT_ID slot_id) {
-    CK_SESSION_HANDLE session;
-    CK_RV rv = C_OpenSession(slot_id, CKF_SERIAL_SESSION, NULL, NULL, &session);
-    if (rv != CKR_OK) {
-        std::string error_msg = "C_OpenSession error: " + std::to_string(rv) + "\n";
-        throw std::runtime_error(error_msg);
-    }
-    return session;
-}
+**How do I authenticate with the HSM partition using the Security Officer (SO) PIN?**
 
-void login_session(CK_SESSION_HANDLE session, CK_UTF8CHAR_PTR pin) {
-    CK_RV rv = C_Login(session, CKU_USER, pin, strlen((char*)pin));
-    if (rv != CKR_OK) {
-        std::string error_msg = "C_Login error: " + std::to_string(rv) + "\n";
-        throw std::runtime_error(error_msg);
-    }
-}
-```
+The Qseed application only support Crypto User PINs. You will need to create a Crypto User PIN for the Qseed application.
 
-### Step 3: Update your client application to download Qrypt's quantum entropy
-A REST API can be called for entropy download. More information about the REST API can be found in the [Submit a request for entropy]({{< ref "/eaas#submit-a-request-for-entropy" >}}) section under 'Quantum Entropy'. You will need a library that can perform HTTPS requests. 
-
-C++ sample code using libcurl is provided in the [Quickstart](https://github.com/QryptInc/qrypt-security-quickstarts-cpp/blob/main/src/eaas.cpp). We recommend using environment variables to pass the Qrypt Token into the application.
-
-Requests to the entropy API can only be performed in units of KiB. As a result, there may be random usage inefficiencies. Developers can choose to implement their own buffer management locally for better random utilization.
-
-### Step 4: Update your client application to call C_SeedRandom
-
-Sample code in C++ is shown below.
-
-```c++
-void set_seed_random(CK_SESSION_HANDLE session, CK_BYTE_PTR seed_random) {
-
-    // Call Cryptoki interface to seed random
-    CK_RV rv = C_SeedRandom(session, seed_random, sizeof(seed_random));
-    if (rv != CKR_OK) {
-        std::string error_msg = "C_SeedRandom error: " + std::to_string(rv) + "\n";
-        throw std::runtime_error(error_msg);
-    }
-
-}
-```
-
-### Step 5: Update your client application to close the PKCS#11 session
-
-Sample code in C++ is shown below.
-
-```c++
-void close_session(CK_SESSION_HANDLE session) {
-    C_Logout(session);
-    C_CloseSession(session);
-}
-```
-
-### References
+## References
 
 More information about the PKCS#11 Cryptoki interface can be found at [Oasis PKCS#11 Specification](https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html).
 
-Click [here](https://github.com/QryptInc/qseed) for a complete working example client application.
