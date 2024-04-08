@@ -14,7 +14,7 @@ Portable OpenSSH is a port of OpenBSD's OpenSSH to most Unix-like operating syst
 The [Qrypt implementation of OpenSSH](https://github.com/QryptInc/openssh-portable) has been modified to provide additional security via the Qrypt Key Generation SDK.
 During key exchange (KEX) negotiation, the Qrypt SDK will generate an additional quantum-secure secret to be prepended to the session key hash inputs. Any conventional KEX algorithm can be enhanced by Qrypt security; a Qrypt-secured algorithm can be identified by the @qrypt.com suffix.
 
-The following sections will cover the two ways of obtaining Qrypt OpenSSH; by either pulling a Docker image and creating a demo container, or building Portable OpenSSH from source with a special version of the Qrypt SDK.
+The following sections will cover the two ways of obtaining Qrypt OpenSSH; by either pulling a Docker image and creating a demo container, or building Portable OpenSSH from source and adding a version of the Qrypt SDK with a C wrapper.
 
 ## Instructions to create a demo container
 
@@ -46,4 +46,4 @@ Run sshd, sftp, and/or ssh using the instructions above.
 
 ## Instructions to build from source
 
-Follow the instructions found in the [README](https://github.com/QryptInc/openssh-portable/blob/master/README.md), under the "Build with QryptSecurityC" header. This requires the currently-unavailable QryptSecurityC SDK, which is still being prepared for public use. Check back here soon!
+Follow the instructions found in the [README](https://github.com/QryptInc/openssh-portable/blob/master/README.md), under the "Build with QryptSecurityC" header. This requires the currently-unavailable QryptSecurityC deliverable (the Qrypt SDK with a C wrapper), which is still being prepared for public use. Check back here soon!
