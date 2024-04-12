@@ -21,8 +21,8 @@ The following sections will cover the two ways of obtaining Qrypt OpenSSH; by ei
 First, visit the [Qrypt portal](https://portal.qrypt.com), make a free account, and generate a keygen token.
 
 ### Set up sshd terminal:
-- Pull the Docker image: `docker pull qryptdev001/openssh:0.1.0`
-- Run docker container in interactive mode: `docker run -it --entrypoint bash --rm --name democontainer qryptdev001/openssh:0.1.0`
+- Pull the Docker image: `docker pull qryptdev001/openssh`
+- Run docker container in interactive mode: `docker run -it --entrypoint bash --rm --name democontainer qryptdev001/openssh`
 - Paste your token into the environment: `export TOKEN=<token>`
 - Run sshd: `$(which sshd) -o QryptToken=$TOKEN`
   - Add the `-d` flag to enable verbose logging and automatically close sshd at the end of the session.
