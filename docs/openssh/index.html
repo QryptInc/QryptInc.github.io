@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.124.1">
+    <meta name="generator" content="Hugo 0.125.0">
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>Portable OpenSSH with Qrypt :: Qrypt</title>
 
     
-    <link href="../css/nucleus.css?1712601298" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1712601298" rel="stylesheet">
-    <link href="../css/hybrid.css?1712601298" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1712601298" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1712601298" rel="stylesheet">
-    <link href="../css/auto-complete.css?1712601298" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1712601298" rel="stylesheet">
-    <link href="../css/theme.css?1712601298" rel="stylesheet">
-    <link href="../css/tabs.css?1712601298" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1712601298" rel="stylesheet">
+    <link href="../css/nucleus.css?1713300904" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1713300904" rel="stylesheet">
+    <link href="../css/hybrid.css?1713300904" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1713300904" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1713300904" rel="stylesheet">
+    <link href="../css/auto-complete.css?1713300904" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1713300904" rel="stylesheet">
+    <link href="../css/theme.css?1713300904" rel="stylesheet">
+    <link href="../css/tabs.css?1713300904" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1713300904" rel="stylesheet">
     
-    <link href="../css/theme-mine.css?1712601298" rel="stylesheet">
+    <link href="../css/theme-mine.css?1713300904" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1712601298"></script>
+    <script src="../js/jquery-3.3.1.min.js?1713300904"></script>
 
     
   </head>
@@ -49,14 +49,14 @@
 
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1712601298"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1712601298"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1713300904"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1713300904"></script>
 <script type="text/javascript">
   
       var baseurl = "https:\/\/QryptInc.github.io\/";
   
 </script>
-<script type="text/javascript" src="../js/search.js?1712601298"></script>
+<script type="text/javascript" src="../js/search.js?1713300904"></script>
  
   </div>
   
@@ -465,38 +465,46 @@
 <p>Portable OpenSSH is a port of OpenBSD&rsquo;s OpenSSH to most Unix-like operating systems, including Linux, OS X and Cygwin. It polyfills OpenBSD APIs that are not available elsewhere, adds sshd sandboxing for more operating systems and includes support for OS-native authentication and auditing (e.g. using PAM).</p>
 <p>The <a href="https://github.com/QryptInc/openssh-portable">Qrypt implementation of OpenSSH</a> has been modified to provide additional security via the Qrypt Key Generation SDK.
 During key exchange (KEX) negotiation, the Qrypt SDK will generate an additional quantum-secure secret to be prepended to the session key hash inputs. Any conventional KEX algorithm can be enhanced by Qrypt security; a Qrypt-secured algorithm can be identified by the @qrypt.com suffix.</p>
-<p>The following sections will cover the two ways of obtaining Qrypt OpenSSH; by either pulling a Docker image and creating a demo container, or building Portable OpenSSH from source and adding a version of the Qrypt SDK with a C wrapper.</p>
-<h2 id="instructions-to-create-a-demo-container">Instructions to create a demo container</h2>
-<p>First, visit the <a href="https://portal.qrypt.com">Qrypt portal</a>, make a free account, and generate a keygen token.</p>
-<h3 id="set-up-sshd-terminal">Set up sshd terminal:</h3>
-<ul>
-<li>Pull the Docker image: <code>docker pull qryptdev001/openssh:0.1.0</code></li>
-<li>Run docker container in interactive mode: <code>docker run -it --entrypoint bash --rm --name democontainer qryptdev001/openssh:0.1.0</code></li>
-<li>Paste your token into the environment: <code>export TOKEN=&lt;token&gt;</code></li>
-<li>Run sshd: <code>$(which sshd) -o QryptToken=$TOKEN</code>
-<ul>
-<li>Add the <code>-d</code> flag to enable verbose logging and automatically close sshd at the end of the session.</li>
-</ul>
-</li>
-</ul>
-<h3 id="set-up-sshsftp-terminal">Set up ssh/sftp terminal:</h3>
-<ul>
-<li>Open a second interactive session in the running container: <code>docker exec -it democontainer bash</code></li>
-<li>Paste your token into the environment: <code>export TOKEN=&lt;token&gt;</code></li>
-<li>Run ssh or sftp: <code>&lt;ssh/sftp&gt; -o QryptToken=$TOKEN sftpuser@127.0.0.1</code>
-<ul>
-<li>Add the <code>-v</code> flag to enable verbose logging.</li>
-</ul>
-</li>
-<li>Log into sftpuser with the password &ldquo;pass&rdquo;</li>
-</ul>
-<h3 id="optional-rebuild-openssh-to-enable-hex-printouts-of-key-material-and-metadata">(Optional) Rebuild OpenSSH to enable hex printouts of key material and metadata</h3>
+<p>The following sections will cover the two ways of obtaining Qrypt OpenSSH; by either downloading a Docker Compose file and using it to build a demo cluster, or building Portable OpenSSH from source and adding a version of the Qrypt SDK with a C wrapper.</p>
+<h2 id="instructions-to-create-a-demo-cluster">Instructions to create a demo cluster</h2>
+<p>First, visit the <a href="https://portal.qrypt.com">Qrypt portal</a>, make a free account, and generate a keygen token.
+Then, download our Docker Compose file <a href="../docker-compose.yaml">here</a>, and paste your token at the location labeled <em><strong>&lt;PASTE-TOKEN-HERE&gt;</strong></em></p>
+<h3 id="start-the-demo-cluster">Start the Demo Cluster</h3>
+<p>In your terminal, run <code>docker-compose up --build</code> to build both the sshd server and the ssh/sftp client. The terminal will run the sshd-server and print its debug outputs. To terminate the cluster, press Ctrl+C.
+In a new terminal, run <code>docker exec -it ssh-client bash</code> to open an interactive terminal in the ssh-client machine, which is equipped with both ssh and sftp.</p>
+<h3 id="ssh-demo">SSH Demo</h3>
+<p>Assuming you are now in the <em><strong>ssh-client</strong></em> container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export TOKEN<span style="color:#f92672">=</span>&lt;PASTE-TOKEN-HERE&gt; <span style="color:#75715e"># Paste your token into the environment</span>
+</span></span><span style="display:flex;"><span>ssh -v -o QryptToken<span style="color:#f92672">=</span>$TOKEN sshuser@sshd-server.com <span style="color:#75715e"># Log in to sshd-server.com as the user &#34;sshuser&#34;</span>
+</span></span></code></pre></div><p>The default password for sshuser is &ldquo;pass&rdquo;.</p>
+<p>To show that we&rsquo;re now logged into the server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bash <span style="color:#75715e"># Change to a shell that shows the current user, the machine name, and the current working directory</span>
+</span></span><span style="display:flex;"><span>exit <span style="color:#75715e"># Exit Bash (when you&#39;re done on the server)</span>
+</span></span><span style="display:flex;"><span>exit <span style="color:#75715e"># Exit sshd-server</span>
+</span></span></code></pre></div><h3 id="sftp-demo">SFTP Demo</h3>
+<p>Assuming you are still in the <em><strong>ssh-client</strong></em> container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;0123456789abcdef&#34;</span> &gt; testfile <span style="color:#75715e"># Create a file to push up to the server</span>
+</span></span><span style="display:flex;"><span>sftp -v -o QryptToken<span style="color:#f92672">=</span>$TOKEN sshuser@sshd-server.com <span style="color:#75715e"># Open an sftp session</span>
+</span></span></code></pre></div><p>The default password for sshuser is still &ldquo;pass&rdquo;.</p>
+<p>To send a file with sftp:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /sftp/sshuser/upload <span style="color:#75715e"># Navigate to the user&#39;s upload directory</span>
+</span></span><span style="display:flex;"><span>ls <span style="color:#75715e"># Show that the directory is empty</span>
+</span></span><span style="display:flex;"><span>put testfile <span style="color:#75715e"># Upload the file</span>
+</span></span><span style="display:flex;"><span>ls <span style="color:#75715e"># Show that the file is now in the upload directory</span>
+</span></span></code></pre></div><p>To verify the test file, open a new terminal and navigate to the file on the server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec -it sshd-server bash <span style="color:#75715e"># Open an interactive terminal the sshd server</span>
+</span></span><span style="display:flex;"><span>cd /sftp/sshuser/upload <span style="color:#75715e"># Navigate to sshuser&#39;s upload directory</span>
+</span></span><span style="display:flex;"><span>ls <span style="color:#75715e"># Show the file in the directory</span>
+</span></span><span style="display:flex;"><span>cat testfile <span style="color:#75715e"># Print the file contents (0123456789abcdef)</span>
+</span></span></code></pre></div><h3 id="optional-rebuild-openssh-to-enable-hex-printouts-of-key-material-and-metadata">(Optional) Rebuild OpenSSH to enable hex printouts of key material and metadata</h3>
+<p>In either container:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">`</span>cd /root/openssh-portable<span style="color:#e6db74">`</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">`</span>sed -i <span style="color:#e6db74">&#39;:a;N;$!ba;s/#define KEX_H\n/#define KEX_H\n\n#define DEBUG_KEX\n/g&#39;</span> kex.h<span style="color:#e6db74">`</span> <span style="color:#75715e"># Set DEBUG_KEX flag</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">`</span>make clean<span style="color:#e6db74">`</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">`</span>make<span style="color:#e6db74">`</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">`</span>make install<span style="color:#e6db74">`</span>
-</span></span></code></pre></div><p>Run sshd, sftp, and/or ssh using the instructions above.</p>
+</span></span></code></pre></div><p>To see changes in the server debug, it must be restarted after the above commands are run in its container.
+To see changes in the client&rsquo;s debug on connection, you must reconnect after the above commands are run in its container.</p>
 <h2 id="instructions-to-build-from-source">Instructions to build from source</h2>
 <p>Follow the instructions found in the <a href="https://github.com/QryptInc/openssh-portable/blob/master/README.md">README</a>, under the &ldquo;Build with QryptSecurityC&rdquo; header. This requires the currently-unavailable QryptSecurityC deliverable (the Qrypt SDK with a C wrapper), which is still being prepared for public use. Check back here soon!</p>
 
@@ -854,19 +862,19 @@ During key exchange (KEX) negotiation, the Qrypt SDK will generate an additional
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1712601298"></script>
-    <script src="../js/perfect-scrollbar.min.js?1712601298"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1712601298"></script>
-    <script src="../js/jquery.sticky.js?1712601298"></script>
-    <script src="../js/featherlight.min.js?1712601298"></script>
-    <script src="../js/highlight.pack.js?1712601298"></script>
+    <script src="../js/clipboard.min.js?1713300904"></script>
+    <script src="../js/perfect-scrollbar.min.js?1713300904"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1713300904"></script>
+    <script src="../js/jquery.sticky.js?1713300904"></script>
+    <script src="../js/featherlight.min.js?1713300904"></script>
+    <script src="../js/highlight.pack.js?1713300904"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1712601298"></script>
-    <script src="../js/learn.js?1712601298"></script>
-    <script src="../js/hugo-learn.js?1712601298"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1713300904"></script>
+    <script src="../js/learn.js?1713300904"></script>
+    <script src="../js/hugo-learn.js?1713300904"></script>
     
         
-            <script src="../mermaid/mermaid.js?1712601298"></script>
+            <script src="../mermaid/mermaid.js?1713300904"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
