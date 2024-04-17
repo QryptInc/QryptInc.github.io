@@ -1,0 +1,34 @@
+version: "3.8"
+
+x-common-variables: &common-variables
+  QRYPTTOKEN: <PASTE-TOKEN-HERE>
+
+services:
+
+  sshd-server:
+    container_name: sshd-server
+    restart: always
+    image: qryptdev001/openssh-server:latest
+    environment:
+      USER_NAME: sshuser
+      USER_PASSWORD: pass
+      <<: *common-variables
+    networks:
+      ssh-network:
+        aliases:
+          - sshd-server.com
+    ports:
+      - "22:22"
+
+  ssh-client:
+    container_name: ssh-client
+    image: qryptdev001/openssh:latest
+    environment:
+      KEX_ALGORITHM: curve25519-sha256@qrypt.com
+      <<: *common-variables
+    networks:
+      ssh-network:
+
+networks:
+  ssh-network:
+    name: ssh-network
