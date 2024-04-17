@@ -25,9 +25,9 @@ The following sections will cover the two ways of obtaining Qrypt OpenSSH; by ei
 First, visit the [Qrypt portal](https://portal.qrypt.com), make a free account, and generate a keygen token.
 Then, download our Docker Compose file [here](/docker-compose.yaml), and paste your token at the location labeled ***\<PASTE-TOKEN-HERE>***
 
-In your terminal, run `docker-compose up --build` to build both the sshd server and the ssh/sftp client. The terminal will run the sshd-server and print its debug outputs. To terminate the cluster, press Ctrl+C.
+In your terminal, run `docker-compose up --build` to build both the sshd server and the ssh/sftp client. The terminal will run the ***sshd-server*** container and print its debug outputs. To terminate the cluster, press Ctrl+C.
 
-When you're finished with the demo, if you'd like to remove the cluster, run `docker-compose-down` and all associated Docker containers and networks will be deleted.
+When you're finished with the demo, if you'd like to remove the cluster, run `docker-compose down` and all associated Docker containers and their network will be deleted.
 
 ### SSH Demo
 
@@ -77,19 +77,19 @@ ls # Show the file in the directory
 cat testfile # Print the file contents (0123456789abcdef)
 ```
 
-### (Optional) Rebuild OpenSSH to enable hex printouts of key material and metadata
+### (Optional) Rebuild OpenSSH to enable logging hex printouts of key material and metadata
 
 In either container:
 
 ```bash
-`cd /root/openssh-portable`
-`sed -i ':a;N;$!ba;s/#define KEX_H\n/#define KEX_H\n\n#define DEBUG_KEX\n/g' kex.h` # Set DEBUG_KEX flag
-`make clean`
-`make`
-`make install`
+cd /root/openssh-portable
+sed -i ':a;N;$!ba;s/#define KEX_H\n/#define KEX_H\n\n#define DEBUG_KEX\n/g' kex.h # Set DEBUG_KEX flag
+make clean
+make
+make install
 ```
-To see changes in the server debug, it must be restarted after the above commands are run in its container.
-To see changes in the client's debug on connection, you must reconnect after the above commands are run in its container.
+To see changes in the server's logging, it must be restarted after the above commands are run in its container.
+To see changes in the client's on connection logging, you must reconnect after the above commands are run in its container.
 
 ## Instructions to build from source
 
