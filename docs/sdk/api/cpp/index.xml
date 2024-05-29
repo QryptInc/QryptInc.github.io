@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qrypt SDK for C&#43;&#43; on Qrypt</title>
+    <title>Qrypt SDK on Qrypt</title>
     <link>https://QryptInc.github.io/sdk/api/cpp/</link>
-    <description>Recent content in Qrypt SDK for C&#43;&#43; on Qrypt</description>
-    <generator>Hugo 0.125.0</generator>
+    <description>Recent content in Qrypt SDK on Qrypt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate></lastBuildDate>
     <atom:link href="https://QryptInc.github.io/sdk/api/cpp/index.xml" rel="self" type="application/rss+xml" />
