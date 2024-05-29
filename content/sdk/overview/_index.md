@@ -11,7 +11,7 @@ The Qrypt SDK includes client library SDKs, cloud-based REST services, command l
 
 ---
 
-## Qrypt SDK for C++
+## Qrypt SDK for C/C++
 
 ### Features
 

@@ -18,7 +18,7 @@ Currently availble Qrypt KEX algorithms:
 
 {{< availableKex >}}
 
-The following sections will cover the two ways of obtaining Qrypt OpenSSH; by either downloading a Docker Compose file and using it to build a demo cluster, or building Portable OpenSSH from source and adding a version of the Qrypt SDK with a C wrapper.
+The following sections will cover the two ways of obtaining Qrypt OpenSSH; by either downloading a Docker Compose file and using it to build a demo cluster, or building Portable OpenSSH from source and adding the Qrypt SDK.
 
 ## Instructions to create a demo cluster
 
@@ -93,4 +93,4 @@ To see changes in the client's on connection logging, you must reconnect after t
 
 ## Instructions to build from source
 
-Follow the instructions found in the [README](https://github.com/QryptInc/openssh-portable/blob/master/README.md), under the "Build with QryptSecurityC" header. This requires the currently-unavailable QryptSecurityC deliverable (the Qrypt SDK with a C wrapper), which is still being prepared for public use. Check back here soon!
+Follow the instructions found in the [README](https://github.com/QryptInc/openssh-portable/blob/master/README.md), under the "Build with QryptSecurityC" header. This requires the Qrypt SDK which can be found [on the Developer Portal](https://portal.qrypt.com/qrypt-sdk).

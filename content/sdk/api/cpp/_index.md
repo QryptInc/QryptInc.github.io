@@ -1,5 +1,5 @@
 +++
-title = "Qrypt SDK for C++"
+title = "Qrypt SDK"
 date = 2021-10-18T09:01:22-04:00
 weight = 10
 +++
