@@ -1,16 +1,16 @@
 +++
-title = "Qrypt SDK for C++ Quickstarts"
+title = "Qrypt SDK Quickstarts"
 date = 2021-10-18T09:09:06-04:00
 weight = 10
 +++
 
-The Qrypt SDK for C++ enables developers to add post-quantum security to their applications and services.
+The Qrypt SDK for C/C++ enables developers to add post-quantum security to their applications and services.
 
 Currently we provide Distributed Key Generation.
 
 ## Library Compatibility
 
-The latest Qrypt SDK for C++ is built using the following compilers.
+The latest Qrypt SDK is built using the following compilers.
 
 | Platform | Version | Compiler  | CPU |
 | -------- | ------- | --------- | --- |
