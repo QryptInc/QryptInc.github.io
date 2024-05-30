@@ -10,6 +10,7 @@ publishDir = "docs"
     disableNextPrev = true
     disableLandingPage = true
     disableShortcutsTitle = true
+    disableSearch = true
 [outputs]
     home = [ "HTML", "RSS", "JSON"]
 [[menu.shortcuts]] 
