@@ -4,9 +4,8 @@
     <title>Changelogs on Qrypt</title>
     <link>https://QryptInc.github.io/sdk/changelogs/</link>
     <description>Recent content in Changelogs on Qrypt</description>
-    <generator>Hugo 0.125.0</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="https://QryptInc.github.io/sdk/changelogs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Oct 2022 12:59:11 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/sdk/changelogs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
