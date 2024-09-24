@@ -21,7 +21,7 @@ The appliance also includes an extensive set of hardware health monitors that sh
 ---
 # Performance
 
-Due to the high overhead cost of making HTTP requests, the amount of entropy that can be retrieved from the API depends on how much entropy the client asks for with each HTTP request. In other words, it's significantly faster to make 1 request for 512 keys than it is to make 512 requests for 1 key.
+Due to the high overhead cost of making HTTP requests, the amount of entropy that can be retrieved from the API depends on how much entropy the client asks for with each request. In other words, it's significantly faster to make 1 request for 512 keys than it is to make 512 requests for 1 key.
 
 **Max API throughput:**
 | 256 bit keys per request| 256 bit keys per second | Requests per second
