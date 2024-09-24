@@ -21,7 +21,13 @@ The appliance also includes an extensive set of hardware health monitors that sh
 ---
 # Performance
 
-**Max API throughput:** ~2,500,000 256-bit keys per second
+Due to the high overhead cost of making HTTP requests, the amount of entropy that can be retrieved from the API depends on how much entropy the client asks for with each HTTP request. In other words, it's significantly faster to make 1 request for 512 keys than it is to make 512 requests for 1 key.
+
+**Max API throughput:**
+| 256 bit keys per request| 256 bit keys per second | Requests per second
+|---|---|---|
+|512|~2,450,000| ~4,800|
+|1|~8,300| ~8,300|
 
 **Max Entropy card output:** ~1,500 Mb/s
 
