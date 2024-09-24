@@ -4,8 +4,7 @@
     <title>Categories on Qrypt</title>
     <link>https://QryptInc.github.io/categories/</link>
     <description>Recent content in Categories on Qrypt</description>
-    <generator>Hugo 0.125.0</generator>
-    <language>en-us</language>
-    <atom:link href="https://QryptInc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://QryptInc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
