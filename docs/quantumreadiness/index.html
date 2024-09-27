@@ -12,6 +12,7 @@
     <title>Quantum Readiness with Qrypt :: Qrypt</title>
 
     
+<<<<<<< HEAD
     <link href="../css/nucleus.css?1727718794" rel="stylesheet">
     <link href="../css/fontawesome-all.min.css?1727718794" rel="stylesheet">
     <link href="../css/hybrid.css?1727718794" rel="stylesheet">
@@ -28,6 +29,24 @@
     
 
     <script src="../js/jquery-3.3.1.min.js?1727718794"></script>
+=======
+    <link href="../css/nucleus.css?1727205595" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1727205595" rel="stylesheet">
+    <link href="../css/hybrid.css?1727205595" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1727205595" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1727205595" rel="stylesheet">
+    <link href="../css/auto-complete.css?1727205595" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1727205595" rel="stylesheet">
+    <link href="../css/theme.css?1727205595" rel="stylesheet">
+    <link href="../css/tabs.css?1727205595" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1727205595" rel="stylesheet">
+    
+    <link href="../css/theme-mine.css?1727205595" rel="stylesheet">
+    
+    
+
+    <script src="../js/jquery-3.3.1.min.js?1727205595"></script>
+>>>>>>> 23d07b8 (Init)
 
     
   </head>
@@ -271,7 +290,11 @@
            
 <li
   data-nav-id="/postquantumproxy/"
+<<<<<<< HEAD
   title="Post quantum TLS proxy"
+=======
+  title="Post quantum proxy"
+>>>>>>> 23d07b8 (Init)
   class="dd-item
         
         
@@ -279,7 +302,11 @@
         "
 >
   <a href="../postquantumproxy/">
+<<<<<<< HEAD
     Post quantum TLS proxy 
+=======
+    Post quantum proxy 
+>>>>>>> 23d07b8 (Init)
   </a>
    
 </li>
@@ -480,9 +507,15 @@
 <h2 id="general-setup">General setup</h2>
 <p>There are ports to set that allow frontend to backend communication. There are defaults set in the docker-compose.yaml.</p>
 <h3 id="local">Local</h3>
+<<<<<<< HEAD
 <p>There is a provided docker-compose.yaml. Run <code>docker-compose up -d</code> to bring up everything. The frontend should be available at http://localhost:8081/.</p>
 <h3 id="cloud-kubernetes">Cloud kubernetes</h3>
 <p>Currently this is tested against the Azure cloud. This uses Microsoft Entra ID as the authentication system. WireGuard sidecar container are not covered here, but can be set up for further network security between external connections to this cluster. There will be an example kustomize yaml to follow. Below is a manual setup.</p>
+=======
+<p>There is a provided docker-compose.yaml. Run <code>docker-compose up -d</code> to bring up everything. The front end should be available at http://localhost:8081/.</p>
+<h3 id="cloud-kubernetes">Cloud kubernetes</h3>
+<p>Currently this is tested against the Azure cloud. This uses Microsoft Entra ID as the authentication system. Wireguard sidecar container are not covered here, but can be set up for further network security between external connections to this cluster. There will be an example kustomize yaml to follow. Below is a manual setup.</p>
+>>>>>>> 23d07b8 (Init)
 <p>Create a Microsoft Entra ID to be used as authentication. Note the link, client id, client secret, and redirect url.</p>
 <p>Deploy a postgres database to be used in conjection with the backend.</p>
 <p>Deploy the backend proxy container. The following ports will need to be exposed to other pods 8080, 50051, 50052, 50053.</p>
@@ -490,12 +523,21 @@
 <p>Deploy the web api container. Make sure to set the BACKEND_API environment variable to the backend proxy and the 50051 port. Set the EXPRESS_LISTEN_PORT environment variable to the port to listen for incoming requests.</p>
 <p>Deploy the auth container. Make sure to set the LOGOUT_REDIRECT_URL to the frontend container&rsquo;s login URI. Set the REDIRECT_URL to the frontend container&rsquo;s auth-redirect URI. Set the EXPRESS_LISTEN_PORT environment variable to the port to listen for incoming requests. Set AUTHORITY environment variable to the Entra ID link. Set CLIENT_ID environment variable to the Entra ID client id. Set the CLIENT_SECRET environment variable to the Entra ID client secret.</p>
 <p>Deploy the frontend container. The default serving port is 5173. Make sure to set the VITE_AUTH_API to the proxy container&rsquo;s 50052 port. Make sure to set the VITE_BACKEND_API to the porxy container&rsquo;s 50053 port.</p>
+<<<<<<< HEAD
 <p>The frontend should be available at the hostname set up for the cluster&rsquo;s external IP and the exposed frontend container. This should bring you to a login screen which is hooked up to the Entra ID set up.</p>
 <h2 id="post-quantum-tls-proxy-setup">Post quantum TLS proxy setup</h2>
 <p>A WireGuard container is set up to run along side to allow for a symmetric key connection with the use of a preshared key. This will involve a standard WireGuard setup with generating keys and updating the WireGuard configuration to allow a connections. Please see our WireGuard sidecar container as an example.</p>
 <p>To add a post quantum TLS proxy, go through the UI and make sure the add the host name/ip and port that the proxy is set up to listen to GRPC connections. The UI should then show the proxy.</p>
 <h2 id="on-prem-appliance-setup">On-Prem appliance setup</h2>
 <p>The on-prem appliance has to be reachable from the network which quantum readiness is deployed on. To add an on-prem appliance, go to the &ldquo;on-prem appliance&rdquo; tab and click &ldquo;Add an appliance&rdquo;. Make sure to use the correct hostname or IP and port to connect to.</p>
+=======
+<p>The front end should be available at the hostname set up for the cluster&rsquo;s external IP and the exposed frontend container. This should bring you to a login screen which is hooked up to the Entra ID set up.</p>
+<h2 id="post-quantum-tls-proxy-setup">Post quantum TLS proxy setup</h2>
+<p>A wireguard container is set up to run along side to allow for a symmetric key connection with the use of a preshared key. This will involve a standard wireguard setup with generating keys and updating the wireguard configuration to allow a connections. Please see our wireguard sidecar container as an example.</p>
+<p>To add a post quantum TLS proxy, go through the UI and make sure the add the host name/ip and port that the proxy is set up to listen to GRPC connections. The UI should then show the proxy.</p>
+<h2 id="on-prem-appliance-setup">On-Prem appliance setup</h2>
+<p>The on-prem appliance has to be reachable from the network which quantum readiness is deployed on. To add an on-prem appliance, go to the &ldquo;on-prem appliance&rdquo; tab and click add an appliance. Make sure to use the correct hostname or IP and port to connect to.</p>
+>>>>>>> 23d07b8 (Init)
 <h3 id="demo">Demo</h3>
 <p>Please reach out to <a href="https://www.qrypt.com/contact/">Qrypt</a> for a demo or more information.</p>
 
@@ -885,6 +927,7 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
+<<<<<<< HEAD
     <script src="../js/clipboard.min.js?1727718794"></script>
     <script src="../js/perfect-scrollbar.min.js?1727718794"></script>
     <script src="../js/perfect-scrollbar.jquery.min.js?1727718794"></script>
@@ -898,6 +941,21 @@
     
         
             <script src="../mermaid/mermaid.js?1727718794"></script>
+=======
+    <script src="../js/clipboard.min.js?1727205595"></script>
+    <script src="../js/perfect-scrollbar.min.js?1727205595"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1727205595"></script>
+    <script src="../js/jquery.sticky.js?1727205595"></script>
+    <script src="../js/featherlight.min.js?1727205595"></script>
+    <script src="../js/highlight.pack.js?1727205595"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/modernizr.custom-3.6.0.js?1727205595"></script>
+    <script src="../js/learn.js?1727205595"></script>
+    <script src="../js/hugo-learn.js?1727205595"></script>
+    
+        
+            <script src="../mermaid/mermaid.js?1727205595"></script>
+>>>>>>> 23d07b8 (Init)
         
         <script>
             mermaid.initialize({ startOnLoad: true });

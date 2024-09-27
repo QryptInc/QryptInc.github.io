@@ -5,10 +5,17 @@
     <link>https://QryptInc.github.io/openssh/</link>
     <description>Recent content in Portable OpenSSH with Qrypt on Qrypt</description>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <generator>Hugo</generator>
 =======
     <generator>Hugo -- gohugo.io</generator>
 >>>>>>> 3097d1d (Add onprem appliance page (#83))
+=======
+    <generator>Hugo -- gohugo.io</generator>
+=======
+    <generator>Hugo</generator>
+>>>>>>> 0d29b0d (Init)
+>>>>>>> 23d07b8 (Init)
     <language>en-us</language>
     <lastBuildDate>Mon, 18 Oct 2021 08:59:39 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/openssh/index.xml" rel="self" type="application/rss+xml" />
   </channel>
