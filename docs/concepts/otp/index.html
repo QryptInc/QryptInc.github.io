@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.105.0">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>One-Time Pad (OTP) :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1727201733" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1727201733" rel="stylesheet">
-    <link href="../../css/hybrid.css?1727201733" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1727201733" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1727201733" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1727201733" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1727201733" rel="stylesheet">
-    <link href="../../css/theme.css?1727201733" rel="stylesheet">
-    <link href="../../css/tabs.css?1727201733" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1727201733" rel="stylesheet">
+    <link href="../../css/nucleus.css?1727727456" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1727727456" rel="stylesheet">
+    <link href="../../css/hybrid.css?1727727456" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1727727456" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1727727456" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1727727456" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1727727456" rel="stylesheet">
+    <link href="../../css/theme.css?1727727456" rel="stylesheet">
+    <link href="../../css/tabs.css?1727727456" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1727727456" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1727201733" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1727727456" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1727201733"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1727727456"></script>
 
     
   </head>
@@ -271,6 +271,36 @@
 </li>
            
 <li
+  data-nav-id="/quantumreadiness/"
+  title="Quantum Readiness with Qrypt"
+  class="dd-item
+        
+        
+        
+        "
+>
+  <a href="../../quantumreadiness/">
+    Quantum Readiness 
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/postquantumproxy/"
+  title="Post quantum TLS proxy"
+  class="dd-item
+        
+        
+        
+        "
+>
+  <a href="../../postquantumproxy/">
+    Post quantum TLS proxy 
+  </a>
+   
+</li>
+           
+<li
   data-nav-id="/openssh/"
   title="Portable OpenSSH with Qrypt"
   class="dd-item
@@ -470,7 +500,7 @@
 <h3 id="what-is-post-quantum-security">What is post-quantum security?</h3>
 <p>With the age of quantum computers being on the horizon, researchers have also explored methods to break cryptography using a quantum computer. Post-quantum cryptography means that after years of research, there is still no known method to “break” the cryptography, even given a quantum computer.</p>
 <p>For example, RSA, would not satisfy post-quantum security because Shor’s algorithm, an attack using a quantum computer, was discovered to break RSA in 1994. On the other hand, AES-256 is considered post-quantum because no quantum attacks have been discovered since its publication in 1998.</p>
-<figure><img src="images/otp_1.svg"/>
+<figure><img src="../../concepts/otp/images/otp_1.svg">
 </figure>
 
 <p>A One-Time Pad cipher is when a randomly chosen key, the same length of the plaintext, is XORed with the plaintext to produce the ciphertext. If the key is truly chosen randomly, all plaintexts of the given size are equally likely to have produced the ciphertext.</p>
@@ -547,7 +577,7 @@
 <li>Harvest data between Alice and Bob</li>
 <li>Break the key exchange</li>
 </ul>
-<figure><img src="images/alice&amp;bob.svg"/>
+<figure><img src="../../concepts/otp/images/alice&amp;bob.svg">
 </figure>
 
 <p>3a)  Everlasting security which is provably secure against an unbounded adversary after phase 1 (while the server is still accepting decryption requests), where:</p>
@@ -565,7 +595,7 @@
 <li>the seed has level 2 security in phase 1</li>
 <li>we assume g out of T servers have secure, authenticated channels with the client (where these channels use post-quantum TLS)</li>
 </ul>
-<figure><img src="images/alice&amp;bob_exchange.svg"/>
+<figure><img src="../../concepts/otp/images/alice&amp;bob_exchange.svg">
 </figure>
 
 <p>For levels 3a, 3b, and 3c, to break the encryption, an adversary would need to:</p>
@@ -853,6 +883,38 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -953,19 +1015,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1727201733"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1727201733"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1727201733"></script>
-    <script src="../../js/jquery.sticky.js?1727201733"></script>
-    <script src="../../js/featherlight.min.js?1727201733"></script>
-    <script src="../../js/highlight.pack.js?1727201733"></script>
+    <script src="../../js/clipboard.min.js?1727727456"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1727727456"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1727727456"></script>
+    <script src="../../js/jquery.sticky.js?1727727456"></script>
+    <script src="../../js/featherlight.min.js?1727727456"></script>
+    <script src="../../js/highlight.pack.js?1727727456"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1727201733"></script>
-    <script src="../../js/learn.js?1727201733"></script>
-    <script src="../../js/hugo-learn.js?1727201733"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1727727456"></script>
+    <script src="../../js/learn.js?1727727456"></script>
+    <script src="../../js/hugo-learn.js?1727727456"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1727201733"></script>
+            <script src="../../mermaid/mermaid.js?1727727456"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
