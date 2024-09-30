@@ -2,7 +2,7 @@
 menuTitle = "Qrypt OpenSSH"
 title = "Portable OpenSSH with Qrypt"
 date = 2021-10-18T08:59:39-04:00
-weight = 30
+weight = 32
 +++
 
 OpenSSH is a complete implementation of the SSH protocol (version 2) for secure remote login, command execution and file transfer. Our Qrypt modifications add a dash of quantum-secure.
