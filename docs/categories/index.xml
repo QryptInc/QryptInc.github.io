@@ -4,23 +4,8 @@
     <title>Categories on Qrypt</title>
     <link>https://QryptInc.github.io/categories/</link>
     <description>Recent content in Categories on Qrypt</description>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://QryptInc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-=======
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://QryptInc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
->>>>>>> 3097d1d (Add onprem appliance page (#83))
-=======
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://QryptInc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-=======
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="https://QryptInc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
->>>>>>> 0d29b0d (Init)
->>>>>>> 23d07b8 (Init)
   </channel>
 </rss>

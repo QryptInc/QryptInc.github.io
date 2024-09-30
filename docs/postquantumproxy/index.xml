@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <title>Post quantum TLS proxy on Qrypt</title>
     <link>https://QryptInc.github.io/postquantumproxy/</link>
     <description>Recent content in Post quantum TLS proxy on Qrypt</description>
-=======
-    <title>Post quantum proxy on Qrypt</title>
-    <link>https://QryptInc.github.io/postquantumproxy/</link>
-    <description>Recent content in Post quantum proxy on Qrypt</description>
->>>>>>> 23d07b8 (Init)
-=======
-    <title>Post quantum TLS proxy on Qrypt</title>
-    <link>https://QryptInc.github.io/postquantumproxy/</link>
-    <description>Recent content in Post quantum TLS proxy on Qrypt</description>
->>>>>>> 53a90c1 (Update to comments)
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate></lastBuildDate>

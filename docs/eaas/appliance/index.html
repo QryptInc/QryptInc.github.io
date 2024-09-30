@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.105.0">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title> :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1727201733" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1727201733" rel="stylesheet">
-    <link href="../../css/hybrid.css?1727201733" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1727201733" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1727201733" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1727201733" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1727201733" rel="stylesheet">
-    <link href="../../css/theme.css?1727201733" rel="stylesheet">
-    <link href="../../css/tabs.css?1727201733" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1727201733" rel="stylesheet">
+    <link href="../../css/nucleus.css?1727723273" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1727723273" rel="stylesheet">
+    <link href="../../css/hybrid.css?1727723273" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1727723273" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1727723273" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1727723273" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1727723273" rel="stylesheet">
+    <link href="../../css/theme.css?1727723273" rel="stylesheet">
+    <link href="../../css/tabs.css?1727723273" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1727723273" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1727201733" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1727723273" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1727201733"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1727723273"></script>
 
     
   </head>
@@ -271,6 +271,36 @@
 </li>
            
 <li
+  data-nav-id="/quantumreadiness/"
+  title="Quantum Readiness with Qrypt"
+  class="dd-item
+        
+        
+        
+        "
+>
+  <a href="../../quantumreadiness/">
+    Quantum Readiness 
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/postquantumproxy/"
+  title="Post quantum TLS proxy"
+  class="dd-item
+        
+        
+        
+        "
+>
+  <a href="../../postquantumproxy/">
+    Post quantum TLS proxy 
+  </a>
+   
+</li>
+           
+<li
   data-nav-id="/openssh/"
   title="Portable OpenSSH with Qrypt"
   class="dd-item
@@ -473,22 +503,22 @@
 <p>Due to the high overhead cost of making HTTP requests, the amount of entropy that can be retrieved from the API depends on how much entropy the client asks for with each request. In other words, it&rsquo;s significantly faster to make 1 request for 512 keys than it is to make 512 requests for 1 key.</p>
 <p><strong>Max API throughput:</strong></p>
 <table>
-<thead>
-<tr>
-<th>256 bit keys per request</th>
-<th>Requests per second</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>512</td>
-<td>~4,800</td>
-</tr>
-<tr>
-<td>1</td>
-<td>~8,000</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">256 bit keys per request</th>
+          <th style="text-align: left">Requests per second</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">512</td>
+          <td style="text-align: left">~4,800</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">~8,000</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Max Entropy card output:</strong> ~1,500 Mb/s</p>
 <hr>
@@ -630,110 +660,110 @@
 </span></span></code></pre></div><hr>
 <h1 id="server-specs">Server Specs</h1>
 <table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>Dimensions</strong></td>
-<td style="text-align:left">17&quot; x 21.3&quot; x 1.75&quot;</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Processor</strong></td>
-<td style="text-align:left">One Intel® Xeon® Processor E-2300 (Rocket Lake) Product Family</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Supports CPU TDP up to 95W</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>System Memory</strong></td>
-<td style="text-align:left">2 channels DDR4 / 2 DPC UDIMM ECC Up to 3200 MT/s.</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Total 4 memory slots; up to 128GB</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Drive Bays</strong></td>
-<td style="text-align:left">3.5&quot; 1 (SATA)</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">2.5&quot; 2 (1 x shared with 3.5&quot;)</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">M.2 2 x M.2(NGFF)/M-Key/22110</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Expansion Slots</strong></td>
-<td style="text-align:left">2 x PCIe Gen4 x8 slots</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">1 x PCIe Gen3 x8 slot (with x4 link)</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>On-board Devices</strong></td>
-<td style="text-align:left">6x SATA 6G ports (4x in miniSAS HD + 2x 7pin + 2x M.2)</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Aspeed AST2500 Advanced PCIe Graphics &amp; Remote Management Processor</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Baseboard Management Controller</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Intelligent Platform Interface 2.0 (IPMI 2.0)</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">iKVM, Media Redirection, IPMI over LAN, Serial over LAN</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Intel® I350 AM4/AM2 co-design to support 2/4 x GbE (SKU option)</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Realtek RTL8211EL for BMC dedicated management port</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">2D Video Graphic Adapter with PCIe bus interface</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Rear I/O</strong></td>
-<td style="text-align:left">LAN: 3 x GbE RJ45 (2 x shared, 1 x dedicated)</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">USB: 2 x USB 3.0 Type A</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Graphic: Mini-display port (enabled with specified CPU)</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Serial Port: 1 x COM by 3.5mm audio jack</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Power Supply</strong></td>
-<td style="text-align:left">300W 1+1 redundant power supply 80+ Gold</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>System Cooling</strong></td>
-<td style="text-align:left">3 x 40x56mm hot swap fans</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Dimensions</strong></td>
+          <td style="text-align: left">17&quot; x 21.3&quot; x 1.75&quot;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Processor</strong></td>
+          <td style="text-align: left">One Intel® Xeon® Processor E-2300 (Rocket Lake) Product Family</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Supports CPU TDP up to 95W</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>System Memory</strong></td>
+          <td style="text-align: left">2 channels DDR4 / 2 DPC UDIMM ECC Up to 3200 MT/s.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Total 4 memory slots; up to 128GB</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Drive Bays</strong></td>
+          <td style="text-align: left">3.5&quot; 1 (SATA)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">2.5&quot; 2 (1 x shared with 3.5&quot;)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">M.2 2 x M.2(NGFF)/M-Key/22110</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Expansion Slots</strong></td>
+          <td style="text-align: left">2 x PCIe Gen4 x8 slots</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">1 x PCIe Gen3 x8 slot (with x4 link)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>On-board Devices</strong></td>
+          <td style="text-align: left">6x SATA 6G ports (4x in miniSAS HD + 2x 7pin + 2x M.2)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Aspeed AST2500 Advanced PCIe Graphics &amp; Remote Management Processor</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Baseboard Management Controller</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Intelligent Platform Interface 2.0 (IPMI 2.0)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">iKVM, Media Redirection, IPMI over LAN, Serial over LAN</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Intel® I350 AM4/AM2 co-design to support 2/4 x GbE (SKU option)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Realtek RTL8211EL for BMC dedicated management port</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">2D Video Graphic Adapter with PCIe bus interface</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Rear I/O</strong></td>
+          <td style="text-align: left">LAN: 3 x GbE RJ45 (2 x shared, 1 x dedicated)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">USB: 2 x USB 3.0 Type A</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Graphic: Mini-display port (enabled with specified CPU)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Serial Port: 1 x COM by 3.5mm audio jack</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Power Supply</strong></td>
+          <td style="text-align: left">300W 1+1 redundant power supply 80+ Gold</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>System Cooling</strong></td>
+          <td style="text-align: left">3 x 40x56mm hot swap fans</td>
+      </tr>
+  </tbody>
 </table>
 
 
@@ -1020,6 +1050,38 @@
 
                     
                     
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                         
                     
                     
@@ -1107,19 +1169,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1727201733"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1727201733"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1727201733"></script>
-    <script src="../../js/jquery.sticky.js?1727201733"></script>
-    <script src="../../js/featherlight.min.js?1727201733"></script>
-    <script src="../../js/highlight.pack.js?1727201733"></script>
+    <script src="../../js/clipboard.min.js?1727723273"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1727723273"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1727723273"></script>
+    <script src="../../js/jquery.sticky.js?1727723273"></script>
+    <script src="../../js/featherlight.min.js?1727723273"></script>
+    <script src="../../js/highlight.pack.js?1727723273"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1727201733"></script>
-    <script src="../../js/learn.js?1727201733"></script>
-    <script src="../../js/hugo-learn.js?1727201733"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1727723273"></script>
+    <script src="../../js/learn.js?1727723273"></script>
+    <script src="../../js/hugo-learn.js?1727723273"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1727201733"></script>
+            <script src="../../mermaid/mermaid.js?1727723273"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

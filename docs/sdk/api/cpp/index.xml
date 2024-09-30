@@ -4,19 +4,9 @@
     <title>Qrypt SDK on Qrypt</title>
     <link>https://QryptInc.github.io/sdk/api/cpp/</link>
     <description>Recent content in Qrypt SDK on Qrypt</description>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <generator>Hugo</generator>
-=======
-    <generator>Hugo -- gohugo.io</generator>
->>>>>>> 3097d1d (Add onprem appliance page (#83))
-=======
-    <generator>Hugo -- gohugo.io</generator>
-=======
-    <generator>Hugo</generator>
->>>>>>> 0d29b0d (Init)
->>>>>>> 23d07b8 (Init)
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Oct 2021 09:01:22 -0400</lastBuildDate><atom:link href="https://QryptInc.github.io/sdk/api/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://QryptInc.github.io/sdk/api/cpp/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
