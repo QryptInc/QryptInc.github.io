@@ -8,7 +8,7 @@ disableToc = "true"
 
 ## Overview
 
-This post quantum TLS proxy combines nginx, oqs OpenSSL, wireguard, and our quantum readiness agent. This can be a stand alone proxy to serve content through traditional nginx configurations.
+This post quantum TLS proxy combines nginx, oqs OpenSSL, wireguard, and our quantum readiness orchestrator. This can be a stand alone proxy to serve content through traditional nginx configurations.
 
 ### Setup
 

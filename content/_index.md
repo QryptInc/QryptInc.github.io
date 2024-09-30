@@ -18,7 +18,7 @@ Below is a list of the products that Qrypt offers with links to their supporting
 
 ### [Quantum Readiness](quantumreadiness/)
 
-Quantum readiness provides management of all Qrypt products.
+Quantum readiness provides centralized deployment and management UI of all Qrypt products.
 
 ### [Post quantum TLS proxy](postquantumproxy/)
 
