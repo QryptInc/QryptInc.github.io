@@ -2,73 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://QryptInc.github.io/eaas/appliance/</loc>
-    <lastmod>2024-09-23T19:11:17-04:00</lastmod>
+    <loc>https://github.com/QryptInc/QryptInc.github.io/categories/</loc>
   </url><url>
-    <loc>https://QryptInc.github.io/getting_started/</loc>
-    <lastmod>2021-10-07T11:14:08-04:00</lastmod>
+    <loc>https://github.com/QryptInc/QryptInc.github.io/</loc>
   </url><url>
-    <loc>https://QryptInc.github.io/eaas/</loc>
-    <lastmod>2021-10-07T11:14:08-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/eaas/rngd/</loc>
-    <lastmod>2021-10-07T11:14:08-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/</loc>
-    <lastmod>2021-10-07T14:05:15-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/quickstarts/cpp/</loc>
-    <lastmod>2021-10-18T09:09:06-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/api/cpp/</loc>
-    <lastmod>2021-10-18T09:01:22-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/overview/</loc>
-    <lastmod>2021-10-18T08:59:57-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/concepts/key-generation-architecture/</loc>
-    <lastmod>2021-10-23T15:01:22-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/</loc>
-    <lastmod>2021-10-18T08:59:39-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/eaas/nist/</loc>
-    <lastmod>2021-10-18T08:59:39-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/quantumreadiness/</loc>
-    <lastmod>2024-09-24T08:59:39-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/quickstarts/</loc>
-    <lastmod>2021-10-18T09:09:06-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/postquantumproxy/</loc>
-    <lastmod>2024-09-24T08:59:39-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/openssh/</loc>
-    <lastmod>2021-10-18T08:59:39-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/concepts/</loc>
-    <lastmod>2021-10-18T09:01:15-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/eaas/pkcs11/</loc>
-  </url><url>
-    <loc>https://QryptInc.github.io/concepts/entropy-projection/</loc>
-    <lastmod>2021-10-23T15:01:22-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/concepts/otp/</loc>
-    <lastmod>2021-10-23T15:01:22-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/api/</loc>
-    <lastmod>2021-10-18T09:09:06-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/faqs/</loc>
-    <lastmod>2021-10-07T14:05:15-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/sdk/changelogs/</loc>
-    <lastmod>2022-10-18T12:59:11-04:00</lastmod>
-  </url><url>
-    <loc>https://QryptInc.github.io/categories/</loc>
-  </url><url>
-    <loc>https://QryptInc.github.io/tags/</loc>
+    <loc>https://github.com/QryptInc/QryptInc.github.io/tags/</loc>
   </url>
 </urlset>
