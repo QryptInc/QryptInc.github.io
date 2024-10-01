@@ -58,7 +58,7 @@ info:
   version: 1.0.0
 
 paths:
-  /api/v1/entropy:
+  /api/v1/get_entropy:
     post:
       summary: Get entropy
       description: Returns blocks of quantum entropy. 
@@ -110,7 +110,7 @@ paths:
         '503':
           description: Entropy capability source unavailable.
 
-  /api/v1/capabilities:
+  /api/v1/get_capabilities:
     get:
       summary: Retrieve Entropy Capabilities
       description: This endpoint retrieves the capabilities of the entropy source.
