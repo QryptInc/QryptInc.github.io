@@ -12,22 +12,22 @@
     <title> :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1729025234" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1729025234" rel="stylesheet">
-    <link href="../../css/hybrid.css?1729025234" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1729025234" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1729025234" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1729025234" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1729025234" rel="stylesheet">
-    <link href="../../css/theme.css?1729025234" rel="stylesheet">
-    <link href="../../css/tabs.css?1729025234" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1729025234" rel="stylesheet">
+    <link href="../../css/nucleus.css?1729027415" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1729027415" rel="stylesheet">
+    <link href="../../css/hybrid.css?1729027415" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1729027415" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1729027415" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1729027415" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1729027415" rel="stylesheet">
+    <link href="../../css/theme.css?1729027415" rel="stylesheet">
+    <link href="../../css/tabs.css?1729027415" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1729027415" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1729025234" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1729027415" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1729025234"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1729027415"></script>
 
     
   </head>
@@ -535,7 +535,7 @@
 <p>Upon opening the UI, you should see the following landing page:</p>
 <p><img src="images/full_page.png?classes=shadow" alt="FullPage"></p>
 <p>Each QRNG card installed on the appliance will have its own entry in the table, sorted by card ID.</p>
-<p>The current state of the card can be determined by a quick glance at the <code>Status</code> column. Possible states are as follows:</p>
+<p>The current state of the card can be determined by a quick glance at the &ldquo;Status&rdquo; column. Possible states are as follows:</p>
 <table>
   <thead>
       <tr>
@@ -660,7 +660,7 @@
   ">
   Pending
 </span>
-, a <code>Status Message</code> field will provide more information. This typically only happens on startup while the initial NIST test suite runs &ndash; upon success, the card will move into an <span
+, a &ldquo;Status Message&rdquo; field will provide more information. This typically only happens on startup while the initial NIST test suite runs &ndash; upon success, the card will move into an <span
   style="
     display: inline-flex;
     align-items: center;
@@ -675,10 +675,17 @@
   Active
 </span>
  state and begin streaming entropy.</p>
-<p><em>Note that the badge in the <code>Status</code> section here is the same as in the card row entry.</em></p>
+<p><em>Note that the badge in the &ldquo;Status&rdquo; section here is the same as in the card row entry.</em></p>
 <p>At the bottom right of the UI, there is a link to download a compressed bundle of server logs:</p>
 <p><img src="images/download_logs.png?width=300px&amp;classes=shadow" alt="DownloadLogs"></p>
 <p>Note that this may take up to 30 seconds depending on the size of the logfiles, so do not navigate away from the page while the collection is in progress.</p>
+<hr>
+<h1 id="tls-configuration">TLS Configuration</h1>
+<p>To enable TLS on the appliance, replace the following two files with your own public and private certs, respectively:</p>
+<p>/etc/ssl/certs/public.crt</p>
+<p>/etc/ssl/private/private.key</p>
+<p>Then, restart <em>nginx</em> for the new certs to take effect:</p>
+<p>systemctl restart nginx</p>
 <hr>
 <h1 id="openapi-spec">OpenAPI spec</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">openapi</span>: <span style="color:#ae81ff">3.0.0</span>
@@ -1318,19 +1325,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1729025234"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1729025234"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1729025234"></script>
-    <script src="../../js/jquery.sticky.js?1729025234"></script>
-    <script src="../../js/featherlight.min.js?1729025234"></script>
-    <script src="../../js/highlight.pack.js?1729025234"></script>
+    <script src="../../js/clipboard.min.js?1729027415"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1729027415"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1729027415"></script>
+    <script src="../../js/jquery.sticky.js?1729027415"></script>
+    <script src="../../js/featherlight.min.js?1729027415"></script>
+    <script src="../../js/highlight.pack.js?1729027415"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1729025234"></script>
-    <script src="../../js/learn.js?1729025234"></script>
-    <script src="../../js/hugo-learn.js?1729025234"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1729027415"></script>
+    <script src="../../js/learn.js?1729027415"></script>
+    <script src="../../js/hugo-learn.js?1729027415"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1729025234"></script>
+            <script src="../../mermaid/mermaid.js?1729027415"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

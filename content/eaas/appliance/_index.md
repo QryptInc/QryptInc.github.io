@@ -56,7 +56,7 @@ Upon opening the UI, you should see the following landing page:
 
 Each QRNG card installed on the appliance will have its own entry in the table, sorted by card ID.
 
-The current state of the card can be determined by a quick glance at the `Status` column. Possible states are as follows:
+The current state of the card can be determined by a quick glance at the "Status" column. Possible states are as follows:
 
 |State|Explanation|
 |---|---|
@@ -72,15 +72,29 @@ Selecting a card will expand the row and show more detail:
 
 If the card is in an {{< badge "error" >}} state, the number of errors and the error messages will be enumerated at the bottom of the details section.
 
-If the card is {{< badge "pending" >}}, a `Status Message` field will provide more information. This typically only happens on startup while the initial NIST test suite runs -- upon success, the card will move into an {{< badge "active" >}} state and begin streaming entropy.
+If the card is {{< badge "pending" >}}, a "Status Message" field will provide more information. This typically only happens on startup while the initial NIST test suite runs -- upon success, the card will move into an {{< badge "active" >}} state and begin streaming entropy.
 
-*Note that the badge in the `Status` section here is the same as in the card row entry.*
+*Note that the badge in the "Status" section here is the same as in the card row entry.*
 
 At the bottom right of the UI, there is a link to download a compressed bundle of server logs:
 
 ![DownloadLogs](images/download_logs.png?width=300px&classes=shadow)
 
 Note that this may take up to 30 seconds depending on the size of the logfiles, so do not navigate away from the page while the collection is in progress.
+
+---
+
+# TLS Configuration
+
+To enable TLS on the appliance, replace the following two files with your own public and private certs, respectively:
+
+/etc/ssl/certs/public.crt
+
+/etc/ssl/private/private.key
+
+Then, restart *nginx* for the new certs to take effect:
+
+systemctl restart nginx
 
 ---
 # OpenAPI spec
