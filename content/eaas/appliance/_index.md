@@ -26,8 +26,8 @@ Due to the high overhead cost of making HTTP requests, the amount of entropy tha
 **Max API throughput:**
 | 256 bit keys per request| Requests per second
 |---|---|
-|512|~4,800|
-|1|~8,000|
+|512|~7,200|
+|1|~12,000|
 
 **Max Entropy card output:** ~1,500 Mb/s
 
@@ -46,6 +46,41 @@ The QEA listens for incoming requests on port 80.
 The root path (“/”) returns a UI that displays various metrics, and health reports. This UI can also be used to download application log files for troubleshooting purposes.
 
 Client applications can request a configurable amount of entropy from the entropy API, which is served from the “/api/v1/” route. The complete spec for the API can be found below.
+
+---
+# Appliance Administration UI
+
+Upon opening the UI, you should see the following landing page:
+
+![FullPage](images/full_page.png?classes=shadow)
+
+Each QRNG card installed on the appliance will have its own entry in the table, sorted by card ID.
+
+The current state of the card can be determined by a quick glance at the `Status` column. Possible states are as follows:
+
+|State|Explanation|
+|---|---|
+|{{< badge "active" >}}|The card is healthy and streaming entropy.|
+|{{< badge "pending" >}}|The card is in a temporary calibration state; this will resolve into either {{< badge "active" >}} or {{< badge "error" >}}|.|
+|{{< badge "error" >}}|The card is reporting an error; error message can be found in details section.|
+
+Selecting a card will expand the row and show more detail:
+
+![StatusTable](images/status_table.png?classes=shadow)
+
+<!-- ![CardDetails](images/card_details.png?width=300px&classes=shadow) -->
+
+If the card is in an {{< badge "error" >}} state, the number of errors and the error messages will be enumerated at the bottom of the details section.
+
+If the card is {{< badge "pending" >}}, a `Status Message` field will provide more information. This typically only happens on startup while the initial NIST test suite runs -- upon success, the card will move into an {{< badge "active" >}} state and begin streaming entropy.
+
+*Note that the badge in the `Status` section here is the same as in the card row entry.*
+
+At the bottom right of the UI, there is a link to download a compressed bundle of server logs:
+
+![DownloadLogs](images/download_logs.png?width=300px&classes=shadow)
+
+Note that this may take up to 30 seconds depending on the size of the logfiles, so do not navigate away from the page while the collection is in progress.
 
 ---
 # OpenAPI spec

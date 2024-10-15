@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.134.3">
+    <meta name="generator" content="Hugo 0.136.0">
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title> :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1727727456" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1727727456" rel="stylesheet">
-    <link href="../../css/hybrid.css?1727727456" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1727727456" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1727727456" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1727727456" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1727727456" rel="stylesheet">
-    <link href="../../css/theme.css?1727727456" rel="stylesheet">
-    <link href="../../css/tabs.css?1727727456" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1727727456" rel="stylesheet">
+    <link href="../../css/nucleus.css?1729025234" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1729025234" rel="stylesheet">
+    <link href="../../css/hybrid.css?1729025234" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1729025234" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1729025234" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1729025234" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1729025234" rel="stylesheet">
+    <link href="../../css/theme.css?1729025234" rel="stylesheet">
+    <link href="../../css/tabs.css?1729025234" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1729025234" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1727727456" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1729025234" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1727727456"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1729025234"></script>
 
     
   </head>
@@ -505,18 +505,18 @@
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">256 bit keys per request</th>
-          <th style="text-align: left">Requests per second</th>
+          <th>256 bit keys per request</th>
+          <th>Requests per second</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">512</td>
-          <td style="text-align: left">~4,800</td>
+          <td>512</td>
+          <td>~7,200</td>
       </tr>
       <tr>
-          <td style="text-align: left">1</td>
-          <td style="text-align: left">~8,000</td>
+          <td>1</td>
+          <td>~12,000</td>
       </tr>
   </tbody>
 </table>
@@ -531,6 +531,155 @@
 <p>The root path (“/”) returns a UI that displays various metrics, and health reports. This UI can also be used to download application log files for troubleshooting purposes.</p>
 <p>Client applications can request a configurable amount of entropy from the entropy API, which is served from the “/api/v1/” route. The complete spec for the API can be found below.</p>
 <hr>
+<h1 id="appliance-administration-ui">Appliance Administration UI</h1>
+<p>Upon opening the UI, you should see the following landing page:</p>
+<p><img src="images/full_page.png?classes=shadow" alt="FullPage"></p>
+<p>Each QRNG card installed on the appliance will have its own entry in the table, sorted by card ID.</p>
+<p>The current state of the card can be determined by a quick glance at the <code>Status</code> column. Possible states are as follows:</p>
+<table>
+  <thead>
+      <tr>
+          <th>State</th>
+          <th>Explanation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><span
+  style="
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    background-color: #41D478;
+    color: white;
+  ">
+  Active
+</span>
+</td>
+          <td>The card is healthy and streaming entropy.</td>
+      </tr>
+      <tr>
+          <td><span
+  style="
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    background-color: #FFC01D;
+    color: white;
+  ">
+  Pending
+</span>
+</td>
+          <td>The card is in a temporary calibration state; this will resolve into either <span
+  style="
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    background-color: #41D478;
+    color: white;
+  ">
+  Active
+</span>
+ or <span
+  style="
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    background-color: #FD5547;
+    color: white;
+  ">
+  Error
+</span>
+</td>
+      </tr>
+      <tr>
+          <td><span
+  style="
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    background-color: #FD5547;
+    color: white;
+  ">
+  Error
+</span>
+</td>
+          <td>The card is reporting an error; error message can be found in details section.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Selecting a card will expand the row and show more detail:</p>
+<p><img src="images/status_table.png?classes=shadow" alt="StatusTable"></p>
+<!-- raw HTML omitted -->
+<p>If the card is in an <span
+  style="
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    background-color: #FD5547;
+    color: white;
+  ">
+  Error
+</span>
+ state, the number of errors and the error messages will be enumerated at the bottom of the details section.</p>
+<p>If the card is <span
+  style="
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    background-color: #FFC01D;
+    color: white;
+  ">
+  Pending
+</span>
+, a <code>Status Message</code> field will provide more information. This typically only happens on startup while the initial NIST test suite runs &ndash; upon success, the card will move into an <span
+  style="
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    background-color: #41D478;
+    color: white;
+  ">
+  Active
+</span>
+ state and begin streaming entropy.</p>
+<p><em>Note that the badge in the <code>Status</code> section here is the same as in the card row entry.</em></p>
+<p>At the bottom right of the UI, there is a link to download a compressed bundle of server logs:</p>
+<p><img src="images/download_logs.png?width=300px&amp;classes=shadow" alt="DownloadLogs"></p>
+<p>Note that this may take up to 30 seconds depending on the size of the logfiles, so do not navigate away from the page while the collection is in progress.</p>
+<hr>
 <h1 id="openapi-spec">OpenAPI spec</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">openapi</span>: <span style="color:#ae81ff">3.0.0</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">info</span>:
@@ -539,7 +688,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.0.0</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">paths</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">/api/v1/get_entropy</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">/api/v1/entropy</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">post</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">summary</span>: <span style="color:#ae81ff">Get entropy</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Returns blocks of quantum entropy. </span>
@@ -591,7 +740,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#39;503&#39;</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Entropy capability source unavailable.</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">/api/v1/get_capabilities</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">/api/v1/capabilities</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">get</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">summary</span>: <span style="color:#ae81ff">Retrieve Entropy Capabilities</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">This endpoint retrieves the capabilities of the entropy source.</span>
@@ -663,7 +812,7 @@
   <thead>
       <tr>
           <th style="text-align: left"></th>
-          <th style="text-align: left"></th>
+          <th></th>
       </tr>
   </thead>
   <tbody>
@@ -1169,19 +1318,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1727727456"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1727727456"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1727727456"></script>
-    <script src="../../js/jquery.sticky.js?1727727456"></script>
-    <script src="../../js/featherlight.min.js?1727727456"></script>
-    <script src="../../js/highlight.pack.js?1727727456"></script>
+    <script src="../../js/clipboard.min.js?1729025234"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1729025234"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1729025234"></script>
+    <script src="../../js/jquery.sticky.js?1729025234"></script>
+    <script src="../../js/featherlight.min.js?1729025234"></script>
+    <script src="../../js/highlight.pack.js?1729025234"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1727727456"></script>
-    <script src="../../js/learn.js?1727727456"></script>
-    <script src="../../js/hugo-learn.js?1727727456"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1729025234"></script>
+    <script src="../../js/learn.js?1729025234"></script>
+    <script src="../../js/hugo-learn.js?1729025234"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1727727456"></script>
+            <script src="../../mermaid/mermaid.js?1729025234"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
