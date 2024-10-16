@@ -12,22 +12,22 @@
     <title> :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1729027415" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1729027415" rel="stylesheet">
-    <link href="../../css/hybrid.css?1729027415" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1729027415" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1729027415" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1729027415" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1729027415" rel="stylesheet">
-    <link href="../../css/theme.css?1729027415" rel="stylesheet">
-    <link href="../../css/tabs.css?1729027415" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1729027415" rel="stylesheet">
+    <link href="../../css/nucleus.css?1729087731" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1729087731" rel="stylesheet">
+    <link href="../../css/hybrid.css?1729087731" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1729087731" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1729087731" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1729087731" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1729087731" rel="stylesheet">
+    <link href="../../css/theme.css?1729087731" rel="stylesheet">
+    <link href="../../css/tabs.css?1729087731" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1729087731" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1729027415" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1729087731" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1729027415"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1729087731"></script>
 
     
   </head>
@@ -578,35 +578,7 @@
   Pending
 </span>
 </td>
-          <td>The card is in a temporary calibration state; this will resolve into either <span
-  style="
-    display: inline-flex;
-    align-items: center;
-    border-radius: 3px;
-    padding: 5px 22px;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 600;
-    background-color: #41D478;
-    color: white;
-  ">
-  Active
-</span>
- or <span
-  style="
-    display: inline-flex;
-    align-items: center;
-    border-radius: 3px;
-    padding: 5px 22px;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 600;
-    background-color: #FD5547;
-    color: white;
-  ">
-  Error
-</span>
-</td>
+          <td>The card is in a temporary calibration state; this will resolve into either <em>Active</em> or <em>Error</em>.</td>
       </tr>
       <tr>
           <td><span
@@ -624,13 +596,12 @@
   Error
 </span>
 </td>
-          <td>The card is reporting an error; error message can be found in details section.</td>
+          <td>The card is reporting an error; the error message can be found in details section.</td>
       </tr>
   </tbody>
 </table>
-<p>Selecting a card will expand the row and show more detail:</p>
+<p>Clicking on a card will expand the row and show more detail:</p>
 <p><img src="images/status_table.png?classes=shadow" alt="StatusTable"></p>
-<!-- raw HTML omitted -->
 <p>If the card is in an <span
   style="
     display: inline-flex;
@@ -678,14 +649,23 @@
 <p><em>Note that the badge in the &ldquo;Status&rdquo; section here is the same as in the card row entry.</em></p>
 <p>At the bottom right of the UI, there is a link to download a compressed bundle of server logs:</p>
 <p><img src="images/download_logs.png?width=300px&amp;classes=shadow" alt="DownloadLogs"></p>
-<p>Note that this may take up to 30 seconds depending on the size of the logfiles, so do not navigate away from the page while the collection is in progress.</p>
+<p>Note that this may take up to 30 seconds depending on the size of the logfiles, so do not navigate away from the page while the collection is in progress. Logfile processing is indicated by the presence of an animated spinner.</p>
 <hr>
 <h1 id="tls-configuration">TLS Configuration</h1>
 <p>To enable TLS on the appliance, replace the following two files with your own public and private certs, respectively:</p>
-<p>/etc/ssl/certs/public.crt</p>
-<p>/etc/ssl/private/private.key</p>
+<ul>
+<li>/etc/ssl/certs/public.crt</li>
+<li>/etc/ssl/private/private.key</li>
+</ul>
 <p>Then, restart <em>nginx</em> for the new certs to take effect:</p>
-<p>systemctl restart nginx</p>
+<ul>
+<li>systemctl restart nginx</li>
+</ul>
+<p>You can test this new configuration by running:</p>
+<ul>
+<li>nginx -t</li>
+</ul>
+<p><em>Note that these operations must be done as sudo user.</em></p>
 <hr>
 <h1 id="openapi-spec">OpenAPI spec</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">openapi</span>: <span style="color:#ae81ff">3.0.0</span>
@@ -1325,19 +1305,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1729027415"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1729027415"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1729027415"></script>
-    <script src="../../js/jquery.sticky.js?1729027415"></script>
-    <script src="../../js/featherlight.min.js?1729027415"></script>
-    <script src="../../js/highlight.pack.js?1729027415"></script>
+    <script src="../../js/clipboard.min.js?1729087731"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1729087731"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1729087731"></script>
+    <script src="../../js/jquery.sticky.js?1729087731"></script>
+    <script src="../../js/featherlight.min.js?1729087731"></script>
+    <script src="../../js/highlight.pack.js?1729087731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1729027415"></script>
-    <script src="../../js/learn.js?1729027415"></script>
-    <script src="../../js/hugo-learn.js?1729027415"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1729087731"></script>
+    <script src="../../js/learn.js?1729087731"></script>
+    <script src="../../js/hugo-learn.js?1729087731"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1729027415"></script>
+            <script src="../../mermaid/mermaid.js?1729087731"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

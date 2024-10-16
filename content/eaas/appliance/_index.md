@@ -61,14 +61,12 @@ The current state of the card can be determined by a quick glance at the "Status
 |State|Explanation|
 |---|---|
 |{{< badge "active" >}}|The card is healthy and streaming entropy.|
-|{{< badge "pending" >}}|The card is in a temporary calibration state; this will resolve into either {{< badge "active" >}} or {{< badge "error" >}}|.|
-|{{< badge "error" >}}|The card is reporting an error; error message can be found in details section.|
+|{{< badge "pending" >}}|The card is in a temporary calibration state; this will resolve into either *Active* or *Error*.|
+|{{< badge "error" >}}|The card is reporting an error; the error message can be found in details section.|
 
-Selecting a card will expand the row and show more detail:
+Clicking on a card will expand the row and show more detail:
 
 ![StatusTable](images/status_table.png?classes=shadow)
-
-<!-- ![CardDetails](images/card_details.png?width=300px&classes=shadow) -->
 
 If the card is in an {{< badge "error" >}} state, the number of errors and the error messages will be enumerated at the bottom of the details section.
 
@@ -80,7 +78,7 @@ At the bottom right of the UI, there is a link to download a compressed bundle o
 
 ![DownloadLogs](images/download_logs.png?width=300px&classes=shadow)
 
-Note that this may take up to 30 seconds depending on the size of the logfiles, so do not navigate away from the page while the collection is in progress.
+Note that this may take up to 30 seconds depending on the size of the logfiles, so do not navigate away from the page while the collection is in progress. Logfile processing is indicated by the presence of an animated spinner.
 
 ---
 
@@ -88,13 +86,18 @@ Note that this may take up to 30 seconds depending on the size of the logfiles, 
 
 To enable TLS on the appliance, replace the following two files with your own public and private certs, respectively:
 
-/etc/ssl/certs/public.crt
-
-/etc/ssl/private/private.key
+- /etc/ssl/certs/public.crt
+- /etc/ssl/private/private.key
 
 Then, restart *nginx* for the new certs to take effect:
 
-systemctl restart nginx
+- systemctl restart nginx
+
+You can test this new configuration by running:
+
+- nginx -t
+
+*Note that these operations must be done as sudo user.*
 
 ---
 # OpenAPI spec
