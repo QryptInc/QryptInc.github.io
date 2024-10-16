@@ -1,0 +1,27 @@
+{{- $status := .Get 0 | default "active" -}}
+{{- $bg := "" -}}
+
+{{- if eq $status "active" -}}
+  {{- $bg = "#41D478" -}}
+{{- else if eq $status "pending" -}}
+  {{- $bg = "#FFC01D" -}}
+{{- else if eq $status "error" -}}
+  {{- $bg = "#FD5547" -}}
+{{- else -}}
+  {{- $bg = "gray" -}}
+{{- end -}}
+
+<span
+  style="
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    background-color: {{ $bg }};
+    color: white;
+  ">
+  {{ $status | title }}
+</span>
