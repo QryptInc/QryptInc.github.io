@@ -6,7 +6,7 @@ weight = 70
 
 As the quantum era approaches, the need for cryptographic systems that can withstand the power of quantum computing becomes increasingly urgent. Current key exchange mechanisms like Elliptic Curve Diffie-Hellman (ECDH) are vulnerable to attacks from quantum computers, which can easily break these algorithms. To address this looming threat, it is critical to incorporate post-quantum key exchanges alongside traditional methods like (EC)DH to ensure that the resulting shared keys are secure against quantum-based attacks. RFC 9370 provides a framework for enhancing the Internet Key Exchange (IKEv2) protocol by enabling multiple successive key exchanges, including Post-Quantum Cryptography (PQC) techniques. This allows for the seamless integration of quantum-resistant algorithms with existing cryptographic protocols, ensuring compatibility while significantly strengthening security. The derived IKEv2 keys, fortified with these advanced techniques, are thus designed to be robust against the unprecedented capabilities of quantum computers.
 
-Qrypt integrated the BLAST protocol and post-quantum algorithms in IKEv2 as additional key exchange methods, providing security against Harvest Now Decrypt Later (HNDL) attacks and future quantum attacks. This solution, is built as an IPsec plug-in that seamlessly combines existing classical and quantum-secure key exchanges with Qrypt’s BLAST protocol. The solution leverages the NVIDIA Bluefield-3 DPU’s hardware capability for secure network communication and optimized performance. Support for the Qrypt plug-in can be easily enabled by configuring the StrongSwan service running on the DPUs.  
+Qrypt integrated the BLAST protocol and post-quantum algorithms in IKEv2 as additional key exchange methods, providing security against Harvest Now Decrypt Later (HNDL) attacks and future quantum attacks. This solution, is built as an IPsec plug-in that seamlessly combines existing classical and quantum-secure key exchanges with Qrypt’s BLAST protocol. The solution leverages the [NVIDIA Bluefield-3 DPU’s](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/documents/datasheet-nvidia-bluefield-3-dpu.pdf) hardware capability for secure network communication and optimized performance. Support for the Qrypt plug-in can be easily enabled by configuring the StrongSwan service running on the DPUs.  
 
 ---
 
@@ -175,6 +175,8 @@ BLAST is the protocol used to eliminate key transmission and safeguard data agai
 3. Each client independently samples BLAST APIs, assembling identical blocks of random on each client.
 4. Clients locally extracts keys - resulting in identical encryption keys which were never distributed.
 
+For more information see [BLAST](https://cs.nyu.edu/~dodis/ps/blast.pdf)
+
 ## BLAST Key Exchange in IKEv2
 
 ### **Option 1: Using IKE_INTERMEDIATE**
@@ -234,40 +236,40 @@ Setting up east-west overlay encryption can be done in two steps:
 1. **Configure the OVS (Open vSwitch):**
    - Setup the OVS bridge 
    - Configure the authentication method
-2. **Run the script:** Execute the following command, which runs the `ovs-monitor-ipsec` script and automates the configuration process: 
+2. **Run the script:** Execute the following command, which runs the *ovs-monitor-ipsec* script and automates the configuration process: 
 
    ```c
-   # systemctl start openvswitch-ipsec.service
+    systemctl start openvswitch-ipsec.service
    ```
 
 ## Configuring the OVS
 
 ### **Set up OVS bridges in both hosts**
 
-- Start Open vSwitch. If your operating system is Ubuntu, run the following on both `Arm_1` and `Arm_2`:
+- Start Open vSwitch. If your operating system is Ubuntu, run the following on both *Arm_1* and *Arm_2*:
     
    ```c
-    # service openvswitch-switch start
+     service openvswitch-switch start
     ```
     
-    If your operating system is CentOS, run the following on both `Arm_1` and `Arm_2`:
+    If your operating system is CentOS, run the following on both *Arm_1* and *Arm_2*:
     
     ```c
-    # service openvswitch restart
+     service openvswitch restart
     ```
     
-- Start OVS IPsec service. Run the following on both `Arm_1` and `Arm_2`:
+- Start OVS IPsec service. Run the following on both *Arm_1* and *Arm_2*:
     
     ```c
-    # systemctl start openvswitch-ipsec.service
+    systemctl start openvswitch-ipsec.service
     ```
     
-- Set up OVS bridges in both DPUs. Run the following on both `Arm_1` and `Arm_2`:
+- Set up OVS bridges in both DPUs. Run the following on both *Arm_1* and *Arm_2*:
     
     ```c
-    # ovs-vsctl add-br vxlan-br
-    # ovs-vsctl add-port ovs-br $PF_REP
-    # ovs-vsctl set Open_vSwitch . other_config:hw-offload=true
+    ovs-vsctl add-br vxlan-br
+    ovs-vsctl add-port ovs-br $PF_REP
+    ovs-vsctl set Open_vSwitch . other_config:hw-offload=true
     ```
     
 - Set up IPsec tunnel on the OVS bridge. Three authentication methods are possible. Select your preferred method and follow the steps relevant to it. Note that some authentication methods require you to create certificates (self-signed or certificate authority certificates).
@@ -278,10 +280,10 @@ There are three authentication methods:
 
 **Using pre-shared key**
 
-On `Arm_1`, run:
+On *Arm_1*, run:
 
 ```c
-# ovs-vsctl add-port vxlan-br tun -- \
+ovs-vsctl add-port vxlan-br tun -- \
             set interface tun type=vxlan \
                           options:local_ip=$ip1 \
                           options:remote_ip=$ip2 \
@@ -290,10 +292,10 @@ On `Arm_1`, run:
                           options:psk= your pre-shared secret value 
 ```
 
-On `Arm_2`, run:
+On *Arm_2*, run:
 
 ```c
-# ovs-vsctl add-port vxlan-br tun -- \
+ovs-vsctl add-port vxlan-br tun -- \
             set interface tun type=vxlan \
                           options:local_ip=$ip2 \
                           options:remote_ip=$ip1 \
@@ -307,86 +309,79 @@ Pre-shared key (PSK) based authentication is easy to set up but less secure comp
 
 **Using self-signed certificates** 
 
-Generate self-signed certificate in both `Arm_1`and `Arm_2`. Then copy the certificate of `Arm_1` to `Arm_2` and the certificate of `Arm_2` to `Arm_1`. 
+Generate self-signed certificate in both *Arm_1*and *Arm_2*. Then copy the certificate of *Arm_1* to *Arm_2* and the certificate of *Arm_2* to *Arm_1*. 
 
-On `Arm_1`, run:
+On *Arm_1*, run:
 
+Generate self-signed certificates
 ```c
-//Generate self-signed certificates
-# ovs-pki req -u host_1.       
-# ovs-pki self-sign host_1
 
-//After running this code you should have host_1-cert.pem and host_1-privkey.pem
-
-# ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_1-cert.pem \
+ovs-pki req -u host_1.       
+ovs-pki self-sign host_1
+ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_1-cert.pem \
   other_config:private_key=/etc/swanctl/private/host_1-privkey.pem
 ```
 
-On `Arm_2`, run:
+On *Arm_2*, run:
 
+Generate self-signed certificates
 ```c
-//Generate self-signed certificates
-# ovs-pki req -u host_2.       
-# ovs-pki self-sign host_2
-
-//After running this code you should have host_2-cert.pem and host_2-privkey.pem
-
-# ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_2-cert.pem \
+ovs-pki req -u host_2.       
+ovs-pki self-sign host_2
+ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_2-cert.pem \
   other_config:private_key=/etc/swanctl/private/host_2-privkey.pem
 ```
 
-- Copy the certificate of `Arm_1` to `Arm_2`, and the certificate of `Arm_2` to `Arm_1`.
-- On each machine, move both `host_1-privkey.pem` and `host_2-cert.pem` to `/etc/swanctl/x509/` if on Ubuntu, or `/etc/strongswan/swanctl/x509/` if on CentOS.
-- On each machine, move the local private key (`host_1-privkey.pem` on `Arm_1` and `host_2-privkey.pem` on `Arm_2`) to `/etc/swanctl/private` if on Ubuntu, or `/etc/strongswan/swanctl/private` if on CentOS.
+- Copy the certificate of *Arm_1* to *Arm_2*, and the certificate of *Arm_2* to *Arm_1*.
+- On each machine, move both *host_1-privkey.pem* and *host_2-cert.pem* to */etc/swanctl/x509/* if on Ubuntu, or */etc/strongswan/swanctl/x509/* if on CentOS.
+- On each machine, move the local private key (*host_1-privkey.pem* on *Arm_1* and *host_2-privkey.pem* on *Arm_2*) to */etc/swanctl/private* if on Ubuntu, or */etc/strongswan/swanctl/private* if on CentOS.
 
 **Using CA-signed certificate:**
 
-First you need to establish a public key infrastructure (PKI), generate certificate requests, and copy the certificate request of `Arm_1` to `Arm_2` and `Arm_2` to `Arm_1` . Sign the certificate requests with the CA key. 
+First you need to establish a public key infrastructure (PKI), generate certificate requests, and copy the certificate request of *Arm_1* to *Arm_2* and *Arm_2* to *Arm_1* . Sign the certificate requests with the CA key. 
 
-On `Arm_1`, run: 
-
-```c
-# ovs-pki init --force
-# cp /var/lib/openvswitch/pki/controllerca/cacert.pem <path_to>/certsworkspace
-# cd <path_to>/certsworkspace
-# ovs-pki req -u host_1
-# ovs-pki sign host1 switch
-
-//After running this code, you should have host_1-cert.pem, host_1-privkey.pem, and cacert.pm in the certsworkspace folder. 
-```
-
-On `Arm_2,` run: 
+On *Arm_1*, run: 
 
 ```c
-# ovs-pki init --force
-# cp /var/lib/openvswitch/pki/controllerca/cacert.pem <path_to>/certsworkspace
-# cd <path_to>/certsworkspace
-# ovs-pki req -u host_2
-# ovs-pki sign host_2 switch
-
-//After running this code, you should have host_2-cert.pem, host_2-privkey.pem, and cacert.pm in the certsworkspace folder.
+ovs-pki init --force
+cp /var/lib/openvswitch/pki/controllerca/cacert.pem <path_to>/certsworkspace
+cd <path_to>/certsworkspace
+ovs-pki req -u host_1
+ovs-pki sign host1 switch 
 ```
+After running this code, you should have host_1-cert.pem, host_1-privkey.pem, and cacert.pm in the certsworkspace folder.
 
-- Copy the certificate of `Arm_1` to `Arm_2` and the certificate of `Arm_2` to `Arm_1`.
-- On each machine, move both `host_1-privkey.pem` and `host_2-cert.pem` to `/etc/swanctl/x509/` if on Ubuntu, or `/etc/strongswan/swanctl/x509/` if on CentOS.
-- On each machine, move the local private key (`host_1-privkey.pem` if on `Arm_1` and `host_2-privkey.pem` if on `Arm_2`) to `/etc/swanctl/private` if on Ubuntu, or `/etc/strongswan/swanctl/private` if on CentOS.
-- On each machine, copy `cacert.pem` to the `x509ca` directory under `/etc/swanctl/x509ca/` if on Ubuntu, or `/etc/strongswan/swanctl/x509ca/` if on CentOS.
+On *Arm_2,* run: 
+
+```c
+ovs-pki init --force
+cp /var/lib/openvswitch/pki/controllerca/cacert.pem <path_to>/certsworkspace
+cd <path_to>/certsworkspace
+ovs-pki req -u host_2
+ovs-pki sign host_2 switch
+```
+After running this code, you should have host_2-cert.pem, host_2-privkey.pem, and cacert.pm in the certsworkspace folder.
+
+- Copy the certificate of *Arm_1* to *Arm_2* and the certificate of *Arm_2* to *Arm_1*.
+- On each machine, move both *host_1-privkey.pem* and *host_2-cert.pem* to */etc/swanctl/x509/* if on Ubuntu, or */etc/strongswan/swanctl/x509/* if on CentOS.
+- On each machine, move the local private key (*host_1-privkey.pem* if on *Arm_1* and *host_2-privkey.pem* if on *Arm_2*) to */etc/swanctl/private* if on Ubuntu, or */etc/strongswan/swanctl/private* if on CentOS.
+- On each machine, copy *cacert.pem* to the *x509ca* directory under */etc/swanctl/x509ca/* if on Ubuntu, or */etc/strongswan/swanctl/x509ca/* if on CentOS.
 
 Configure IPsec tunnel to use CA-signed certificate: 
 
-On `Arm_1`, run: 
+On *Arm_1*, run: 
 
 ```c
-# ovs-vsctl set Open_vSwitch . \
+ ovs-vsctl set Open_vSwitch . \
         other_config:certificate=/etc/strongswan/swanctl/x509/host_1.pem \
         other_config:private_key=/etc/strongswan/swanctl/private/host_1-privkey.pem \
         other_config:ca_cert=/etc/strongswan/swanctl/x509ca/cacert.pem
 ```
 
-On `Arm_2`, run: 
+On *Arm_2*, run: 
 
 ```c
-# ovs-vsctl set Open_vSwitch . \
+ ovs-vsctl set Open_vSwitch . \
         other_config:certificate=/etc/strongswan/swanctl/x509/host_2.pem \
         other_config:private_key=/etc/strongswan/swanctl/private/host_2-privkey.pem \
         other_config:ca_cert=/etc/strongswan/swanctl/x509ca/cacert.pem
@@ -397,20 +392,20 @@ On `Arm_2`, run:
 After OVS is configured, run the following command: 
 
 ```c
-# systemctl start openvswitch-ipsec.service
+systemctl start openvswitch-ipsec.service
 ```
 
-This command automatically runs the `ovs-monitor-ipsec` script and generates the `swanctl.conf` file. This command also runs the strongSwan IPsec service. 
+This command automatically runs the *ovs-monitor-ipsec* script and generates the *swanctl.conf* file. This command also runs the strongSwan IPsec service. 
 
 ### Script Parameters
 
-Note that critical information such as key exchange and authentication algorithms to be used for `IKE SA` and `ESP SA` are passed in the `ovs-monitor-ipsec`script to later generate a `swanctl.conf` file. Ensure that the script contains all the key exchange algorithms to be used for IKE SA establishment. For instance, parameters `ke1_kyber3-ke2_blast` passed in the`ovs-monitor-ipsec`script
+Note that critical information such as key exchange and authentication algorithms to be used for IKE SA and ESP SA are passed in the *ovs-monitor-ipsec* script to later generate a *swanctl.conf* file. Ensure that the script contains all the key exchange algorithms to be used for IKE SA establishment. For instance, parameters *ke1_kyber3-ke2_blast* passed in the *ovs-monitor-ipsec* script
 
 ```
 sudo sed -i 's/aes256gcm16-modp2048-esn/aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn/g' /usr/share/openvswitch/scripts/ovs-monitor-ipsec
 ```
 
-will result in `swanctl.conf`  parameters:
+will result in *swanctl.conf*  parameters:
 
 ```
 esp_proposals = aes128gcm128-x25519-ke1_kyber3-ke2_blast
@@ -418,56 +413,59 @@ esp_proposals = aes128gcm128-x25519-ke1_kyber3-ke2_blast
 
 ### strongSwan configuration file
 
-Here’s a basic structure for the `swanctl.conf` file that includes necessary parameters for both ends of the connection (referred to as Left (BFL) and Right (BFR)):
+Here’s a basic structure for the *swanctl.conf* file that includes necessary parameters for both ends of the connection (referred to as Left (BFL) and Right (BFR)):
 
 ```
 connections {
 BFL-BFR {
-local_addrs = 192.168.50.1       # Replace with your local IP
-remote_addrs = 192.168.50.2      # Replace with your remote IP
+local_addrs = 192.168.50.1       // Replace with your local IP
+remote_addrs = 192.168.50.2      // Replace with your remote IP
 local {
-auth = psk                   # Use pre-shared key authentication
-id = host1                   # Identifier for local machine
+auth = psk                   // Use pre-shared key authentication
+id = host1                   // Identifier for local machine
 }
 remote {
-auth = psk                   # Use pre-shared key authentication
-id = host2                   # Identifier for remote machine
+auth = psk                   // Use pre-shared key authentication
+id = host2                   // Identifier for remote machine
 }
 children {
 bf {
-local_ts = 192.168.50.1/24 [udp/4789]  # Local traffic selectors
-remote_ts = 192.168.50.2/24 [udp/4789] # Remote traffic selectors
-esp_proposals = aes128gcm128-x25519   # Encryption proposals should 
-																				include additional key exchanges  
-mode = transport              # Use transport mode
-policies_fwd_out = yes       # Forward output policies
-hw_offload = full            # Enable hardware offload
+local_ts = 192.168.50.1/24 [udp/4789]  // Local traffic selectors
+remote_ts = 192.168.50.2/24 [udp/4789] // Remote traffic selectors
+esp_proposals = aes128gcm128-x25519   // Encryption proposals should include additional key exchanges  
+mode = transport              // Use transport mode
+policies_fwd_out = yes       // Forward output policies
+hw_offload = full            // Enable hardware offload
 }
 }
-version = 2                        # Specify version
-mobike = no                        # Mobile IP not used
-reauth_time = 0                    # Re-authentication time
-proposals = aes128-sha256-x25519   # IKE proposals
+version = 2                        // Specify version
+mobike = no                        / Mobile IP not used
+reauth_time = 0                    // Re-authentication time
+proposals = aes128-sha256-x25519   // IKE proposals
 }
 }
 ```
 
-If using pre-shared key (PSK) for authentication, add a section to the `swanctl.conf` file:
+If using pre-shared key (PSK) for authentication, add a section to the *swanctl.conf* file:
 
 ```
 secrets {
     ike-BF {
-        id-host1 = host1                       # Identifier for Left Arm
-        id-host2 = host2                       # Identifier for Right Arm
-        secret = 0sv+NkxY9LLZvwj4qCC2o/gGrWDF2d21jL  # Replace with your actual secret
+        id-host1 = host1                       // Identifier for Left Arm
+        id-host2 = host2                       // Identifier for Right Arm
+        secret = 0sv+NkxY9LLZvwj4qCC2o/gGrWDF2d21jL  // Replace with your actual secret
     }
 }
 
 ```
 
-Ensure that all the data needed to generate the `swanctl.conf` file is correctly passed in the `ovs-monitor-ipsec` script. 
+Ensure that all the data needed to generate the *swanctl.conf* file is correctly passed in the *ovs-monitor-ipsec* script. 
+
+For more information see [ NVIDIA DOCA East-West Overlay Encryption Application](https://docs.nvidia.com/doca/sdk/nvidia+doca+east-west+overlay+encryption+application/index.html)
+
 
 ---
+
 
 # Build strongSwan with liboqs and Qrypt's BLAST  plugin
 
@@ -511,27 +509,27 @@ git checkout BF-6.0.0beta4-qrypt-plugins
 
 Create a free account at https://docs.qrypt.com/getting_started/ This will enable you to generate JSON web tokens (JWT) that you'll need to add to the conf files.
 
-strongswan/src/libstrongswan/plugins/quantum_entropy/quantum-entropy.conf:
+*strongswan/src/libstrongswan/plugins/quantum_entropy/quantum-entropy.conf*:
 
 ```
 quantum_entropy {
-    # Entropy API FQDN
+    // Entropy API FQDN
     fqdn = api-eus.qrypt.com
 
-    # Entropy API JWT
+    // Entropy API JWT
     jwt = <PASTE-TOKEN-HERE>
 
-    # File to read local random bytes for xor with downloaded entropy
+    // File to read local random bytes for xor with downloaded entropy
     random = /dev/random
 
-    # Whether to load the plugin. Can also be an integer to increase the
-    # priority of this plugin.
+    // Whether to load the plugin. Can also be an integer to increase the
+    // priority of this plugin.
     load = yes
 }
 
 ```
 
-strongswan/src/libstrongswan/plugins/blast/blast.conf:
+*strongswan/src/libstrongswan/plugins/blast/blast.conf:*
 
 ```
 blast {
@@ -546,7 +544,7 @@ blast {
 
 ### Build strongSwan
 
-Building a strongSwan 6.X tag will include support for RFC 9370 which will allow for hybrid key exchanges including PQC and BLAST.
+Building a strongSwan 6.X tag will include support for [RFC 9370](https://datatracker.ietf.org/doc/rfc9370/) which will allow for hybrid key exchanges including PQC and BLAST.
 
 ```
 sudo apt-get -y install pkg-config shtool autoconf gperf bison build-essential pkg-config m4 libtool libgmp3-dev automake autoconf gettext perl flex libsystemd-dev libjansson-dev curl libcurl4-openssl-dev
@@ -562,8 +560,8 @@ cd ..
 
 ### Build Qrypt's BLAST plugin
 
-Retrieve Qrypt's SDK library from the Qrypt Portal from "Products->Qrypt SDK". Copy the [libQryptSecurity.so](http://libqryptsecurity.so/) and
-[libQryptSecurityC.so](http://libqryptsecurityc.so/) ibraries to src/libstrongswan/plugins/blast/. Then, proceed with the following instructions.
+Retrieve Qrypt's SDK library from the Qrypt Portal from "Products->Qrypt SDK". Copy the libQryptSecurity.so and
+libQryptSecurityC.so libraries to *src/libstrongswan/plugins/blast/*. Then, proceed with the following instructions.
 
 ```
 cd src/libstrongswan/plugins/blast/
