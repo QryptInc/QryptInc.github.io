@@ -8,7 +8,7 @@ disableToc = "true"
 
 ## What is DQKD?
 
-DQKD is a functional and easy-to-set-up alternative to [QKD](https://www.nsa.gov/Cybersecurity/Quantum-Key-Distribution-QKD-and-Quantum-Cryptography-QC/), aiming to attain the level of security granted by QKD with a fraction of the deployment cost. We do so by using Qrypt's [BLAST](https://www.qrypt.com/wp-content/uploads/2022/03/Whitepaper-EverlastingSecurity.pdf#page=9) technology to generate key material safely at the endpoints. Unlike standard QKD, Qrypt's BLAST-based QKD removes the need for specialized instalations such as satalite and fiber optic.
+DQKD is a functional and easy-to-set-up alternative to [QKD](https://www.nsa.gov/Cybersecurity/Quantum-Key-Distribution-QKD-and-Quantum-Cryptography-QC/), aiming to attain the level of security granted by QKD with a fraction of the deployment cost. We do so by using Qrypt's [BLAST](https://www.qrypt.com/wp-content/uploads/2022/03/Whitepaper-EverlastingSecurity.pdf#page=9) technology to generate key material safely at the endpoints. Unlike standard QKD, Qrypt's BLAST-based QKD removes the need for specialized instalations such as satalite or fiber optic.
 ## How it works:
 ### From the User Perspective (simplest example)
 1. Alice wants to generate symmetric keys with Bob, without sending the key material directly between her and Bob
@@ -35,7 +35,7 @@ Alice requests a fresh quantum-random key, tagging Bob's server to allow dqkd to
     curl --cert My_Cert.p12 \
     "https://dqkd-eastus-1.qrypt.net/api/v1/keys/(Bob's KME ID)/enc_keys"
 
-The API defaults to one key of size 256, because Alice only needs one default key, she leaves the data fields blank, and recieves a key:
+The API defaults to one key of size 256, because Alice only needs one default-size key, she leaves the data fields blank, and recieves a key:
 
 
     {"keys": [{"key": “actual key”,"key_ID": “key id of actual key”}]}  
