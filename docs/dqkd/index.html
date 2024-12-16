@@ -12,22 +12,22 @@
     <title>Digital Quantum Key Distribution (DQKD)   :: Qrypt</title>
 
     
-    <link href="../css/nucleus.css?1734372762" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1734372762" rel="stylesheet">
-    <link href="../css/hybrid.css?1734372762" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1734372762" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1734372762" rel="stylesheet">
-    <link href="../css/auto-complete.css?1734372762" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1734372762" rel="stylesheet">
-    <link href="../css/theme.css?1734372762" rel="stylesheet">
-    <link href="../css/tabs.css?1734372762" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1734372762" rel="stylesheet">
+    <link href="../css/nucleus.css?1734377966" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1734377966" rel="stylesheet">
+    <link href="../css/hybrid.css?1734377966" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1734377966" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1734377966" rel="stylesheet">
+    <link href="../css/auto-complete.css?1734377966" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1734377966" rel="stylesheet">
+    <link href="../css/theme.css?1734377966" rel="stylesheet">
+    <link href="../css/tabs.css?1734377966" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1734377966" rel="stylesheet">
     
-    <link href="../css/theme-mine.css?1734372762" rel="stylesheet">
+    <link href="../css/theme-mine.css?1734377966" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1734372762"></script>
+    <script src="../js/jquery-3.3.1.min.js?1734377966"></script>
 
     
   </head>
@@ -523,64 +523,56 @@
 
 
 	<h2 id="what-is-dqkd">What is DQKD?</h2>
-<p>DQKD is a functional and easy-to-set-up alternative to <a href="https://www.nsa.gov/Cybersecurity/Quantum-Key-Distribution-QKD-and-Quantum-Cryptography-QC/">QKD</a>, aiming to attain the level of security granted by QKD with a fraction of the deployment cost. We do so by using Qrypt&rsquo;s <a href="https://www.qrypt.com/wp-content/uploads/2022/03/Whitepaper-EverlastingSecurity.pdf#page=9">BLAST</a> technology to generate key material safely at the endpoints. Unlike standard QKD, Qrypt&rsquo;s BLAST-based QKD removes the need for specialized instalations such as satalite or fiber optic.</p>
+<p>Alice is at one location (Site A), and Bob is at a different location (Site B). Each location has its own Key Management Entity (KME) that stores keys and makes them available for use by local clients.</p>
+<p>Alice wants to generate a symmetric encryption key and store it in the KME at Site A. She also wants to share that key with Bob and store it in the KME at Site B. It should then be possible to retrieve the key from either site, using the same key id.</p>
+<p>Traditional QKD systems use isolated fiber-optic or satellite based networks to send the key material between the sites.</p>
+<p>Qrypt&rsquo;s DQKD solution uses Qrypt&rsquo;s <a href="https://www.qrypt.com/wp-content/uploads/2022/03/Whitepaper-EverlastingSecurity.pdf#page=9">BLAST</a> protocol instead. The advantage of this protocol is that it makes it possible to exchange keys between sites securely over the public internet, without having to establish an isolated fiber-optic or satellite network.</p>
 <h2 id="how-it-works">How it works:</h2>
-<h3 id="from-the-user-perspective-simplest-example">From the User Perspective (simplest example)</h3>
+<p>A DQKD cluster consists of multiple sites, each of which has a KME that is identified by a unique KME ID.</p>
+<p>Each site has a server exposes the same API, which is an instance of the <a href="https://www.etsi.org/deliver/etsi_gs/QKD/001_099/014/01.01.01_60/gs_qkd014v010101p.pdf">ETSI GS QKD 014</a> specification.</p>
+<p>The cluster is secured using a single certificate trust chain. All endpoints on the cluster enforce mutual TLS, so all clients will need a client cert that is part of the same trust chain to call the endpoints on the respective sites.</p>
+<h3 id="generating-a-key---example-data-flow">Generating a key - example data flow</h3>
 <ol>
+<li>Alice calls the enc_keys endpoint on Site A to generate a key that she wants to share with Bob:</li>
+</ol>
+<pre tabindex="0"><code> curl --cert My_Certs.p12 \
+    &#34;https://dqkd-eastus-1.qrypt.net/api/v1/keys/(Bob&#39;s KME ID)/enc_keys&#34;
+</code></pre><ol start="2">
 <li>
-<p>Alice wants to generate symmetric keys with Bob, without sending the key material directly between her and Bob</p>
+<p>The DQKD server uses the BLAST protocol to generate a key and a new random key ID, and stores the key in the local KME</p>
 </li>
 <li>
-<p>Using her cert from Qrypt, and the ID of Bob&rsquo;s Key Management Entity (KME), Alice calls the API for a single key.</p>
+<p>The key ID and metadata required to re-genrate that key is sent to site B.</p>
 </li>
 <li>
-<p>A moment later, she recieves the key and respective key ID from her KME on site.</p>
+<p>The DQKD server at site B receives the metadata and uses it to re-generate the key.</p>
 </li>
 <li>
-<p>Behind the scenes, Alice&rsquo;s KME securely transmits the data required for Bob&rsquo;s KME to generate the exact same key through BLAST.</p>
+<p>The key is then stored and associated with the key ID in site B&rsquo;s KME.</p>
 </li>
 <li>
-<p>Then, she comfortably shares the key ID over a public channel with Bob, say over Discord or Whatsapp. Bob recieves the key ID.</p>
-</li>
-<li>
-<p>Bob then sends a request to his KME through the same API to replicate the key.</p>
-</li>
-<li>
-<p>From his on-site KME, Bob then recieves the key material that was generated by Alice, and can then use that material to send sensitive data to Alice.
-See graphic below for a visual.</p>
+<p>Alice receives the key material along with the key ID in the response to her original request:</p>
 </li>
 </ol>
+<pre tabindex="0"><code>{&#34;keys&#34;: [{&#34;key&#34;: &#34;KEY_MATERIAL&#34;,&#34;key_ID&#34;: &#34;SOME_KEY_ID&#34;}]}
+</code></pre><ol start="7">
+<li>
+<p>Alice sends Bob the key ID.</p>
+</li>
+<li>
+<p>Bob calls the dec_keys endpoint on the DQKD server at site B to get a copy of the key:</p>
+</li>
+</ol>
+<pre tabindex="0"><code> curl --cert My_Cert.p12 \
+    &#34;https://dqkd-westus-1.qrypt.net/api/v1/keys/(Alice&#39;s KME ID)/dec_keys&#34; \
+    -H &#34;Content-Type: application/json&#34; \
+    -d &#39;{&#34;key_IDs&#34;: [{&#34;key_ID&#34;: &#34;SOME_KEY_ID&#34;}]}&#39;
+</code></pre><ol start="9">
+<li>Bob receives the key material in the response:</li>
+</ol>
+<pre tabindex="0"><code>{&#34;keys&#34;: [{&#34;key&#34;: &#34;KEY_MATERIAL&#34;, &#34;key_ID&#34;: &#34;SOME_KEY_ID&#34;}]} 
+</code></pre><h3 id="data-flow---illustrated">Data flow - Illustrated</h3>
 <p><img src="images/dqkddiagram.svg" alt="FullPage"></p>
-<p>Alice and Bob have successfully established a post-quantum cryptographic connection without digging 100&rsquo;s of miles of cable or launching multiple satalites.</p>
-<h3 id="technical-implementation-details">Technical Implementation Details</h3>
-<p>Alice requests a fresh quantum-random key, tagging Bob&rsquo;s server to allow dqkd to make the key available on that server.</p>
-<pre><code>curl --cert My_Cert.p12 \
-&quot;https://dqkd-eastus-1.qrypt.net/api/v1/keys/(Bob's KME ID)/enc_keys&quot;
-</code></pre>
-<p>The API defaults to one key of size 256, because Alice only needs one default-size key, she leaves the data fields blank, and recieves a key:</p>
-<pre><code>{&quot;keys&quot;: [{&quot;key&quot;: “actual key”,&quot;key_ID&quot;: “key id of actual key”}]}  
-</code></pre>
-
-<div class="notices note" ><p>To request more than the default, use the following format, by adding the following to the data field of the request:</p>
-</div>
-
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>    curl <span style="color:#f92672">--</span>cert My_Cert.p12 \
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://dqkd-eastus-1.qrypt.net/api/v1/keys/(Bob&#39;s KME ID)/enc_keys&#34;</span> \
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span>d <span style="color:#960050;background-color:#1e0010">&#39;</span>{<span style="color:#e6db74">&#34;number&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,  <span style="color:#e6db74">&#34;size&#34;</span><span style="color:#f92672">:</span><span style="color:#ae81ff">256</span>}<span style="color:#960050;background-color:#1e0010">&#39;</span>
-</span></span></code></pre></div><p>Alice then sends the key ID to Bob, who already has Alice&rsquo;s KME ID, then sends the request for the Key Alice generated on her end.</p>
-<pre><code>curl --cert My_Cert.p12 \
-&quot;https://dqkd-westus-1.qrypt.net/api/v1/keys/(Alice's KME ID)/dec_keys&quot; \
--H &quot;Content-Type: application/json&quot; \
--d '{&quot;key_IDs&quot;: [{&quot;key_ID&quot;: “key id of actual key”}]}'
-</code></pre>
-<p>Bob then recieves the same message generated by Alice</p>
-<pre><code>{&quot;keys&quot;: [{&quot;key&quot;: “actual key”,&quot;key_ID&quot;: “key id of actual key”}]}  
-</code></pre>
-<p>From here the key can be used for any number of use cases, with the assurance that the key data is secure. This example is only to show how the system works, there can be any number of Alices or Bobs under a single KME, and unlimited KMEs that communicate with one another in a network. There is also the option to have a Time To Live (TTL) which can time-gate key decodes for shorter than the default of one hour.</p>
-
-<div class="notices note" ><p>We have implemented Qrypt DQKD in accordance with the <a href="https://www.etsi.org/deliver/etsi_gs/QKD/001_099/014/01.01.01_60/gs_qkd014v010101p.pdf">ETSI GS QKD 014</a> specification.</p>
-</div>
-
 
 
 
@@ -1016,19 +1008,19 @@ See graphic below for a visual.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1734372762"></script>
-    <script src="../js/perfect-scrollbar.min.js?1734372762"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1734372762"></script>
-    <script src="../js/jquery.sticky.js?1734372762"></script>
-    <script src="../js/featherlight.min.js?1734372762"></script>
-    <script src="../js/highlight.pack.js?1734372762"></script>
+    <script src="../js/clipboard.min.js?1734377966"></script>
+    <script src="../js/perfect-scrollbar.min.js?1734377966"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1734377966"></script>
+    <script src="../js/jquery.sticky.js?1734377966"></script>
+    <script src="../js/featherlight.min.js?1734377966"></script>
+    <script src="../js/highlight.pack.js?1734377966"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1734372762"></script>
-    <script src="../js/learn.js?1734372762"></script>
-    <script src="../js/hugo-learn.js?1734372762"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1734377966"></script>
+    <script src="../js/learn.js?1734377966"></script>
+    <script src="../js/hugo-learn.js?1734377966"></script>
     
         
-            <script src="../mermaid/mermaid.js?1734372762"></script>
+            <script src="../mermaid/mermaid.js?1734377966"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
