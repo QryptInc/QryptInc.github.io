@@ -23,36 +23,35 @@ Each site has a server exposes the same API, which is an instance of the [ETSI G
 The cluster is secured using a single certificate trust chain. All endpoints on the cluster enforce mutual TLS, so all clients will need a client cert that is part of the same trust chain to call the endpoints on the respective sites.
 
 ### Generating a key - example data flow
-1. Alice calls the enc_keys endpoint on Site A to generate a key that she wants to share with Bob:
+- Alice calls the enc_keys endpoint on Site A to generate a key that she wants to share with Bob:
 ```
  curl --cert My_Certs.p12 \
     "https://dqkd-eastus-1.qrypt.net/api/v1/keys/(Bob's KME ID)/enc_keys"
 ```
+- The DQKD server uses the BLAST protocol to generate a key and a new random key ID, and stores the key in the local KME
 
-2. The DQKD server uses the BLAST protocol to generate a key and a new random key ID, and stores the key in the local KME
+- The key ID and metadata required to re-genrate that key is sent to site B.
 
-3. The key ID and metadata required to re-genrate that key is sent to site B.
+- The DQKD server at site B receives the metadata and uses it to re-generate the key.
 
-4. The DQKD server at site B receives the metadata and uses it to re-generate the key.
+- The key is then stored and associated with the key ID in site B's KME.
 
-5. The key is then stored and associated with the key ID in site B's KME.
-
-6. Alice receives the key material along with the key ID in the response to her original request:
+- Alice receives the key material along with the key ID in the response to her original request:
 
 ```
 {"keys": [{"key": "KEY_MATERIAL","key_ID": "SOME_KEY_ID"}]}
 ```
 
-7. Alice sends Bob the key ID.
+- Alice sends Bob the key ID.
 
-8. Bob calls the dec_keys endpoint on the DQKD server at site B to get a copy of the key:
+- Bob calls the dec_keys endpoint on the DQKD server at site B to get a copy of the key:
 ```
  curl --cert My_Cert.p12 \
     "https://dqkd-westus-1.qrypt.net/api/v1/keys/(Alice's KME ID)/dec_keys" \
     -H "Content-Type: application/json" \
     -d '{"key_IDs": [{"key_ID": "SOME_KEY_ID"}]}'
 ```
-9. Bob receives the key material in the response:
+- Bob receives the key material in the response:
 ```
 {"keys": [{"key": "KEY_MATERIAL", "key_ID": "SOME_KEY_ID"}]} 
 ```
