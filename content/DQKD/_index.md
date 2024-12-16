@@ -1,7 +1,7 @@
 +++
 menuTitle = "DQKD"
 title = "Digital Quantum Key Distribution (DQKD)  "
-date = 2021-12-10T11:01:08-04:00
+date = 2021-12-14T11:01:08-04:00
 weight = 2
 disableToc = "true"
 +++
