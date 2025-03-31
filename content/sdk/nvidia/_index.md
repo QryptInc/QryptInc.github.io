@@ -231,14 +231,14 @@ OVS is used to facilitate the transfer of plaintext messages between the host an
 
 ## Setup East-West Overlay Encryption
 
-Setting up east-west overlay encryption can be done in two steps: 
+To set up east-west overlay encryption, first ensure that the strongSwan is built on the target machine. Next, complete the following two steps:
 
 1. **Configure the OVS (Open vSwitch):**
    - Setup the OVS bridge 
    - Configure the authentication method
 2. **Run the script:** Execute the following command, which runs the *ovs-monitor-ipsec* script and automates the configuration process: 
 
-   ```c
+   ```bash
     systemctl start openvswitch-ipsec.service
    ```
 
@@ -248,30 +248,40 @@ Setting up east-west overlay encryption can be done in two steps:
 
 - Start Open vSwitch. If your operating system is Ubuntu, run the following on both *Arm_1* and *Arm_2*:
     
-   ```c
+   ```bash
      service openvswitch-switch start
     ```
-    
-    If your operating system is CentOS, run the following on both *Arm_1* and *Arm_2*:
-    
-    ```c
-     service openvswitch restart
-    ```
-    
+
 - Start OVS IPsec service. Run the following on both *Arm_1* and *Arm_2*:
     
-    ```c
+    ```bash
     systemctl start openvswitch-ipsec.service
     ```
     
-- Set up OVS bridges in both DPUs. Run the following on both *Arm_1* and *Arm_2*:
-    
-    ```c
-    ovs-vsctl add-br vxlan-br
-    ovs-vsctl add-port ovs-br $PF_REP
-    ovs-vsctl set Open_vSwitch . other_config:hw-offload=true
+- Before you can set up OVS bridges in both DPUs, and add the physical function (PF) or its associated representor (PF_REP) to a new bridge, they must be detached from any existing OVS bridge they are associated with.
+ 
+	Detach PF_REP and PF from their current bridge:
+    ```bash
+	sudo ovs-vsctl del-port ovsbr1 $PF_REP
+	sudo ovs-vsctl del-port ovsbr1 $PF
+ 
     ```
-    
+	Note that “ovsbr1” is a sample name given in these instructions; the name on your system could be different. 
+ 
+	Next, run the following on both Arm_1 and Arm_2:
+    ```bash
+	sudo ovs-vsctl add-br my-ovs-br
+	sudo ovs-vsctl add-port my-ovs-br $PF_REP
+	sudo ovs-vsctl add-port my-ovs-br $PF
+	sudo ovs-vsctl set Open_vSwitch . other_config:hw-offload=true
+    ```
+
+    If your operating system is CentOS, run the following on both *Arm_1* and *Arm_2*:
+
+    ```bash
+    service openvswitch restart
+    ```
+
 - Set up IPsec tunnel on the OVS bridge. Three authentication methods are possible. Select your preferred method and follow the steps relevant to it. Note that some authentication methods require you to create certificates (self-signed or certificate authority certificates).
 
 ### Authentication Methods
@@ -282,7 +292,7 @@ There are three authentication methods:
 
 On *Arm_1*, run:
 
-```c
+```bash
 ovs-vsctl add-port vxlan-br tun -- \
             set interface tun type=vxlan \
                           options:local_ip=$ip1 \
@@ -294,8 +304,8 @@ ovs-vsctl add-port vxlan-br tun -- \
 
 On *Arm_2*, run:
 
-```c
-ovs-vsctl add-port vxlan-br tun -- \
+```bash
+sudo ovs-vsctl add-port vxlan-br tun -- \
             set interface tun type=vxlan \
                           options:local_ip=$ip2 \
                           options:remote_ip=$ip1 \
@@ -314,21 +324,20 @@ Generate self-signed certificate in both *Arm_1*and *Arm_2*. Then copy the cer
 On *Arm_1*, run:
 
 Generate self-signed certificates
-```c
-
-ovs-pki req -u host_1.       
-ovs-pki self-sign host_1
-ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_1-cert.pem \
+```bash
+sudo ovs-pki req -u host_1.       
+sudo ovs-pki self-sign host_1
+sudo ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_1-cert.pem \
   other_config:private_key=/etc/swanctl/private/host_1-privkey.pem
 ```
 
 On *Arm_2*, run:
 
 Generate self-signed certificates
-```c
-ovs-pki req -u host_2.       
-ovs-pki self-sign host_2
-ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_2-cert.pem \
+```bash
+sudo ovs-pki req -u host_2.       
+sudo ovs-pki self-sign host_2
+sudo ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_2-cert.pem \
   other_config:private_key=/etc/swanctl/private/host_2-privkey.pem
 ```
 
@@ -342,23 +351,23 @@ First you need to establish a public key infrastructure (PKI), generate certific
 
 On *Arm_1*, run: 
 
-```c
-ovs-pki init --force
+```bash
+sudo ovs-pki init --force
 cp /var/lib/openvswitch/pki/controllerca/cacert.pem <path_to>/certsworkspace
 cd <path_to>/certsworkspace
-ovs-pki req -u host_1
-ovs-pki sign host1 switch 
+sudo ovs-pki req -u host_1
+sudo ovs-pki sign host1 switch 
 ```
 After running this code, you should have host_1-cert.pem, host_1-privkey.pem, and cacert.pm in the certsworkspace folder.
 
 On *Arm_2,* run: 
 
-```c
-ovs-pki init --force
+```bash
+sudo ovs-pki init --force
 cp /var/lib/openvswitch/pki/controllerca/cacert.pem <path_to>/certsworkspace
 cd <path_to>/certsworkspace
-ovs-pki req -u host_2
-ovs-pki sign host_2 switch
+sudo ovs-pki req -u host_2
+sudo ovs-pki sign host_2 switch
 ```
 After running this code, you should have host_2-cert.pem, host_2-privkey.pem, and cacert.pm in the certsworkspace folder.
 
@@ -371,8 +380,8 @@ Configure IPsec tunnel to use CA-signed certificate:
 
 On *Arm_1*, run: 
 
-```c
- ovs-vsctl set Open_vSwitch . \
+```bash
+ sudo ovs-vsctl set Open_vSwitch . \
         other_config:certificate=/etc/strongswan/swanctl/x509/host_1.pem \
         other_config:private_key=/etc/strongswan/swanctl/private/host_1-privkey.pem \
         other_config:ca_cert=/etc/strongswan/swanctl/x509ca/cacert.pem
@@ -380,8 +389,8 @@ On *Arm_1*, run:
 
 On *Arm_2*, run: 
 
-```c
- ovs-vsctl set Open_vSwitch . \
+```bash
+ sudo ovs-vsctl set Open_vSwitch . \
         other_config:certificate=/etc/strongswan/swanctl/x509/host_2.pem \
         other_config:private_key=/etc/strongswan/swanctl/private/host_2-privkey.pem \
         other_config:ca_cert=/etc/strongswan/swanctl/x509ca/cacert.pem
@@ -389,9 +398,11 @@ On *Arm_2*, run:
 
 ## Execute a script
 
+Ensure that the strongSwan has already been built on your system.
+
 After OVS is configured, run the following command: 
 
-```c
+```bash
 systemctl start openvswitch-ipsec.service
 ```
 
@@ -401,7 +412,7 @@ This command automatically runs the *ovs-monitor-ipsec* script and generates the
 
 Note that critical information such as key exchange and authentication algorithms to be used for IKE SA and ESP SA are passed in the *ovs-monitor-ipsec* script to later generate a *swanctl.conf* file. Ensure that the script contains all the key exchange algorithms to be used for IKE SA establishment. For instance, parameters *ke1_kyber3-ke2_blast* passed in the *ovs-monitor-ipsec* script
 
-```
+```bash
 sudo sed -i 's/aes256gcm16-modp2048-esn/aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn/g' /usr/share/openvswitch/scripts/ovs-monitor-ipsec
 ```
 
@@ -416,47 +427,67 @@ esp_proposals = aes128gcm128-x25519-ke1_kyber3-ke2_blast
 Here’s a basic structure for the *swanctl.conf* file that includes necessary parameters for both ends of the connection (referred to as Left (BFL) and Right (BFR)):
 
 ```
+conn-defaults {
+      unique = replace
+      reauth_time = 0
+      version = 2
+      mobike = no
+      proposals = aes128-sha256-x25519
+}
+	
+child-defaults {
+      esp_proposals = aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn
+      mode = transport
+      policies_fwd_out = yes
+      start_action = start
+}
+ 
 connections {
-BFL-BFR {
-local_addrs = 192.168.50.1       // Replace with your local IP
-remote_addrs = 192.168.50.2      // Replace with your remote IP
-local {
-auth = psk                   // Use pre-shared key authentication
-id = host1                   // Identifier for local machine
-}
-remote {
-auth = psk                   // Use pre-shared key authentication
-id = host2                   // Identifier for remote machine
-}
-children {
-bf {
-local_ts = 192.168.50.1/24 [udp/4789]  // Local traffic selectors
-remote_ts = 192.168.50.2/24 [udp/4789] // Remote traffic selectors
-esp_proposals = aes128gcm128-x25519   // Encryption proposals should include additional key exchanges  
-mode = transport              // Use transport mode
-policies_fwd_out = yes       // Forward output policies
-hw_offload = full            // Enable hardware offload
-}
-}
-version = 2                        // Specify version
-mobike = no                        / Mobile IP not used
-reauth_time = 0                    // Re-authentication time
-proposals = aes128-sha256-x25519   // IKE proposals
-}
-}
-```
-
-If using pre-shared key (PSK) for authentication, add a section to the *swanctl.conf* file:
-
-```
-secrets {
-    ike-BF {
-        id-host1 = host1                       // Identifier for Left Arm
-        id-host2 = host2                       // Identifier for Right Arm
-        secret = 0sv+NkxY9LLZvwj4qCC2o/gGrWDF2d21jL  // Replace with your actual secret
+    tun-1 : conn-defaults{
+        local_addrs  = 0.0.0.0/0
+        remote_addrs = 192.168.50.2
+ 
+        local {
+            auth = psk
+            id = 192.168.50.1
+         }
+         remote {
+            auth = psk
+            id = 192.168.50.2
+         }
+ 
+   children {
+            tun-in-1 : child-defaults {
+                local_ts = 192.168.50.1/32 [udp/4789]
+                remote_ts = 192.168.50.2/32 [udp]
+                hw_offload = auto (should be full if supported)
+            }
+            tun-out-1 : child-defaults {
+                local_ts = 192.168.50.1/32 [udp]
+                remote_ts = 192.168.50.2/32 [udp/4789]
+                hw_offload = auto (should be full if supported)
+            }
+        }
     }
 }
+ 
+secrets {
+        ike-tun {
+            id = 192.168.50.1
+            secret = YOUR PRE-SHARED SECRET
+        }
+}
+```
 
+If using pre-shared key (PSK) for authentication, add a section to the swanctl.conf file:
+```
+secrets {
+ike-BF {
+        id-host1 = host1                       // Identifier for Left Arm
+        id-host2 = host2                       // Identifier for Right Arm
+        secret = YOUR PRE-SHARED SECRET  // Replace with your actual secret
+    }
+}
 ```
 
 Ensure that all the data needed to generate the *swanctl.conf* file is correctly passed in the *ovs-monitor-ipsec* script. 
@@ -468,6 +499,8 @@ For more information see [ NVIDIA DOCA East-West Overlay Encryption Application]
 
 
 # Build strongSwan with liboqs and Qrypt's BLAST  plugin
+
+Ensure that cmake is installed before completing the steps below.
 
 ### Create a directory to clone the repos into
 
@@ -482,24 +515,22 @@ cd qrypt
 ```
 sudo apt -y install astyle cmake gcc ninja-build libssl-dev python3-pytest python3-pytest-xdist unzip xsltproc doxygen graphviz python3-yaml valgrind
 
-git clone -b main <https://github.com/open-quantum-safe/liboqs.git>
+git clone -b main https://github.com/open-quantum-safe/liboqs.git
 cd liboqs
 
 mkdir build
 cd build
-cmake -GNinja -DOQS_USE_OPENSSL=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/usr \\
+cmake -GNinja -DOQS_USE_OPENSSL=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/usr \
               -DCMAKE_BUILD_TYPE=Release -DOQS_BUILD_ONLY_LIB=ON ..
 ninja
 sudo ninja install
-
-cd ../../
 
 ```
 
 ### Clone the strongSwan repo
 
 ```
-git clone <https://github.com/QryptInc/strongswan.git>
+git clone https://github.com/QryptInc/strongswan.git
 cd strongswan
 git checkout BF-6.0.0beta4-qrypt-plugins
 
@@ -554,24 +585,11 @@ sudo apt-get -y install pkg-config shtool autoconf gperf bison build-essential p
 make
 sudo make install
 
-cd ..
-
 ```
 
 ### Build Qrypt's BLAST plugin
 
-Retrieve Qrypt's SDK library from the Qrypt Portal from "Products->Qrypt SDK". Copy the libQryptSecurity.so and
-libQryptSecurityC.so libraries to *src/libstrongswan/plugins/blast/*. Then, proceed with the following instructions.
-
-```
-cd src/libstrongswan/plugins/blast/
-sudo make install-deps
-sudo ldconfig
-make SWANDIR=../../../..
-sudo make install PLUGINCONF=/etc/strongswan.d/charon/
-cd ../../../..
-
-```
+You should have Qrypt Security libraries, provided directly by Qrypt, along with instructions to build the BLAST IPsec plugin. Please follow the steps outlined in that document to build the plugin.
 
 ### Start and stop service
 
