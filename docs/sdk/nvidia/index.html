@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.139.4">
+    <meta name="generator" content="Hugo 0.136.0">
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>NVIDIA Quantum Secure Gateway :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1734382870" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1734382870" rel="stylesheet">
-    <link href="../../css/hybrid.css?1734382870" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1734382870" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1734382870" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1734382870" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1734382870" rel="stylesheet">
-    <link href="../../css/theme.css?1734382870" rel="stylesheet">
-    <link href="../../css/tabs.css?1734382870" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1734382870" rel="stylesheet">
+    <link href="../../css/nucleus.css?1742501325" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1742501325" rel="stylesheet">
+    <link href="../../css/hybrid.css?1742501325" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1742501325" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1742501325" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1742501325" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1742501325" rel="stylesheet">
+    <link href="../../css/theme.css?1742501325" rel="stylesheet">
+    <link href="../../css/tabs.css?1742501325" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1742501325" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1734382870" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1742501325" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1734382870"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1742501325"></script>
 
     
   </head>
@@ -724,7 +724,7 @@
 <p>OVS is used to facilitate the transfer of plaintext messages between the host and the DPU. In this context, OVS acts as a software-based network switch that manages network traffic, routing messages between the host’s CPU and the DPU without encryption.</p>
 <hr>
 <h2 id="setup-east-west-overlay-encryption">Setup East-West Overlay Encryption</h2>
-<p>Setting up east-west overlay encryption can be done in two steps:</p>
+<p>To set up east-west overlay encryption, first ensure that the strongSwan is built on the target machine. Next, complete the following two steps:</p>
 <ol>
 <li>
 <p><strong>Configure the OVS (Open vSwitch):</strong></p>
@@ -735,7 +735,7 @@
 </li>
 <li>
 <p><strong>Run the script:</strong> Execute the following command, which runs the <em>ovs-monitor-ipsec</em> script and automates the configuration process:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span> systemctl start openvswitch<span style="color:#f92672">-</span>ipsec.service
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> systemctl start openvswitch-ipsec.service
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="configuring-the-ovs">Configuring the OVS</h2>
@@ -743,19 +743,25 @@
 <ul>
 <li>
 <p>Start Open vSwitch. If your operating system is Ubuntu, run the following on both <em>Arm_1</em> and <em>Arm_2</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>  service openvswitch<span style="color:#f92672">-</span><span style="color:#66d9ef">switch</span> start
-</span></span></code></pre></div><p>If your operating system is CentOS, run the following on both <em>Arm_1</em> and <em>Arm_2</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span> service openvswitch restart
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  service openvswitch-switch start
 </span></span></code></pre></div></li>
 <li>
 <p>Start OVS IPsec service. Run the following on both <em>Arm_1</em> and <em>Arm_2</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>systemctl start openvswitch<span style="color:#f92672">-</span>ipsec.service
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl start openvswitch-ipsec.service
 </span></span></code></pre></div></li>
 <li>
-<p>Set up OVS bridges in both DPUs. Run the following on both <em>Arm_1</em> and <em>Arm_2</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>vsctl add<span style="color:#f92672">-</span>br vxlan<span style="color:#f92672">-</span>br
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>vsctl add<span style="color:#f92672">-</span>port ovs<span style="color:#f92672">-</span>br <span style="color:#960050;background-color:#1e0010">$</span>PF_REP
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>vsctl set Open_vSwitch . other_config:hw<span style="color:#f92672">-</span>offload<span style="color:#f92672">=</span>true
+<p>Before you can set up OVS bridges in both DPUs, and add the physical function (PF) or its associated representor (PF_REP) to a new bridge, they must be detached from any existing OVS bridge they are associated with.</p>
+<p>Detach PF_REP and PF from their current bridge:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-vsctl del-port ovsbr1 $PF_REP
+</span></span><span style="display:flex;"><span>sudo ovs-vsctl del-port ovsbr1 $PF
+</span></span></code></pre></div><p>Note that “ovsbr1” is a sample name given in these instructions; the name on your system could be different.</p>
+<p>Next, run the following on both Arm_1 and Arm_2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-vsctl add-br my-ovs-br
+</span></span><span style="display:flex;"><span>sudo ovs-vsctl add-port my-ovs-br $PF_REP
+</span></span><span style="display:flex;"><span>sudo ovs-vsctl add-port my-ovs-br $PF
+</span></span><span style="display:flex;"><span>sudo ovs-vsctl set Open_vSwitch . other_config:hw-offload<span style="color:#f92672">=</span>true
+</span></span></code></pre></div><p>If your operating system is CentOS, run the following on both <em>Arm_1</em> and <em>Arm_2</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>service openvswitch restart
 </span></span></code></pre></div></li>
 <li>
 <p>Set up IPsec tunnel on the OVS bridge. Three authentication methods are possible. Select your preferred method and follow the steps relevant to it. Note that some authentication methods require you to create certificates (self-signed or certificate authority certificates).</p>
@@ -765,21 +771,21 @@
 <p>There are three authentication methods:</p>
 <p><strong>Using pre-shared key</strong></p>
 <p>On <em>Arm_1</em>, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>vsctl add<span style="color:#f92672">-</span>port vxlan<span style="color:#f92672">-</span>br tun <span style="color:#f92672">--</span> \
-</span></span><span style="display:flex;"><span>            set interface tun type<span style="color:#f92672">=</span>vxlan \
-</span></span><span style="display:flex;"><span>                          options:local_ip<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span>ip1 \
-</span></span><span style="display:flex;"><span>                          options:remote_ip<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span>ip2 \
-</span></span><span style="display:flex;"><span>                          options:key<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> \
-</span></span><span style="display:flex;"><span>                          options:dst_port<span style="color:#f92672">=</span><span style="color:#ae81ff">4789</span> \
-</span></span><span style="display:flex;"><span>                          options:psk<span style="color:#f92672">=</span> your pre<span style="color:#f92672">-</span>shared secret value 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ovs-vsctl add-port vxlan-br tun -- <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>            set interface tun type<span style="color:#f92672">=</span>vxlan <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:local_ip<span style="color:#f92672">=</span>$ip1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:remote_ip<span style="color:#f92672">=</span>$ip2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:key<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:dst_port<span style="color:#f92672">=</span><span style="color:#ae81ff">4789</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:psk<span style="color:#f92672">=</span> your pre-shared secret value 
 </span></span></code></pre></div><p>On <em>Arm_2</em>, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>vsctl add<span style="color:#f92672">-</span>port vxlan<span style="color:#f92672">-</span>br tun <span style="color:#f92672">--</span> \
-</span></span><span style="display:flex;"><span>            set interface tun type<span style="color:#f92672">=</span>vxlan \
-</span></span><span style="display:flex;"><span>                          options:local_ip<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span>ip2 \
-</span></span><span style="display:flex;"><span>                          options:remote_ip<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span>ip1 \
-</span></span><span style="display:flex;"><span>                          options:key<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> \
-</span></span><span style="display:flex;"><span>                          options:dst_port<span style="color:#f92672">=</span><span style="color:#ae81ff">4789</span>\
-</span></span><span style="display:flex;"><span>                          options:psk<span style="color:#f92672">=</span>your pre<span style="color:#f92672">-</span>shared secret value
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-vsctl add-port vxlan-br tun -- <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>            set interface tun type<span style="color:#f92672">=</span>vxlan <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:local_ip<span style="color:#f92672">=</span>$ip2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:remote_ip<span style="color:#f92672">=</span>$ip1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:key<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:dst_port<span style="color:#f92672">=</span>4789<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:psk<span style="color:#f92672">=</span>your pre-shared secret value
 </span></span></code></pre></div>
 <div class="notices note" ><p>Pre-shared key (PSK) based authentication is easy to set up but less secure compared with other authentication methods. You should use it cautiously in production systems.</p>
 </div>
@@ -788,17 +794,16 @@
 <p>Generate self-signed certificate in both <em>Arm_1</em>and <em>Arm_2</em>. Then copy the certificate of <em>Arm_1</em> to <em>Arm_2</em> and the certificate of <em>Arm_2</em> to <em>Arm_1</em>.</p>
 <p>On <em>Arm_1</em>, run:</p>
 <p>Generate self-signed certificates</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki req <span style="color:#f92672">-</span>u host_1.       
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki self<span style="color:#f92672">-</span>sign host_1
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>vsctl set Open_vSwitch . other_config:certificate<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>x509<span style="color:#f92672">/</span>host_1<span style="color:#f92672">-</span>cert.pem \
-</span></span><span style="display:flex;"><span>  other_config:private_key<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>private<span style="color:#f92672">/</span>host_1<span style="color:#f92672">-</span>privkey.pem
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki req -u host_1.       
+</span></span><span style="display:flex;"><span>sudo ovs-pki self-sign host_1
+</span></span><span style="display:flex;"><span>sudo ovs-vsctl set Open_vSwitch . other_config:certificate<span style="color:#f92672">=</span>/etc/swanctl/x509/host_1-cert.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  other_config:private_key<span style="color:#f92672">=</span>/etc/swanctl/private/host_1-privkey.pem
 </span></span></code></pre></div><p>On <em>Arm_2</em>, run:</p>
 <p>Generate self-signed certificates</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki req <span style="color:#f92672">-</span>u host_2.       
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki self<span style="color:#f92672">-</span>sign host_2
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>vsctl set Open_vSwitch . other_config:certificate<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>x509<span style="color:#f92672">/</span>host_2<span style="color:#f92672">-</span>cert.pem \
-</span></span><span style="display:flex;"><span>  other_config:private_key<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>private<span style="color:#f92672">/</span>host_2<span style="color:#f92672">-</span>privkey.pem
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki req -u host_2.       
+</span></span><span style="display:flex;"><span>sudo ovs-pki self-sign host_2
+</span></span><span style="display:flex;"><span>sudo ovs-vsctl set Open_vSwitch . other_config:certificate<span style="color:#f92672">=</span>/etc/swanctl/x509/host_2-cert.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  other_config:private_key<span style="color:#f92672">=</span>/etc/swanctl/private/host_2-privkey.pem
 </span></span></code></pre></div><ul>
 <li>Copy the certificate of <em>Arm_1</em> to <em>Arm_2</em>, and the certificate of <em>Arm_2</em> to <em>Arm_1</em>.</li>
 <li>On each machine, move both <em>host_1-privkey.pem</em> and <em>host_2-cert.pem</em> to <em>/etc/swanctl/x509/</em> if on Ubuntu, or <em>/etc/strongswan/swanctl/x509/</em> if on CentOS.</li>
@@ -807,18 +812,18 @@
 <p><strong>Using CA-signed certificate:</strong></p>
 <p>First you need to establish a public key infrastructure (PKI), generate certificate requests, and copy the certificate request of <em>Arm_1</em> to <em>Arm_2</em> and <em>Arm_2</em> to <em>Arm_1</em> . Sign the certificate requests with the CA key.</p>
 <p>On <em>Arm_1</em>, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki init <span style="color:#f92672">--</span>force
-</span></span><span style="display:flex;"><span>cp <span style="color:#f92672">/</span>var<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>openvswitch<span style="color:#f92672">/</span>pki<span style="color:#f92672">/</span>controllerca<span style="color:#f92672">/</span>cacert.pem <span style="color:#f92672">&lt;</span>path_to<span style="color:#f92672">&gt;/</span>certsworkspace
-</span></span><span style="display:flex;"><span>cd <span style="color:#f92672">&lt;</span>path_to<span style="color:#f92672">&gt;/</span>certsworkspace
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki req <span style="color:#f92672">-</span>u host_1
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki sign host1 <span style="color:#66d9ef">switch</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki init --force
+</span></span><span style="display:flex;"><span>cp /var/lib/openvswitch/pki/controllerca/cacert.pem &lt;path_to&gt;/certsworkspace
+</span></span><span style="display:flex;"><span>cd &lt;path_to&gt;/certsworkspace
+</span></span><span style="display:flex;"><span>sudo ovs-pki req -u host_1
+</span></span><span style="display:flex;"><span>sudo ovs-pki sign host1 switch 
 </span></span></code></pre></div><p>After running this code, you should have host_1-cert.pem, host_1-privkey.pem, and cacert.pm in the certsworkspace folder.</p>
 <p>On <em>Arm_2,</em> run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki init <span style="color:#f92672">--</span>force
-</span></span><span style="display:flex;"><span>cp <span style="color:#f92672">/</span>var<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>openvswitch<span style="color:#f92672">/</span>pki<span style="color:#f92672">/</span>controllerca<span style="color:#f92672">/</span>cacert.pem <span style="color:#f92672">&lt;</span>path_to<span style="color:#f92672">&gt;/</span>certsworkspace
-</span></span><span style="display:flex;"><span>cd <span style="color:#f92672">&lt;</span>path_to<span style="color:#f92672">&gt;/</span>certsworkspace
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki req <span style="color:#f92672">-</span>u host_2
-</span></span><span style="display:flex;"><span>ovs<span style="color:#f92672">-</span>pki sign host_2 <span style="color:#66d9ef">switch</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki init --force
+</span></span><span style="display:flex;"><span>cp /var/lib/openvswitch/pki/controllerca/cacert.pem &lt;path_to&gt;/certsworkspace
+</span></span><span style="display:flex;"><span>cd &lt;path_to&gt;/certsworkspace
+</span></span><span style="display:flex;"><span>sudo ovs-pki req -u host_2
+</span></span><span style="display:flex;"><span>sudo ovs-pki sign host_2 switch
 </span></span></code></pre></div><p>After running this code, you should have host_2-cert.pem, host_2-privkey.pem, and cacert.pm in the certsworkspace folder.</p>
 <ul>
 <li>Copy the certificate of <em>Arm_1</em> to <em>Arm_2</em> and the certificate of <em>Arm_2</em> to <em>Arm_1</em>.</li>
@@ -828,85 +833,107 @@
 </ul>
 <p>Configure IPsec tunnel to use CA-signed certificate:</p>
 <p>On <em>Arm_1</em>, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span> ovs<span style="color:#f92672">-</span>vsctl set Open_vSwitch . \
-</span></span><span style="display:flex;"><span>        other_config:certificate<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>strongswan<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>x509<span style="color:#f92672">/</span>host_1.pem \
-</span></span><span style="display:flex;"><span>        other_config:private_key<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>strongswan<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>private<span style="color:#f92672">/</span>host_1<span style="color:#f92672">-</span>privkey.pem \
-</span></span><span style="display:flex;"><span>        other_config:ca_cert<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>strongswan<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>x509ca<span style="color:#f92672">/</span>cacert.pem
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> sudo ovs-vsctl set Open_vSwitch . <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:certificate<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509/host_1.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:private_key<span style="color:#f92672">=</span>/etc/strongswan/swanctl/private/host_1-privkey.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:ca_cert<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509ca/cacert.pem
 </span></span></code></pre></div><p>On <em>Arm_2</em>, run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span> ovs<span style="color:#f92672">-</span>vsctl set Open_vSwitch . \
-</span></span><span style="display:flex;"><span>        other_config:certificate<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>strongswan<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>x509<span style="color:#f92672">/</span>host_2.pem \
-</span></span><span style="display:flex;"><span>        other_config:private_key<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>strongswan<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>private<span style="color:#f92672">/</span>host_2<span style="color:#f92672">-</span>privkey.pem \
-</span></span><span style="display:flex;"><span>        other_config:ca_cert<span style="color:#f92672">=/</span>etc<span style="color:#f92672">/</span>strongswan<span style="color:#f92672">/</span>swanctl<span style="color:#f92672">/</span>x509ca<span style="color:#f92672">/</span>cacert.pem
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> sudo ovs-vsctl set Open_vSwitch . <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:certificate<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509/host_2.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:private_key<span style="color:#f92672">=</span>/etc/strongswan/swanctl/private/host_2-privkey.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:ca_cert<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509ca/cacert.pem
 </span></span></code></pre></div><h2 id="execute-a-script">Execute a script</h2>
+<p>Ensure that the strongSwan has already been built on your system.</p>
 <p>After OVS is configured, run the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>systemctl start openvswitch<span style="color:#f92672">-</span>ipsec.service
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl start openvswitch-ipsec.service
 </span></span></code></pre></div><p>This command automatically runs the <em>ovs-monitor-ipsec</em> script and generates the <em>swanctl.conf</em> file. This command also runs the strongSwan IPsec service.</p>
 <h3 id="script-parameters">Script Parameters</h3>
 <p>Note that critical information such as key exchange and authentication algorithms to be used for IKE SA and ESP SA are passed in the <em>ovs-monitor-ipsec</em> script to later generate a <em>swanctl.conf</em> file. Ensure that the script contains all the key exchange algorithms to be used for IKE SA establishment. For instance, parameters <em>ke1_kyber3-ke2_blast</em> passed in the <em>ovs-monitor-ipsec</em> script</p>
-<pre tabindex="0"><code>sudo sed -i &#39;s/aes256gcm16-modp2048-esn/aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn/g&#39; /usr/share/openvswitch/scripts/ovs-monitor-ipsec
-</code></pre><p>will result in <em>swanctl.conf</em>  parameters:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#39;s/aes256gcm16-modp2048-esn/aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn/g&#39;</span> /usr/share/openvswitch/scripts/ovs-monitor-ipsec
+</span></span></code></pre></div><p>will result in <em>swanctl.conf</em>  parameters:</p>
 <pre tabindex="0"><code>esp_proposals = aes128gcm128-x25519-ke1_kyber3-ke2_blast
 </code></pre><h3 id="strongswan-configuration-file">strongSwan configuration file</h3>
 <p>Here’s a basic structure for the <em>swanctl.conf</em> file that includes necessary parameters for both ends of the connection (referred to as Left (BFL) and Right (BFR)):</p>
-<pre tabindex="0"><code>connections {
-BFL-BFR {
-local_addrs = 192.168.50.1       // Replace with your local IP
-remote_addrs = 192.168.50.2      // Replace with your remote IP
-local {
-auth = psk                   // Use pre-shared key authentication
-id = host1                   // Identifier for local machine
+<pre tabindex="0"><code>conn-defaults {
+      unique = replace
+      reauth_time = 0
+      version = 2
+      mobike = no
+      proposals = aes128-sha256-x25519
 }
-remote {
-auth = psk                   // Use pre-shared key authentication
-id = host2                   // Identifier for remote machine
+	
+child-defaults {
+      esp_proposals = aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn
+      mode = transport
+      policies_fwd_out = yes
+      start_action = start
 }
-children {
-bf {
-local_ts = 192.168.50.1/24 [udp/4789]  // Local traffic selectors
-remote_ts = 192.168.50.2/24 [udp/4789] // Remote traffic selectors
-esp_proposals = aes128gcm128-x25519   // Encryption proposals should include additional key exchanges  
-mode = transport              // Use transport mode
-policies_fwd_out = yes       // Forward output policies
-hw_offload = full            // Enable hardware offload
+ 
+connections {
+    tun-1 : conn-defaults{
+        local_addrs  = 0.0.0.0/0
+        remote_addrs = 192.168.50.2
+ 
+        local {
+            auth = psk
+            id = 192.168.50.1
+         }
+         remote {
+            auth = psk
+            id = 192.168.50.2
+         }
+ 
+   children {
+            tun-in-1 : child-defaults {
+                local_ts = 192.168.50.1/32 [udp/4789]
+                remote_ts = 192.168.50.2/32 [udp]
+                hw_offload = auto (should be full if supported)
+            }
+            tun-out-1 : child-defaults {
+                local_ts = 192.168.50.1/32 [udp]
+                remote_ts = 192.168.50.2/32 [udp/4789]
+                hw_offload = auto (should be full if supported)
+            }
+        }
+    }
 }
+ 
+secrets {
+        ike-tun {
+            id = 192.168.50.1
+            secret = YOUR PRE-SHARED SECRET
+        }
 }
-version = 2                        // Specify version
-mobike = no                        / Mobile IP not used
-reauth_time = 0                    // Re-authentication time
-proposals = aes128-sha256-x25519   // IKE proposals
-}
-}
-</code></pre><p>If using pre-shared key (PSK) for authentication, add a section to the <em>swanctl.conf</em> file:</p>
+</code></pre><p>If using pre-shared key (PSK) for authentication, add a section to the swanctl.conf file:</p>
 <pre tabindex="0"><code>secrets {
-    ike-BF {
+ike-BF {
         id-host1 = host1                       // Identifier for Left Arm
         id-host2 = host2                       // Identifier for Right Arm
-        secret = 0sv+NkxY9LLZvwj4qCC2o/gGrWDF2d21jL  // Replace with your actual secret
+        secret = YOUR PRE-SHARED SECRET  // Replace with your actual secret
     }
 }
 </code></pre><p>Ensure that all the data needed to generate the <em>swanctl.conf</em> file is correctly passed in the <em>ovs-monitor-ipsec</em> script.</p>
 <p>For more information see <a href="https://docs.nvidia.com/doca/sdk/nvidia+doca+east-west+overlay+encryption+application/index.html"> NVIDIA DOCA East-West Overlay Encryption Application</a></p>
 <hr>
 <h1 id="build-strongswan-with-liboqs-and-qrypts-blast--plugin">Build strongSwan with liboqs and Qrypt&rsquo;s BLAST  plugin</h1>
+<p>Ensure that cmake is installed before completing the steps below.</p>
 <h3 id="create-a-directory-to-clone-the-repos-into">Create a directory to clone the repos into</h3>
 <pre tabindex="0"><code>mkdir qrypt
 cd qrypt
 </code></pre><h3 id="clone-and-build-liboqs">Clone and build liboqs</h3>
 <pre tabindex="0"><code>sudo apt -y install astyle cmake gcc ninja-build libssl-dev python3-pytest python3-pytest-xdist unzip xsltproc doxygen graphviz python3-yaml valgrind
 
-git clone -b main &lt;https://github.com/open-quantum-safe/liboqs.git&gt;
+git clone -b main https://github.com/open-quantum-safe/liboqs.git
 cd liboqs
 
 mkdir build
 cd build
-cmake -GNinja -DOQS_USE_OPENSSL=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/usr \\
+cmake -GNinja -DOQS_USE_OPENSSL=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/usr \
               -DCMAKE_BUILD_TYPE=Release -DOQS_BUILD_ONLY_LIB=ON ..
 ninja
 sudo ninja install
-
-cd ../../
 </code></pre><h3 id="clone-the-strongswan-repo">Clone the strongSwan repo</h3>
-<pre tabindex="0"><code>git clone &lt;https://github.com/QryptInc/strongswan.git&gt;
+<pre tabindex="0"><code>git clone https://github.com/QryptInc/strongswan.git
 cd strongswan
 git checkout BF-6.0.0beta4-qrypt-plugins
 </code></pre><h3 id="edit-the-plugin-conf-files">Edit the plugin conf files</h3>
@@ -942,18 +969,9 @@ git checkout BF-6.0.0beta4-qrypt-plugins
 ./configure --enable-openssl --disable-random --prefix=/usr/local --sysconfdir=/etc --enable-systemd --enable-oqs --enable-curl
 make
 sudo make install
-
-cd ..
 </code></pre><h3 id="build-qrypts-blast-plugin">Build Qrypt&rsquo;s BLAST plugin</h3>
-<p>Retrieve Qrypt&rsquo;s SDK library from the Qrypt Portal from &ldquo;Products-&gt;Qrypt SDK&rdquo;. Copy the libQryptSecurity.so and
-libQryptSecurityC.so libraries to <em>src/libstrongswan/plugins/blast/</em>. Then, proceed with the following instructions.</p>
-<pre tabindex="0"><code>cd src/libstrongswan/plugins/blast/
-sudo make install-deps
-sudo ldconfig
-make SWANDIR=../../../..
-sudo make install PLUGINCONF=/etc/strongswan.d/charon/
-cd ../../../..
-</code></pre><h3 id="start-and-stop-service">Start and stop service</h3>
+<p>You should have Qrypt Security libraries, provided directly by Qrypt, along with instructions to build the BLAST IPsec plugin. Please follow the steps outlined in that document to build the plugin.</p>
+<h3 id="start-and-stop-service">Start and stop service</h3>
 <pre tabindex="0"><code>sudo systemctl daemon-reload
 sudo systemctl stop strongswan.service
 sudo systemctl start strongswan.service
@@ -1397,19 +1415,19 @@ sudo systemctl status strongswan.service
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1734382870"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1734382870"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1734382870"></script>
-    <script src="../../js/jquery.sticky.js?1734382870"></script>
-    <script src="../../js/featherlight.min.js?1734382870"></script>
-    <script src="../../js/highlight.pack.js?1734382870"></script>
+    <script src="../../js/clipboard.min.js?1742501325"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1742501325"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1742501325"></script>
+    <script src="../../js/jquery.sticky.js?1742501325"></script>
+    <script src="../../js/featherlight.min.js?1742501325"></script>
+    <script src="../../js/highlight.pack.js?1742501325"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1734382870"></script>
-    <script src="../../js/learn.js?1734382870"></script>
-    <script src="../../js/hugo-learn.js?1734382870"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1742501325"></script>
+    <script src="../../js/learn.js?1742501325"></script>
+    <script src="../../js/hugo-learn.js?1742501325"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1734382870"></script>
+            <script src="../../mermaid/mermaid.js?1742501325"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
