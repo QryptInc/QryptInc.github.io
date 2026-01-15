@@ -13,7 +13,7 @@ Developers need familiar tools based on modern development practices. We provide
 
 The Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.
 
-This service requires an access token. Follow the steps in [Getting Started]({{< ref "/getting_started" >}}) to obtain an access token.
+This service requires an access token. Please {{< externalLink link="https://www.qrypt.com/contact/" text="contact us" >}} to obtain one.
 
 ## [Quickstarts](quickstarts/)
 
@@ -26,7 +26,6 @@ Detailed API References for a growing list of plaforms.
 ## [Changelogs](changelogs/)
 
 Release notes and updates
-
 
 ## [Nvidia Quantum Secure Gateway](nvidia/)
 

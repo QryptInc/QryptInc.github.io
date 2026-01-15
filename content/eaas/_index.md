@@ -8,11 +8,12 @@ disableToc = "true"
 
 ## Using Qrypt's Quantum Entropy Service
 
-Qrypt’s Entropy as a Service is a RESTful web service that allows you to generate random data (henceforth referred to as entropy or random) that is truly random—based on quantum-mechanical phenomena. 
+Qrypt’s Entropy as a Service is a RESTful web service that allows you to generate random data (henceforth referred to as entropy or random) that is truly random—based on quantum-mechanical phenomena.
 
-This service requires an access token. Follow the steps in [Getting Started]({{< ref "/getting_started" >}}) to obtain an access token.
+This service requires an access token. Please {{< externalLink link="https://www.qrypt.com/contact/" text="contact us" >}} to obtain one.
 
 ### Related Tools and Services
+
 1. [RNG Tools]({{< ref "/eaas/rngd" >}}): Integrating Qrypt's Quantum Entropy service as a random source for system devices.
 2. [Qseed]({{< ref "/eaas/pkcs11" >}}): Integrating Qrypt's Quantum Entropy service as a random source for PKCS#11 HSMs.
 
@@ -31,7 +32,7 @@ Follow these steps in your preferred tool or language of choice to request entro
 1. Specify your access token and the desired number of kibibytes (1,024 bytes) of entropy in a web request. Use the following URL: {{< externalLink link="https://api-eus.qrypt.com/api/v1/quantum-entropy?size={kib_entropy}" text="https://api-eus.qrypt.com/api/v1/quantum-entropy?size={kib_entropy}" >}}.
 2. Replace {**kib_entropy**} in the aforementioned URL with an integer indicating the number of kibibytes of entropy to return.
 3. Include an HTTP **“Accept”** header field with a value of **“application/json”**</span>.
-4. Include an HTTP **“Authorization”** header with a value of **“Bearer {access_token}”**, where {**access_token**} is the access token obtained from the Qrypt portal.
+4. Include an HTTP **“Authorization”** header with a value of **“Bearer {access_token}”**, where {**access_token**} is the access token obtained from the Qrypt portal (contact us to get one).
 5. Submit the HTTP request using the HTTP GET method.
 6. If the HTTP request is successful, the JSON-formatted response will contain a structure containing two fields named **“random”** and **“size”**. The **“random”** field contains an array of base64-encoded strings (each of which—when decoded—contains 1,024 bytes of entropy). The **“size”** field contains the number of elements in the **“random”** field.
 
@@ -76,7 +77,7 @@ The following illustrates an example of JSON output as returned by a request for
 ## Examples
 
 The following examples demonstrate how to submit a request and display the returned entropy.
-In the following examples, _{subdomain}_ should be replaced with the subdomain for a server in the geographic location you would like to use (see Table 2), _{kib_entropy}_ should be replaced with an integer between 1 and 512, and _{qrypt_access_token}_ should be replaced with an access token generated using your Qrypt account.
+In the following examples, _{subdomain}_ should be replaced with the subdomain for a server in the geographic location you would like to use (see Table 2), _{kib_entropy}_ should be replaced with an integer between 1 and 512, and _{qrypt_access_token}_ should be replaced with an access token.
 
 ## Curl
 

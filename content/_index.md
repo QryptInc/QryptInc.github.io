@@ -19,14 +19,6 @@ Below is a list of the products that Qrypt offers with links to their supporting
 ### [Quantum Entropy Appliance (on-prem)](eaas/appliance/)
 Qrypt's on-prem quantum entropy appliance is a server that is intentended for on-prem deployments. It exposes a REST API that clients can call to retrieve quantum entropy from the QRNG card installed on the server.
 
-### [Quantum Readiness](quantumreadiness/)
-
-Quantum readiness provides centralized deployment and management UI of all Qrypt products.
-
-### [Post quantum TLS proxy](postquantumproxy/)
-
-This post quantum TLS proxy allows for incoming TLS connections to use post quantum cryptography.
-
 ### [Quantum Entropy as a Service](/eaas/)
 
 Qrypt's Quantum Entropy service measures quantum effects and converts those measurements into pure random numbers. The service leverages multiple Quantum Random Number Generators (QRNGs) developed in collaboration with national and international research labs to ensure the highest quality random.
@@ -34,7 +26,3 @@ Qrypt's Quantum Entropy service measures quantum effects and converts those meas
 ### [Key Generation](sdk/)
 
 Qrypt SDK includes client library SDKs, cloud-based REST services, command line clients and guidance to help integrate post-quantum security into your applications and services. You can add security features to your applications without being an expert in post-quantum cryptography.
-
-### [Portable OpenSSH with Qrypt](openssh/)
-
-This implementation of OpenSSH has been modified to provide additional security via the Qrypt Key Generation SDK. During key exchange negotiation, the Qrypt SDK will generate an additional quantum-secure secret that is added to the session key hash inputs.

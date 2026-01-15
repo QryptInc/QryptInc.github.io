@@ -5,15 +5,18 @@ weight = 40
 
 This page covers the [Qseed](https://github.com/QryptInc/qseed) application architecture that downloads quantum entropy from Qrypt's entropy service and injects it into a PKCS#11 compliant HSM (Hardware Security Modules) as seed random.
 
-This service requires an access token. Follow the steps in [Getting Started]({{< ref "/getting_started" >}}) to obtain an access token.
+This service requires an access token. Please {{< externalLink link="https://www.qrypt.com/contact/" text="contact us" >}} to obtain one.
 
 ## Technology Value
+
 Many of the available HSMs use non-quantum entropy sources. Fortunately, the PKCS#11 Cryptoki interface provides a C_SeedRandom function to inject entropy into a PKCS#11 compliant HSM. Developers can inject Qrypt's quantum entropy into a HSM using the C_SeedRandom function. As a result, HSM keys can be pseudorandomly generated from quantum entropy.
 
 ## Overview
+
 {{< figure src="images/inject-seedrandom.png" >}}
 
 There are four components to the architecture diagram above.
+
 1. **Qrypt Services**: Qrypt's entropy service that can provide quantum entropy via a REST API.
 2. **Qseed Application**: Application that periodically retrieves entropy from Qrypt's entropy service and injects it into an HSM via a PKCS#11 Cryptoki interface (C_SeedRandom).
 3. **Cryptoki Library**: A library that the HSM vendor provides that implements the PKCS#11 Cryptoki interface for their device.
@@ -44,4 +47,3 @@ The Qseed application only support Crypto User PINs. You will need to create a C
 ## References
 
 More information about the PKCS#11 Cryptoki interface can be found at [Oasis PKCS#11 Specification](https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html).
-

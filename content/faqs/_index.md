@@ -6,25 +6,6 @@ weight = 80
 disableToc = "true"
 +++
 
-**What do I do if I forget my password?**
-
-Qrypt does not have access to your password, but you can place a request to change your password.
-
-1. Navigate to the portal at {{< externalLink link="https://portal.qrypt.com" text="https://portal.qrypt.com" >}} and click the “Forgot password?” link.
-2. Enter the email address associated with your account and click the “Send me the link” button.
-3. Check your email for a message with further instructions.
-
----
-
-**How do I change my password?**
-
-1. Navigate to the portal at {{< externalLink link="https://portal.qrypt.com" text="https://portal.qrypt.com" >}} and login to your account.
-2. Click the account icon (top-right corner) and select “Account settings.”
-3. Click the “Change password” link.
-4. Enter your original password, enter a new password, and click the “Change password” button.
-
----
-
 **What should I do with my access token?**
 
 Your access token is the mechanism by which your account will be charged for entropy data, and as such, it should be treated as secure and secret information (much as you would treat a password).
@@ -33,7 +14,7 @@ Your access token is the mechanism by which your account will be charged for ent
 
 **I lost or forgot to save my access token. How can I retrieve it?**
 
-To increase security, Qrypt only displays access tokens when they are first generated. If you have lost your token, you can contact Qrypt sales support at support@qrypt.com or generate a new one.
+To increase security, Qrypt only displays access tokens when they are first generated. If you have lost your token, you can contact Qrypt sales support at support@qrypt.com.
 
 ---
 
@@ -51,7 +32,7 @@ Once the monthly entropy quota has been reached, quantum entropy service request
 
 **I need more entropy bytes per month than my current quota provides.**
 
-To increase your quota of entropy bytes you can generate per month, either upgrade from your free account to a paid account or contact Qrypt sales support at support@qrypt.com.
+To increase your quota of entropy bytes you can generate per month, contact Qrypt sales support at support@qrypt.com.
 
 ---
 
