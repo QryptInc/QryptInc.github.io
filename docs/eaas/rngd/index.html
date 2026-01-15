@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.136.0">
+    <meta name="generator" content="Hugo 0.154.5">
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>RNG Tools :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1742501324" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1742501324" rel="stylesheet">
-    <link href="../../css/hybrid.css?1742501324" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1742501324" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1742501324" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1742501324" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1742501324" rel="stylesheet">
-    <link href="../../css/theme.css?1742501324" rel="stylesheet">
-    <link href="../../css/tabs.css?1742501324" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1742501324" rel="stylesheet">
+    <link href="../../css/nucleus.css?1768510795" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1768510795" rel="stylesheet">
+    <link href="../../css/hybrid.css?1768510795" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1768510795" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1768510795" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1768510795" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1768510795" rel="stylesheet">
+    <link href="../../css/theme.css?1768510795" rel="stylesheet">
+    <link href="../../css/tabs.css?1768510795" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1768510795" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1742501324" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1768510795" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1742501324"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1768510795"></script>
 
     
   </head>
@@ -533,16 +533,16 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/nhorman/rng-tools
 </span></span></code></pre></div><p>Install <em>rng-tools</em> dependencies. Additional packages may be required, depending on linux distro. The configure script below will name any missing packages it encounters.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    make <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libtool <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libxml2-dev <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libssl-dev <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libcurl3-dev <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libp11-dev <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    librtlsdr-dev <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libusb-1.0-0-dev <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libjansson-dev <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libcap-dev
+</span></span></span><span style="display:flex;"><span>    make <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    libtool <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    libxml2-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    libssl-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    libcurl3-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    libp11-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    librtlsdr-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    libusb-1.0-0-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    libjansson-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    libcap-dev
 </span></span></code></pre></div><p>Add <code>--disable-dependency-tracking</code> to the &lsquo;./configure&rsquo; command if needed.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./autogen.sh
 </span></span><span style="display:flex;"><span>./configure
@@ -1047,19 +1047,19 @@ sudo systemctl start rngd
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1742501324"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1742501324"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1742501324"></script>
-    <script src="../../js/jquery.sticky.js?1742501324"></script>
-    <script src="../../js/featherlight.min.js?1742501324"></script>
-    <script src="../../js/highlight.pack.js?1742501324"></script>
+    <script src="../../js/clipboard.min.js?1768510795"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1768510795"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1768510795"></script>
+    <script src="../../js/jquery.sticky.js?1768510795"></script>
+    <script src="../../js/featherlight.min.js?1768510795"></script>
+    <script src="../../js/highlight.pack.js?1768510795"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1742501324"></script>
-    <script src="../../js/learn.js?1742501324"></script>
-    <script src="../../js/hugo-learn.js?1742501324"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1768510795"></script>
+    <script src="../../js/learn.js?1768510795"></script>
+    <script src="../../js/hugo-learn.js?1768510795"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1742501324"></script>
+            <script src="../../mermaid/mermaid.js?1768510795"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

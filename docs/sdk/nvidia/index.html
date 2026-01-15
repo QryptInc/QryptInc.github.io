@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.136.0">
+    <meta name="generator" content="Hugo 0.154.5">
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>NVIDIA Quantum Secure Gateway :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1742501325" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1742501325" rel="stylesheet">
-    <link href="../../css/hybrid.css?1742501325" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1742501325" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1742501325" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1742501325" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1742501325" rel="stylesheet">
-    <link href="../../css/theme.css?1742501325" rel="stylesheet">
-    <link href="../../css/tabs.css?1742501325" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1742501325" rel="stylesheet">
+    <link href="../../css/nucleus.css?1768510795" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1768510795" rel="stylesheet">
+    <link href="../../css/hybrid.css?1768510795" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1768510795" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1768510795" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1768510795" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1768510795" rel="stylesheet">
+    <link href="../../css/theme.css?1768510795" rel="stylesheet">
+    <link href="../../css/tabs.css?1768510795" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1768510795" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1742501325" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1768510795" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1742501325"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1768510795"></script>
 
     
   </head>
@@ -670,7 +670,7 @@
 </ol>
 <p>For more information see <a href="https://cs.nyu.edu/~dodis/ps/blast.pdf">BLAST</a></p>
 <h2 id="blast-key-exchange-in-ikev2">BLAST Key Exchange in IKEv2</h2>
-<h3 id="option-1-using-ike_intermediate"><strong>Option 1: Using IKE_INTERMEDIATE</strong></h3>
+<h3 id="option-1-using-ike_"><strong>Option 1: Using IKE_INTERMEDIATE</strong></h3>
 <ul>
 <li><strong>IKE_SA_INIT</strong> messages are used to negotiate the BLAST key exchange and establish ECDH SSK (shared secret key)</li>
 <li>The initiator uses BLAST SDK to generate Qrypt key (QK) and the associated metadata</li>
@@ -772,20 +772,20 @@
 <p><strong>Using pre-shared key</strong></p>
 <p>On <em>Arm_1</em>, run:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ovs-vsctl add-port vxlan-br tun -- <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>            set interface tun type<span style="color:#f92672">=</span>vxlan <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:local_ip<span style="color:#f92672">=</span>$ip1 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:remote_ip<span style="color:#f92672">=</span>$ip2 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:key<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:dst_port<span style="color:#f92672">=</span><span style="color:#ae81ff">4789</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:psk<span style="color:#f92672">=</span> your pre-shared secret value 
+</span></span></span><span style="display:flex;"><span>            set interface tun type<span style="color:#f92672">=</span>vxlan <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:local_ip<span style="color:#f92672">=</span>$ip1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:remote_ip<span style="color:#f92672">=</span>$ip2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:key<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:dst_port<span style="color:#f92672">=</span><span style="color:#ae81ff">4789</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:psk<span style="color:#f92672">=</span> your pre-shared secret value 
 </span></span></code></pre></div><p>On <em>Arm_2</em>, run:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-vsctl add-port vxlan-br tun -- <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>            set interface tun type<span style="color:#f92672">=</span>vxlan <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:local_ip<span style="color:#f92672">=</span>$ip2 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:remote_ip<span style="color:#f92672">=</span>$ip1 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:key<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:dst_port<span style="color:#f92672">=</span>4789<span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                          options:psk<span style="color:#f92672">=</span>your pre-shared secret value
+</span></span></span><span style="display:flex;"><span>            set interface tun type<span style="color:#f92672">=</span>vxlan <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:local_ip<span style="color:#f92672">=</span>$ip2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:remote_ip<span style="color:#f92672">=</span>$ip1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:key<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:dst_port<span style="color:#f92672">=</span>4789<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>                          options:psk<span style="color:#f92672">=</span>your pre-shared secret value
 </span></span></code></pre></div>
 <div class="notices note" ><p>Pre-shared key (PSK) based authentication is easy to set up but less secure compared with other authentication methods. You should use it cautiously in production systems.</p>
 </div>
@@ -797,13 +797,13 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki req -u host_1.       
 </span></span><span style="display:flex;"><span>sudo ovs-pki self-sign host_1
 </span></span><span style="display:flex;"><span>sudo ovs-vsctl set Open_vSwitch . other_config:certificate<span style="color:#f92672">=</span>/etc/swanctl/x509/host_1-cert.pem <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  other_config:private_key<span style="color:#f92672">=</span>/etc/swanctl/private/host_1-privkey.pem
+</span></span></span><span style="display:flex;"><span>  other_config:private_key<span style="color:#f92672">=</span>/etc/swanctl/private/host_1-privkey.pem
 </span></span></code></pre></div><p>On <em>Arm_2</em>, run:</p>
 <p>Generate self-signed certificates</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki req -u host_2.       
 </span></span><span style="display:flex;"><span>sudo ovs-pki self-sign host_2
 </span></span><span style="display:flex;"><span>sudo ovs-vsctl set Open_vSwitch . other_config:certificate<span style="color:#f92672">=</span>/etc/swanctl/x509/host_2-cert.pem <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  other_config:private_key<span style="color:#f92672">=</span>/etc/swanctl/private/host_2-privkey.pem
+</span></span></span><span style="display:flex;"><span>  other_config:private_key<span style="color:#f92672">=</span>/etc/swanctl/private/host_2-privkey.pem
 </span></span></code></pre></div><ul>
 <li>Copy the certificate of <em>Arm_1</em> to <em>Arm_2</em>, and the certificate of <em>Arm_2</em> to <em>Arm_1</em>.</li>
 <li>On each machine, move both <em>host_1-privkey.pem</em> and <em>host_2-cert.pem</em> to <em>/etc/swanctl/x509/</em> if on Ubuntu, or <em>/etc/strongswan/swanctl/x509/</em> if on CentOS.</li>
@@ -834,14 +834,14 @@
 <p>Configure IPsec tunnel to use CA-signed certificate:</p>
 <p>On <em>Arm_1</em>, run:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> sudo ovs-vsctl set Open_vSwitch . <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:certificate<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509/host_1.pem <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:private_key<span style="color:#f92672">=</span>/etc/strongswan/swanctl/private/host_1-privkey.pem <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:ca_cert<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509ca/cacert.pem
+</span></span></span><span style="display:flex;"><span>        other_config:certificate<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509/host_1.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        other_config:private_key<span style="color:#f92672">=</span>/etc/strongswan/swanctl/private/host_1-privkey.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        other_config:ca_cert<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509ca/cacert.pem
 </span></span></code></pre></div><p>On <em>Arm_2</em>, run:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> sudo ovs-vsctl set Open_vSwitch . <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:certificate<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509/host_2.pem <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:private_key<span style="color:#f92672">=</span>/etc/strongswan/swanctl/private/host_2-privkey.pem <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        other_config:ca_cert<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509ca/cacert.pem
+</span></span></span><span style="display:flex;"><span>        other_config:certificate<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509/host_2.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        other_config:private_key<span style="color:#f92672">=</span>/etc/strongswan/swanctl/private/host_2-privkey.pem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        other_config:ca_cert<span style="color:#f92672">=</span>/etc/strongswan/swanctl/x509ca/cacert.pem
 </span></span></code></pre></div><h2 id="execute-a-script">Execute a script</h2>
 <p>Ensure that the strongSwan has already been built on your system.</p>
 <p>After OVS is configured, run the following command:</p>
@@ -1415,19 +1415,19 @@ sudo systemctl status strongswan.service
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1742501325"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1742501325"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1742501325"></script>
-    <script src="../../js/jquery.sticky.js?1742501325"></script>
-    <script src="../../js/featherlight.min.js?1742501325"></script>
-    <script src="../../js/highlight.pack.js?1742501325"></script>
+    <script src="../../js/clipboard.min.js?1768510795"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1768510795"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1768510795"></script>
+    <script src="../../js/jquery.sticky.js?1768510795"></script>
+    <script src="../../js/featherlight.min.js?1768510795"></script>
+    <script src="../../js/highlight.pack.js?1768510795"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1742501325"></script>
-    <script src="../../js/learn.js?1742501325"></script>
-    <script src="../../js/hugo-learn.js?1742501325"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1768510795"></script>
+    <script src="../../js/learn.js?1768510795"></script>
+    <script src="../../js/hugo-learn.js?1768510795"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1742501325"></script>
+            <script src="../../mermaid/mermaid.js?1768510795"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

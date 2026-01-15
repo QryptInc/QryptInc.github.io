@@ -2,79 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://QryptInc.github.io/eaas/appliance/</loc>
+    <loc>http://localhost:1313/eaas/appliance/</loc>
     <lastmod>2024-09-23T19:11:17-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/getting_started/</loc>
+    <loc>http://localhost:1313/getting_started/</loc>
     <lastmod>2021-10-07T11:14:08-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/eaas/</loc>
+    <loc>http://localhost:1313/eaas/</loc>
     <lastmod>2021-10-07T11:14:08-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/eaas/rngd/</loc>
+    <loc>http://localhost:1313/eaas/rngd/</loc>
     <lastmod>2021-10-07T11:14:08-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/dqkd/</loc>
+    <loc>http://localhost:1313/dqkd/</loc>
     <lastmod>2021-12-14T11:01:08-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2021-10-07T14:05:15-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/quickstarts/cpp/</loc>
+    <loc>http://localhost:1313/sdk/quickstarts/cpp/</loc>
     <lastmod>2021-10-18T09:09:06-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/api/cpp/</loc>
+    <loc>http://localhost:1313/sdk/api/cpp/</loc>
     <lastmod>2021-10-18T09:01:22-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/overview/</loc>
+    <loc>http://localhost:1313/sdk/overview/</loc>
     <lastmod>2021-10-18T08:59:57-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/concepts/key-generation-architecture/</loc>
+    <loc>http://localhost:1313/concepts/key-generation-architecture/</loc>
     <lastmod>2021-10-23T15:01:22-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/</loc>
+    <loc>http://localhost:1313/sdk/</loc>
     <lastmod>2021-10-18T08:59:39-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/eaas/nist/</loc>
+    <loc>http://localhost:1313/eaas/nist/</loc>
     <lastmod>2021-10-18T08:59:39-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/quantumreadiness/</loc>
+    <loc>http://localhost:1313/quantumreadiness/</loc>
     <lastmod>2024-09-24T08:59:39-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/quickstarts/</loc>
+    <loc>http://localhost:1313/sdk/quickstarts/</loc>
     <lastmod>2021-10-18T09:09:06-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/postquantumproxy/</loc>
+    <loc>http://localhost:1313/postquantumproxy/</loc>
     <lastmod>2024-09-24T08:59:39-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/openssh/</loc>
+    <loc>http://localhost:1313/openssh/</loc>
     <lastmod>2021-10-18T08:59:39-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/concepts/</loc>
+    <loc>http://localhost:1313/concepts/</loc>
     <lastmod>2021-10-18T09:01:15-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/eaas/pkcs11/</loc>
+    <loc>http://localhost:1313/eaas/pkcs11/</loc>
   </url><url>
-    <loc>https://QryptInc.github.io/concepts/entropy-projection/</loc>
+    <loc>http://localhost:1313/concepts/entropy-projection/</loc>
     <lastmod>2021-10-23T15:01:22-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/concepts/otp/</loc>
+    <loc>http://localhost:1313/concepts/otp/</loc>
     <lastmod>2021-10-23T15:01:22-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/nvidia/</loc>
+    <loc>http://localhost:1313/sdk/nvidia/</loc>
     <lastmod>2024-10-22T20:33:59-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/api/</loc>
+    <loc>http://localhost:1313/sdk/api/</loc>
     <lastmod>2021-10-18T09:09:06-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/faqs/</loc>
+    <loc>http://localhost:1313/faqs/</loc>
     <lastmod>2021-10-07T14:05:15-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/sdk/changelogs/</loc>
+    <loc>http://localhost:1313/sdk/changelogs/</loc>
     <lastmod>2022-10-18T12:59:11-04:00</lastmod>
   </url><url>
-    <loc>https://QryptInc.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://QryptInc.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>
