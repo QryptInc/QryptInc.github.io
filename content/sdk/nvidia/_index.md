@@ -6,7 +6,7 @@ weight = 70
 
 As the quantum era approaches, the need for cryptographic systems that can withstand the power of quantum computing becomes increasingly urgent. Current key exchange mechanisms like Elliptic Curve Diffie-Hellman (ECDH) are vulnerable to attacks from quantum computers, which can easily break these algorithms. To address this looming threat, it is critical to incorporate post-quantum key exchanges alongside traditional methods like (EC)DH to ensure that the resulting shared keys are secure against quantum-based attacks. RFC 9370 provides a framework for enhancing the Internet Key Exchange (IKEv2) protocol by enabling multiple successive key exchanges, including Post-Quantum Cryptography (PQC) techniques. This allows for the seamless integration of quantum-resistant algorithms with existing cryptographic protocols, ensuring compatibility while significantly strengthening security. The derived IKEv2 keys, fortified with these advanced techniques, are thus designed to be robust against the unprecedented capabilities of quantum computers.
 
-Qrypt integrated the BLAST protocol and post-quantum algorithms in IKEv2 as additional key exchange methods, providing security against Harvest Now Decrypt Later (HNDL) attacks and future quantum attacks. This solution, is built as an IPsec plug-in that seamlessly combines existing classical and quantum-secure key exchanges with Qrypt’s BLAST protocol. The solution leverages the [NVIDIA Bluefield-3 DPU’s](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/documents/datasheet-nvidia-bluefield-3-dpu.pdf) hardware capability for secure network communication and optimized performance. Support for the Qrypt plug-in can be easily enabled by configuring the StrongSwan service running on the DPUs.  
+Qrypt integrated the BLAST protocol and post-quantum algorithms in IKEv2 as additional key exchange methods, providing security against Harvest Now Decrypt Later (HNDL) attacks and future quantum attacks. This solution, is built as an IPsec plug-in that seamlessly combines existing classical and quantum-secure key exchanges with Qrypt’s BLAST protocol. The solution leverages the [NVIDIA Bluefield-3 DPU’s](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/documents/datasheet-nvidia-bluefield-3-dpu.pdf) hardware capability for secure network communication and optimized performance. Support for the Qrypt plug-in can be easily enabled by configuring the StrongSwan service running on the DPUs.
 
 ---
 
@@ -37,19 +37,19 @@ There are two primary methods to negotiate additional key exchange algorithms an
 ### Option 1: Using IKE_INTERMEDIATE Exchanges
 
 1. **IKE_SA_INIT Negotiation**:
-    - The key exchange method negotiated via Transform Type 4 (ECDH) takes place.
-    - The initiator includes up to seven newly defined transforms, that represent the extra key exchanges, in the SA payload within the **IKE_SA_INIT** message.
-    - The responder selects key exchange methods and returns their IDs in the **IKE_SA_INIT** response.
-    - Additional key exchanges are negotiated, leading to one or more **IKE_INTERMEDIATE** exchanges.
+   - The key exchange method negotiated via Transform Type 4 (ECDH) takes place.
+   - The initiator includes up to seven newly defined transforms, that represent the extra key exchanges, in the SA payload within the **IKE_SA_INIT** message.
+   - The responder selects key exchange methods and returns their IDs in the **IKE_SA_INIT** response.
+   - Additional key exchanges are negotiated, leading to one or more **IKE_INTERMEDIATE** exchanges.
 2. **IKE_INTERMEDIATE Exchanges**:
-    - For each additional key exchange agreed upon, an **IKE_INTERMEDIATE** exchange is performed.
-    - The initiator sends key exchange data using the **KEi(n)** payload, protected with current keys **SK_ei/SK_ai**.
-    - The responder responds with the **KEr(n)** payload, also protected with **SK_er/SK_ar**.
-    - Both sides compute updated keying materials from the shared secrets generated during these exchanges.
+   - For each additional key exchange agreed upon, an **IKE_INTERMEDIATE** exchange is performed.
+   - The initiator sends key exchange data using the **KEi(n)** payload, protected with current keys **SK_ei/SK_ai**.
+   - The responder responds with the **KEr(n)** payload, also protected with **SK_er/SK_ar**.
+   - Both sides compute updated keying materials from the shared secrets generated during these exchanges.
 3. **IKE_AUTH Exchange**:
-    - After completing **IKE_INTERMEDIATE** exchanges, the initiator and responder perform the **IKE_AUTH** exchange, as per the IKEv2 specification.
+   - After completing **IKE_INTERMEDIATE** exchanges, the initiator and responder perform the **IKE_AUTH** exchange, as per the IKEv2 specification.
 
-The shared keying material is completed as follows: 
+The shared keying material is completed as follows:
 
 ```
 SKEYSEED(n) = prf(SK_d(n-1), SK(n) | Ni | Nr)
@@ -92,39 +92,36 @@ Both the initiator and responder use these updated keys in the next **IKE_INTERM
 ### Option 2: Using IKE_FOLLOWUP_KE Exchanges
 
 1. **Initial IKE SA Setup**:
-    - An IKE SA is established using the standard **IKE_SA_INIT** and **IKE_AUTH** exchanges.
+   - An IKE SA is established using the standard **IKE_SA_INIT** and **IKE_AUTH** exchanges.
 2. **CREATE_CHILD_SA Exchange**:
-    - The ECDH key exchange negotiated via Transform Type 4 takes place in the **CREATE_CHILD_SA** exchange, as per the IKEv2 specification [[RFC7296](https://datatracker.ietf.org/doc/html/rfc7296)].
-    - The initiator proposes additional key exchanges via ADDKE(Additional Key Exchange) Transform Types in the **CREATE_CHILD_SA** payload.
-    - If the responder agrees, additional key exchanges occur in a series of **IKE_FOLLOWUP_KE** exchanges.
+   - The ECDH key exchange negotiated via Transform Type 4 takes place in the **CREATE_CHILD_SA** exchange, as per the IKEv2 specification [[RFC7296](https://datatracker.ietf.org/doc/html/rfc7296)].
+   - The initiator proposes additional key exchanges via ADDKE(Additional Key Exchange) Transform Types in the **CREATE_CHILD_SA** payload.
+   - If the responder agrees, additional key exchanges occur in a series of **IKE_FOLLOWUP_KE** exchanges.
 3. **IKE_FOLLOWUP_KE Exchanges**:
-    - Similar to the first option, but here additional key exchanges occur directly after the **CREATE_CHILD_SA** exchange.
-    - Cryptographic parameters for ADDKE are exchanged. The exchange is protected with keys established through the **CREATE_CHILD_SA** exchange.
-
+   - Similar to the first option, but here additional key exchanges occur directly after the **CREATE_CHILD_SA** exchange.
+   - Cryptographic parameters for ADDKE are exchanged. The exchange is protected with keys established through the **CREATE_CHILD_SA** exchange.
 
 After the exchanges, both peers compute updated keying materials as follows:
-    
+
 For IKE SA rekey:
 
 ```
 SKEYSEED = prf(SK_d, SK(0) | Ni | Nr | SK(1) | ... | SK(n))
-    
+
 ```
-    
+
 - **SK_d** is from the existing IKE SA.
 - **SK(0)**, **Ni**, and **Nr** are the shared key and nonces from the CREATE_CHILD_SA exchange.
 - **SK(1)...SK(n)** are shared keys from additional key exchanges.
 
 For Child SA creation or rekey:
-    
+
 ```
 KEYMAT = prf+ (SK_d, SK(0) | Ni | Nr | SK(1) | ... | SK(n))
- 
+
 ```
-        
-    
+
 In both cases, **SK_d** comes from the existing IKE SA, and the keying material is derived from **SK(0), Ni, Nr**, and additional shared keys.
-    
 
 ```
 [Initiator]                 [Responder]
@@ -149,17 +146,17 @@ In both cases, **SK_d** comes from the existing IKE SA, and the keying material 
 
 ## Choosing the Method
 
-The choice between using **IKE_INTERMEDIATE** or **IKE_FOLLOWUP_KE** exchanges depends on the peers’ security policies. If the initial Child SA must be quantum secure, negotiating additional key exchanges through **IKE_INTERMEDIATE** exchanges may be preferable. 
+The choice between using **IKE_INTERMEDIATE** or **IKE_FOLLOWUP_KE** exchanges depends on the peers’ security policies. If the initial Child SA must be quantum secure, negotiating additional key exchanges through **IKE_INTERMEDIATE** exchanges may be preferable.
 
 ---
 
 # BLAST Integration in IKEv2
 
-Qrypt solution leverages [RFC9370](https://datatracker.ietf.org/doc/rfc9370/) specification that describes a method to perform multiple successive key exchanges in IKEv2. Qrypt keys are generated independently on each endpoint, however, to establish the same set of keys, parties must exchange the associated key metadata. Additional IKEv2 key exchanges are used to exchange the metadata. 
+Qrypt solution leverages [RFC9370](https://datatracker.ietf.org/doc/rfc9370/) specification that describes a method to perform multiple successive key exchanges in IKEv2. Qrypt keys are generated independently on each endpoint, however, to establish the same set of keys, parties must exchange the associated key metadata. Additional IKEv2 key exchanges are used to exchange the metadata.
 
 ## The BLAST Protocol
 
-BLAST is the protocol used to eliminate key transmission and safeguard data against the Harvest Now Decrypt Later (HNDL) attack. 
+BLAST is the protocol used to eliminate key transmission and safeguard data against the Harvest Now Decrypt Later (HNDL) attack.
 
 1. The BLAST architecture enables generation of identical keys at multiple endpoints, so they are never distributed.
 2. Caches of random allow for sampling by multiple clients – with time and usage controls that trigger cache shredding.
@@ -200,14 +197,13 @@ For more information see [BLAST](https://cs.nyu.edu/~dodis/ps/blast.pdf)
 
 {{< figure src="images/Diagram_1.png" >}}
 
-
 ---
 
 # NVIDIA Quantum Secure Gateway Architecture
 
 {{< figure src="images/Diagram_4.png" >}}
 
-The process starts with IKEv2 negotiating Security Associations (SAs) between the initiator and responder, defining cryptographic parameters like algorithms and key lengths. An SA is uniquely identified by a triplet, which consists of the security parameter index (SPI), destination IP address, and security protocol identifier. An SPI is a 32-bit number. It is transmitted in the AH/ESP header. In IPsec, ESP uses these SAs to secure IP packets by referencing the Security Parameter Index (SPI) to identify the correct SA for each packet. 
+The process starts with IKEv2 negotiating Security Associations (SAs) between the initiator and responder, defining cryptographic parameters like algorithms and key lengths. An SA is uniquely identified by a triplet, which consists of the security parameter index (SPI), destination IP address, and security protocol identifier. An SPI is a 32-bit number. It is transmitted in the AH/ESP header. In IPsec, ESP uses these SAs to secure IP packets by referencing the Security Parameter Index (SPI) to identify the correct SA for each packet.
 
 ### Association of ESP with Security Associations (SAs)
 
@@ -221,11 +217,11 @@ The process starts with IKEv2 negotiating Security Associations (SAs) between th
 
 2. **SA Lookup**: Using the SPI, ESP searches its Security Association Database (SAD) to find the corresponding SA that matches the SPI. The SAD contains entries for each active SA, indexed by their SPIs.
 
-3. **Applying Security Parameters**: Once the matching SA is identified, ESP retrieves the cryptographic parameters (such as encryption and authentication algorithms) associated with that SA. It then processes the packet accordingly to ensure data confidentiality and integrity. 
+3. **Applying Security Parameters**: Once the matching SA is identified, ESP retrieves the cryptographic parameters (such as encryption and authentication algorithms) associated with that SA. It then processes the packet accordingly to ensure data confidentiality and integrity.
 
 ### **Open vSwitch (OVS)**
 
-OVS is used to facilitate the transfer of plaintext messages between the host and the DPU. In this context, OVS acts as a software-based network switch that manages network traffic, routing messages between the host’s CPU and the DPU without encryption. 
+OVS is used to facilitate the transfer of plaintext messages between the host and the DPU. In this context, OVS acts as a software-based network switch that manages network traffic, routing messages between the host’s CPU and the DPU without encryption.
 
 ---
 
@@ -234,9 +230,9 @@ OVS is used to facilitate the transfer of plaintext messages between the host an
 To set up east-west overlay encryption, first ensure that the strongSwan is built on the target machine. Next, complete the following two steps:
 
 1. **Configure the OVS (Open vSwitch):**
-   - Setup the OVS bridge 
+   - Setup the OVS bridge
    - Configure the authentication method
-2. **Run the script:** Execute the following command, which runs the *ovs-monitor-ipsec* script and automates the configuration process: 
+2. **Run the script:** Execute the following command, which runs the _ovs-monitor-ipsec_ script and automates the configuration process:
 
    ```bash
     systemctl start openvswitch-ipsec.service
@@ -247,46 +243,47 @@ To set up east-west overlay encryption, first ensure that the strongSwan is buil
 ### **Set up OVS bridges in both hosts**
 
 - Start Open vSwitch. If your operating system is Ubuntu, run the following on both *Arm_1* and *Arm_2*:
-    
-   ```bash
-     service openvswitch-switch start
-    ```
+
+  ```bash
+    service openvswitch-switch start
+  ```
 
 - Start OVS IPsec service. Run the following on both *Arm_1* and *Arm_2*:
-    
-    ```bash
-    systemctl start openvswitch-ipsec.service
-    ```
-    
+  ```bash
+  systemctl start openvswitch-ipsec.service
+  ```
 - Before you can set up OVS bridges in both DPUs, and add the physical function (PF) or its associated representor (PF_REP) to a new bridge, they must be detached from any existing OVS bridge they are associated with.
- 
-	Detach PF_REP and PF from their current bridge:
-    ```bash
-	sudo ovs-vsctl del-port ovsbr1 $PF_REP
-	sudo ovs-vsctl del-port ovsbr1 $PF
- 
-    ```
-	Note that “ovsbr1” is a sample name given in these instructions; the name on your system could be different. 
- 
-	Next, run the following on both Arm_1 and Arm_2:
-    ```bash
-	sudo ovs-vsctl add-br my-ovs-br
-	sudo ovs-vsctl add-port my-ovs-br $PF_REP
-	sudo ovs-vsctl add-port my-ovs-br $PF
-	sudo ovs-vsctl set Open_vSwitch . other_config:hw-offload=true
-    ```
 
-    If your operating system is CentOS, run the following on both *Arm_1* and *Arm_2*:
+  Detach PF_REP and PF from their current bridge:
 
-    ```bash
-    service openvswitch restart
-    ```
+  ```bash
+  sudo ovs-vsctl del-port ovsbr1 $PF_REP
+  sudo ovs-vsctl del-port ovsbr1 $PF
+
+  ```
+
+  Note that “ovsbr1” is a sample name given in these instructions; the name on your system could be different.
+
+  Next, run the following on both Arm_1 and Arm_2:
+
+  ```bash
+  sudo ovs-vsctl add-br my-ovs-br
+  sudo ovs-vsctl add-port my-ovs-br $PF_REP
+  sudo ovs-vsctl add-port my-ovs-br $PF
+  sudo ovs-vsctl set Open_vSwitch . other_config:hw-offload=true
+  ```
+
+  If your operating system is CentOS, run the following on both *Arm_1* and *Arm_2*:
+
+  ```bash
+  service openvswitch restart
+  ```
 
 - Set up IPsec tunnel on the OVS bridge. Three authentication methods are possible. Select your preferred method and follow the steps relevant to it. Note that some authentication methods require you to create certificates (self-signed or certificate authority certificates).
 
 ### Authentication Methods
 
-There are three authentication methods: 
+There are three authentication methods:
 
 **Using pre-shared key**
 
@@ -299,7 +296,7 @@ ovs-vsctl add-port vxlan-br tun -- \
                           options:remote_ip=$ip2 \
                           options:key=100 \
                           options:dst_port=4789 \
-                          options:psk= your pre-shared secret value 
+                          options:psk= your pre-shared secret value
 ```
 
 On *Arm_2*, run:
@@ -313,29 +310,32 @@ sudo ovs-vsctl add-port vxlan-br tun -- \
                           options:dst_port=4789\
                           options:psk=your pre-shared secret value
 ```
+
 {{% notice note %}}
 Pre-shared key (PSK) based authentication is easy to set up but less secure compared with other authentication methods. You should use it cautiously in production systems.
 {{% /notice %}}
 
-**Using self-signed certificates** 
+**Using self-signed certificates**
 
-Generate self-signed certificate in both *Arm_1*and *Arm_2*. Then copy the certificate of *Arm_1* to *Arm_2* and the certificate of *Arm_2* to *Arm_1*. 
+Generate self-signed certificate in both *Arm_1*and *Arm_2*. Then copy the certificate of *Arm_1* to *Arm_2* and the certificate of *Arm_2* to *Arm_1*.
 
-On *Arm_1*, run:
+On _Arm_1_, run:
 
 Generate self-signed certificates
+
 ```bash
-sudo ovs-pki req -u host_1.       
+sudo ovs-pki req -u host_1.
 sudo ovs-pki self-sign host_1
 sudo ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_1-cert.pem \
   other_config:private_key=/etc/swanctl/private/host_1-privkey.pem
 ```
 
-On *Arm_2*, run:
+On _Arm_2_, run:
 
 Generate self-signed certificates
+
 ```bash
-sudo ovs-pki req -u host_2.       
+sudo ovs-pki req -u host_2.
 sudo ovs-pki self-sign host_2
 sudo ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/host_2-cert.pem \
   other_config:private_key=/etc/swanctl/private/host_2-privkey.pem
@@ -347,9 +347,9 @@ sudo ovs-vsctl set Open_vSwitch . other_config:certificate=/etc/swanctl/x509/hos
 
 **Using CA-signed certificate:**
 
-First you need to establish a public key infrastructure (PKI), generate certificate requests, and copy the certificate request of *Arm_1* to *Arm_2* and *Arm_2* to *Arm_1* . Sign the certificate requests with the CA key. 
+First you need to establish a public key infrastructure (PKI), generate certificate requests, and copy the certificate request of *Arm_1* to *Arm_2* and _Arm_2_ to _Arm_1_ . Sign the certificate requests with the CA key.
 
-On *Arm_1*, run: 
+On _Arm_1_, run:
 
 ```bash
 sudo ovs-pki init --force
@@ -358,9 +358,10 @@ cd <path_to>/certsworkspace
 sudo ovs-pki req -u host_1
 sudo ovs-pki sign host1 switch 
 ```
+
 After running this code, you should have host_1-cert.pem, host_1-privkey.pem, and cacert.pm in the certsworkspace folder.
 
-On *Arm_2,* run: 
+On _Arm_2,_ run:
 
 ```bash
 sudo ovs-pki init --force
@@ -369,6 +370,7 @@ cd <path_to>/certsworkspace
 sudo ovs-pki req -u host_2
 sudo ovs-pki sign host_2 switch
 ```
+
 After running this code, you should have host_2-cert.pem, host_2-privkey.pem, and cacert.pm in the certsworkspace folder.
 
 - Copy the certificate of *Arm_1* to *Arm_2* and the certificate of *Arm_2* to *Arm_1*.
@@ -376,9 +378,9 @@ After running this code, you should have host_2-cert.pem, host_2-privkey.pem, a
 - On each machine, move the local private key (*host_1-privkey.pem* if on *Arm_1* and *host_2-privkey.pem* if on *Arm_2*) to */etc/swanctl/private* if on Ubuntu, or */etc/strongswan/swanctl/private* if on CentOS.
 - On each machine, copy *cacert.pem* to the *x509ca* directory under */etc/swanctl/x509ca/* if on Ubuntu, or */etc/strongswan/swanctl/x509ca/* if on CentOS.
 
-Configure IPsec tunnel to use CA-signed certificate: 
+Configure IPsec tunnel to use CA-signed certificate:
 
-On *Arm_1*, run: 
+On _Arm_1_, run:
 
 ```bash
  sudo ovs-vsctl set Open_vSwitch . \
@@ -387,7 +389,7 @@ On *Arm_1*, run:
         other_config:ca_cert=/etc/strongswan/swanctl/x509ca/cacert.pem
 ```
 
-On *Arm_2*, run: 
+On _Arm_2_, run:
 
 ```bash
  sudo ovs-vsctl set Open_vSwitch . \
@@ -400,23 +402,23 @@ On *Arm_2*, run:
 
 Ensure that the strongSwan has already been built on your system.
 
-After OVS is configured, run the following command: 
+After OVS is configured, run the following command:
 
 ```bash
 systemctl start openvswitch-ipsec.service
 ```
 
-This command automatically runs the *ovs-monitor-ipsec* script and generates the *swanctl.conf* file. This command also runs the strongSwan IPsec service. 
+This command automatically runs the _ovs-monitor-ipsec_ script and generates the _swanctl.conf_ file. This command also runs the strongSwan IPsec service.
 
 ### Script Parameters
 
-Note that critical information such as key exchange and authentication algorithms to be used for IKE SA and ESP SA are passed in the *ovs-monitor-ipsec* script to later generate a *swanctl.conf* file. Ensure that the script contains all the key exchange algorithms to be used for IKE SA establishment. For instance, parameters *ke1_kyber3-ke2_blast* passed in the *ovs-monitor-ipsec* script
+Note that critical information such as key exchange and authentication algorithms to be used for IKE SA and ESP SA are passed in the _ovs-monitor-ipsec_ script to later generate a _swanctl.conf_ file. Ensure that the script contains all the key exchange algorithms to be used for IKE SA establishment. For instance, parameters _ke1_kyber3-ke2_blast_ passed in the _ovs-monitor-ipsec_ script
 
 ```bash
 sudo sed -i 's/aes256gcm16-modp2048-esn/aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn/g' /usr/share/openvswitch/scripts/ovs-monitor-ipsec
 ```
 
-will result in *swanctl.conf*  parameters:
+will result in _swanctl.conf_ parameters:
 
 ```
 esp_proposals = aes128gcm128-x25519-ke1_kyber3-ke2_blast
@@ -424,7 +426,7 @@ esp_proposals = aes128gcm128-x25519-ke1_kyber3-ke2_blast
 
 ### strongSwan configuration file
 
-Here’s a basic structure for the *swanctl.conf* file that includes necessary parameters for both ends of the connection (referred to as Left (BFL) and Right (BFR)):
+Here’s a basic structure for the _swanctl.conf_ file that includes necessary parameters for both ends of the connection (referred to as Left (BFL) and Right (BFR)):
 
 ```
 conn-defaults {
@@ -434,19 +436,19 @@ conn-defaults {
       mobike = no
       proposals = aes128-sha256-x25519
 }
-	
+
 child-defaults {
       esp_proposals = aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn
       mode = transport
       policies_fwd_out = yes
       start_action = start
 }
- 
+
 connections {
     tun-1 : conn-defaults{
         local_addrs  = 0.0.0.0/0
         remote_addrs = 192.168.50.2
- 
+
         local {
             auth = psk
             id = 192.168.50.1
@@ -455,7 +457,7 @@ connections {
             auth = psk
             id = 192.168.50.2
          }
- 
+
    children {
             tun-in-1 : child-defaults {
                 local_ts = 192.168.50.1/32 [udp/4789]
@@ -470,7 +472,7 @@ connections {
         }
     }
 }
- 
+
 secrets {
         ike-tun {
             id = 192.168.50.1
@@ -480,6 +482,7 @@ secrets {
 ```
 
 If using pre-shared key (PSK) for authentication, add a section to the swanctl.conf file:
+
 ```
 secrets {
 ike-BF {
@@ -490,15 +493,13 @@ ike-BF {
 }
 ```
 
-Ensure that all the data needed to generate the *swanctl.conf* file is correctly passed in the *ovs-monitor-ipsec* script. 
+Ensure that all the data needed to generate the _swanctl.conf_ file is correctly passed in the _ovs-monitor-ipsec_ script.
 
 For more information see [ NVIDIA DOCA East-West Overlay Encryption Application](https://docs.nvidia.com/doca/sdk/nvidia+doca+east-west+overlay+encryption+application/index.html)
 
-
 ---
 
-
-# Build strongSwan with liboqs and Qrypt's BLAST  plugin
+# Build strongSwan with liboqs and Qrypt's BLAST plugin
 
 Ensure that cmake is installed before completing the steps below.
 
@@ -538,9 +539,9 @@ git checkout BF-6.0.0beta4-qrypt-plugins
 
 ### Edit the plugin conf files
 
-Create a free account at https://docs.qrypt.com/getting_started/ This will enable you to generate JSON web tokens (JWT) that you'll need to add to the conf files.
+PLease contact us to obtain the JSON web token (JWT) that you'll need to add to the conf files.
 
-*strongswan/src/libstrongswan/plugins/quantum_entropy/quantum-entropy.conf*:
+_strongswan/src/libstrongswan/plugins/quantum_entropy/quantum-entropy.conf_:
 
 ```
 quantum_entropy {
@@ -560,7 +561,7 @@ quantum_entropy {
 
 ```
 
-*strongswan/src/libstrongswan/plugins/blast/blast.conf:*
+_strongswan/src/libstrongswan/plugins/blast/blast.conf:_
 
 ```
 blast {

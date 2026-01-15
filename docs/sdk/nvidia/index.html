@@ -12,22 +12,22 @@
     <title>NVIDIA Quantum Secure Gateway :: Qrypt</title>
 
     
-    <link href="../../css/nucleus.css?1768510795" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1768510795" rel="stylesheet">
-    <link href="../../css/hybrid.css?1768510795" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1768510795" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1768510795" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1768510795" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1768510795" rel="stylesheet">
-    <link href="../../css/theme.css?1768510795" rel="stylesheet">
-    <link href="../../css/tabs.css?1768510795" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1768510795" rel="stylesheet">
+    <link href="../../css/nucleus.css?1768511455" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1768511455" rel="stylesheet">
+    <link href="../../css/hybrid.css?1768511455" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1768511455" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1768511455" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1768511455" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1768511455" rel="stylesheet">
+    <link href="../../css/theme.css?1768511455" rel="stylesheet">
+    <link href="../../css/tabs.css?1768511455" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1768511455" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1768510795" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1768511455" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1768510795"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1768511455"></script>
 
     
   </head>
@@ -49,21 +49,6 @@
   <div class="highlightable">
     <ul class="topics">
                
-<li
-  data-nav-id="/getting_started/"
-  title="Getting Started"
-  class="dd-item
-        
-        
-        
-        "
->
-  <a href="../../getting_started/">
-    Getting Started 
-  </a>
-   
-</li>
-           
 <li
   data-nav-id="/eaas/"
   title="Quantum Entropy"
@@ -302,51 +287,6 @@
 </li>
            
 <li
-  data-nav-id="/quantumreadiness/"
-  title="Quantum Readiness with Qrypt"
-  class="dd-item
-        
-        
-        
-        "
->
-  <a href="../../quantumreadiness/">
-    Quantum Readiness 
-  </a>
-   
-</li>
-           
-<li
-  data-nav-id="/postquantumproxy/"
-  title="Post quantum TLS proxy"
-  class="dd-item
-        
-        
-        
-        "
->
-  <a href="../../postquantumproxy/">
-    Post quantum TLS proxy 
-  </a>
-   
-</li>
-           
-<li
-  data-nav-id="/openssh/"
-  title="Portable OpenSSH with Qrypt"
-  class="dd-item
-        
-        
-        
-        "
->
-  <a href="../../openssh/">
-    Qrypt OpenSSH 
-  </a>
-   
-</li>
-           
-<li
   data-nav-id="/concepts/"
   title="Concepts"
   class="dd-item
@@ -453,24 +393,8 @@
       >
     </li>
 
-    <li>
-      <a class="padding" href="https://portal.qrypt.com/" target="_blank"
-        ><div class="link-container">
-          <svg
-            height="16px"
-            width="16px"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 390.01 388.4"
-          >
-            <path
-              d="m257.37 241.66 122.43 122.43-23.22 23.26-125.39-125.44 18.59 71.67-31.82 8.25-16.67-64.16-29.63 110.73-31.73-8.51 30.77-114.96-111.04 111.03-23.26-23.22 109.59-109.59-97.06 24.96-8.16-31.86 100.16-25.75-140.93-37.75 8.51-31.73 139.01 37.23-45.96-45.96 23.22-23.22 44.26 44.25-37.67-145.07 31.82-8.25 38.62 148.74 25.1-93.79 31.77 8.51-24.52 91.52 111.59-111.6 23.23 23.27-114.7 114.69 127.53-32.77 8.2 31.81-119.63 30.77 85.76 22.96-8.51 31.73z"
-              fill="currentColor"
-              style="fill: currentColor"
-            /></svg
-          >&nbspQrypt Portal
-        </div></a
-      >
-    </li>
+    
+    
 
     <li>
       <a
@@ -618,7 +542,6 @@
 <p>After the exchanges, both peers compute updated keying materials as follows:</p>
 <p>For IKE SA rekey:</p>
 <pre tabindex="0"><code>SKEYSEED = prf(SK_d, SK(0) | Ni | Nr | SK(1) | ... | SK(n))
-    
 </code></pre><ul>
 <li><strong>SK_d</strong> is from the existing IKE SA.</li>
 <li><strong>SK(0)</strong>, <strong>Ni</strong>, and <strong>Nr</strong> are the shared key and nonces from the CREATE_CHILD_SA exchange.</li>
@@ -626,7 +549,6 @@
 </ul>
 <p>For Child SA creation or rekey:</p>
 <pre tabindex="0"><code>KEYMAT = prf+ (SK_d, SK(0) | Ni | Nr | SK(1) | ... | SK(n))
- 
 </code></pre><p>In both cases, <strong>SK_d</strong> comes from the existing IKE SA, and the keying material is derived from <strong>SK(0), Ni, Nr</strong>, and additional shared keys.</p>
 <pre tabindex="0"><code>[Initiator]                 [Responder]
     |                            |
@@ -651,7 +573,7 @@
 <h1 id="blast-integration-in-ikev2">BLAST Integration in IKEv2</h1>
 <p>Qrypt solution leverages <a href="https://datatracker.ietf.org/doc/rfc9370/">RFC9370</a> specification that describes a method to perform multiple successive key exchanges in IKEv2. Qrypt keys are generated independently on each endpoint, however, to establish the same set of keys, parties must exchange the associated key metadata. Additional IKEv2 key exchanges are used to exchange the metadata.</p>
 <h2 id="the-blast-protocol">The BLAST Protocol</h2>
-<p>BLAST is the protocol used to eliminate key transmission and safeguard data against the Harvest Now Decrypt Later (HNDL) attack. </p>
+<p>BLAST is the protocol used to eliminate key transmission and safeguard data against the Harvest Now Decrypt Later (HNDL) attack.</p>
 <ol>
 <li>The BLAST architecture enables generation of identical keys at multiple endpoints, so they are never distributed.</li>
 <li>Caches of random allow for sampling by multiple clients – with time and usage controls that trigger cache shredding.</li>
@@ -777,7 +699,7 @@
 </span></span></span><span style="display:flex;"><span>                          options:remote_ip<span style="color:#f92672">=</span>$ip2 <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>                          options:key<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>                          options:dst_port<span style="color:#f92672">=</span><span style="color:#ae81ff">4789</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>                          options:psk<span style="color:#f92672">=</span> your pre-shared secret value 
+</span></span></span><span style="display:flex;"><span>                          options:psk<span style="color:#f92672">=</span> your pre-shared secret value
 </span></span></code></pre></div><p>On <em>Arm_2</em>, run:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-vsctl add-port vxlan-br tun -- <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>            set interface tun type<span style="color:#f92672">=</span>vxlan <span style="color:#ae81ff">\
@@ -794,13 +716,13 @@
 <p>Generate self-signed certificate in both <em>Arm_1</em>and <em>Arm_2</em>. Then copy the certificate of <em>Arm_1</em> to <em>Arm_2</em> and the certificate of <em>Arm_2</em> to <em>Arm_1</em>.</p>
 <p>On <em>Arm_1</em>, run:</p>
 <p>Generate self-signed certificates</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki req -u host_1.       
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki req -u host_1.
 </span></span><span style="display:flex;"><span>sudo ovs-pki self-sign host_1
 </span></span><span style="display:flex;"><span>sudo ovs-vsctl set Open_vSwitch . other_config:certificate<span style="color:#f92672">=</span>/etc/swanctl/x509/host_1-cert.pem <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  other_config:private_key<span style="color:#f92672">=</span>/etc/swanctl/private/host_1-privkey.pem
 </span></span></code></pre></div><p>On <em>Arm_2</em>, run:</p>
 <p>Generate self-signed certificates</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki req -u host_2.       
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ovs-pki req -u host_2.
 </span></span><span style="display:flex;"><span>sudo ovs-pki self-sign host_2
 </span></span><span style="display:flex;"><span>sudo ovs-vsctl set Open_vSwitch . other_config:certificate<span style="color:#f92672">=</span>/etc/swanctl/x509/host_2-cert.pem <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  other_config:private_key<span style="color:#f92672">=</span>/etc/swanctl/private/host_2-privkey.pem
@@ -850,7 +772,7 @@
 <h3 id="script-parameters">Script Parameters</h3>
 <p>Note that critical information such as key exchange and authentication algorithms to be used for IKE SA and ESP SA are passed in the <em>ovs-monitor-ipsec</em> script to later generate a <em>swanctl.conf</em> file. Ensure that the script contains all the key exchange algorithms to be used for IKE SA establishment. For instance, parameters <em>ke1_kyber3-ke2_blast</em> passed in the <em>ovs-monitor-ipsec</em> script</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#39;s/aes256gcm16-modp2048-esn/aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn/g&#39;</span> /usr/share/openvswitch/scripts/ovs-monitor-ipsec
-</span></span></code></pre></div><p>will result in <em>swanctl.conf</em>  parameters:</p>
+</span></span></code></pre></div><p>will result in <em>swanctl.conf</em> parameters:</p>
 <pre tabindex="0"><code>esp_proposals = aes128gcm128-x25519-ke1_kyber3-ke2_blast
 </code></pre><h3 id="strongswan-configuration-file">strongSwan configuration file</h3>
 <p>Here’s a basic structure for the <em>swanctl.conf</em> file that includes necessary parameters for both ends of the connection (referred to as Left (BFL) and Right (BFR)):</p>
@@ -861,19 +783,19 @@
       mobike = no
       proposals = aes128-sha256-x25519
 }
-	
+
 child-defaults {
       esp_proposals = aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn
       mode = transport
       policies_fwd_out = yes
       start_action = start
 }
- 
+
 connections {
     tun-1 : conn-defaults{
         local_addrs  = 0.0.0.0/0
         remote_addrs = 192.168.50.2
- 
+
         local {
             auth = psk
             id = 192.168.50.1
@@ -882,7 +804,7 @@ connections {
             auth = psk
             id = 192.168.50.2
          }
- 
+
    children {
             tun-in-1 : child-defaults {
                 local_ts = 192.168.50.1/32 [udp/4789]
@@ -897,7 +819,7 @@ connections {
         }
     }
 }
- 
+
 secrets {
         ike-tun {
             id = 192.168.50.1
@@ -915,7 +837,7 @@ ike-BF {
 </code></pre><p>Ensure that all the data needed to generate the <em>swanctl.conf</em> file is correctly passed in the <em>ovs-monitor-ipsec</em> script.</p>
 <p>For more information see <a href="https://docs.nvidia.com/doca/sdk/nvidia+doca+east-west+overlay+encryption+application/index.html"> NVIDIA DOCA East-West Overlay Encryption Application</a></p>
 <hr>
-<h1 id="build-strongswan-with-liboqs-and-qrypts-blast--plugin">Build strongSwan with liboqs and Qrypt&rsquo;s BLAST  plugin</h1>
+<h1 id="build-strongswan-with-liboqs-and-qrypts-blast-plugin">Build strongSwan with liboqs and Qrypt&rsquo;s BLAST plugin</h1>
 <p>Ensure that cmake is installed before completing the steps below.</p>
 <h3 id="create-a-directory-to-clone-the-repos-into">Create a directory to clone the repos into</h3>
 <pre tabindex="0"><code>mkdir qrypt
@@ -937,7 +859,7 @@ sudo ninja install
 cd strongswan
 git checkout BF-6.0.0beta4-qrypt-plugins
 </code></pre><h3 id="edit-the-plugin-conf-files">Edit the plugin conf files</h3>
-<p>Create a free account at <a href="https://docs.qrypt.com/getting_started/">https://docs.qrypt.com/getting_started/</a> This will enable you to generate JSON web tokens (JWT) that you&rsquo;ll need to add to the conf files.</p>
+<p>PLease contact us to obtain the JSON web token (JWT) that you&rsquo;ll need to add to the conf files.</p>
 <p><em>strongswan/src/libstrongswan/plugins/quantum_entropy/quantum-entropy.conf</em>:</p>
 <pre tabindex="0"><code>quantum_entropy {
     // Entropy API FQDN
@@ -1024,22 +946,6 @@ sudo systemctl status strongswan.service
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -1266,54 +1172,6 @@ sudo systemctl status strongswan.service
                     
             
         
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -1415,19 +1273,19 @@ sudo systemctl status strongswan.service
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1768510795"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1768510795"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1768510795"></script>
-    <script src="../../js/jquery.sticky.js?1768510795"></script>
-    <script src="../../js/featherlight.min.js?1768510795"></script>
-    <script src="../../js/highlight.pack.js?1768510795"></script>
+    <script src="../../js/clipboard.min.js?1768511455"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1768511455"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1768511455"></script>
+    <script src="../../js/jquery.sticky.js?1768511455"></script>
+    <script src="../../js/featherlight.min.js?1768511455"></script>
+    <script src="../../js/highlight.pack.js?1768511455"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1768510795"></script>
-    <script src="../../js/learn.js?1768510795"></script>
-    <script src="../../js/hugo-learn.js?1768510795"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1768511455"></script>
+    <script src="../../js/learn.js?1768511455"></script>
+    <script src="../../js/hugo-learn.js?1768511455"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1768510795"></script>
+            <script src="../../mermaid/mermaid.js?1768511455"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

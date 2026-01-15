@@ -12,8 +12,8 @@ Currently we provide Distributed Key Generation.
 
 The latest Qrypt SDK is built using the following compilers.
 
-| Platform | Version | Compiler  | CPU |
-| -------- | ------- | --------- | --- |
+| Platform | Version | Compiler   | CPU |
+| -------- | ------- | ---------- | --- |
 | Ubuntu   | 22.04   | gcc 11.4.0 | x64 |
 
 ---
@@ -21,12 +21,6 @@ The latest Qrypt SDK is built using the following compilers.
 ## Sample Code
 
 Find the finalized code for these quickstarts on {{< externalLink link="https://github.com/QryptInc/qrypt-security-quickstarts-cpp" text="GitHub" >}}.
-
----
-
-## Prerequisites
-
-A Qrypt Account. {{< externalLink link="https://portal.qrypt.com/register" text="Create an account for free" >}}.
 
 ---
 
