@@ -761,23 +761,21 @@
 </code></pre><h3 id="strongswan-configuration-file">strongSwan configuration file</h3>
 <p>Here’s a basic structure for the <em>swanctl.conf</em> file that includes necessary parameters for both ends of the connection (referred to as Left (BFL) and Right (BFR)):</p>
 <pre tabindex="0"><code>conn-defaults {
-      unique = replace
-      reauth_time = 0
       version = 2
-      mobike = no
       proposals = aes128-sha256-x25519
 }
 
 child-defaults {
       esp_proposals = aes256gcm16-modp2048-ke1_kyber3-ke2_blast-esn
       mode = transport
-      policies_fwd_out = yes
-      start_action = start
+      dpd_action = restart
+      start_action = none
+      rekey_time = 3600
 }
 
 connections {
     tun-1 : conn-defaults{
-        local_addrs  = 0.0.0.0/0
+        local_addrs  =192.168.50.1
         remote_addrs = 192.168.50.2
 
         local {
@@ -790,14 +788,9 @@ connections {
          }
 
    children {
-            tun-in-1 : child-defaults {
+            pqc-tun: child-defaults {
                 local_ts = 192.168.50.1/32 [udp/4789]
                 remote_ts = 192.168.50.2/32 [udp]
-                hw_offload = auto (should be full if supported)
-            }
-            tun-out-1 : child-defaults {
-                local_ts = 192.168.50.1/32 [udp]
-                remote_ts = 192.168.50.2/32 [udp/4789]
                 hw_offload = auto (should be full if supported)
             }
         }
@@ -863,9 +856,11 @@ git checkout BF-6.0.0beta4-qrypt-plugins
 <pre tabindex="0"><code>blast {
 
     jwt = &lt;PASTE-TOKEN-HERE&gt;
+    token = &lt;PASTE-TOKEN-HERE&gt;
 
     load = yes
-
+    serverfile = /etc/strongswan/servers.txt
+    ca_cert_path = /etc/ssl/certs/ca-certificates.crt
 }
 </code></pre><h3 id="build-strongswan">Build strongSwan</h3>
 <p>Building a strongSwan 6.X tag will include support for <a href="https://datatracker.ietf.org/doc/rfc9370/">RFC 9370</a> which will allow for hybrid key exchanges including PQC and BLAST.</p>
@@ -879,9 +874,11 @@ sudo make install
 <p>You should have Qrypt Security libraries, provided directly by Qrypt, along with instructions to build the BLAST IPsec plugin. Please follow the steps outlined in that document to build the plugin.</p>
 <h3 id="start-and-stop-service">Start and stop service</h3>
 <pre tabindex="0"><code>sudo systemctl daemon-reload
-sudo systemctl stop strongswan.service
-sudo systemctl start strongswan.service
-sudo systemctl status strongswan.service
+sudo systemctl restart strongswan
+swanctl --load-all
+swanctl --initiate --ike tun-1
+swanctl --initiate --child pqc-tun
+swanctl --list-sas  # Should show KE1_KYBER_L3 and KE2_BLAST
 </code></pre>
 
 
